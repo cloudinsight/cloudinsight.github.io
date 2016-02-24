@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight 文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-alert alert_index">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+</ul></li>
+<li><a href="/metric/">指标</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件流</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>报警</h1>
+
+<p>Cloud Insight 的报警机制，采用以下的设计思路：</p>
+
+<p><img src="/images/alert.png" /></p>
+
+<p>Cloud Insight 从不同的数据源中聚合数据，转交给报警处理引擎；引擎根据报警策略中设置的报警条件，对某一固定时间窗口内，对数值进行检查。</p>
+
+<p>当引擎检查时间窗口内的数值满足条件时，触发报警事件的生成；并流送至 Cloud Insight 事件流、邮件、OneAlert 等不同的渠道，进行分发，通知用户。</p>
+
+<p>目前版本已实现的数据源：</p>
+
+<ul>
+<li><a href="/alert/metric.html">基于指标的报警</a></li>
+</ul>
+
+<p>目前版本已实现的渠道：</p>
+
+<ul>
+<li><a href="../event.html">事件流</a></li>
+<li>邮件</li>
+</ul>
+
+<h2>触发中的报警策略</h2>
+
+<p>报警模块的「触发中」页面，显示当前正处于 <strong>触发状态</strong> 的报警策略。</p>
+
+<p>如：某个基于指标的报警策略，当前处于 <code>ALERT</code> 状态，则会显示在此。</p>
+
+<p><img src="/images/alert_list.png" /></p>
+
+<p>列表共由 7 项构成：</p>
+
+<ol>
+<li>策略状态：<code>ALERT</code> <code>OK</code> <code>NODATA</code> 或其他状态。</li>
+<li>策略名称。</li>
+<li>策略的创建人，而团队中的成员（拥有写权限）可以对其进行修改。</li>
+<li>指标名称：当前策略是对哪个指标来进行检查。</li>
+<li>TAGS：当前策略是检查哪些主机或者标签的指标。</li>
+<li>数值：该指标的当前数值。</li>
+<li>触发时间：最近一次的触发时间。</li>
+</ol>
+
+<p>点击策略名称，打开报警策略状态页。</p>
+
+<h2>报警策略状态</h2>
+
+<p><img src="/images/alert_status.png" /></p>
+
+<p>报警策略状态由 5 部分构成：</p>
+
+<h3>1. 策略信息</h3>
+
+<p>显示第一次被触发的时间，和状态；以及报警的触发条件和创建人；以及相关操作按钮。</p>
+
+<h3>2. 指标历史曲线</h3>
+
+<p>基于指标的报警，显示该指标的历史曲线图；修改右侧上方的时间选择器，来更改历史区间。</p>
+
+<h3>3. 指标历史状态</h3>
+
+<p>和指标历史曲线在时间范围上同步，显示指标在该区间内的历史状态。</p>
+
+<h3>4. 相关平台</h3>
+
+<p>该策略是针对哪些平台进行报警，并显示这些平台的情况。点击平台名称，显示<a href="/platform/">平台概览</a>。</p>
+
+<h3>5. 相关报警策略</h3>
+
+<p>基于指标的报警策略，若两个策略都是对同一个指标来进行报警，则另一个策略会显示在这里。点击另一个策略名称，打开该策略的状态页面。</p>
+
+<h2>报警策略操作 • 禁用</h2>
+
+<p>除开策略的增、删、改之外，在当前版本中，Cloud Insight 提供 <strong>禁用</strong> 和 <strong>解除禁用</strong> 的操作。</p>
+
+<p>那什么是禁用呢？请看图：</p>
+
+<p><img src="/images/alert_mute.png" /></p>
+
+<p>当某个策略被禁用时，策略被触发时，事件就传输至 <strong>Cloud Insight 事件流</strong> 这个渠道。<strong>而不再分发至邮件、OneAlert 等这些对外的渠道。</strong></p>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/release-note.html']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

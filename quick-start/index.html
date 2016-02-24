@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight - 次世代系统监控、数据管理、数据可视化平台 - 快速入门</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-quick-start quick-start_index">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/quick-start/">快速入门</a>
+
+<ul>
+<li><a href="/quick-start/install.html">安装配置</a></li>
+<li><a href="/quick-start/instrument.html">常用操作</a></li>
+<li><a href="/quick-start/questions.html">常见问题</a></li>
+<li><a href="/quick-start/help.html">更多帮助</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>开始使用 Cloud Insight</h1>
+
+<h2>初次使用 Cloud Insight</h2>
+
+<p>初次使用 Cloud Insight 时，由于您尚未在您的平台中安装 Cloud Insight Agent，所以页面显示「暂无数据」的提示。</p>
+
+<p>此时，请点击左侧导航中的「添加平台」，开始添加 Cloud Insight Agent 至您的平台中。</p>
+
+<p><img src="/images/start3.png" /></p>
+
+<p>进入「添加平台」页面后，请选择您所需要安装的平台所属的操作系统。本例以 Ubuntu 操作系统为例。</p>
+
+<p><img src="/images/start4.png" /></p>
+
+<p>复制安装指令至 Ubuntu Terminal 中，并运行指令。若出现以下提示，则代表安装成功。</p>
+
+<p><img src="/images/start5.png" /></p>
+
+<p>若安装不成功，请尝试使用 root 权限进行安装，或者自行排查 CI<em>LICENSE</em>KEY 是否过期，以及正在安装 Agent 的平台是否处于联网的状态。</p>
+
+<h2>监控平台</h2>
+
+<p>返回「平台」页面，若您看到刚才安装的平台名称，以及显示平台服务：system，则代表安装成功。</p>
+
+<p><img src="/images/start6.png" /></p>
+
+<h3>DOWN / UP 状态</h3>
+
+<p>其中「状态」代表平台是处于 DOWN 还是 UP 的状态。UP 则代表安装在平台中的 Cloud Insight 可以正常发送数据，并且 OneAPM 可以接收到数据。</p>
+
+<p>DOWN 的状态，代表在 3 分钟内 OneAPM 未接收到您平台中的 Agent 中的数据。</p>
+
+<p><strong>其他有关 CPU IOWait Load15 信息，以及其他详细信息，请访问 <a href="/platform/">平台</a>。</strong></p>
+
+<h2>配置平台服务</h2>
+
+<p>Cloud Insight 的配置也相当简单，首先点击左侧导航中的配置平台按钮，然后选择自己需要监控的平台服务，接着按照弹出框的操作步骤进行配置即可。</p>
+
+<p>配置完成后，可以在 Agent 端使用 Agent Info 指令查看配置是否成功；也可进入 OneAPM 前端页面检查配置是否成功。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent info
+</code></pre>
+
+<p>更多 Agent 操作，请访问 <a href="/platform/agent-instrument.html">Agent 常用操作</a>。</p>
+
+<p><img src="/images/start10.png" /></p>
+
+<p>总体来说，平台服务的配置分两种情况：</p>
+
+<ul>
+<li>需要对 Agent 进行授权的；</li>
+<li>不需要对 Agent 进行授权的。</li>
+</ul>
+
+<p>所有不需要对 Agent 授权的平台服务配置，只需将 <code>*.yaml.example</code> 配置示例，复制为 <code>*.yaml</code> 配置文件，即可开始平台服务监控。</p>
+
+<p><img src="/images/start11.png" /></p>
+
+<h2>仪表盘</h2>
+
+<p><strong>详细操作和说明，请访问 <a href="/dashboard/">仪表盘</a>。</strong></p>
+
+<h2>指标</h2>
+
+<p><strong>详细操作和说明，请访问 <a href="../metric.html">指标</a>。</strong></p>
+
+<h2>报警</h2>
+
+<p><strong>详细操作和说明，请访问 <a href="/alert/">报警</a>。</strong></p>
+
+<h2>事件流</h2>
+
+<p><strong>详细操作和说明，请访问 <a href="../event.html">事件流</a>。</strong></p>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/quick-start/']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

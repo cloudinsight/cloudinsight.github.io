@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight - API 与 SDK 使用文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-api api_sdk">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/api/">简介</a></li>
+<li><a href="/api/sdk.html">SDK</a>
+
+<ul>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>Cloud Insight SDK</h1>
+
+<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。</p>
+
+<p>目前支持的数据类型有：</p>
+
+<ul>
+<li>Counters</li>
+<li>Gauges</li>
+</ul>
+
+<p>目前支持的语言有：</p>
+
+<ul>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
+</ul>
+
+<p>使用 SDK 的前提条件为您已经安装了 Cloud Insight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
+
+<h2>数据类型</h2>
+
+<h3>Counters</h3>
+
+<p><code>Counters</code> 是 StatsD 和 Cloud Insight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
+
+<p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的至为采集周期的平均值。</p>
+
+<h4>采样率</h4>
+
+<p>也可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
+
+<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
+
+<p>在数据量较大的情况下，可以确保采样的高效。</p>
+
+<h3>Gauges</h3>
+
+<p><code>Gauges</code> 是连续型的数据类型，也就是说，当我们第一次赋值后，该 Metric 表现在图表上，会是一条于 X 轴平行的直线；直到再次为该 Metric 赋了一个不同的值。</p>
+
+<p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
+
+<p>同样，<code>Gauges</code> 也支持 <code>sample_rate</code>，但是某些不是频繁更新的数值，请谨慎使用。</p>
+
+<h3>Metric Name</h3>
+
+<p>命名 Metric Name 有一下一些规则：</p>
+
+<ul>
+<li>指标名称必须以字母为开头</li>
+<li>只能包含 ASCII 字母，数字，下划线和句点（其它字符将被转换为下划线）</li>
+<li>最多200个字符（从 UI 考虑不要超过100）</li>
+<li>不支持 Unicode</li>
+<li>建议避免空格</li>
+</ul>
+
+<h2>最佳实践</h2>
+
+<ul>
+<li><a href="http://news.oneapm.com/pm2-5-cloud-insight/">使用 Cloud Insight SDK 监控北京空气质量</a></li>
+<li><a href="http://news.oneapm.com/ci-sdk-druid/">使用 Cloud Insight 实现 Druid 监控</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/api/']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,440 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight 文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-dashboard dashboard_query_metric">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+</ul></li>
+<li><a href="/metric/">指标</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件流</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>Metric 查询</h1>
+
+<p>添加监控图表，会弹出以下对话框。使用 Cloud Insight 的 Metric 查询，就可以得到您所需要的图表。</p>
+
+<p><img src="/images/BasicUsage5.png" /></p>
+
+<p>Cloud Insight 提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。</p>
+
+<h2>语法</h2>
+<pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
+</code></pre>
+
+<p>在介绍语法前，我们先通过一组样本来解释 Metric 查询的语法。</p>
+
+<p>|Series|MetricName|TagValue: Host|TagValue: Owner|
+|&mdash;|
+|A|system.cpu.idle|ChengMoMacAir|chengmo|
+|B|system.cpu.idle|UbuntuChengMo|chengmo|
+|C|system.cpu.idle|WZL-CentOS|wangzhili|</p>
+
+<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
+|&mdash;|
+|A|0.3|0.5|0.1|0.2|0.8|0.1|
+|B|0.8|0.3|0.7|0.8|0.9|0.3|
+|C|0.6|0.2|0.4|0.6|0.1|0.1|</p>
+
+<h3><code>Aggregation</code> 和 <code>FromTag</code></h3>
+
+<ul>
+<li>Aggregation：聚合算子。指 Metric 查询范围 FromTag 所查询到的多条 series 通过 avg、max、min、sum 哪种方式聚合。</li>
+<li>FromTag：查询范围。指 Metric 所需聚合的 series 的查询条件。</li>
+</ul>
+
+<p>如：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, host:UbuntuChengMO}
+</code></pre>
+
+<p>所得的结果是：</p>
+
+<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
+|&mdash;|
+|A|0.3|0.5|0.1|0.2|0.8|0.1|
+|B|0.8|0.3|0.7|0.8|0.9|0.3|
+|<strong>Output</strong>|0.8|0.5|0.7|0.8|0.9|0.3|</p>
+
+<p>同样，上述查询也可以简化成：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {owner:chengmo}
+</code></pre>
+
+<p>这就是标签管理在 Cloud Insight 的重要性啦。该部分留到标签的章节，做详细的介绍。</p>
+
+<h3><code>by</code> 其实就是 <code>group_by</code></h3>
+
+<p>Cloud Insight 还支持类似 SQL 的 <code>group_by</code> 查询语法。这个在查看：</p>
+
+<ul>
+<li>多个磁盘分区的容量</li>
+<li>Docker 中不同 Container 的性能消耗</li>
+</ul>
+
+<p>都是非常有用的。还是以上诉例子举例，如果我们想要看每个 <code>host</code> 的 CPU 空闲率：</p>
+<pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {host}
+</code></pre>
+
+<p>此时，第一个 <code>{FromTag}</code> 缺省代表从所有 Metrics 中查询数据。如图所示，得到以下图表：</p>
+
+<p><img src="/images/QueryMetric1.png" /></p>
+
+<p>在实际的测试环境中，由于我们有 6 台测试主机，所以会得到如下的曲线。并且，当鼠标悬停至曲线时，下方的悬停窗口会分别显示 6 台主机的 <code>system.cpu.idle</code>。</p>
+
+<p><img src="/images/QueryMetric2.png" /></p>
+
+<h2>灵活查询</h2>
+
+<h3>聚合和分组并存</h3>
+
+<p>除开单纯的聚合和分组，Cloud Insight 还支持聚合和分组的复合查询。如：</p>
+<pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {owner}
+</code></pre>
+
+<p>|Series|MetricName|TagValue: Host|TagValue: Owner|
+|&mdash;|
+|A|system.cpu.idle|ChengMoMacAir|chengmo|
+|B|system.cpu.idle|UbuntuChengMo|chengmo|
+|C|system.cpu.idle|WZL-CentOS|wangzhili|</p>
+
+<p>此时，虽然有 3 个 host，但是分组是以 <code>owner</code> 来进行分组。所以，A 与 B 会聚合为一条曲线，而 C 和 A&amp;B 的关系是分组的关系。</p>
+
+<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
+|&mdash;|
+|A|0.3|0.5|0.1|0.2|0.8|0.1|
+|B|0.8|0.3|0.7|0.8|0.9|0.3|
+|C|0.6|0.2|0.4|0.6|0.1|0.1|
+|<strong>Output A&amp;B</strong>|0.55|0.4|0.4|0.5|0.85|0.2|
+|<strong>Output C</strong>|0.6|0.2|0.4|0.6|0.1|0.1|</p>
+
+<h3>多条件查询</h3>
+
+<p><code>FromTag</code> 可以承接多个条件，如上文提到的：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, host:UbuntuChengMO}
+</code></pre>
+
+<p>查询到是两个 Host 的聚合结果。那么，如果是以下查询呢：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, owner:wangzhili}
+</code></pre>
+
+<p>此时，查询到结果为 <code>NULL</code>。因为，Metric 查询遵循以下原则：</p>
+
+<ul>
+<li><strong>同一 Tag Key，Metric 查询求并集；</strong></li>
+<li><strong>不同 Tag Key，Metric 查询求交集。</strong></li>
+</ul>
+
+<p>也就是说，上述查询分别代表：</p>
+
+<ul>
+<li>我想查询 <code>host</code> 为 <code>ChengMoMacAir</code> 和 <code>host:UbuntuChengMO</code> 的聚合结果</li>
+<li>我想查询 <code>host</code> 为 <code>ChengMoMacAir</code> 且 <code>owner</code> 为 <code>wangzhili</code> 的聚合结果</li>
+</ul>
+
+<p>自然，根据表格，我们发现这样的 Host 是不存在的，故而结果为 <code>NULL</code>。</p>
+
+<p>我们之所以这么设计，是因为此类思考更符合人的思维习惯：</p>
+
+<ul>
+<li>当人们选择多个 host 时，自然而然想到的是这些 host 的求和结果，即：同一 Tag Key 求并集；</li>
+<li>当人们选择某个 host，又再次选择另一个 Tag 时，想到的是在这个 host 下满足这些 tag 的结果，即：不同 Tag Key 求交集。</li>
+</ul>
+
+<h3>参数查询</h3>
+
+<p>Cloud Insight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
+
+<p><img src="/images/QueryMetric3.png" /></p>
+
+<p>有关参数查询，我们会在下一小节做详细介绍。</p>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/release-note.html']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

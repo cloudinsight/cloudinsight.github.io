@@ -1,0 +1,478 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight 文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-release-note">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+</ul></li>
+<li><a href="/metric/">指标</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件流</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h2>版本更新</h2>
+
+<h3>v 1.0.1</h3>
+
+<ul>
+<li>新增平台列表分页功能</li>
+<li>修复了报警发送渠道的问题</li>
+<li>修复了用户系统的跳转问题</li>
+<li>修复了 Docker 中 Container 数量错误的问题</li>
+<li>修复了自定义数据仪表盘的显示问题</li>
+</ul>
+
+<h3>v 1.0.0</h3>
+
+<ul>
+<li>新增平台服务：简聊</li>
+<li>新增 SDK 来自定义上传数据</li>
+<li>修复了平台拓扑的显示问题</li>
+<li>修复了面积图出现空心的情况</li>
+<li>修复了标签在仪表盘中显示错误的问题</li>
+<li>以及对前后端进行了部分重构</li>
+</ul>
+
+<h3>v 0.4.1</h3>
+
+<ul>
+<li>新增事件流名称搜索</li>
+<li>新增创建空仪表盘时添加一个默认参数</li>
+<li>新增平台列表的搜索和分组</li>
+<li>新增帮助中心的文档搜索和在线客服</li>
+<li>修改平台概览中线性插值为显示 Null Point</li>
+<li>修改规避邮件风暴的策略</li>
+<li>修复部分报警策略添加的样式问题</li>
+<li>修复部分图表出现空心情况的问题</li>
+<li>修复平台概览中时间轴不统一的问题</li>
+<li>修复了一些 BUG 和样式问题</li>
+</ul>
+
+<h3>v 0.4.0</h3>
+
+<ul>
+<li>新增基于任一指标的静态门限报警</li>
+<li>新增报警策略功能</li>
+<li>新增报警策略触发中和所有策略的列表</li>
+<li>新增报警策略的状态页面</li>
+<li>新增事件流页面，记录报警触发的事件，和 Agent 启动，以及用户对策略的修改</li>
+<li>新增邮件的报警渠道</li>
+<li>新增报警策略禁用的功能</li>
+<li>新增平台概览中对平台添加标签的功能</li>
+<li>新增基于平台标签，对拓扑进行分组显示的功能</li>
+<li>修复左侧导航的显示样式</li>
+<li>修复后端的数据流机制</li>
+<li>修复数值太小的问题，修改至科学计数法</li>
+<li>以及修复前端样式和一些 BUG</li>
+</ul>
+
+<h3>v 0.3.0</h3>
+
+<ul>
+<li>新增平台拓扑 • Beta</li>
+<li>新增支持 Chef</li>
+<li>新增支持 Puppet</li>
+<li>修复 Agent Info 指令问题</li>
+<li>修复 Kafka 配置问题</li>
+<li>迁移文档中心</li>
+<li>以及样式调优和修复一些 Bug</li>
+</ul>
+
+<h3>v 0.2.2</h3>
+
+<ul>
+<li>新增 Apache Solr 监控服务</li>
+<li>新增 Mesos 监控服务</li>
+<li>新增 System Disk I/O 平台服务仪表盘</li>
+<li>新增 System Networking 平台服务仪表盘</li>
+<li>新增 JVM 平台服务仪表盘</li>
+<li>新增 JMX 平台服务仪表盘</li>
+<li>新增柱状图和区域图展现形式</li>
+<li>新增 Metric 数值的科学计数法显示</li>
+<li>支持仪表盘悬停面板的拖拽</li>
+<li>修复了部分单位显示错误问题</li>
+<li>修复了悬停面板的防遮挡算法</li>
+<li>修复了 Process Memory Usage 图表的显示问题</li>
+<li>修复了细节问题和 BUG</li>
+</ul>
+
+<h3>v 0.2.1</h3>
+
+<ul>
+<li>新增 ZooKeeper 监控服务</li>
+<li>新增仪表盘拖拽排序</li>
+<li>新增仪表盘单个图表的最大化展示</li>
+<li>新增平台服务按照是否安装分组展示</li>
+<li>添加系统进程内存占比 TreeMap</li>
+<li>新增仪表盘鼠标悬浮时页面底部显示指标详情</li>
+<li>数据查询接口增强，支持相同 <code>tag_key</code> 进行数据并集，不同 <code>tag_key</code> 进行数据交集</li>
+<li>Chart 编辑器优化，只显示关联数据</li>
+<li>参数编辑器和图表编辑器添加 Loading</li>
+<li>优化前端数据曲线补点功能</li>
+<li>UI 细节优化</li>
+<li>平台列表只显示 3 天内有过数据的平台</li>
+<li>DEMO 用户操作权限改进</li>
+<li>仪表盘全屏后屏蔽编辑类按钮</li>
+<li>图表显示单位优化</li>
+</ul>
+
+<h3>v 0.2.0</h3>
+
+<ul>
+<li>新增 Amazon Linux 监控</li>
+<li>新增自定义仪表盘，实现不同用户的增删改自定义仪表盘</li>
+<li>实现类 SQL 的 Metric 查询方式</li>
+<li>添加 Metric 至自定义仪表盘</li>
+<li>不同用户拥有收藏仪表盘的列表，至一级导航右侧显示</li>
+<li>自定义仪表盘中参数配置，来实现 Metric 数值的动态查询</li>
+<li>重新规划平台服务仪表盘中 Metric 的显示方式</li>
+<li>针对平台服务仪表盘来，创建副本，生成备份</li>
+<li>仪表盘搜索</li>
+<li>仪表盘与用户系统对接，标识仪表盘归属</li>
+</ul>
+
+<h3>v 0.1.1</h3>
+
+<ul>
+<li>添加平台服务仪表盘，显示该平台服务的所有 Metrics</li>
+<li>支持 15 天内，Metric 数据的查询</li>
+<li>平台列表页面的样式调优</li>
+<li>平台服务存在配置错误时，给予提示信息</li>
+<li>平台服务配置错误时，加上了更新时间</li>
+<li>平台右侧抽屉中的服务详情，添加了 Metric 搜索</li>
+<li>服务详情中，添加了「加载更多」按钮</li>
+<li>服务详情中，添加「前往平台服务仪表盘」按钮</li>
+<li>修复 Agen info 指令无法执行的错误</li>
+</ul>
+
+<h3>v 0.1.0</h3>
+
+<ul>
+<li>新增 64 位系统 CentOS, RedHat, Fedora, Ubuntu 监控</li>
+<li>支持 ActiveMQ 监控</li>
+<li>支持 Apache Tomcat 监控</li>
+<li>支持 Apache Kafka 监控</li>
+<li>支持 Cassandra 监控</li>
+<li>支持 Couchbase 监控</li>
+<li>支持 Docker 监控</li>
+<li>支持 ElasticSearch 监控</li>
+<li>支持 PHP-FPM 监控</li>
+<li>支持 RabbitMQ 监控</li>
+<li>平台列表显示平台的操作系统类型</li>
+<li>右侧抽屉新增问题详情，记录平台服务配置的错误日志</li>
+<li>服务详情中 Metric 显示调优</li>
+<li>系统信息中添加进行运行状态</li>
+</ul>
+
+<h3>v 0.0.1</h3>
+
+<ul>
+<li>新增 CentOS 监控</li>
+<li>新增 RedHat 监控</li>
+<li>新增 Fedora 监控</li>
+<li>新增 Ubuntu 监控</li>
+<li>支持 Apache 监控</li>
+<li>支持 Memcached 监控</li>
+<li>支持 MongoDB 监控</li>
+<li>支持 MySQL 监控</li>
+<li>支持 Redis 监控</li>
+<li>支持 NGINX 监控</li>
+<li>支持 PostgreSQL 监控</li>
+<li>新增平台列表，显示已安装 Agent 的平台</li>
+<li>平台列表显示 平台状态、CPU 使用率、IO Wait 和 Load 15 信息</li>
+<li>平台列表显示已开启配置的平台服务信息</li>
+<li>右侧抽屉新增服务详情信息，显示操作系统和平台服务的 Metric</li>
+<li>右侧抽屉新增系统信息，显示平台 CPU、文件系统、内存、网络和平台信息</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/release-note.html']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

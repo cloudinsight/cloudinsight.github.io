@@ -1,0 +1,1 @@
+$(function(){var a=window.location.pathname;$(".page-sidebar a[href='"+a+"']").addClass("active")}),Array.prototype.shuffle=function(){for(var a=this,r=a.length-1;r>=0;r--){var t=Math.floor(Math.random()*(r+1)),o=a[t];a[t]=a[r],a[r]=o}return a};

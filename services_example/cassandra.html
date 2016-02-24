@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight 文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-services_example services_example_cassandra">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+</ul></li>
+<li><a href="/metric/">指标</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件流</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>Cassandra</h1>
+
+<p>本章节为 Cloud Insight 支持的平台服务的文档的示例。</p>
+
+<p>分为以下几个部分：</p>
+
+<ul>
+<li>支持的性能指标</li>
+<li>如何配置 Cassandra 监控</li>
+<li>常见的问题</li>
+</ul>
+
+<p><img src="/images/cassandra.png" /></p>
+
+<h2>性能指标</h2>
+
+<p>Cloud Insight 采集 Cassandra 以下性能指标：</p>
+
+<ul>
+<li>cassandra.db.bloom<em>filter</em>disk<em>space</em>used</li>
+<li>cassandra.db.bloom<em>filter</em>false_positives</li>
+<li>cassandra.db.bloom<em>filter</em>false_ratio</li>
+<li>cassandra.db.completed_tasks</li>
+<li>cassandra.db.compression_ratio</li>
+<li>cassandra.db.exception_count</li>
+<li>cassandra.db.key<em>cache</em>recent<em>hit</em>rate</li>
+<li>cassandra.db.live<em>disk</em>space_used</li>
+<li>cassandra.db.live<em>ss</em>table_count</li>
+<li>cassandra.db.load</li>
+<li>cassandra.db.max<em>row</em>size</li>
+<li>cassandra.db.mean<em>row</em>size</li>
+<li>cassandra.db.memtable<em>columns</em>count</li>
+<li>cassandra.db.memtable<em>data</em>size</li>
+<li>cassandra.db.memtable<em>switch</em>count</li>
+<li>cassandra.db.min<em>row</em>size</li>
+<li>cassandra.db.range_operations</li>
+<li>cassandra.db.read_operations</li>
+<li>cassandra.db.recent<em>read</em>latency_micros</li>
+<li>cassandra.db.recent<em>write</em>latency_micros</li>
+<li>cassandra.db.total<em>disk</em>space_used</li>
+<li>cassandra.db.total<em>range</em>latency_micros</li>
+<li>cassandra.db.total<em>read</em>latency_micros</li>
+<li>cassandra.db.total<em>write</em>latency_micros</li>
+<li>cassandra.db.update_interval</li>
+<li>cassandra.db.write_count</li>
+<li>cassandra.db.write_operations</li>
+<li>cassandra.internal.active_count</li>
+<li>cassandra.internal.completed_tasks</li>
+<li>cassandra.internal.currently<em>blocked</em>tasks</li>
+<li>cassandra.internal.total<em>blocked</em>tasks</li>
+<li>cassandra.net.total_timeouts</li>
+</ul>
+
+<h2>配置 Cassandra 监控</h2>
+
+<h3>JMX</h3>
+
+<p>OneAPM Cloud Insight Agent 通过 JMX 获取 Cassandra 中的性能指标。</p>
+
+<p>由于每个实体最多可以监控 350 个性能指标，所以您需要按照下方的配置方法，修改配置文件来确定自己需要哪些指标。</p>
+
+<h3>编辑配置文件</h3>
+
+<p>编辑配置文件 <a href="/services/">conf.d/cassandra.yaml</a>，使 Cloud Insight Agent 可以与 Cassandra 通信。</p>
+<pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">7199</span>
+    <span class="s">user</span><span class="pi">:</span> <span class="s">username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">cassandra_instance</span>
+    <span class="c1">#trust_store_path: /path/to/trustStore.jks # Optional, should be set if ssl is enabled</span>
+    <span class="c1">#trust_store_password: password</span>
+    <span class="c1">#java_bin_path: /path/to/java #Optional, should be set if the agent cannot find your java executable</span>
+
+<span class="c1"># List of metrics to be collected by the integration</span>
+
+<span class="s">init_config</span><span class="pi">:</span>
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">org.apache.cassandra.db</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">BloomFilterDiskSpaceUsed</span>
+          <span class="pi">-</span> <span class="s">BloomFilterFalsePositives</span>
+          <span class="pi">-</span> <span class="s">BloomFilterFalseRatio</span>
+          <span class="pi">-</span> <span class="s">Capacity</span>
+          <span class="pi">-</span> <span class="s">CompressionRatio</span>
+          <span class="pi">-</span> <span class="s">CompletedTasks</span>
+          <span class="pi">-</span> <span class="s">ExceptionCount</span>
+          <span class="pi">-</span> <span class="s">Hits</span>
+          <span class="pi">-</span> <span class="s">RecentHitRate</span>
+          <span class="pi">-</span> <span class="s">RowCacheRecentHitRate</span>
+          <span class="pi">-</span> <span class="s">KeyCacheRecentHitRate</span>
+          <span class="pi">-</span> <span class="s">LiveDiskSpaceUsed</span>
+          <span class="pi">-</span> <span class="s">LiveSSTableCount</span>
+          <span class="pi">-</span> <span class="s">Load</span>
+          <span class="pi">-</span> <span class="s">MaxRowSize</span>
+          <span class="pi">-</span> <span class="s">MeanRowSize</span>
+          <span class="pi">-</span> <span class="s">MemtableColumnsCount</span>
+          <span class="pi">-</span> <span class="s">MemtableDataSize</span>
+          <span class="pi">-</span> <span class="s">MemtableSwitchCount</span>
+          <span class="pi">-</span> <span class="s">MinRowSize</span>
+          <span class="pi">-</span> <span class="s">ReadCount</span>
+          <span class="pi">-</span> <span class="s">Requests</span>
+          <span class="pi">-</span> <span class="s">Size</span>
+          <span class="pi">-</span> <span class="s">TotalDiskSpaceUsed</span>
+          <span class="pi">-</span> <span class="s">TotalReadLatencyMicros</span>
+          <span class="pi">-</span> <span class="s">TotalWriteLatencyMicros</span>
+          <span class="pi">-</span> <span class="s">UpdateInterval</span>
+          <span class="pi">-</span> <span class="s">WriteCount</span>
+          <span class="pi">-</span> <span class="s">PendingTasks</span>
+      <span class="s">exclude</span><span class="pi">:</span>
+        <span class="s">keyspace</span><span class="pi">:</span> <span class="s">system</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">MinimumCompactionThreshold</span>
+          <span class="pi">-</span> <span class="s">MaximumCompactionThreshold</span>
+          <span class="pi">-</span> <span class="s">RowCacheKeysToSave</span>
+          <span class="pi">-</span> <span class="s">KeyCacheSavePeriodInSeconds</span>
+          <span class="pi">-</span> <span class="s">RowCacheSavePeriodInSeconds</span>
+          <span class="pi">-</span> <span class="s">PendingTasks</span>
+          <span class="pi">-</span> <span class="s">Scores</span>
+          <span class="pi">-</span> <span class="s">RpcTimeout</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">org.apache.cassandra.internal</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">ActiveCount</span>
+          <span class="pi">-</span> <span class="s">CompletedTasks</span>
+          <span class="pi">-</span> <span class="s">CurrentlyBlockedTasks</span>
+          <span class="pi">-</span> <span class="s">TotalBlockedTasks</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">org.apache.cassandra.net</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">TotalTimeouts</span>
+</code></pre>
+
+<h3>重启 Agent</h3>
+
+<p>重启 OneAPM Cloud Insight Agent，使配置生效。</p>
+
+<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
+<pre class="highlight plaintext"><code>Checks
+======
+
+[...]
+
+cassandra
+---------
+  - instance #0 [OK]
+  - Collected 8 metrics &amp; 0 events
+
+
+</code></pre>
+
+<p>有关 Agent Info 信息的查看，请访问帮助中心，查看 <a href="/platform/agent-instrument.html">Cloud Insight Agent 常用操作</a>。</p>
+
+<h2>常见问题</h2>
+
+<ul>
+<li><a href="https://wiki.apache.org/cassandra/Metrics">各项指标的解释</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/release-note.html']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

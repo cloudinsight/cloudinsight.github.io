@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight 文档</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-services services_jmx">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+</ul></li>
+<li><a href="/metric/">指标</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件流</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>JMX 远程监控</h1>
+
+<h2>介绍</h2>
+
+<p>Cloud Insight 通过使用 <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html">JMX 远程监控</a>某些服务的应用指标。</p>
+
+<p>为了收集这些指标，Cloud Insight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloud Insight Agent。</p>
+
+<p><img src="/images/jmx1.png" /></p>
+
+<p>JMX 监控每个实例的 350 个指标应该足以满足需求，因为自定义指标是非常容易的。接下来我们来看看如何做到这一点。</p>
+
+<h2>启用 JMX 检查</h2>
+
+<p>建议您先看一下 <a href="http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html">启用JMX的通用方式，以及jmx的一些配置</a>，不同服务启用JMX的方式原理都是类似的，只是配置的地方不同。</p>
+
+<p>以下这些服务的数据需要通过 JMX 来实现远程监控：</p>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/kafka.html">Apache Kafka</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+</ul>
+
+<p>使用 JMX 来监控 Java 系列的平台服务，需要先启用 JMX。我们以 Tomcat 为例，为大家介绍如何开启 JMX。</p>
+
+<p>在 Tomcat 的 <code>bin</code> 目录下添加 <code>setenv.sh</code> 文件，在里面添加环境变量：</p>
+<pre class="highlight plaintext"><code>CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote
+  -Dcom.sun.management.jmxremote.port=7199
+  -Dcom.sun.management.jmxremote.ssl=false
+  -Dcom.sun.management.jmxremote.authenticate=false"
+</code></pre>
+
+<p>此处设置连接 JMX 端口为 <code>7199</code>，因此在 <code>tomcat.yaml</code> 配置文件中也要写成相应的 <code>7199</code>。如下图所示：</p>
+
+<p><img src="/images/jmx2.png" /></p>
+
+<p>之后请重启 Tomcat 与 Cloud Insight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
+
+<p><img src="/images/jmx3.png" /></p>
+
+<h3>修改配置文件</h3>
+
+<p>修改 <code>conf.d/tomcat.yaml</code> 配置文件，可以决定 Cloud Insight 通过 JMX 采集哪些性能指标，以及指定 Java 执行路径等重要信息。</p>
+
+<p>为了更好让您理解如何配置 Cloud Insight Java 系列的平台服务，我们为您列举每一项配置参数的意义。</p>
+
+<p>我们以 Tomcat 的配置文件为例，为大家介绍配置文件的参数意义。同理，ActiveMQ Kafka 等使用 JMX 来采集指标的平台服务的配置文件，结构类似。</p>
+<pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>              <span class="c1"># Tomcat 所在主机，默认为 localhost</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">9012</span>                   <span class="c1"># JMX 远程连接端口</span>
+    <span class="s">user</span><span class="pi">:</span> <span class="s">username</span>               <span class="c1"># JMX 远程连接用户名</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>           <span class="c1"># JMX 远程连接密码</span>
+    <span class="c1"># process_name_regex: .*process_name.*     # 实现 JMX 监控， 除了配置 host 和 port 外，还可通过 attach api的方式，具体见http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html</span>
+
+    <span class="c1"># tools_jar_path: /usr/lib/jvm/java-7-openjdk-amd64/lib/tools.jar    # 通过 attach API 方式实现 JMX 监控时，需配置 tools.jar 的路径</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>                      <span class="c1"># Tomcat 实例名称，将在 Cloud Insight 平台生成对应的标签，如: instance:tomcat_instance</span>
+    <span class="s">java_bin_path</span><span class="pi">:</span> <span class="s">/path/to/java</span>               <span class="c1"># 探针找不到 Java 可执行路径时，需配置此项</span>
+    <span class="s">java_options</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-Xmx200m</span><span class="nv"> </span><span class="s">-Xms50m"</span>           <span class="c1"># Java JVM 对应项</span>
+    <span class="s">trust_store_path</span><span class="pi">:</span> <span class="s">/path/to/trustStore.jks</span>  <span class="c1"># 若 JMX 远程连接开启 SSL，需配置此项</span>
+    <span class="s">trust_store_password</span><span class="pi">:</span> <span class="s">password</span>             <span class="c1"># SSL 证书密码</span>
+    <span class="s">tags</span><span class="pi">:</span>                 
+      <span class="s">env</span><span class="pi">:</span> <span class="s">stage</span>                               <span class="c1"># 自定义标签，用于在 Cloud Insight 平台对 Tomcat 服务器进行分组</span>
+    <span class="c1">#     newTag: test</span>
+</code></pre>
+
+<h3>查看可用指标</h3>
+
+<p>由于 JMX 采集的指标特别多，而 Cloud Insight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
+
+<p>想要查看目前哪些指标被采集，需要运行指令，来自查.</p>
+
+<ul>
+<li>列出匹配的 <code>attributes</code>：</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_matching_attributes
+</code></pre>
+
+<ul>
+<li>列出配置成功，却因为 Agent 采集限制，未被采集的 <code>attributes</code>:</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_limited_attributes
+</code></pre>
+
+<ul>
+<li>列出已被收集的 <code>attributes</code>：</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_collected_attributes
+</code></pre>
+
+<ul>
+<li>列出不匹配任何 <code>instances</code> 配置的 <code>attributes</code>：</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_not_matching_attributes
+</code></pre>
+
+<ul>
+<li>列出所有 JMXFetch 支持的 <code>attributes</code>：</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_everything
+</code></pre>
+
+<ul>
+<li>开始采集已配置生效的指标，并在控制台显示它们：</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx collect
+</code></pre>
+
+<h3>如何自定义要收集的数据：</h3>
+
+<p>像其他的探针检查一样，JMX 检查有 2 个主要部分：</p>
+
+<ul>
+<li><code>init_config</code> ：设置将要应用到每个实例</li>
+<li><code>instances</code> ：用于配置的实例设置</li>
+</ul>
+
+<p>JMX 检查需要的 <code>conf</code> 部分，它已经放在在 <code>init_config</code> 部分或 <code>instances</code> 部分里面。</p>
+
+<p>通过 <code>conf</code> 部分将被用于确定什么 JMX 属性必须被收集和发送的 Cloud Insight。</p>
+
+<p>配置部分如下所示：</p>
+<pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
+<span class="c1"># with the ones for your account</span>
+
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">domain_name</span>
+        <span class="s">type</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">bean_type</span>
+        <span class="s">bean</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">first_bean_name</span>
+          <span class="pi">-</span> <span class="s">second_bean_name</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="s">nameOfAttribute</span><span class="pi">:</span>
+            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
+            <span class="s">alias</span><span class="pi">:</span> <span class="s">jmx.my_metric_name</span>
+          <span class="s">nameOf2ndAttribute</span><span class="pi">:</span>
+            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
+            <span class="s">alias</span><span class="pi">:</span> <span class="s">jmx.my2ndattribute</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">2nd_domain</span>
+      <span class="s">exclude</span><span class="pi">:</span>
+        <span class="s">bean</span><span class="pi">:</span> <span class="s">2nd_domain:type=BeanType,tag1=value1,tag2=value2</span>
+        <span class="c1"># this line is equivalent to:</span>
+        <span class="c1"># domain: 2nd_domain</span>
+        <span class="c1"># type:</span>
+        <span class="c1">#   - BeanType</span>
+        <span class="c1"># tag1:</span>
+        <span class="c1">#   - value1</span>
+        <span class="c1"># tag2:</span>
+        <span class="c1">#   - value2</span>
+</code></pre>
+
+<p><code>conf</code> 参数是一个字典列表。在这个字典只允许2个键：</p>
+
+<ul>
+<li><p><code>include</code>（强制性）：词典中的过滤器，任何符合这些过滤器规则的将被收集，除非它也匹配属性中的 &ldquo;exclude&rdquo; 过滤器（见下文）</p></li>
+<li><p><code>exclude</code>（可选）：过滤器的另一个字典。符合这些过滤器规则的属性将不会收集</p></li>
+</ul>
+
+<p>对于给定的 bean，指标将以下列方式被标记：</p>
+<pre class="highlight plaintext"><code>mydomain:attr0=val0,attr1=val1
+</code></pre>
+
+<p>你的指标将被 mydomain（或一些变化取决于bean中的属性），并有 <code>attr0:val0, attr1:val1, domain:mydomain</code> 几种标签。</p>
+
+<h2>过滤器说明</h2>
+
+<p>每个 <code>include</code> 或 <code>exclude</code> 字典支持下列键：</p>
+
+<ul>
+<li><p><code>domain</code>：域名的列表（例如 <code>java.lang</code>）</p></li>
+<li><p><code>domain_regex</code>：关于域名正则表达式的列表，（例如 <code>java\.lang*</code>）</p></li>
+<li><p><code>bean</code> 或 <code>bean_name</code>：全 bean 名称的列表（例如 <code>java.lang:type=Compilation</code>）</p></li>
+<li><p><code>bean_regex</code>：在全豆名正则表达式的列表（例如 <code>java\.lang.*[,:]type=Compilation.*</code>）</p></li>
+<li><p><code>attribute</code>：一个列表或属性名称词典（请参阅下面的详细介绍）</p></li>
+</ul>
+
+<p><code>domain_regex</code> 和 <code>bean_regex</code> 定义的正则表达式必须符合 <a href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html">Java的正则表达式格式</a>]。</p>
+
+<p>这些参数之上，该过滤器支持“自定义”键，这意味着你可以通过 bean 的参数进行筛选。例如，如果你想就收集指标 Cassandra cache，您可以使用 <code>type: - Caches</code> 过滤器：</p>
+<pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
+<span class="c1"># with the ones for your account</span>
+
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">org.apache.cassandra.db</span>
+        <span class="s">type</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">Caches</span>
+</code></pre>
+
+<h3><code>attribute</code> 过滤器</h3>
+
+<p><code>attribute</code> 过滤器可以接受两种类型的值：</p>
+
+<ul>
+<li>字典的键是 attribute 的名称：</li>
+</ul>
+<pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
+<span class="c1"># with the ones for your account</span>
+
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="s">maxThreads</span><span class="pi">:</span>
+            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.threads.max</span>
+            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
+          <span class="s">currentThreadCount</span><span class="pi">:</span>
+            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.threads.count</span>
+            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
+          <span class="s">bytesReceived</span><span class="pi">:</span>
+            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.bytes_rcvd</span>
+            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
+</code></pre>
+
+<p>在这种情况下，你可以给指标指定一个别名，这将成为 Cloud Insight 的标准指标名称。您还可以指定指标类型无论是常规规则或计数器。如果你选择计数器，探针将以每秒的速度计算这个指标。</p>
+
+<ul>
+<li>属性名称的列表：</li>
+</ul>
+<pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
+<span class="c1"># with the ones for your account</span>
+
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">domain</span><span class="pi">:</span> <span class="s">org.apache.cassandra.db</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">BloomFilterDiskSpaceUsed</span>
+          <span class="pi">-</span> <span class="s">BloomFilterFalsePositives</span>
+          <span class="pi">-</span> <span class="s">BloomFilterFalseRatio</span>
+          <span class="pi">-</span> <span class="s">Capacity</span>
+          <span class="pi">-</span> <span class="s">CompressionRatio</span>
+          <span class="pi">-</span> <span class="s">CompletedTasks</span>
+          <span class="pi">-</span> <span class="s">ExceptionCount</span>
+          <span class="pi">-</span> <span class="s">Hits</span>
+          <span class="pi">-</span> <span class="s">RecentHitRate</span>
+</code></pre>
+
+<p>在这种情况下：</p>
+
+<ul>
+<li>指标标准类型将是一个常规规则</li>
+<li>指标名称将是  jmx.[DOMAIN<em>NAME].[ATTRIBUTE</em>NAME]</li>
+</ul>
+
+<p>这里是另一个过滤示例：</p>
+<pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">jmx_instance</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">9999</span>
+
+<span class="s">init_config</span><span class="pi">:</span>
+  <span class="s">conf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
+        <span class="s">bean</span><span class="pi">:</span> <span class="s">org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency</span>
+        <span class="s">attribute</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">OneMinuteRate</span>
+          <span class="pi">-</span> <span class="s">75thPercentile</span>
+          <span class="pi">-</span> <span class="s">95thPercentile</span>
+          <span class="pi">-</span> <span class="s">99thPercentile</span>
+</code></pre>
+
+<h2>指标</h2>
+
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>jvm.heap_memory（每30秒测量一次）</td>
+<td>总的Java堆内存 （byte）</td>
+</tr>
+<tr>
+<td>jvm.heap<em>memory</em>committed（每30秒测量一次）</td>
+<td>所用的总Java堆内存提交 （byte）</td>
+</tr>
+<tr>
+<td>jvm.heap<em>memory</em>init (每30秒测量一次）</td>
+<td>初始Java堆内存分配 （byte）</td>
+</tr>
+<tr>
+<td>jvm.heap<em>memory</em>max（每30秒测量一次）</td>
+<td>最大Java堆内存 （byte）</td>
+</tr>
+<tr>
+<td>jvm.non<em>heap</em>memory（每30秒测量一次）</td>
+<td>总的Java非堆存储器 （byte）</td>
+</tr>
+<tr>
+<td>jvm.non<em>heap</em>memory_committed（每30秒测量一次）</td>
+<td>总的Java非堆内存提交 （byte）</td>
+</tr>
+<tr>
+<td>jvm.non<em>heap</em>memory_init（每30秒测量一次）</td>
+<td>初始Java非堆内存分配 （byte）</td>
+</tr>
+<tr>
+<td>jvm.non<em>heap</em>memory_max（每30秒测量一次）</td>
+<td>最大Java非堆内存可用 （byte）</td>
+</tr>
+<tr>
+<td>jvm.thread_count（每30秒测量一次）</td>
+<td>活动线程的数目</td>
+</tr>
+<tr>
+<td>jvm.gc.cms.count（每30秒测量一次）</td>
+<td>已发生的垃圾收集的总数</td>
+</tr>
+<tr>
+<td>jvm.gc.parnew.time（每30秒测量一次）</td>
+<td>累积的已过的垃圾收集的时间的近似值（毫秒）</td>
+</tr>
+</tbody></table>
+
+<h2>故障排除</h2>
+
+<h3>350 个指标限制</h3>
+
+<p>鉴于监控的这些服务的性质，有可能直接提交极高数量的指标到 Cloud Insight。因此，我们设定了 350 个指标的限制。</p>
+
+<p>要查看您收集了什么，以及还剩下收集多少指标的限制，您可以通过使用上面的命令来查看那些指标是可用的。</p>
+
+<p>如果您收集的指标超过 350 的指标，可以尝试去掉一些您不需要的指标或者用exclude过滤器来过滤掉一些指标，有问题请联系 <a href="mailto:support@oneapm.com">support@oneapm.com</a>。</p>
+
+<h3>Java 的路径</h3>
+
+<p>Cloud Insight Agent 并不捆绑 JVM，但是需要您的系统已经安装 JVM。因此，您必须确保 Java 主目录存在于运行探针的用户的路径上。</p>
+
+<p>另外，您也可以在某个集成的配置文件中指定 JVM 路径：</p>
+<pre class="highlight plaintext"><code>java_bin_path：/path/java
+</code></pre>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/release-note.html']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

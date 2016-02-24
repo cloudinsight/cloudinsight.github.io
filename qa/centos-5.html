@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight - 常见问题</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-qa qa_centos-5">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
+<li><a href="/qa/agent_index.html">Agent 使用</a>
+
+<ul>
+<li><a href="/qa/http_emitter.html">http_emitter: TypeError(/expected string)</a></li>
+<li><a href="/qa/emitter.html">emitter.py 报错 Unable to post payload</a></li>
+<li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
+<li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
+<li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
+<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
+<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
+<li><a href="/qa/syslog.html">Error setting up syslog</a></li>
+<li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
+</ul></li>
+<li><a href="/qa/service_index.html">平台服务配置</a>
+
+<ul>
+<li><a href="/qa/yaml.html">YAML 格式须知</a></li>
+<li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
+<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
+<li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
+<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
+<li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
+<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>解决 CentOS 5 安装 Cloud Insight 报错问题</h1>
+
+<p>CentOS 5 安装 Cloud Insight 时报错如图 ：</p>
+
+<p><img src="/images/centos5.png" /></p>
+
+<p>查看 oneapm-ci-agent-install.log 的日志，部分如下：</p>
+<pre class="highlight plaintext"><code>Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
+Trying other mirror.
+http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
+Trying other mirror.
+Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2 from oneapm-ci-agent: [Errno 256] No more mirrors to try.
+[31m
+
+</code></pre>
+
+<p>以上出错原因是发布 Cloud Insight 探针包时默认的 checksum（检验码）是 sha256 ,而 CentOS 5/rhel 5 版本不符合这个，所以安装不了这个安装包。</p>
+
+<h2>解决方法</h2>
+
+<p><strong>首先删掉因安装 Ci 添加的 yum 源</strong></p>
+<pre class="highlight plaintext"><code>rm -rf  /etc/yum.repos.d/oneapm-ci-agent.repo
+</code></pre>
+
+<p><strong>然后安装一个 hash加密的模块：</strong>
+<code>
+yum install python-hashlib
+</code></p>
+
+<p><strong>最后一键复制安装探针</strong></p>
+
+<p><img src="/images/IR2.png" /></p>
+
+<p>就这样。</p>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>

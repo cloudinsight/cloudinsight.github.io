@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Cloud Insight - 次世代系统监控、数据管理、数据可视化平台 - 快速入门</title>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+  </head>
+
+  <body class="page-quick-start quick-start_install">
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/quick-start/">快速入门</a></li>
+        <li><a href="/release-note.html">详细文档</a></li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cloudinsight" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="/quick-start/">快速入门</a>
+
+<ul>
+<li><a href="/quick-start/install.html">安装配置</a></li>
+<li><a href="/quick-start/instrument.html">常用操作</a></li>
+<li><a href="/quick-start/questions.html">常见问题</a></li>
+<li><a href="/quick-start/help.html">更多帮助</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>安装配置</h1>
+
+<p>开始使用 Cloud Insight 需要经过安装和配置两个步骤。安装是为了将 Agent 安装至操作系统，配置是为了有选择性地开启数据库、中间件的监控。</p>
+
+<h2>安装</h2>
+
+<p>在「添加平台」页面，选择自己的操作系统类型，并执行安装指令即可。</p>
+<pre class="highlight plaintext"><code>CI_LICENSE_KEY=您的LICENSE_KEY bash -c "$(curl -L https://download.oneapm.com/oneapm_ci_agent/install_agent.sh)"
+</code></pre>
+
+<p>在安装过程中，会出现以下提示，来提醒 Agent 名称、更新信息、占用空间等。</p>
+<pre class="highlight plaintext"><code>The following packages will be upgraded:
+  oneapm-ci-agent
+1 upgraded, 0 newly installed, 0 to remove and 41 not upgraded.
+Need to get 50.6 MB of archives.
+After this operation, 194 kB of additional disk space will be used.
+</code></pre>
+
+<p>安装完毕后，Agent 会自动启动，并提示 Agent 停止和启动的指令。</p>
+<pre class="highlight plaintext"><code>If you ever want to stop the Agent, run:
+
+    sudo /etc/init.d/oneapm-ci-agent stop
+
+And to run it again run:
+
+    sudo /etc/init.d/oneapm-ci-agent start
+</code></pre>
+
+<p>有关 Agent 的更多操作，请查看 <a href="/quick-start/instrument.html">常用操作</a></p>
+
+<h2>配置</h2>
+
+<p><strong>For Linux</strong></p>
+
+<p>Agent 放置于以下路径，来保证 Agent 开机自动启动。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent
+</code></pre>
+
+<p>而 Agent 配置文件放置于以下路径。</p>
+<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent
+</code></pre>
+
+<p>该路径下的文件结构如下。</p>
+<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+
+.
+├── checks.d
+├── conf.d
+│   ├── activemq_58.yaml.example
+│   ├── activemq.yaml.example
+│   ├── agent_metrics.yaml.default
+│   ├── apache.yaml.example
+│   ├── cassandra.yaml.example
+│   ├── couchbase.yaml.example
+│   ├── couch.yaml.example
+│   ├── disk.yaml.default
+│   ├── docker_daemon.yaml.example
+│   ├── elastic.yaml.example
+│   ├── jmx.yaml.example
+│   ├── kafka_consumer.yaml.example
+│   ├── kafka.yaml.example
+│   ├── mcache.yaml.example
+│   ├── mesos_master.yaml.example
+│   ├── mesos_slave.yaml.example
+│   ├── mongo.yaml.example
+│   ├── mysql.yaml.example
+│   ├── network.yaml.default
+│   ├── nginx.yaml.example
+│   ├── php_fpm.yaml.example
+│   ├── postgres.yaml.example
+│   ├── rabbitmq.yaml.example
+│   ├── redisdb.yaml.example
+│   ├── solr.yaml.example
+│   ├── tomcat.yaml.example
+│   └── zookeeper.yaml.example
+├── oneapm-ci-agent.conf
+├── oneapm-ci-agent.conf.example
+└── supervisor.conf
+
+2 directories, 30 files
+</code></pre>
+
+<p>包括 3 类配置文件：</p>
+
+<ul>
+<li><code>oneapm-ci-agent.conf</code>：Agent 配置文件</li>
+<li><code>supervisor.conf</code>：</li>
+<li><code>conf.d/平台服务名称.yaml.example</code>：平台服务配置示例</li>
+</ul>
+
+<h3>配置 <code>oneapm-ci-agent</code></h3>
+
+<p><code>oneapm-ci-agent</code> 配置项如下。</p>
+
+<ul>
+<li><code>ci_url</code> - 收集的数据发送的目的服务器地址</li>
+<li><code>license_key</code> - 您的 OneAPM Cloud Insight 的 license key</li>
+<li><code>proxy_host</code> - 代理服务地址</li>
+<li><code>proxy_port</code> - 代理服务端口</li>
+<li><code>proxy_user</code> - 代理服务账户</li>
+<li><code>proxy_password</code> - 代理服务密码</li>
+<li><code>skip_ssl_validation</code> - 跳过 ssl 验证</li>
+<li><code>hostname</code> - 主机名</li>
+<li><code>tags</code> - 标签，多项用逗号间隔</li>
+<li><code>log_level</code> - log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)</li>
+<li><code>collector_log_file</code> - collector 日志文件</li>
+<li><code>forwarder_log_file</code> - forwarder 日志文件</li>
+<li><code>onestatsd_log_file</code> - onestatsd 日志文件</li>
+<li><code>log_to_syslog</code> - 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog</li>
+<li><code>syslog_host</code> - syslog 地址</li>
+<li><code>syslog_port</code> - syslog 端口</li>
+</ul>
+
+<h3>配置 <code>supervisor.conf</code></h3>
+
+<p>以下仅列出探针用到的配置，如果有疑问，可以查看更详细的<a href="http://supervisord.org/configuration.html">官方 supervisor 配置文档</a>。</p>
+
+<ul>
+<li><code>supervisorctl</code>
+
+<ul>
+<li><code>serverurl</code>: 连接 supervisord 服务的地址，可以是 url 或者 unix socket</li>
+</ul></li>
+<li><code>unix_http_server</code>
+
+<ul>
+<li><code>file: supervisord</code> 的 unix socket 文件</li>
+</ul></li>
+<li><code>rpcinterface:supervisor</code>
+
+<ul>
+<li><code>supervisor.rpcinterface_factory</code>: rpc 的工厂函数，不用管这个 - -</li>
+</ul></li>
+<li><code>supervisord</code>
+
+<ul>
+<li><code>http_port</code>: supervisord 端口</li>
+<li><code>minfds</code>: supervisord 启动所需的最小的文件描述符个数</li>
+<li><code>loglevel</code>: log 级别，可用的有 critical, error, warn, info, debug, trace, blather</li>
+<li><code>logfile</code>: log 文件</li>
+<li><code>logfile_maxbytes</code>: log 文件的最大 bytes 值，超过就会分割为备份文件</li>
+<li><code>nodaemon</code>: 如果值是 true, supervisord 会在前台运行，false 就是后台运行</li>
+<li><code>pidfile</code>: supervisord 的 pid 文件</li>
+<li><code>logfile_backups</code>: 日志分割文件保留数，如果是0就不会有备份文件</li>
+<li><code>user</code>: 让 supervisord 切换到这个用户再运行，只有是用 root 启动的 supervisord 才能切换</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>program:collector,forwarder,onestatsd,jmxfetch</code>
+
+<ul>
+<li><code>command</code>: 这个程序启动时候会执行的命令</li>
+<li><code>stdout_logfile</code>: 这个程序的标准输出写入的目标文件，如果是 <code>NONE</code>,将不会创建 log 文件</li>
+<li><code>stderr_logfile</code>: 这个程序的错误输出写入的目标文件，如果是 <code>NONE</code>,静不会创建 log 文件</li>
+<li><code>priority</code>: 这个程序在启动和关闭时候的顺序的相对优先级，值越低，启动越早，关闭越晚</li>
+<li><code>startsecs</code>: 这个程序在被认为启动成功之前，需要运行的时间</li>
+<li><code>startretries</code>: supervisord 在启动程序失败后会尝试启动的次数</li>
+<li><code>user</code>: 使 supervisord 使用这个用户运行这个程序</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>group:oneapm-ci-agent</code>
+
+<ul>
+<li><code>programs</code>: 作为这个组的成员的程序的名字，程序需要在 <code>program:x</code> 中有定义</li>
+</ul></li>
+</ul>
+
+<h3>配置平台服务</h3>
+
+<p>开启平台服务监控，只需开启平台服务配置文件即可。如开启 Redis 监控：</p>
+<pre class="highlight plaintext"><code>cp redis.yaml.example redis.yaml
+</code></pre>
+
+<p>而在某些特殊情况下，除开开启配置文件后，还需对 Agent 授权、开启状态页监控等，详细情况请前往：<a href="/services/">平台服务</a>。</p>
+
+<p>编辑完配置文件后，可以通过以下指令来检查配置和使配置生效。</p>
+
+<p><em>检查配置</em></p>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent configcheck
+</code></pre>
+
+<p>若出现以下提示信息，则代表配置文件没有语法错误。</p>
+<pre class="highlight plaintext"><code>All yaml files passed. You can now run the OneAPM CI Agent.
+</code></pre>
+
+<p><em>使配置生效</em></p>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent restart
+</code></pre>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/quick-start/']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>
