@@ -314,15 +314,41 @@
 
 <p>Cloud Insight 采集 PHP FPM 以下性能指标：</p>
 
-<ul>
-<li>listen_queue.size</li>
-<li>processes.active</li>
-<li>processes.active</li>
-<li>processes.max_reached</li>
-<li>processes.total</li>
-<li>requests.accepted</li>
-<li>requests.slow</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>listen_queue.size</td>
+<td>请求等待队列最高的数量</td>
+</tr>
+<tr>
+<td>processes.active</td>
+<td>活跃进程数量</td>
+</tr>
+<tr>
+<td>processes.idle</td>
+<td>空闲进程数量</td>
+</tr>
+<tr>
+<td>processes.max_reached</td>
+<td>最大的活跃进程数量</td>
+</tr>
+<tr>
+<td>processes.total</td>
+<td>总进程数量</td>
+</tr>
+<tr>
+<td>requests.accepted</td>
+<td>当前池子接受的请求数</td>
+</tr>
+<tr>
+<td>requests.slow</td>
+<td>缓慢请求的数量</td>
+</tr>
+</tbody></table>
 
 <h2>配置 PHP FPM 监控</h2>
 

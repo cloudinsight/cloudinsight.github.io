@@ -314,15 +314,41 @@
 
 <p>Cloud Insight 采集 Nginx 以下性能指标：</p>
 
-<ul>
-<li>net.conn<em>dropped</em>per_s</li>
-<li>net.conn<em>opened</em>per_s</li>
-<li>net.connections</li>
-<li>net.reading</li>
-<li>net.request<em>per</em>s</li>
-<li>net.waiting</li>
-<li>net.writing</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>net.conn<em>dropped</em>per_s</td>
+<td>Nginx 丢弃的用户连接总数/s</td>
+</tr>
+<tr>
+<td>net.conn<em>opened</em>per_s</td>
+<td>Nginx 打开连接数/s</td>
+</tr>
+<tr>
+<td>net.connections</td>
+<td>当前活跃的用户连接(包含Waiting状态)</td>
+</tr>
+<tr>
+<td>net.reading</td>
+<td>当前连接中Nginx读取请求首部的个数</td>
+</tr>
+<tr>
+<td>net.request<em>per</em>s</td>
+<td>用户请求数／s</td>
+</tr>
+<tr>
+<td>net.waiting</td>
+<td>当前没有请求的活跃用户连接数</td>
+</tr>
+<tr>
+<td>net.writing</td>
+<td>当前连接中Nginx写返回给用户的个数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 Nginx 监控</h2>
 

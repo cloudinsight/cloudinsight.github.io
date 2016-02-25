@@ -267,7 +267,7 @@
   <div class="row intro-section">
     <div class="col-xs-6">
       <h1>丰富的平台服务集成</h1>
-      <p>
+      <p class="section-description">
         Cloud Insight 集成了数十种互联网流行基础组件的监控，开箱即用，您只需要进行最小化的配置就可以实现复杂的基础组件监控，
         免除了传统基础组件监控中的复杂流程。Cloud Insight 采集这些基础组件的权威指标，所有指标都是标准化的格式，您再也不需要
         自己定义各种指标，以及思考如何进行各种指标的组合展示，一切就只有两步，安装探针，查看仪表盘，如果您使用的是阿里云、UCloud
@@ -288,7 +288,7 @@
     </div>
     <div class="col-xs-6">
       <h1>高度可定制化的仪表盘</h1>
-      <p>
+      <p class="section-description">
         丰富的仪表盘展示才能满足您个性化的数据展示需求，Cloud Insight 的仪表盘定制非常的方便，您可以创建任意的仪表盘，并把任意
         的指标添加到图表中去，每一个指标曲线都支持丰富的数学运算，无论是基础组件的指标还是您的业务指标都能非常简单、方便的添加到
         仪表盘的图表中。
@@ -301,7 +301,7 @@
   <div class="row intro-section">
     <div class="col-xs-6">
       <h1>API 与 SDK</h1>
-      <p>
+      <p class="section-description">
         您需要上传个性化的业务数据？没问题，Cloud Insight 提供 API 和 SDK，您可以上传任意的指标，并标记上Tag，然后就可以轻松的
         在仪表盘上进行各种个性化的数据展示。
       </p>
@@ -319,7 +319,7 @@
     </div>
     <div class="col-xs-6">
       <h1>全面的告警策略</h1>
-      <p>
+      <p class="section-description">
         各种基础组件的监控告警是必不可少的，Cloud Insight 不仅仅支持基础组件的指标告警，您通过 API 和 SDK 上传的任意指标
         都可以进行告警监测，这肯定是您期待已久的功能。
       </p>
@@ -329,18 +329,6 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(function() {
-    [
-      "solr", "nginx", "mongodb", "apache", "redis", "mysql", "rabbitmq", "couchdb", "docker",
-      "memcache", "kafka", "elasticsearch", "jianliao","couchbase", "php_fpm", "bearychat",
-      "zookeeper", "activemq", "tomcat", "postgresql", "mesos", "cassandra"
-    ].forEach(function(item) {
-      $(".brands-container").append("<a href='/services_example/" + item + ".html'><img class='brand-img' src='/images/brands/" + item + ".png'/></a>");
-    });
-  });
-</script>
 
   </body>
 </html>

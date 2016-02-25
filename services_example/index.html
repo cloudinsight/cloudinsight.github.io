@@ -297,10 +297,23 @@
         </div>
         <div class="col-xs-9 page-body">
           <h1>平台服务示例</h1>
+<p>
+  截止至 2016.2.25，Cloud Insight 支持以下平台服务：
+</p>
+<div class="row brands-container"></div>
 
-<p>截止至 v 0.2.0 版本，Cloud Insight 支持以下平台服务：</p>
-
-<p><img src="/images/services1.png" /></p>
+<script type="text/javascript">
+  $(function() {
+    [
+      "solr", "nginx", "mongodb", "apache", "redis", "mysql", "rabbitmq", "couchdb", "docker",
+      "memcache", "kafka", "elasticsearch", "jianliao","couchbase", "php_fpm", "bearychat",
+      "zookeeper", "activemq", "tomcat", "postgresql", "mesos", "cassandra"
+    ].forEach(function(item) {
+      var img = "<img class='brand-img' src='/images/brands/" + item + ".png' />";
+      $(".brands-container").append("<a href='/services_example/" + item + ".html' class='col-xs-2'>" + img + "<h4>" + item + "</h4></a>");
+    });
+  });
+</script>
 
         </div>
       </div>
