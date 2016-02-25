@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://docs-ci.oneapm.com/sitemap.xml
