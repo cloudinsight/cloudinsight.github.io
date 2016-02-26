@@ -201,7 +201,7 @@
 
   </head>
 
-  <body class="page-services_example services_example_tomcat">
+  <body class="page-shared shared_duoshuo">
     <a href="https://github.com/cloudinsight" target="_blank">
   <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10;"
        src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67"
@@ -313,164 +313,38 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Tomcat</h1>
+          <hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/shared/duoshuo.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var title = "";
+  if (title.length === 0) {
+    var titleTag = document.getElementsByTagName("h1")[0];
+    if (titleTag) {
+      title = document.getElementsByTagName("h1")[0].innerText;
+      var duoshuoTag = document.getElementById('ds-thread');
+      duoshuoTag.setAttribute('data-thread-key', title);
+      duoshuoTag.setAttribute('data-title', title);
+    }
+  }
 
-<p>本章节为 Cloud Insight 支持的平台服务的文档的示例。</p>
-
-<p>分为以下几个部分：</p>
-
-<ul>
-<li>支持的性能指标</li>
-<li>如何配置 Tomcat 监控</li>
-<li>常见的问题</li>
-</ul>
-
-<p><img src="/images/tomcat.png" /></p>
-
-<h2>性能指标</h2>
-
-<ul>
-<li>tomcat.bytes_rcvd</li>
-<li>tomcat.bytes_sent</li>
-<li>tomcat.error_count</li>
-<li>tomcat.max_time</li>
-<li>tomcat.processing_time</li>
-<li>tomcat.request_count</li>
-<li>tomcat.servlet.error_count</li>
-<li>tomcat.servlet.processing_time</li>
-<li>tomcat.servlet.request_count</li>
-<li>tomcat.threads.busy</li>
-<li>tomcat.threads.count</li>
-<li>tomcat.threads.max</li>
-<li>jvm.gc.cms.count</li>
-<li>jvm.gc.parnew.time</li>
-<li>jvm.heap_memory</li>
-<li>jvm.heap<em>memory</em>committed</li>
-<li>jvm.heap<em>memory</em>init</li>
-<li>jvm.heap<em>memory</em>max</li>
-<li>jvm.non<em>heap</em>memory</li>
-<li>jvm.non<em>heap</em>memory_committed</li>
-<li>jvm.non<em>heap</em>memory_init</li>
-<li>jvm.non<em>heap</em>memory_max</li>
-<li>jvm.thread_count</li>
-<li>jmx.catalina.jsp_count</li>
-<li>jmx.catalina.jsp<em>queue</em>length</li>
-<li>jmx.catalina.jsp<em>reload</em>count</li>
-<li>jmx.catalina.jsp<em>unload</em>count</li>
-</ul>
-
-<h2>配置 Tomcat 监控</h2>
-
-<h3>启动 JMX Remote</h3>
-
-<p>OneAPM Cloud Insight Agent 通过 JMX 获取 Tomcat 中的性能指标，所以确保 JMX Remote 是 <code>enabled</code>状态。</p>
-
-<p>由于每个实体最多可以监控 350 个性能指标，所以您需要按照下方的配置方法，修改配置文件来确定自己需要哪些指标。</p>
-
-<p>有关 JMX 采集方法，请查阅 <a href="/services/jmx.html">JMX 远程监控</a>。</p>
-
-<p>更多信息，请查阅 <a href="http://tomcat.apache.org/tomcat-6.0-doc/monitoring.html">Apache Tomcat 官方手册</a>。</p>
-
-<h3>编辑配置文件</h3>
-
-<p>编辑配置文件 <a href="/services/">conf.d/tomcat.yaml</a>，使 Cloud Insight Agent 可以与 Tomcat 通信。</p>
-<pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">7199</span>
-    <span class="s">user</span><span class="pi">:</span> <span class="s">username</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>
-
-<span class="c1"># List of metrics to be collected by the integration</span>
-
-<span class="s">init_config</span><span class="pi">:</span>
-  <span class="s">conf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">ThreadPool</span>
-        <span class="s">attribute</span><span class="pi">:</span>
-          <span class="s">maxThreads</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.threads.max</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
-          <span class="s">currentThreadCount</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.threads.count</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
-          <span class="s">currentThreadsBusy</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.threads.busy</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
-    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">GlobalRequestProcessor</span>
-        <span class="s">attribute</span><span class="pi">:</span>
-          <span class="s">bytesSent</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.bytes_sent</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">bytesReceived</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.bytes_rcvd</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">errorCount</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.error_count</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">requestCount</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.request_count</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">maxTime</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.max_time</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">gauge</span>
-          <span class="s">processingTime</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.processing_time</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
-        <span class="s">j2eeType</span><span class="pi">:</span> <span class="s">Servlet</span>
-        <span class="s">attribute</span><span class="pi">:</span>
-          <span class="s">processingTime</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.servlet.processing_time</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">errorCount</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.servlet.error_count</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-          <span class="s">requestCount</span><span class="pi">:</span>
-            <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.servlet.request_count</span>
-            <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">Cache</span>
-        <span class="s">accessCount</span><span class="pi">:</span>
-          <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.cache.access_count</span>
-          <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-        <span class="s">hitsCounts</span><span class="pi">:</span>
-          <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.cache.hits_count</span>
-          <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-    <span class="pi">-</span> <span class="s">include</span><span class="pi">:</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">JspMonitor</span>
-        <span class="s">jspCount</span><span class="pi">:</span>
-          <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.jsp.count</span>
-          <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-        <span class="s">jspReloadCount</span><span class="pi">:</span>
-          <span class="s">alias</span><span class="pi">:</span> <span class="s">tomcat.jsp.reload_count</span>
-          <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
-</code></pre>
-
-<h3>重启 Agent</h3>
-
-<p>重启 OneAPM Cloud Insight Agent，使配置生效。</p>
-
-<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
-<pre class="highlight plaintext"><code>Checks
-======
-
-[...]
-
-tomcat
-------
-  - instance #0 [OK]
-  - Collected 8 metrics &amp; 0 events
-</code></pre>
-
-<p>有关 Agent Info 信息的查看，请访问帮助中心，查看 <a href="/platform/agent-instrument.html">Cloud Insight Agent 常用操作</a>。</p>
-
-<h2>常见问题</h2>
-
-<ul>
-<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost: 7199</a></li>
-</ul>
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 
           <hr />
 <!-- 多说评论框 start -->
@@ -478,7 +352,7 @@ tomcat
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/services_example/tomcat.html"></div>
+     data-url="http://docs-ci.oneapm.com/shared/duoshuo.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

@@ -209,7 +209,7 @@
        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
 </a>
 
-    <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Cloud Insight 文档中心</a>
@@ -371,6 +371,39 @@ license_key: 自己的 license_key
 </code></pre>
 
 <p>这样重启探针即可生效，通过配置的 ci_url ，探针将数据发送到 <code>http://192.168.43.145:8082/infrastructure/metrics.do</code> ，而这个地址经由 Nginx 代理服务器 8082 端口进行处理，这个地址和配置文件进行匹配再将数据转发到 Cloud Insight 的服务器 <code>https://dc-cloud.oneapm.com/infrastructure/metrics.do</code>，这样数据就发送出去了。之后后端对数据进行处理，在 web 上进行展示。 </p>
+
+          <hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/platform/inner.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var title = "";
+  if (title.length === 0) {
+    var titleTag = document.getElementsByTagName("h1")[0];
+    if (titleTag) {
+      title = document.getElementsByTagName("h1")[0].innerText;
+      var duoshuoTag = document.getElementById('ds-thread');
+      duoshuoTag.setAttribute('data-thread-key', title);
+      duoshuoTag.setAttribute('data-title', title);
+    }
+  }
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 
         </div>
       </div>
