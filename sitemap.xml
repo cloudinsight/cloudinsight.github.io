@@ -169,6 +169,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://docs-ci.oneapm.com/404.html</loc>
+    <lastmod>2016-02-29T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://docs-ci.oneapm.com/services/database.html</loc>
     <lastmod>2016-02-29T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
