@@ -201,7 +201,7 @@
 
   </head>
 
-  <body class="page-platform platform_amazon">
+  <body class="page-shared shared_ga">
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -331,37 +331,16 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Amazon Linux 安装</h1>
+          <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<h2>注册</h2>
+  ga('create', 'UA-74438127-1', 'auto');
+  ga('send', 'pageview');
 
-<p>注册 OneAPM，登录账号后点击 CI 导航栏。然后点击添加平台，您也可以根据本文的安装步骤进行安装。</p>
-
-<p><img src="/images/IR1.png" /></p>
-
-<h2>选择平台类型</h2>
-
-<p>选择服务器平台，目前支持 CentOS、Ubuntu、Fedora、RedHat、Amazon Linux、Docker、Chef、Puppet 等多种平台。选择 Ubuntu 平台，复制粘贴下面的文字，直接运行：</p>
-
-<p><img src="/images/IA2.png" /></p>
-
-<p>当安装成功时，Cloud Insight Agent 会自动启动。当出现以下提示时，代表安装成功。</p>
-
-<p><img src="/images/IA3.png" /></p>
-
-<h2>启动和页面显示</h2>
-
-<p>如果安装后，Cloud Insight Agent 没有自动启动；可以选择手动启动的方式：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent start
-</code></pre>
-
-<p>启动成功时，会出现以下提示：</p>
-
-<p><img src="/images/IA4.png" /></p>
-
-<p>此时 Cloud Insight 平台列表页面中，会出现已安装成功的平台：</p>
-
-<p><img src="/images/IA5.png" /></p>
+</script>
 
           <hr />
 <!-- 多说评论框 start -->
@@ -369,7 +348,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/platform/amazon.html"></div>
+     data-url="http://docs-ci.oneapm.com/shared/ga.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
