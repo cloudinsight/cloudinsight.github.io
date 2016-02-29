@@ -13,7 +13,9 @@
 <title>Cloud Insight - 最佳实践</title>
 
 <script type="text/javascript">
-    if (window.location.host !== 'docs-ci.oneapm.com') {
+    if (window.location.hostname === 'www.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com';
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
       window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
     }
 </script>
