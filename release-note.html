@@ -13,9 +13,9 @@
 <title>Cloud Insight - Release Note</title>
 
 <script type="text/javascript">
-  if (window.location.hostname === 'www.oneapm.com') {
-    window.location.href = 'http://docs-ci.oneapm.com';
-  }
+    if (window.location.host !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
 </script>
 
 <script>
@@ -331,9 +331,9 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h2>版本更新</h2>
+          <h1>版本更新</h1>
 
-<h3>v 1.0.1</h3>
+<h2>v 1.0.1</h2>
 
 <ul>
 <li>新增平台列表分页功能</li>
@@ -343,7 +343,7 @@
 <li>修复了自定义数据仪表盘的显示问题</li>
 </ul>
 
-<h3>v 1.0.0</h3>
+<h2>v 1.0.0</h2>
 
 <ul>
 <li>新增平台服务：简聊</li>
@@ -354,7 +354,7 @@
 <li>以及对前后端进行了部分重构</li>
 </ul>
 
-<h3>v 0.4.1</h3>
+<h2>v 0.4.1</h2>
 
 <ul>
 <li>新增事件流名称搜索</li>
@@ -369,7 +369,7 @@
 <li>修复了一些 BUG 和样式问题</li>
 </ul>
 
-<h3>v 0.4.0</h3>
+<h2>v 0.4.0</h2>
 
 <ul>
 <li>新增基于任一指标的静态门限报警</li>
@@ -387,7 +387,7 @@
 <li>以及修复前端样式和一些 BUG</li>
 </ul>
 
-<h3>v 0.3.0</h3>
+<h2>v 0.3.0</h2>
 
 <ul>
 <li>新增平台拓扑 • Beta</li>
@@ -399,7 +399,7 @@
 <li>以及样式调优和修复一些 Bug</li>
 </ul>
 
-<h3>v 0.2.2</h3>
+<h2>v 0.2.2</h2>
 
 <ul>
 <li>新增 Apache Solr 监控服务</li>
@@ -417,7 +417,7 @@
 <li>修复了细节问题和 BUG</li>
 </ul>
 
-<h3>v 0.2.1</h3>
+<h2>v 0.2.1</h2>
 
 <ul>
 <li>新增 ZooKeeper 监控服务</li>
@@ -437,7 +437,7 @@
 <li>图表显示单位优化</li>
 </ul>
 
-<h3>v 0.2.0</h3>
+<h2>v 0.2.0</h2>
 
 <ul>
 <li>新增 Amazon Linux 监控</li>
@@ -452,7 +452,7 @@
 <li>仪表盘与用户系统对接，标识仪表盘归属</li>
 </ul>
 
-<h3>v 0.1.1</h3>
+<h2>v 0.1.1</h2>
 
 <ul>
 <li>添加平台服务仪表盘，显示该平台服务的所有 Metrics</li>
@@ -466,7 +466,7 @@
 <li>修复 Agen info 指令无法执行的错误</li>
 </ul>
 
-<h3>v 0.1.0</h3>
+<h2>v 0.1.0</h2>
 
 <ul>
 <li>新增 64 位系统 CentOS, RedHat, Fedora, Ubuntu 监控</li>
@@ -485,7 +485,7 @@
 <li>系统信息中添加进行运行状态</li>
 </ul>
 
-<h3>v 0.0.1</h3>
+<h2>v 0.0.1</h2>
 
 <ul>
 <li>新增 CentOS 监控</li>

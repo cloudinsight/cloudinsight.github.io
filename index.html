@@ -13,9 +13,9 @@
 <title>Cloud Insight - 次世代系统监控、数据管理、数据可视化平台</title>
 
 <script type="text/javascript">
-  if (window.location.hostname === 'www.oneapm.com') {
-    window.location.href = 'http://docs-ci.oneapm.com';
-  }
+    if (window.location.host !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
 </script>
 
 <script>
