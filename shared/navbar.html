@@ -14,7 +14,9 @@
 
 <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
-      window.location.href = 'http://docs-ci.oneapm.com';
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
     } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
       window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
     }
@@ -235,7 +237,16 @@
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/videos.html">视频演示</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="/release-note.html">详细文档</a></li>
+            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
         </li>
         <li class="dropdown cloud-integration">
@@ -293,7 +304,7 @@
 <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 </ul></li>
-<li><a href="/metric/">指标</a>
+<li><a href="/metric/">指标与示意</a>
 
 <ul>
 <li><a href="/platform/system.html">System 数据指标解释</a></li>
@@ -303,7 +314,7 @@
 <ul>
 <li><a href="/alert/metric.html">指标报警</a></li>
 </ul></li>
-<li><a href="/event/">事件流</a></li>
+<li><a href="/event/">事件</a></li>
 <li><a href="/services_example/">平台服务配置示例</a>
 
 <ul>
@@ -364,7 +375,16 @@
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/videos.html">视频演示</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="/release-note.html">详细文档</a></li>
+            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
         </li>
         <li class="dropdown cloud-integration">

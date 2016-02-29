@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+    <meta name="keywords" content="cloud insight,cloudinsight,redis监控工具,redis监控,redis性能监控,redis如何监控">
 <meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
@@ -10,11 +10,13 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloud Insight - redis 监控配置示例</title>
 
 <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
-      window.location.href = 'http://docs-ci.oneapm.com';
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
     } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
       window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
     }
@@ -235,7 +237,16 @@
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/videos.html">视频演示</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="/release-note.html">详细文档</a></li>
+            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
         </li>
         <li class="dropdown cloud-integration">
@@ -293,7 +304,7 @@
 <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 </ul></li>
-<li><a href="/metric/">指标</a>
+<li><a href="/metric/">指标与示意</a>
 
 <ul>
 <li><a href="/platform/system.html">System 数据指标解释</a></li>
@@ -303,7 +314,7 @@
 <ul>
 <li><a href="/alert/metric.html">指标报警</a></li>
 </ul></li>
-<li><a href="/event/">事件流</a></li>
+<li><a href="/event/">事件</a></li>
 <li><a href="/services_example/">平台服务配置示例</a>
 
 <ul>
@@ -538,7 +549,7 @@ redisdb
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "";
+  var title = "Cloud Insight - redis 监控配置示例";
   if (title.length === 0) {
     var titleTag = document.getElementsByTagName("h1")[0];
     if (titleTag) {
