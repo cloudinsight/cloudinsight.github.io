@@ -376,14 +376,16 @@ mapping values are not allowed in this context in &quot;&lt;byte string&gt;&quot
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
   var title = "Cloud Insight - 常见问题";
-  var titleTag = document.getElementsByTagName("h1")[0];
+  if (title.length === 0) {
+    var titleTag = document.getElementsByTagName("h1")[0];
 
-  if (titleTag) {
-    title = title + " - " + document.getElementsByTagName("h1")[0].innerText;
+    if (titleTag) {
+      title = document.getElementsByTagName("h1")[0].innerText;
+    }
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
-  duoshuoTag.setAttribute('data-thread-key', title);
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
   duoshuoTag.setAttribute('data-title', title);
 
   var duoshuoQuery = {short_name:"docs-ci"};
