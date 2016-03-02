@@ -350,13 +350,13 @@
 
 <p>注册 OneAPM，登录账号后点击 CI 导航栏。然后点击添加平台，您也可以根据本文的安装步骤进行安装。</p>
 
-<p><img src="/images/IR1.png" /></p>
+<p><img src="/images/platform/IR1.png" /></p>
 
 <h2>选择平台类型</h2>
 
 <p>选择服务器平台，目前支持 CentOS、Ubuntu、Fedora、RedHat、Amazon Linux、Docker、Chef、Puppet 等多种平台。</p>
 
-<p><img src="/images/chef_6.png" /></p>
+<p><img src="/images/platform/chef_6.png" /></p>
 
 <p>Cloud Insight 目前支持 Chef 10.14.x 及以上版本。</p>
 
@@ -370,7 +370,7 @@ cookbook `oneapm-ci-agent`
 <code>
 knife cookbook site install oneapm-ci-agent
 </code>
-<img src="/images/chef_1.png" /></p>
+<img src="/images/platform/chef_1.png" /></p>
 
 <h2>授权</h2>
 
@@ -378,7 +378,7 @@ knife cookbook site install oneapm-ci-agent
 <code>
 node.default[&#39;oneapm-ci-agent&#39;][&#39;license_key&#39;] = &quot;LICENSE_KEY&quot;
 </code>
-<img src="/images/chef_2.png" /></p>
+<img src="/images/platform/chef_2.png" /></p>
 
 <h2>上传 Cookbook</h2>
 
@@ -390,7 +390,7 @@ berks upload
 <code>
 knife cookbook upload oneapm-ci-agent
 </code>
-<img src="/images/chef_3.png" /></p>
+<img src="/images/platform/chef_3.png" /></p>
 
 <p>可以使用以下指令来检查，Cookbook 是否上传成功：
 <code>
@@ -403,12 +403,12 @@ knife cookbook list | grep oneapm &amp;&amp; \ echo -e &quot;\e[0;32oneapm cookb
 &ldquo;`
 &quot;run</em>list&rdquo;: [ &ldquo;recipe[oneapm-ci-agent::oneapm-ci-agent]&rdquo; ]
 &ldquo;`
-<img src="/images/chef_4.png" /></p>
+<img src="/images/platform/chef_4.png" /></p>
 
 <h2>成功</h2>
 
 <p>等待下一次 Chef Client 运行，即完成整个安装步骤。
-<img src="/images/chef_5.png" /></p>
+<img src="/images/platform/chef_5.png" /></p>
 
           <hr />
 <!-- 多说评论框 start -->

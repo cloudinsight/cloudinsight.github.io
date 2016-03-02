@@ -348,7 +348,7 @@
 
 <p>Cloud Insight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
 
-<p><img src="/images/QueryMetric3.png" /></p>
+<p><img src="/images/dashboard/QueryMetric3.png" /></p>
 
 <p>什么意思呢？我们先来温习下 Metric 查询的语法：</p>
 <pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
@@ -358,7 +358,7 @@
 
 <p>我们以 <em>System 总览 • 仪表盘</em>，举例来说：</p>
 
-<p><img src="/images/Parameter1.png" /></p>
+<p><img src="/images/dashboard/Parameter1.png" /></p>
 
 <p>我们需要一张仪表盘，能够：</p>
 
@@ -369,7 +369,7 @@
 
 <p>此时，就需要使用参数来达到要求。</p>
 
-<p><img src="/images/Parameter2.png" /></p>
+<p><img src="/images/dashboard/Parameter2.png" /></p>
 
 <p>在上图中，我们可以看到 <code>$scope</code> 代表的是 <code>host:*</code> ，则此时 Metric 查询语句为：</p>
 <pre class="highlight plaintext"><code>avg:system.load.1 {host:*}
@@ -383,7 +383,7 @@
 
 <p>若此时，我选择 <code>$scope</code> 为 <code>host:centos-ssl</code> 则显示效果如图：</p>
 
-<p><img src="/images/Parameter4.png" /></p>
+<p><img src="/images/dashboard/Parameter4.png" /></p>
 
 <h2>注意事项</h2>
 
@@ -393,7 +393,7 @@
 
 <p>但是我们不建议您这么做。是因为变量和常量在查询上隔离，能够帮助您更有效地管理 Metric 和 Host。</p>
 
-<p><img src="/images/Parameter3.png" /></p>
+<p><img src="/images/dashboard/Parameter3.png" /></p>
 
 <p>另外，只有 <code>{FromTag}</code> 中可以设置参数；用于分组的 <code>{TagKey}</code> 不能使用参数。</p>
 

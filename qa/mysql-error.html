@@ -277,7 +277,12 @@
       <div class="row">
         <div class="col-xs-3 page-sidebar">
           <ul>
+<li>产品
+
+<ul>
 <li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
+<li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
+</ul></li>
 <li><a href="/qa/agent_index.html">Agent 使用</a>
 
 <ul>
@@ -303,6 +308,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 </ul></li>
 </ul>
 
@@ -315,13 +321,13 @@
 <p>配置 MySQL 时，如果出现以下3种信息，则表示没有安装成功。</p>
 
 <p>错误一：
-<img src="/images/mysql_1.png" /></p>
+<img src="/images/qa/mysql_1.png" /></p>
 
 <p>错误二：
-<img src="/images/mysql_2.png" /></p>
+<img src="/images/qa/mysql_2.png" /></p>
 
 <p>错误三：
-<img src="/images/mysql_3.png" /></p>
+<img src="/images/qa/mysql_3.png" /></p>
 
 <h2>故障原因：</h2>
 
@@ -333,19 +339,19 @@
 
 <p><strong>1 创建 OneAPM 访问权限</strong></p>
 
-<p><img src="/images/mysql_4.png" /></p>
+<p><img src="/images/qa/mysql_4.png" /></p>
 
 <p><strong>2 配置遵循 yaml 格式的 mysql.yaml 文件</strong></p>
 
 <p>如下图所示，server user pass tags options 等5项要竖直对齐，修改完重启探针。</p>
 
-<p><img src="/images/mysql_5.png" /></p>
+<p><img src="/images/qa/mysql_5.png" /></p>
 
 <p><strong>5 修改 MySQL 的 OneAPM 密码</strong></p>
 
 <p>修改成含有英文的密码，之后重启探针。如出现下图所示字样，则表示配置成功。</p>
 
-<p><img src="/images/mysql_6.png" /></p>
+<p><img src="/images/qa/mysql_6.png" /></p>
 
           <hr />
 <!-- 多说评论框 start -->

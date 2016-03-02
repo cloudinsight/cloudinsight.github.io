@@ -277,7 +277,12 @@
       <div class="row">
         <div class="col-xs-3 page-sidebar">
           <ul>
+<li>产品
+
+<ul>
 <li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
+<li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
+</ul></li>
 <li><a href="/qa/agent_index.html">Agent 使用</a>
 
 <ul>
@@ -303,6 +308,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 </ul></li>
 </ul>
 
@@ -312,11 +318,11 @@
 
 <p>CentOS 7 安装 Cloud Insight 报错如图：</p>
 
-<p><img src="/images/centos7-4041.png" /></p>
+<p><img src="/images/qa/centos7-4041.png" /></p>
 
 <p>查看日记截图如下：</p>
 
-<p><img src="/images/centos7-4042.png" /></p>
+<p><img src="/images/qa/centos7-4042.png" /></p>
 
 <p>可以看出是oneapm-ci-agent 这个用户没有添加成功，不能在/etc/passwd 里面添加用户，查看此文件</p>
 <pre class="highlight plaintext"><code># lsattr /etc/passwd

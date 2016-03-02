@@ -352,7 +352,7 @@
 
 <p>为了收集这些指标，Cloud Insight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloud Insight Agent。</p>
 
-<p><img src="/images/jmx1.png" /></p>
+<p><img src="/images/service/jmx1.png" /></p>
 
 <p>JMX 监控每个实例的 350 个指标应该足以满足需求，因为自定义指标是非常容易的。接下来我们来看看如何做到这一点。</p>
 
@@ -381,11 +381,11 @@
 
 <p>此处设置连接 JMX 端口为 <code>7199</code>，因此在 <code>tomcat.yaml</code> 配置文件中也要写成相应的 <code>7199</code>。如下图所示：</p>
 
-<p><img src="/images/jmx2.png" /></p>
+<p><img src="/images/service/jmx2.png" /></p>
 
 <p>之后请重启 Tomcat 与 Cloud Insight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
 
-<p><img src="/images/jmx3.png" /></p>
+<p><img src="/images/service/jmx3.png" /></p>
 
 <h3>修改配置文件</h3>
 

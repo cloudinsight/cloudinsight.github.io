@@ -356,19 +356,45 @@
 <li>常见的问题</li>
 </ul>
 
-<p><img src="/images/kafka.png" /></p>
+<p><img src="/images/service_example/kafka.png" /></p>
 
 <h2>性能指标</h2>
 
 <p>Cloud Insight 采集 Kafka 以下性能指标：</p>
 
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>messages_in</td>
+<td>传人消息速率</td>
+</tr>
+<tr>
+<td>net.bytes_in</td>
+<td>传人子节速率 (bytes/s)</td>
+</tr>
+<tr>
+<td>net.bytes_out</td>
+<td>传出子节速率 (bytes/s)</td>
+</tr>
+<tr>
+<td>net.bytes_rejected</td>
+<td>被拒绝的字节速率(bytes/s)</td>
+</tr>
+<tr>
+<td>replication.isr_expands</td>
+<td>副本加入ISR池的速率 （nodes/s）</td>
+</tr>
+<tr>
+<td>replication.isr_shrinks</td>
+<td>副本离开ISR池的速率 （nodes/s）</td>
+</tr>
+</tbody></table>
+
 <ul>
-<li>messages_in</li>
-<li>net.bytes_in</li>
-<li>net.bytes_out</li>
-<li>net.bytes_rejected</li>
-<li>replication.isr_expands</li>
-<li>replication.isr_shrinks</li>
 <li>replication.leader_elections</li>
 <li>replication.unclean<em>leader</em>elections</li>
 <li>request.fetch.failed</li>

@@ -356,39 +356,81 @@
 <li>常见的问题</li>
 </ul>
 
-<p><img src="/images/tomcat.png" /></p>
+<p><img src="/images/service_example/tomcat.png" /></p>
 
 <h2>性能指标</h2>
 
-<ul>
-<li>tomcat.bytes_rcvd</li>
-<li>tomcat.bytes_sent</li>
-<li>tomcat.error_count</li>
-<li>tomcat.max_time</li>
-<li>tomcat.processing_time</li>
-<li>tomcat.request_count</li>
-<li>tomcat.servlet.error_count</li>
-<li>tomcat.servlet.processing_time</li>
-<li>tomcat.servlet.request_count</li>
-<li>tomcat.threads.busy</li>
-<li>tomcat.threads.count</li>
-<li>tomcat.threads.max</li>
-<li>jvm.gc.cms.count</li>
-<li>jvm.gc.parnew.time</li>
-<li>jvm.heap_memory</li>
-<li>jvm.heap<em>memory</em>committed</li>
-<li>jvm.heap<em>memory</em>init</li>
-<li>jvm.heap<em>memory</em>max</li>
-<li>jvm.non<em>heap</em>memory</li>
-<li>jvm.non<em>heap</em>memory_committed</li>
-<li>jvm.non<em>heap</em>memory_init</li>
-<li>jvm.non<em>heap</em>memory_max</li>
-<li>jvm.thread_count</li>
-<li>jmx.catalina.jsp_count</li>
-<li>jmx.catalina.jsp<em>queue</em>length</li>
-<li>jmx.catalina.jsp<em>reload</em>count</li>
-<li>jmx.catalina.jsp<em>unload</em>count</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tomcat.bytes_rcvd</td>
+<td>接受的字节数 （bytes/s）</td>
+</tr>
+<tr>
+<td>tomcat.bytes_sent</td>
+<td>发送的字节数（bytes/s）</td>
+</tr>
+<tr>
+<td>tomcat.cache.access_count</td>
+<td>缓存数据量 /s</td>
+</tr>
+<tr>
+<td>tomcat.cache.hits_count</td>
+<td>缓冲命中次数/s</td>
+</tr>
+<tr>
+<td>tomcat.error_count</td>
+<td>发生错误的请求数 /s</td>
+</tr>
+<tr>
+<td>tomcat.jsp.count</td>
+<td>web 模块中加载的JSP数量 /s</td>
+</tr>
+<tr>
+<td>tomcat.jsp.reload_count</td>
+<td>web 模块中重新加载的JSP数量 /s</td>
+</tr>
+<tr>
+<td>tomcat.max_time</td>
+<td>最长使用时间 (milliseconds)</td>
+</tr>
+<tr>
+<td>tomcat.processing_time</td>
+<td>请求总的处理时间</td>
+</tr>
+<tr>
+<td>tomcat.request_count</td>
+<td>总请求数</td>
+</tr>
+<tr>
+<td>tomcat.servlet.error_count</td>
+<td>servlet接收的错误请求数 /s</td>
+</tr>
+<tr>
+<td>tomcat.servlet.processing_time</td>
+<td>到servlet的请求总的处理时间</td>
+</tr>
+<tr>
+<td>tomcat.servlet.request_count</td>
+<td>到servlet总请求数</td>
+</tr>
+<tr>
+<td>tomcat.threads.busy</td>
+<td>正在使用的线程数</td>
+</tr>
+<tr>
+<td>tomcat.threads.count</td>
+<td>当前线程池的线程数</td>
+</tr>
+<tr>
+<td>tomcat.threads.max</td>
+<td>线程池最大可以产生的线程数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 Tomcat 监控</h2>
 

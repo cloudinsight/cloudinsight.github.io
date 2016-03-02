@@ -348,7 +348,7 @@
 
 <p>Cloud Insight 的报警机制，采用以下的设计思路：</p>
 
-<p><img src="/images/alert.png" /></p>
+<p><img src="/images/alert/alert.png" /></p>
 
 <p>Cloud Insight 从不同的数据源中聚合数据，转交给报警处理引擎；引擎根据报警策略中设置的报警条件，对某一固定时间窗口内，对数值进行检查。</p>
 
@@ -373,7 +373,7 @@
 
 <p>如：某个基于指标的报警策略，当前处于 <code>ALERT</code> 状态，则会显示在此。</p>
 
-<p><img src="/images/alert_list.png" /></p>
+<p><img src="/images/alert/alert_list.png" /></p>
 
 <p>列表共由 7 项构成：</p>
 
@@ -391,7 +391,7 @@
 
 <h2>报警策略状态</h2>
 
-<p><img src="/images/alert_status.png" /></p>
+<p><img src="/images/alert/alert_status.png" /></p>
 
 <p>报警策略状态由 5 部分构成：</p>
 
@@ -421,7 +421,7 @@
 
 <p>那什么是禁用呢？请看图：</p>
 
-<p><img src="/images/alert_mute.png" /></p>
+<p><img src="/images/alert/alert_mute.png" /></p>
 
 <p>当某个策略被禁用时，策略被触发时，事件就传输至 <strong>Cloud Insight 事件流</strong> 这个渠道。<strong>而不再分发至邮件、OneAlert 等这些对外的渠道。</strong></p>
 

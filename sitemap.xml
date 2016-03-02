@@ -445,6 +445,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://docs-ci.oneapm.com/qa/docker_daemon.html</loc>
+    <lastmod>2016-03-02T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://docs-ci.oneapm.com/qa/metrics.html</loc>
     <lastmod>2016-03-02T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -512,6 +518,12 @@
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/emitter.html</loc>
+    <lastmod>2016-03-02T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://docs-ci.oneapm.com/qa/load.html</loc>
     <lastmod>2016-03-02T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
