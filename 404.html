@@ -273,7 +273,31 @@
   </div>
 </nav>
 
-    <div class="container">
+    <script type="text/javascript">
+  var pathname = window.location.pathname;
+  var target = '';
+
+  switch (pathname) {
+    case '/jmx.html':
+      target = '/services/jmx.html';
+      break;
+    case '/metric.html':
+      target = '/alert/metric.html';
+      break;
+    case '/started/instrument.html':
+      target = '/quick-start/instrument.html';
+      break;
+    case '/event.html':
+      target = '/event/index.html';
+      break;
+    default:
+      break;
+  }
+
+  window.location.href = 'http://docs-ci.oneapm.com' + target;
+</script>
+
+<div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h1 style="text-align:center;">404</h1>
