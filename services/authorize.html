@@ -283,6 +283,7 @@
 <li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
 <li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
@@ -373,13 +374,17 @@
 <h3>2. 配置授权和最大链接数</h3>
 
 <p>为创建的用户分配权限。</p>
-<pre class="highlight plaintext"><code>sudo mysql -e "GRANT REPLICATION CLIENT ON *.* TO 'oneapm'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
+<pre class="highlight plaintext"><code>sudo mysql -e "GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'oneapm'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
 </code></pre>
 
-<h3>3. 检查授权是否成功</h3>
+<h3>3. MySQL 版本 &gt;= 5.6 时，需要从 <code>performance_schema</code> 表中获取指标数据</h3>
+<pre class="highlight plaintext"><code>sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'oneapm'@'localhost';"
+</code></pre>
+
+<h3>4. 检查授权是否成功</h3>
 
 <p>通过以下指令，来检查为 Cloud Insight 创建的用户是否授权成功。</p>
-<pre class="highlight plaintext"><code>mysql -u oneapm --password=YourPassword -e "show status" | \
+<pre class="highlight plaintext"><code>mysql -u oneapm --password=YourPassword -e "SHOW /*!50000 ENGINE*/ INNODB STATUS" | \
 grep Uptime &amp;&amp; echo -e "\033[0;32mMySQL user - OK\033[0m" || \
 echo -e "\033[0;31mCannot connect to MySQL\033[0m"
 mysql -u oneapm --password=YourPassword -e "show slave status" &amp;&amp; \
@@ -430,9 +435,26 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <p>相信您阅读完这篇文档，就知道答案了。</p>
 
-<p>相关 MySQL 的配置报错详见 <a href="/qa/mysql-error.html">MySQL 异常报错</a></p>
+<p>相关 MySQL 的配置报错详见 </p>
 
-          <hr />
+<ul>
+<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
+<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+</ul>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
 <!-- 多说评论框 start -->
 <div class="ds-thread"
      id="ds-thread"
@@ -442,13 +464,12 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "";
-  if (title.length === 0) {
-    var titleTag = document.getElementsByTagName("h1")[0];
+  var titleTag = document.getElementsByTagName("h1")[0];
 
-    if (titleTag) {
-      title = document.getElementsByTagName("h1")[0].innerText;
-    }
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

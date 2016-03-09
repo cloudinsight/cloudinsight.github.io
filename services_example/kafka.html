@@ -283,6 +283,7 @@
 <li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
 <li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
@@ -368,15 +369,15 @@
 </thead><tbody>
 <tr>
 <td>messages_in</td>
-<td>传人消息速率</td>
+<td>传入消息速率</td>
 </tr>
 <tr>
 <td>net.bytes_in</td>
-<td>传人子节速率 (bytes/s)</td>
+<td>传入字节速率 (bytes/s)</td>
 </tr>
 <tr>
 <td>net.bytes_out</td>
-<td>传出子节速率 (bytes/s)</td>
+<td>传出字节速率 (bytes/s)</td>
 </tr>
 <tr>
 <td>net.bytes_rejected</td>
@@ -390,25 +391,67 @@
 <td>replication.isr_shrinks</td>
 <td>副本离开ISR池的速率 （nodes/s）</td>
 </tr>
+<tr>
+<td>replication.leader_elections</td>
+<td>leader 选举频率</td>
+</tr>
+<tr>
+<td>replication.unclean<em>leader</em>elections</td>
+<td></td>
+</tr>
+<tr>
+<td>request.fetch.failed</td>
+<td>客户端请求失败次数</td>
+</tr>
+<tr>
+<td>request.fetch.time.99percentile</td>
+<td>99%请求获取时间</td>
+</tr>
+<tr>
+<td>request.fetch.time.avg</td>
+<td>获取请求的平均时间</td>
+</tr>
+<tr>
+<td>request.handler.avg.idle.pct</td>
+<td>处理请求线程的平均闲置时间百分比</td>
+</tr>
+<tr>
+<td>request.metadata.time.99percentile</td>
+<td>99%元数据请求时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>request.metadata.time.avg</td>
+<td>元数据平均请求时间</td>
+</tr>
+<tr>
+<td>request.offsets.time.99percentile</td>
+<td>99% offset 请求时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>request.offsets.time.avg</td>
+<td>offset 平均请求时间</td>
+</tr>
+<tr>
+<td>request.produce.failed</td>
+<td>失败的 produce 请求数</td>
+</tr>
+<tr>
+<td>request.produce.time.99percentile</td>
+<td>99% produce 请求时间</td>
+</tr>
+<tr>
+<td>request.produce.time.avg</td>
+<td>produce 请求数的平均时间</td>
+</tr>
+<tr>
+<td>request.update_metadata.time.99percentile</td>
+<td>更新99%元数据请求的时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>request.update_metadata.time.avg</td>
+<td>更新元数据请求的平均时间 （milliseconds）</td>
+</tr>
 </tbody></table>
-
-<ul>
-<li>replication.leader_elections</li>
-<li>replication.unclean<em>leader</em>elections</li>
-<li>request.fetch.failed</li>
-<li>request.fetch.time.99percentile</li>
-<li>request.fetch.time.avg</li>
-<li>request.handler.avg.idle.pct</li>
-<li>request.metadata.time.99percentile</li>
-<li>request.metadata.time.avg</li>
-<li>request.offsets.time.99percentile</li>
-<li>request.offsets.time.avg</li>
-<li>request.produce.failed</li>
-<li>request.produce.time.99percentile</li>
-<li>request.produce.time.avg</li>
-<li>request.update_metadata.time.99percentile</li>
-<li>request.update_metadata.time.avg</li>
-</ul>
 
 <h2>配置 Kafka 监控</h2>
 
@@ -613,7 +656,19 @@ kafka-localhost-9999
 
 <h2>常见问题</h2>
 
-          <hr />
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
 <!-- 多说评论框 start -->
 <div class="ds-thread"
      id="ds-thread"
@@ -623,13 +678,12 @@ kafka-localhost-9999
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "";
-  if (title.length === 0) {
-    var titleTag = document.getElementsByTagName("h1")[0];
+  var titleTag = document.getElementsByTagName("h1")[0];
 
-    if (titleTag) {
-      title = document.getElementsByTagName("h1")[0].innerText;
-    }
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

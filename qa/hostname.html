@@ -331,7 +331,19 @@
 <li>修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code>  <code>hostname: xxxx</code> 指标（任意可识别的名称，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置。</li>
 </ol>
 
-          <hr />
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
 <!-- 多说评论框 start -->
 <div class="ds-thread"
      id="ds-thread"
@@ -341,13 +353,12 @@
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "Cloud Insight - 常见问题";
-  if (title.length === 0) {
-    var titleTag = document.getElementsByTagName("h1")[0];
+  var titleTag = document.getElementsByTagName("h1")[0];
 
-    if (titleTag) {
-      title = document.getElementsByTagName("h1")[0].innerText;
-    }
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "Cloud Insight - 常见问题";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

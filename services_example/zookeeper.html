@@ -283,6 +283,7 @@
 <li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
 <li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
@@ -360,19 +361,57 @@
 
 <p>Cloud Insight 采集 ZooKeeper 以下性能指标：</p>
 
-<ul>
-<li>zookeeper.bytes_outstanding</li>
-<li>zookeeper.bytes_received</li>
-<li>zookeeper.bytes_sent</li>
-<li>zookeeper.connections</li>
-<li>zookeeper.latency.avg</li>
-<li>zookeeper.latency.max</li>
-<li>zookeeper.latency.min</li>
-<li>zookeeper.nodes</li>
-<li>zookeeper.outstanding_request</li>
-<li>zookeeper.zxid.count</li>
-<li>zookeeper.zxid.epoch</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>zookeeper.bytes_outstanding</td>
+<td>未处理的字节数</td>
+</tr>
+<tr>
+<td>zookeeper.bytes_received</td>
+<td>接受的字节数</td>
+</tr>
+<tr>
+<td>zookeeper.bytes_sent</td>
+<td>发送的字节数</td>
+</tr>
+<tr>
+<td>zookeeper.connections</td>
+<td>客户端连接总数</td>
+</tr>
+<tr>
+<td>zookeeper.latency.avg</td>
+<td>服务器响应客户端请求花费的平均时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>zookeeper.latency.max</td>
+<td>服务器响应客户端请求花费的最大时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>zookeeper.latency.min</td>
+<td>服务器响应客户端请求花费的最小时间 （milliseconds）</td>
+</tr>
+<tr>
+<td>zookeeper.nodes</td>
+<td>znode节点上数量</td>
+</tr>
+<tr>
+<td>zookeeper.outstanding_request</td>
+<td>服务器接受超出处理能力的请求队列数</td>
+</tr>
+<tr>
+<td>zookeeper.zxid.count</td>
+<td>zookeeper 事务id，它是选举过程中能否成为leader的关键因素，它决定当前 Server 要将自己这一票投给谁(也就是我在选举过程中的value，这只是其中一个，还有id)</td>
+</tr>
+<tr>
+<td>zookeeper.zxid.epoch</td>
+<td>主要用于描述 leader 是否已经改变，每一个 Server 中启动都会有一个 epoch，初始值为0，当开始新的一次选举时 epoch 加1，选举完成时 epoch 加1。</td>
+</tr>
+</tbody></table>
 
 <h2>配置 ZooKeeper 监控</h2>
 
@@ -409,7 +448,19 @@ zk
 
 <h2>常见问题</h2>
 
-          <hr />
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
 <!-- 多说评论框 start -->
 <div class="ds-thread"
      id="ds-thread"
@@ -419,13 +470,12 @@ zk
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "";
-  if (title.length === 0) {
-    var titleTag = document.getElementsByTagName("h1")[0];
+  var titleTag = document.getElementsByTagName("h1")[0];
 
-    if (titleTag) {
-      title = document.getElementsByTagName("h1")[0].innerText;
-    }
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

@@ -283,6 +283,7 @@
 <li><a href="/platform/ubuntu.html">Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
 <li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
@@ -348,9 +349,11 @@
 
 <p>分为以下几个部分：</p>
 
-<p>|支持的性能指标
-|如何配置 Mesos 监控
-|常见的问题</p>
+<ul>
+<li>支持的性能指标</li>
+<li>如何配置 Mesos 监控</li>
+<li>常见的问题</li>
+</ul>
 
 <p><img src="/images/service_example/mesos.png" /></p>
 
@@ -394,59 +397,59 @@
 </tr>
 <tr>
 <td>mesos.cluster.event<em>queue</em>dispatches</td>
-<td></td>
+<td>事件队列里调度的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.event<em>queue</em>http_requests</td>
-<td></td>
+<td>事件队列里HTTP请求的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.event<em>queue</em>messages</td>
-<td></td>
+<td>事件队列里消息传输的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.frameworks_active</td>
-<td></td>
+<td>活跃的应用框架数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.frameworks_connected</td>
-<td></td>
+<td>已经连接的应用框架数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.frameworks_disconnected</td>
-<td></td>
+<td>未连接的应用框架数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.frameworks_inactive</td>
-<td></td>
+<td>非活动的应用框架数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.invalid<em>framework</em>to<em>executor</em>messages</td>
-<td></td>
+<td>应用框架传给执行器无效消息的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.invalid<em>status</em>update_acknowledgements</td>
-<td></td>
+<td>无效的状态更新通知的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.invalid<em>status</em>updates</td>
-<td></td>
+<td>无效的状态更新的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.mem_percent</td>
-<td></td>
+<td>分配的内存百分比</td>
 </tr>
 <tr>
 <td>mesos.cluster.mem_total</td>
-<td></td>
+<td>总内存</td>
 </tr>
 <tr>
 <td>mesos.cluster.mem_used</td>
-<td></td>
+<td>分配内存</td>
 </tr>
 <tr>
 <td>mesos.cluster.outstanding_offers</td>
-<td></td>
+<td>未处理的资源邀约数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.recovery<em>slave</em>removals</td>
@@ -454,87 +457,87 @@
 </tr>
 <tr>
 <td>mesos.cluster.slave_registrations</td>
-<td></td>
+<td>Master节点失联时，可以重新加入集群并连回master节点的slave节点数</td>
 </tr>
 <tr>
 <td>mesos.cluster.slave_removals</td>
-<td></td>
+<td>被移除的slave节点数：包括维护需要等各种原因被移除的</td>
 </tr>
 <tr>
 <td>mesos.cluster.slave_reregistrations</td>
-<td></td>
+<td>重新注册的slave节点数</td>
 </tr>
 <tr>
 <td>mesos.cluster.slave<em>shutdowns</em>canceled</td>
-<td></td>
+<td>健康监控中被判定失效，计划被移除的slave节点数，但不会立刻移除，因为有移除slave节点速率限制</td>
 </tr>
 <tr>
 <td>mesos.cluster.slave<em>shutdowns</em>scheduled</td>
-<td></td>
+<td>取消关机的slave节点数量：当slave节点移除速率限制下被允许slave节点重连，并在移除前发送PONG给Master节点的slave节点数</td>
 </tr>
 <tr>
 <td>mesos.cluster.slaves_active</td>
-<td></td>
+<td>活动的slave节点数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.slaves_connected</td>
-<td></td>
+<td>连接中的slave节点数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.slaves_disconnected</td>
-<td></td>
+<td>未连接的slave节点数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.slaves_inactive</td>
-<td></td>
+<td>非活动中的slave节点数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_error</td>
-<td></td>
+<td>已经失效的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_failed</td>
-<td></td>
+<td>失败的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_finished</td>
-<td></td>
+<td>已经完成的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_killed</td>
-<td></td>
+<td>被杀死的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_lost</td>
-<td></td>
+<td>丢失的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_running</td>
-<td></td>
+<td>运行中的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_staging</td>
-<td></td>
+<td>待处理任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.tasks_starting</td>
-<td></td>
+<td>开始的任务数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.total_frameworks</td>
-<td></td>
+<td>总的应用框架数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.valid<em>framework</em>to<em>executor</em>messages</td>
-<td></td>
+<td>应用框架传给执行器无效消息的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.valid<em>status</em>update_acknowledgements</td>
-<td></td>
+<td>无效的状态更新通知的数量</td>
 </tr>
 <tr>
 <td>mesos.cluster.valid<em>status</em>updates</td>
-<td></td>
+<td>无效的状态更新的数量</td>
 </tr>
 <tr>
 <td>mesos.registrar.queued_operations</td>
@@ -542,51 +545,51 @@
 </tr>
 <tr>
 <td>mesos.registrar.registry<em>size</em>bytes</td>
-<td></td>
+<td>注册表大小</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>fetch</em>ms</td>
-<td></td>
+<td>读注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms</td>
-<td></td>
+<td>写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.count</td>
-<td></td>
+<td>注册表写入次数</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.max</td>
-<td></td>
+<td>最大写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.min</td>
-<td></td>
+<td>最小写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p50</td>
-<td></td>
+<td>写注册信息延迟的中位数，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p90</td>
-<td></td>
+<td>写注册信息90%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p95</td>
-<td></td>
+<td>写注册信息95%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p99</td>
-<td></td>
+<td>写注册信息99%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p999</td>
-<td></td>
+<td>写注册信息99.9%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.registrar.state<em>store</em>ms.p9999</td>
-<td></td>
+<td>写注册信息99.99%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
 <td>mesos.role.cpu</td>
@@ -610,143 +613,143 @@
 </tr>
 <tr>
 <td>mesos.slave.cpus_percent</td>
-<td></td>
+<td>已分配的cpu比例</td>
 </tr>
 <tr>
 <td>mesos.slave.cpus_total</td>
-<td></td>
+<td>CPU总数</td>
 </tr>
 <tr>
 <td>mesos.slave.cpus_used</td>
-<td></td>
+<td>已分配的cpu数</td>
 </tr>
 <tr>
 <td>mesos.slave.disk_percent</td>
-<td></td>
+<td>已分配的磁盘空间比例</td>
 </tr>
 <tr>
 <td>mesos.slave.disk_total</td>
-<td></td>
+<td>磁盘空间总量：单位 MB</td>
 </tr>
 <tr>
 <td>mesos.slave.disk_used</td>
-<td></td>
+<td>已分配的磁盘空间大小：单位 MB</td>
 </tr>
 <tr>
 <td>mesos.slave.executors_registering</td>
-<td></td>
+<td>注册中的执行器数</td>
 </tr>
 <tr>
 <td>mesos.slave.executors_running</td>
-<td></td>
+<td>运行中的执行器数</td>
 </tr>
 <tr>
 <td>mesos.slave.executors_terminated</td>
-<td></td>
+<td>已终止的执行器数</td>
 </tr>
 <tr>
 <td>mesos.slave.executors_terminating</td>
-<td></td>
+<td>正在终止的执行器数</td>
 </tr>
 <tr>
 <td>mesos.slave.frameworks_active</td>
-<td></td>
+<td>活动中的应用数</td>
 </tr>
 <tr>
 <td>mesos.slave.invalid<em>framework</em>messages</td>
-<td></td>
+<td>无效的应用框架信息的数量</td>
 </tr>
 <tr>
 <td>mesos.slave.invalid<em>status</em>updates</td>
-<td></td>
+<td>无效的状态更新消息的数量</td>
 </tr>
 <tr>
 <td>mesos.slave.mem_percent</td>
-<td></td>
+<td>内存分配百分比</td>
 </tr>
 <tr>
 <td>mesos.slave.mem_total</td>
-<td></td>
+<td>内存总量：单位 MB</td>
 </tr>
 <tr>
 <td>mesos.slave.mem_used</td>
-<td></td>
+<td>已分配的内存：单位 MB</td>
 </tr>
 <tr>
 <td>mesos.slave.recovery_errors</td>
-<td></td>
+<td>恢复过程中的错误数</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_failed</td>
-<td></td>
+<td>失败的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_finished</td>
-<td></td>
+<td>已经完成的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_killed</td>
-<td></td>
+<td>被杀死的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_lost</td>
-<td></td>
+<td>丢失的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_running</td>
-<td></td>
+<td>运行中的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_staging</td>
-<td></td>
+<td>等待运行的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.tasks_starting</td>
-<td></td>
+<td>开始的任务数量</td>
 </tr>
 <tr>
 <td>mesos.slave.valid<em>framework</em>messages</td>
-<td></td>
+<td>无效的应用框架信息的数量</td>
 </tr>
 <tr>
 <td>mesos.slave.valid<em>status</em>updates</td>
-<td></td>
+<td>无效的状态更新消息的数量</td>
 </tr>
 <tr>
 <td>mesos.stats.elected</td>
-<td></td>
+<td>是否被选为主节点</td>
 </tr>
 <tr>
 <td>mesos.stats.registered</td>
-<td></td>
+<td>从节点是否在主节点注册</td>
 </tr>
 <tr>
 <td>mesos.stats.system.cpus_total</td>
-<td></td>
+<td>可用 CPU 数</td>
 </tr>
 <tr>
 <td>mesos.stats.system.load_15min</td>
-<td></td>
+<td>15分钟内平均负载</td>
 </tr>
 <tr>
 <td>mesos.stats.system.load_1min</td>
-<td></td>
+<td>1分钟内平均负载</td>
 </tr>
 <tr>
 <td>mesos.stats.system.load_5min</td>
-<td></td>
+<td>5分钟内平均负载</td>
 </tr>
 <tr>
 <td>mesos.stats.system.mem<em>free</em>bytes</td>
-<td></td>
+<td>剩余内存 （bytes）</td>
 </tr>
 <tr>
 <td>mesos.stats.system.mem<em>total</em>bytes</td>
-<td></td>
+<td>总内存 （bytes）</td>
 </tr>
 <tr>
 <td>mesos.stats.uptime_secs</td>
-<td></td>
+<td>从节点运行时间</td>
 </tr>
 </tbody></table>
 
@@ -812,7 +815,19 @@ mesos_slave
 
 <h2>常见问题</h2>
 
-          <hr />
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
 <!-- 多说评论框 start -->
 <div class="ds-thread"
      id="ds-thread"
@@ -822,13 +837,12 @@ mesos_slave
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-  var title = "";
-  if (title.length === 0) {
-    var titleTag = document.getElementsByTagName("h1")[0];
+  var titleTag = document.getElementsByTagName("h1")[0];
 
-    if (titleTag) {
-      title = document.getElementsByTagName("h1")[0].innerText;
-    }
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

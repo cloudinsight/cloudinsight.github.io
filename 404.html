@@ -295,14 +295,20 @@
       break;
   }
 
-  window.location.href = 'http://docs-ci.oneapm.com' + target;
+  if (target.length > 0) {
+    window.location.href = 'http://docs-ci.oneapm.com' + target;
+  }
 </script>
+
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h1 style="text-align:center;">404</h1>
     </div>
+    <p style="text-align:center;">
+      目前我们正在完善这个页面，请稍后再回来转转。
+    </p>
     <p>
       <div class="col-xs-offset-4 col-xs-4" style="text-align:center;">
         <img src="/images/404.jpg" alt="404" />
