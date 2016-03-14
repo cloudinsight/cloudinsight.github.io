@@ -337,7 +337,12 @@
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/more.html">配置多个平台服务</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
 </ul></li>
 </ul>
 
@@ -401,9 +406,25 @@
 
 <h3>开启 PHP-FPM 状态页监控</h3>
 
-<p>确保 PHP-FPM 状态页处于开启状态。详细说明见：<a href="http://php.net/manual/en/install.fpm.configuration.php">PHP-FPM 官方文档</a></p>
+<p>确保 PHP-FPM 状态页处于开启状态。详细说明见：<a href="http://php.net/manual/en/install.fpm.configuration.php">PHP-FPM 官方文档</a>，首先打开 php-fpm 状态功能：</p>
 <pre class="highlight plaintext"><code>pm.status_path = /status
 </code></pre>
+
+<p>默认情况下为 /status，此处也可以改成其他的例如 /phpfpm_status 等</p>
+
+<h3>在默认主机里面加上 location</h3>
+
+<p>本文以 Nginx 为例，在 Nginx 的 server 里面添加一个 location 地址：</p>
+<pre class="highlight plaintext"><code>server {
+        location /status {
+             fastcgi_pass  127.0.0.1:9000;
+             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+             include fastcgi_params;
+        }
+}
+</code></pre>
+
+<p>配置完 Nginx 重启 php-fpm Nginx 使之生效，之后可以访问配置的这个 URL http://127.0.0.1/status，如果输出 php-fpm 的状态页信息即为配置成功。</p>
 
 <h3>编辑配置文件</h3>
 
@@ -412,9 +433,9 @@
 
 instances:
   - # Get metrics from your FPM pool with this URL
-    status_url: http://localhost/status
+    status_url: http://127.0.0.1/status
     # Get a reliable service check of you FPM pool with that one
-    ping_url: http://localhost/ping
+    ping_url: http://127.0.0.1/ping
     # These 2 URLs should follow the options from your FPM pool
     # See http://php.net/manual/en/install.fpm.configuration.php
     #   * pm.status_path
@@ -433,6 +454,8 @@ instances:
     # tags:
     #   - tag_key:tag_value
 </code></pre>
+
+<p>配置文件中的 <code>status_url</code> 要和你开启状态页的路径一致，本文统一是 /status。</p>
 
 <h3>重启 Agent</h3>
 

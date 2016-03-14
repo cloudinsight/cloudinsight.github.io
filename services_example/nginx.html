@@ -337,7 +337,12 @@
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/more.html">配置多个平台服务</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
 </ul></li>
 </ul>
 
@@ -401,7 +406,17 @@
 
 <h3>确保 http<em>stub</em>status_module 已安装</h3>
 
-<p>确保 <code>http_stub_status_module</code> 已安装在 Nginx 服务器上。具体安装操作，查看 <a href="http://nginx.org/en/docs/http/ngx_http_stub_status_module.html">Nginx 官方文档</a>。</p>
+<p>确保 <code>http_stub_status_module</code> 已安装在 Nginx 服务器上，这个模块提供访问状态信息的权限。具体安装操作，查看 <a href="http://nginx.org/en/docs/http/ngx_http_stub_status_module.html">Nginx 官方文档</a>。</p>
+
+<p>配置示例，修改 NGINX 的配置文件 <code>/etc/nginx/site-available/default</code>，进入以下位置进行配置（根据自己环境进行配置）：</p>
+<pre class="highlight plaintext"><code>server {
+    location  /nginx_status {
+    stub_status on;
+    }   
+}
+</code></pre>
+
+<p>这时你可以在浏览器中访问 URL <code>http://localhost/nginx_status</code> 来查看状态信息。</p>
 
 <h3>编辑配置文件</h3>
 
@@ -412,7 +427,7 @@
   <span class="c1"># For every instance, you have an `nginx_status_url` and (optionally)</span>
   <span class="c1"># a list of tags.</span>
 
-  <span class="pi">-</span> <span class="s">nginx_status_url</span><span class="pi">:</span> <span class="s">http://example.com/nginx_status/</span>
+  <span class="pi">-</span> <span class="s">nginx_status_url</span><span class="pi">:</span> <span class="s">http://localhost/nginx_status</span>
     <span class="s">tags</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">tag_key:tag_value</span>
 

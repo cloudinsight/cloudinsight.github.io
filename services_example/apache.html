@@ -337,7 +337,12 @@
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/more.html">配置多个平台服务</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
 </ul></li>
 </ul>
 
@@ -405,7 +410,18 @@
 
 <h3>确保 mod_status 已安装</h3>
 
-<p>确保 <a href="http://httpd.apache.org/docs/2.0/mod/mod_status.html">mod_status</a> 已经安装到您的Apache服务器上并且 <code>ExtendedStatus</code> 被设置为 on</p>
+<p>确保 <a href="http://httpd.apache.org/docs/2.0/mod/mod_status.html">mod_status</a> 已经安装到您的 Apache 服务器上并且 <code>ExtendedStatus</code> 被设置为 on</p>
+
+<p>配置好后，修改 Apache 的配置文件 <code>httpd.conf</code>，进入以下位置进行配置：</p>
+<pre class="highlight plaintext"><code>&lt;Location /server-status&gt;
+   SetHandler server-status
+   Order deny,Allow
+   Deny from all
+   Allow from all
+&lt;/Location&gt;
+</code></pre>
+
+<p>你可以在你的浏览器上访问 url <code>http://localhost/server-status</code> 查看状态信息</p>
 
 <h3>编辑配置文件</h3>
 
@@ -413,7 +429,7 @@
 <pre class="highlight yaml"><code><span class="s">init_config</span><span class="pi">:</span>
 
 <span class="s">instances</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">apache_status_url</span><span class="pi">:</span> <span class="s">http://example.com/server-status?auto</span>
+  <span class="pi">-</span> <span class="s">apache_status_url</span><span class="pi">:</span> <span class="s">http://localhost/server-status</span>
     <span class="c1"># apache_user: example_user</span>
     <span class="c1"># apache_password: example_password</span>
     <span class="s">tags</span><span class="pi">:</span>

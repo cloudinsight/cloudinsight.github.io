@@ -337,7 +337,12 @@
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/more.html">配置多个平台服务</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
 </ul></li>
 </ul>
 
@@ -345,7 +350,45 @@
         <div class="col-xs-9 page-body">
           <h1>版本更新</h1>
 
-<h2>v 1.0.1</h2>
+<h2>v 4.3.0</h2>
+
+<p><code>发布时间：2016.03.08</code></p>
+
+<ul>
+<li>支持 Windows 32位和64位操作系统</li>
+<li>支持 SQL Server，IIS，WMI，Windows Event View，HAProxy 等平台服务</li>
+<li>修复 MongoDB 3.0+ 相关指标问题</li>
+<li>修复 Mesos 占用 CPU 过多问题</li>
+<li>修复 MySQL 监控问题</li>
+<li>完成帮助文档改版迁移</li>
+<li>修复 Disk 仪表盘单位显示问题</li>
+<li>修改产品设计状态，调整策略状态页</li>
+<li>禁用事件流自动刷新</li>
+</ul>
+
+<h2>v 4.2.3</h2>
+
+<p><code>发布时间：2016.01.25</code></p>
+
+<ul>
+<li>增加平台标签对仪表盘和报警的聚合功能</li>
+<li>修改报警页面状态不一致问题</li>
+<li>修复仪表盘页面添加图表中按照 tagkey 分组功能无效问题</li>
+</ul>
+
+<h2>v 4.2.2</h2>
+
+<p><code>发布时间：2016.01.15</code></p>
+
+<ul>
+<li>集成 BearyChat</li>
+<li>优化平台列表页搜索分组分页展示的功能</li>
+<li>修复平台列表页面显示 up，down，total数目问题</li>
+</ul>
+
+<h2>v 4.2.1</h2>
+
+<p><code>发布时间：2015.12.30</code></p>
 
 <ul>
 <li>新增平台列表分页功能</li>
@@ -355,7 +398,9 @@
 <li>修复了自定义数据仪表盘的显示问题</li>
 </ul>
 
-<h2>v 1.0.0</h2>
+<h2>v 4.2.0</h2>
+
+<p><code>发布时间：2015.12.22</code></p>
 
 <ul>
 <li>新增平台服务：简聊</li>
@@ -366,7 +411,9 @@
 <li>以及对前后端进行了部分重构</li>
 </ul>
 
-<h2>v 0.4.1</h2>
+<h2>v 4.1.0</h2>
+
+<p><code>发布时间：2015.12.10</code></p>
 
 <ul>
 <li>新增事件流名称搜索</li>
@@ -381,7 +428,9 @@
 <li>修复了一些 BUG 和样式问题</li>
 </ul>
 
-<h2>v 0.4.0</h2>
+<h2>v 4.0.0</h2>
+
+<p><code>发布时间：2015.12.02</code></p>
 
 <ul>
 <li>新增基于任一指标的静态门限报警</li>
@@ -399,7 +448,9 @@
 <li>以及修复前端样式和一些 BUG</li>
 </ul>
 
-<h2>v 0.3.0</h2>
+<h2>v 3.0.0</h2>
+
+<p><code>发布时间：2015.11.19</code></p>
 
 <ul>
 <li>新增平台拓扑 • Beta</li>
@@ -411,7 +462,9 @@
 <li>以及样式调优和修复一些 Bug</li>
 </ul>
 
-<h2>v 0.2.2</h2>
+<h2>v 2.2.0</h2>
+
+<p><code>发布时间：2015.11.05</code></p>
 
 <ul>
 <li>新增 Apache Solr 监控服务</li>
@@ -429,7 +482,9 @@
 <li>修复了细节问题和 BUG</li>
 </ul>
 
-<h2>v 0.2.1</h2>
+<h2>v 2.1.0</h2>
+
+<p><code>发布时间：2015.10.21</code></p>
 
 <ul>
 <li>新增 ZooKeeper 监控服务</li>
@@ -449,7 +504,9 @@
 <li>图表显示单位优化</li>
 </ul>
 
-<h2>v 0.2.0</h2>
+<h2>v 2.0.0</h2>
+
+<p><code>发布时间：2015.09.29</code></p>
 
 <ul>
 <li>新增 Amazon Linux 监控</li>
@@ -464,7 +521,9 @@
 <li>仪表盘与用户系统对接，标识仪表盘归属</li>
 </ul>
 
-<h2>v 0.1.1</h2>
+<h2>v 1.1.0</h2>
+
+<p><code>发布时间：2015.09.07</code></p>
 
 <ul>
 <li>添加平台服务仪表盘，显示该平台服务的所有 Metrics</li>
@@ -478,10 +537,12 @@
 <li>修复 Agen info 指令无法执行的错误</li>
 </ul>
 
-<h2>v 0.1.0</h2>
+<h2>v 1.0.0</h2>
+
+<p><code>发布时间：2015.08.20</code></p>
 
 <ul>
-<li>新增 64 位系统 CentOS, RedHat, Fedora, Ubuntu 监控</li>
+<li>新增 64 位系统 CentOS，RedHat，Fedora，Ubuntu 监控</li>
 <li>支持 ActiveMQ 监控</li>
 <li>支持 Apache Tomcat 监控</li>
 <li>支持 Apache Kafka 监控</li>
@@ -497,7 +558,7 @@
 <li>系统信息中添加进行运行状态</li>
 </ul>
 
-<h2>v 0.0.1</h2>
+<h2>v 0.1.0</h2>
 
 <ul>
 <li>新增 CentOS 监控</li>
