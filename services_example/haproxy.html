@@ -366,44 +366,157 @@
 
 <p>Cloud Insight 采集 Haproxy 以下性能指标：</p>
 
-<ul>
-<li>haproxy.backend.bytes.in_rate</li>
-<li>haproxy.backend.bytes.out_rate</li>
-<li>haproxy.backend.connect.time</li>
-<li>haproxy.backend.denied.resp_rate</li>
-<li>haproxy.backend.errors.con_rate</li>
-<li>haproxy.backend.errors.resp_rate</li>
-<li>haproxy.backend.queue.current</li>
-<li>haproxy.backend.queue.time</li>
-<li>haproxy.backend.response.1xx</li>
-<li>haproxy.backend.response.2xx</li>
-<li>haproxy.backend.response.3xx</li>
-<li>haproxy.backend.response.4xx</li>
-<li>haproxy.backend.response.5xx</li>
-<li>haproxy.backend.response.other</li>
-<li>haproxy.backend.response.time</li>
-<li>haproxy.backend.session.current</li>
-<li>haproxy.backend.session.rate</li>
-<li>haproxy.backend.session.time</li>
-<li>haproxy.backend.warnings.redis_rate</li>
-<li>haproxy.backend.warnings.retr_rate</li>
-<li>haproxy.frontend.bytes.in_rate</li>
-<li>haproxy.frontend.bytes.out_rate</li>
-<li>haproxy.frontend.denied.req_rate</li>
-<li>haproxy.frontend.denied.resp_rate</li>
-<li>haproxy.frontend.errors.req_rate</li>
-<li>haproxy.frontend.requests.rate</li>
-<li>haproxy.frontend.response.1xx</li>
-<li>haproxy.frontend.response.2xx</li>
-<li>haproxy.frontend.response.3xx</li>
-<li>haproxy.frontend.response.4xx</li>
-<li>haproxy.frontend.response.5xx</li>
-<li>haproxy.frontend.response.other</li>
-<li>haproxy.frontend.session.current</li>
-<li>haproxy.frontend.session.limit</li>
-<li>haproxy.frontend.session.pct</li>
-<li>haproxy.frontend.session.rate</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>haproxy.backend.bytes.in_rate</td>
+<td>传入后端服务器的字节数</td>
+</tr>
+<tr>
+<td>haproxy.backend.bytes.out_rate</td>
+<td>从后端服务器传出的字节数</td>
+</tr>
+<tr>
+<td>haproxy.backend.connect.time</td>
+<td>最近1024个请求的平均连接时间</td>
+</tr>
+<tr>
+<td>haproxy.backend.denied.resp_rate</td>
+<td>出于安全考虑每秒拒绝响应数</td>
+</tr>
+<tr>
+<td>haproxy.backend.errors.con_rate</td>
+<td>每秒尝试连接到后端服务器出错的请求数</td>
+</tr>
+<tr>
+<td>haproxy.backend.errors.resp_rate</td>
+<td>每秒由于错误中断的响应数</td>
+</tr>
+<tr>
+<td>haproxy.backend.queue.current</td>
+<td>未分配后端的请求数</td>
+</tr>
+<tr>
+<td>haproxy.backend.queue.time</td>
+<td>最近1024个请求的平均排队时间</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.1xx</td>
+<td>后端 http 返回码是1xx 的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.2xx</td>
+<td>后端 http 返回码是2xx 的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.3xx</td>
+<td>后端 http 返回码是3xx 的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.4xx</td>
+<td>后端 http 返回码是4xx 的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.5xx</td>
+<td>后端 http 返回码是5xx 的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.other</td>
+<td>后端 http 其他返回码错误</td>
+</tr>
+<tr>
+<td>haproxy.backend.response.time</td>
+<td>最近1024个请求的平均响应时间</td>
+</tr>
+<tr>
+<td>haproxy.backend.session.current</td>
+<td>活跃后端会话数</td>
+</tr>
+<tr>
+<td>haproxy.backend.session.rate</td>
+<td>每秒后台创建的会话数</td>
+</tr>
+<tr>
+<td>haproxy.backend.session.time</td>
+<td>最近1024个请求的平均会话时间</td>
+</tr>
+<tr>
+<td>haproxy.backend.warnings.redis_rate</td>
+<td>重试连接到服务器的次数</td>
+</tr>
+<tr>
+<td>haproxy.backend.warnings.retr_rate</td>
+<td>被重新调度到另一个服务器的请求次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.bytes.in_rate</td>
+<td>传入前端服务器字节数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.bytes.out_rate</td>
+<td>从前端服务器传出的字节数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.denied.req_rate</td>
+<td>出于安全考虑每秒拒绝请求数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.denied.resp_rate</td>
+<td>出于安全考虑每秒拒绝响应数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.errors.req_rate</td>
+<td>每秒错误请求数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.requests.rate</td>
+<td>每秒 http 请求数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.1xx</td>
+<td>前端 http 1xx 响应码的次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.2xx</td>
+<td>前端 http 2xx 响应码的次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.3xx</td>
+<td>前端 http 3xx 响应码的次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.4xx</td>
+<td>前端 http 4xx 响应码的次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.5xx</td>
+<td>前端 http 5xx 响应码的次数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.response.other</td>
+<td>前端 http 其他响应码错误</td>
+</tr>
+<tr>
+<td>haproxy.frontend.session.current</td>
+<td>活跃前端会话数</td>
+</tr>
+<tr>
+<td>haproxy.frontend.session.limit</td>
+<td>后端配置的会话限制</td>
+</tr>
+<tr>
+<td>haproxy.frontend.session.pct</td>
+<td>会话使用占比(frontend.session.current/frontend.session.limit * 100)</td>
+</tr>
+<tr>
+<td>haproxy.frontend.session.rate</td>
+<td>每秒前端产生会话数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 Haproxy 监控</h2>
 

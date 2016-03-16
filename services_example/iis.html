@@ -366,29 +366,97 @@
 
 <p>Cloud Insight 采集 IIS 以下性能指标： </p>
 
-<ul>
-<li>iis.errors.locked</li>
-<li>iis.errors.not_found</li>
-<li>iis.httpd<em>request</em>method.delete</li>
-<li>iis.httpd<em>request</em>method.get</li>
-<li>iis.httpd<em>request</em>method.head</li>
-<li>iis.httpd<em>request</em>method.options</li>
-<li>iis.httpd<em>request</em>method.post</li>
-<li>iis.httpd<em>request</em>method.put</li>
-<li>iis.httpd<em>request</em>method.trace</li>
-<li>iis.net.bytes_rcvd</li>
-<li>iis.net.bytes_sent</li>
-<li>iis.net.bytes_total</li>
-<li>iis.net.connection_attempts</li>
-<li>iis.net.files_rcvd</li>
-<li>iis.net.files_sent</li>
-<li>iis.net.num_connections</li>
-<li>iis.requests.cgi</li>
-<li>iis.requests.isapi</li>
-<li>iis.uptime</li>
-<li>iis.users.anon</li>
-<li>iis.users.nonanon</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>iis.errors.locked</td>
+<td>由于所需文档被锁定，每秒使服务器无法满足请求而导致的错误数</td>
+</tr>
+<tr>
+<td>iis.errors.not_found</td>
+<td>由于未找到所请求的文档，服务器无法满足请求而导致错误的速数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.delete</td>
+<td>每秒使用 delete 方法所进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.get</td>
+<td>每秒使用 get 方法所进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.head</td>
+<td>每秒使用 head 方法所进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.options</td>
+<td>每秒使用 options 方法进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.post</td>
+<td>每秒使用 post 方法进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.put</td>
+<td>每秒使用 put 方法进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.httpd<em>request</em>method.trace</td>
+<td>每秒使用 trace 方法进行的 HTTP 请求数</td>
+</tr>
+<tr>
+<td>iis.net.bytes_rcvd</td>
+<td>每秒接收的字节数</td>
+</tr>
+<tr>
+<td>iis.net.bytes_sent</td>
+<td>每秒发送的字节数</td>
+</tr>
+<tr>
+<td>iis.net.bytes_total</td>
+<td>每秒传输的字节总数</td>
+</tr>
+<tr>
+<td>iis.net.connection_attempts</td>
+<td>每秒尝试连接数</td>
+</tr>
+<tr>
+<td>iis.net.files_rcvd</td>
+<td>每秒接收的文件数</td>
+</tr>
+<tr>
+<td>iis.net.files_sent</td>
+<td>每秒发送的文件数</td>
+</tr>
+<tr>
+<td>iis.net.num_connections</td>
+<td>活跃连接数</td>
+</tr>
+<tr>
+<td>iis.requests.cgi</td>
+<td>每秒 cgi 请求执行数</td>
+</tr>
+<tr>
+<td>iis.requests.isapi</td>
+<td>每秒 isapi 请求执行总数</td>
+</tr>
+<tr>
+<td>iis.uptime</td>
+<td>iis 服务器运行时间</td>
+</tr>
+<tr>
+<td>iis.users.anon</td>
+<td>每秒匿名用户的请求数</td>
+</tr>
+<tr>
+<td>iis.users.nonanon</td>
+<td>每秒非匿名用户的请求数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 IIS 监控</h2>
 

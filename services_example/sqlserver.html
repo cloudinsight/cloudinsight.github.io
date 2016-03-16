@@ -366,18 +366,53 @@
 
 <p>Cloud Insight 采集 SQL Server 以下性能指标：    </p>
 
-<ul>
-<li>sqlserver.access.page_splits</li>
-<li>sqlserver.buffer.cache<em>hit</em>ratio</li>
-<li>sqlserver.buffer.checkpoint_pages</li>
-<li>sqlserver.buffer.page<em>life</em>expectancy</li>
-<li>sqlserver.stats.batch_requests</li>
-<li>sqlserver.stats.connections</li>
-<li>sqlserver.stats.lock_waits</li>
-<li>sqlserver.stats.procs_blocked</li>
-<li>sqlserver.stats.sql_compilations</li>
-<li>sqlserver.stats.sql_recompilations</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sqlserver.access.page_splits</td>
+<td>每秒数据页分割数量</td>
+</tr>
+<tr>
+<td>sqlserver.buffer.cache<em>hit</em>ratio</td>
+<td>缓冲区缓存命中率</td>
+</tr>
+<tr>
+<td>sqlserver.buffer.checkpoint_pages</td>
+<td>每秒数据库脏页写入磁盘数量，&quot;脏页&quot;是已输入缓存区高速缓存已修改但尚未写入磁盘的数据页</td>
+</tr>
+<tr>
+<td>sqlserver.buffer.page<em>life</em>expectancy</td>
+<td>一个页面驻留在缓冲池的持续时间/s</td>
+</tr>
+<tr>
+<td>sqlserver.stats.batch_requests</td>
+<td>每秒批量请求数</td>
+</tr>
+<tr>
+<td>sqlserver.stats.connections</td>
+<td>用户连接数</td>
+</tr>
+<tr>
+<td>sqlserver.stats.lock_waits</td>
+<td>等待锁的进程时间</td>
+</tr>
+<tr>
+<td>sqlserver.stats.procs_blocked</td>
+<td>进程阻塞的数量</td>
+</tr>
+<tr>
+<td>sqlserver.stats.sql_compilations</td>
+<td>每秒SQL编译数</td>
+</tr>
+<tr>
+<td>sqlserver.stats.sql_recompilations</td>
+<td>每秒SQL重新编译数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 SQL Server 监控</h2>
 

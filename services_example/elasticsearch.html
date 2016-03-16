@@ -366,98 +366,505 @@
 
 <p>Cloud Insight 采集 ElasticSearch 以下性能指标：</p>
 
-<ul>
-<li>elasticsearch.active<em>primary</em>shards</li>
-<li>elasticsearch.active_shards</li>
-<li>elasticsearch.cache.filter.evictions</li>
-<li>elasticsearch.cache.filter.size</li>
-<li>elasticsearch.cluster_status</li>
-<li>elasticsearch.docs.count</li>
-<li>elasticsearch.docs.deleted</li>
-<li>elasticsearch.fielddata.evictions</li>
-<li>elasticsearch.fielddata.size</li>
-<li>elasticsearch.flush.total</li>
-<li>elasticsearch.flush.total.time</li>
-<li>elasticsearch.get.current</li>
-<li>elasticsearch.get.exists.time</li>
-<li>elasticsearch.get.exists.total</li>
-<li>elasticsearch.get.missing.time</li>
-<li>elasticsearch.get.missing.total</li>
-<li>elasticsearch.get.time</li>
-<li>elasticsearch.get.total</li>
-<li>elasticsearch.http.current_open</li>
-<li>elasticsearch.http.total_opened</li>
-<li>elasticsearch.id_cache.size</li>
-<li>elasticsearch.indexing.delete.current</li>
-<li>elasticsearch.indexing.delete.time</li>
-<li>elasticsearch.indexing.delete.total</li>
-<li>elasticsearch.indexing.index.current</li>
-<li>elasticsearch.indexing.index.time</li>
-<li>elasticsearch.indexing.index.total</li>
-<li>elasticsearch.initializing_shards</li>
-<li>elasticsearch.merges.current</li>
-<li>elasticsearch.merges.current.docs</li>
-<li>elasticsearch.merges.current.size</li>
-<li>elasticsearch.merges.total</li>
-<li>elasticsearch.merges.total.docs</li>
-<li>elasticsearch.merges.total.size</li>
-<li>elasticsearch.merges.total.size</li>
-<li>elasticsearch.number<em>of</em>nodes</li>
-<li>elasticsearch.pending<em>tasks</em>priority_high</li>
-<li>elasticsearch.pending<em>tasks</em>priority_urgent</li>
-<li>elasticsearch.pending<em>tasks</em>total</li>
-<li>elasticsearch.process.open_fd</li>
-<li>elasticsearch.refresh.total</li>
-<li>elasticsearch.refresh.total.time</li>
-<li>elasticsearch.relocating_shards</li>
-<li>elasticsearch.search.fetch.current</li>
-<li>elasticsearch.search.fetch.open_contexts</li>
-<li>elasticsearch.search.fetch.time</li>
-<li>elasticsearch.search.fetch.total</li>
-<li>elasticsearch.search.query.current</li>
-<li>elasticsearch.search.query.time</li>
-<li>elasticsearch.search.query.total</li>
-<li>elasticsearch.store.size</li>
-<li>elasticsearch.thread_pool.bulk.active</li>
-<li>elasticsearch.thread_pool.bulk.queue</li>
-<li>elasticsearch.thread_pool.bulk.threads</li>
-<li>elasticsearch.thread_pool.flush.active</li>
-<li>elasticsearch.thread_pool.flush.queue</li>
-<li>elasticsearch.thread_pool.flush.threads</li>
-<li>elasticsearch.thread_pool.generic.active</li>
-<li>elasticsearch.thread_pool.generic.queue</li>
-<li>elasticsearch.thread_pool.generic.threads</li>
-<li>elasticsearch.thread_pool.get.active</li>
-<li>elasticsearch.thread_pool.get.queue</li>
-<li>elasticsearch.thread_pool.get.threads</li>
-<li>elasticsearch.thread_pool.index.active</li>
-<li>elasticsearch.thread_pool.index.queue</li>
-<li>elasticsearch.thread_pool.index.threads</li>
-<li>elasticsearch.thread_pool.management.active</li>
-<li>elasticsearch.thread_pool.management.queue</li>
-<li>elasticsearch.thread_pool.management.threads</li>
-<li>elasticsearch.thread_pool.merge.active</li>
-<li>elasticsearch.thread_pool.merge.queue</li>
-<li>elasticsearch.thread_pool.merge.threads</li>
-<li>elasticsearch.thread_pool.percolate.active</li>
-<li>elasticsearch.thread_pool.percolate.queue</li>
-<li>elasticsearch.thread_pool.percolate.threads</li>
-<li>elasticsearch.thread_pool.refresh.active</li>
-<li>elasticsearch.thread_pool.refresh.queue</li>
-<li>elasticsearch.thread_pool.refresh.threads</li>
-<li>elasticsearch.thread_pool.search.active</li>
-<li>elasticsearch.thread_pool.search.queue</li>
-<li>elasticsearch.thread_pool.search.threads</li>
-<li>elasticsearch.thread_pool.snapshot.active</li>
-<li>elasticsearch.thread_pool.snapshot.queue</li>
-<li>elasticsearch.thread_pool.snapshot.threads</li>
-<li>elasticsearch.transport.rx_count</li>
-<li>elasticsearch.transport.rx_size</li>
-<li>elasticsearch.transport.server_open</li>
-<li>elasticsearch.transport.tx_count</li>
-<li>elasticsearch.transport.tx_size</li>
-<li>elasticsearch.unassigned_shards</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>elasticsearch.active<em>primary</em>shards</td>
+<td>集群中活跃的主分片数量</td>
+</tr>
+<tr>
+<td>elasticsearch.active_shards</td>
+<td>集群中活跃分片数量</td>
+</tr>
+<tr>
+<td>elasticsearch.cache.filter.evictions</td>
+<td>field 缓存里面被驱逐的数据量</td>
+</tr>
+<tr>
+<td>elasticsearch.cache.filter.size</td>
+<td>field 缓存区大小</td>
+</tr>
+<tr>
+<td>elasticsearch.cluster_status</td>
+<td>该 elasticsearch 集群健康数字：红=0，黄色=1，绿=2</td>
+</tr>
+<tr>
+<td>elasticsearch.docs.count</td>
+<td>集群中所有分片的文档</td>
+</tr>
+<tr>
+<td>elasticsearch.docs.deleted</td>
+<td>集群中所有分片的删除的文档</td>
+</tr>
+<tr>
+<td>elasticsearch.fielddata.evictions</td>
+<td>fielddata 缓存里面被驱逐的数据量</td>
+</tr>
+<tr>
+<td>elasticsearch.fielddata.size</td>
+<td>fielddata 缓存区大小</td>
+</tr>
+<tr>
+<td>elasticsearch.flush.total</td>
+<td>从开始 index flush 到磁盘次数 (进行一次提交并删除事务日志的操作叫做 flush)</td>
+</tr>
+<tr>
+<td>elasticsearch.flush.total.time</td>
+<td>index flush 到磁盘花费时间</td>
+</tr>
+<tr>
+<td>elasticsearch.get.current</td>
+<td>当前正在运行的 get 请求数</td>
+</tr>
+<tr>
+<td>elasticsearch.get.exists.time</td>
+<td>文档存在时花费在 get 请求上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.get.exists.total</td>
+<td>文档存在时 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.get.missing.time</td>
+<td>文档丢失时花费在 get 请求上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.get.missing.total</td>
+<td>文档丢失时 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.get.time</td>
+<td>花费在 get 请求上的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.get.total</td>
+<td>总的 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.http.current_open</td>
+<td>当前打开的 http 连接数</td>
+</tr>
+<tr>
+<td>elasticsearch.http.total_opened</td>
+<td>打开 http 的总连接数</td>
+</tr>
+<tr>
+<td>elasticsearch.id_cache.size</td>
+<td>id 缓存的大小</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.delete.current</td>
+<td>当前从一个 index 中删除的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.delete.time</td>
+<td>从一个 index 中删除文档花费的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.delete.total</td>
+<td>从一个 index 中删除的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.index.current</td>
+<td>当前一个 index 中被索引的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.index.time</td>
+<td>从一个 index 索引文档所花费的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.indexing.index.total</td>
+<td>一个 index 中被索引的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.initializing_shards</td>
+<td>当前初始化碎片数量</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.current</td>
+<td>当前的活跃段合并数量</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.current.docs</td>
+<td>当前跨段合并的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.current.size</td>
+<td>当前被合并的段的大小</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.total</td>
+<td>所有段的合并数量</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.total.docs</td>
+<td>跨所有合并段的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.total.size</td>
+<td>所有合并段的大小</td>
+</tr>
+<tr>
+<td>elasticsearch.merges.total.time</td>
+<td>花在合并段上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.number<em>of</em>nodes</td>
+<td>集群中 node 总数</td>
+</tr>
+<tr>
+<td>elasticsearch.pending<em>tasks</em>priority_high</td>
+<td>高优先级的未完成的 task 数量</td>
+</tr>
+<tr>
+<td>elasticsearch.pending<em>tasks</em>priority_urgent</td>
+<td>紧急优先未完成的 task 数量</td>
+</tr>
+<tr>
+<td>elasticsearch.pending<em>tasks</em>total</td>
+<td>总的未完成的 task 数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.docs.count</td>
+<td>主分片上的文档总量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.docs.deleted</td>
+<td>主分片上删除的文档总量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.flush.total</td>
+<td>主分片上从开始时间 index flush 到磁盘次数</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.flush.total.time</td>
+<td>主分片上 index flush 到磁盘花费时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.current</td>
+<td>主分片上当前正在运行的 get 请求数</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.exists.time</td>
+<td>主分片上文档存在时花费在 get 请求上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.exists.total</td>
+<td>主分片上文档存在时 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.missing.time</td>
+<td>主分片上文档丢失时花费在 get 请求上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.missing.total</td>
+<td>主分片上文档丢失时 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.time</td>
+<td>主分片上花费在 get 请求上的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.get.total</td>
+<td>主分片上总的 get 请求次数</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.delete.current</td>
+<td>主分片上当前从一个 index 中删除的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.delete.time</td>
+<td>主分片上从一个 index 中删除文档花费的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.delete.total</td>
+<td>主分片上从一个 index 中删除的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.index.current</td>
+<td>主分片上当前一个 index 中被索引的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.index.time</td>
+<td>主分片上从一个 index 索引文档所花费的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.indexing.index.total</td>
+<td>主分片上一个 index 中被索引的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.current</td>
+<td>主分片上当前的活跃段合并数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.current.docs</td>
+<td>主分片上当前跨段合并的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.current.size</td>
+<td>主分片上当前被合并的段的大小</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.total</td>
+<td>主分片上所有段的合并数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.total.docs</td>
+<td>主分片上跨所有合并段的文档数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.total.size</td>
+<td>主分片上所有合并段的大小</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.merges.total.time</td>
+<td>主分片上花在合并段上的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.refresh.total</td>
+<td>主分片上 index 刷新总数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.refresh.total.time</td>
+<td>主分片上 index 刷新花费的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.fetch.current</td>
+<td>当前运行在主分片上查询取回操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.fetch.time</td>
+<td>在主分片上查询取回操作的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.fetch.total</td>
+<td>在主分片上查询取回操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.query.current</td>
+<td>当前运行在主分片上查询操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.query.time</td>
+<td>在主分片上查询操作的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.search.query.total</td>
+<td>在主分片上查询操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.primaries.store.size</td>
+<td>所有主分片的大小 /bytes</td>
+</tr>
+<tr>
+<td>elasticsearch.process.open_fd</td>
+<td>打开和当前进程相关的文件数据，如果不是－1</td>
+</tr>
+<tr>
+<td>elasticsearch.refresh.total</td>
+<td>总的 index 刷新次数</td>
+</tr>
+<tr>
+<td>elasticsearch.refresh.total.time</td>
+<td>总的 index 刷新花费的时间</td>
+</tr>
+<tr>
+<td>elasticsearch.relocating_shards</td>
+<td>从一个节点搬到另一个节点的分片数量</td>
+</tr>
+<tr>
+<td>elasticsearch.search.fetch.current</td>
+<td>当前运行的查询取回操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.search.fetch.open_contexts</td>
+<td>活跃查询次数</td>
+</tr>
+<tr>
+<td>elasticsearch.search.fetch.time</td>
+<td>查询取回操作的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.search.fetch.total</td>
+<td>查询取回操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.search.query.current</td>
+<td>当前运行查询操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.search.query.time</td>
+<td>查询操作的总时间</td>
+</tr>
+<tr>
+<td>elasticsearch.search.query.total</td>
+<td>查询操作的数量</td>
+</tr>
+<tr>
+<td>elasticsearch.store.size</td>
+<td>总的存储大小 /bytes</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.bulk.active</td>
+<td>在 bulk 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.bulk.queue</td>
+<td>在 bulk 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.bulk.threads</td>
+<td>在 bulk 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.flush.active</td>
+<td>在 flush 队列中活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.flush.queue</td>
+<td>在 flush 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.flush.threads</td>
+<td>在 flush  线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.generic.active</td>
+<td>在 generic 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.generic.queue</td>
+<td>在 generic 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.generic.threads</td>
+<td>在 generic 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.get.active</td>
+<td>在 get 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.get.queue</td>
+<td>在 get 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.get.threads</td>
+<td>在 get 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.index.active</td>
+<td>在 index 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.index.queue</td>
+<td>在 index 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.index.threads</td>
+<td>在 index 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.management.active</td>
+<td>在 management 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.management.queue</td>
+<td>在 management 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.management.threads</td>
+<td>在 management 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.merge.active</td>
+<td>在 merge 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.merge.queue</td>
+<td>在 merge 线程池活跃的排队数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.merge.threads</td>
+<td>在 merge 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.percolate.active</td>
+<td>在 percolate 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.percolate.queue</td>
+<td>在 percolate 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.percolate.threads</td>
+<td>在 percolate 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.refresh.active</td>
+<td>在 refresh 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.refresh.queue</td>
+<td>在 refresh 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.refresh.threads</td>
+<td>在 refresh 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.search.active</td>
+<td>在 search 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.search.queue</td>
+<td>在 search 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.search.threads</td>
+<td>在 search 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.snapshot.active</td>
+<td>在 snapshot 线程池活跃的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.snapshot.queue</td>
+<td>在 snapshot 线程池排队的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.thread_pool.snapshot.threadsv</td>
+<td>在 snapshot 线程池总的线程数</td>
+</tr>
+<tr>
+<td>elasticsearch.transport.rx_count</td>
+<td>在集群通信中接受的包的总数量</td>
+</tr>
+<tr>
+<td>elasticsearch.transport.rx_size</td>
+<td>在集群通信中接受的数据大小 /bytes</td>
+</tr>
+<tr>
+<td>elasticsearch.transport.server_open</td>
+<td>为集群通信打开的连接数</td>
+</tr>
+<tr>
+<td>elasticsearch.transport.tx_count</td>
+<td>在集群通信中发送的包的总数量</td>
+</tr>
+<tr>
+<td>elasticsearch.transport.tx_size</td>
+<td>在集群通信中发送的数据大小 /bytes</td>
+</tr>
+<tr>
+<td>elasticsearch.unassigned_shards</td>
+<td>那些未分配节点的分片数量</td>
+</tr>
+</tbody></table>
 
 <h2>配置 Elastic Search 监控</h2>
 
