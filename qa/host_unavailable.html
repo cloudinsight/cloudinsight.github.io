@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - 常见问题</title>
+<title>Cloud Insight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -206,7 +206,7 @@
 
   </head>
 
-  <body class="page-qa qa_service_index">
+  <body class="page-qa qa_host_unavailable">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -318,18 +318,18 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>平台服务配置</h1>
+          <h1>如何在主机不可用时收到报警？</h1>
+
+<p>每台主机通过 Cloud Insight Agent 发送数据和我们服务端联系，正常联系时会显示 UP 的状态，可以看到各项系统指标都是有心跳的。</p>
 
 <ul>
-<li><a href="/qa/yaml.html">YAML 格式须知</a></li>
-<li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
-<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
-<li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
-<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
-<li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
-<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li> 选择性能指标：选择一个指标（CPU，内存，磁盘等都可以），通过 host 或 tag 选择要监控的主机</li>
+<li>设置报警条件：指标在几分钟内小于多少等等随意，关键是配置下面<code>当数据丢失超过几分钟时，通知用户</code></li>
+<li>命名报警</li>
+<li>设置通知用户</li>
 </ul>
+
+<p>这样在服务器不可用时就可以收到报警了</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -349,7 +349,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/service_index.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/host_unavailable.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -358,7 +358,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - 常见问题";
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -383,7 +383,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+        $(".navbar-default .navbar-nav .guide").addClass("active");
       });
     </script>
   </body>

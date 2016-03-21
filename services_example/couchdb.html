@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+    <meta name="keywords" content="couchdb,couchdb监控,couchdb监控工具,couchdb指标">
 <meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
@@ -366,15 +366,133 @@
 
 <p>Cloud Insight 采集 CouchDB 以下性能指标：</p>
 
-<ul>
-<li>couchdb.by<em>db.disk</em>size</li>
-<li>couchdb.by<em>db.doc</em>count</li>
-<li>couchdb.couchdb.request_time</li>
-<li>couchdb.httpd.requests</li>
-<li>couchdb.httpd<em>request</em>metho</li>
-<li>couchdb.httpd<em>request</em>methods.GET<br></li>
-<li>couchdb.httpd<em>status</em>codes.200</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>couchdb.by<em>db.disk</em>size</td>
+<td>每个数据库磁盘大小</td>
+</tr>
+<tr>
+<td>couchdb.by<em>db.doc</em>count</td>
+<td>每个数据库文档数量</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.auth<em>cache</em>hits</td>
+<td>认证缓存命中率</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.database_reads</td>
+<td>一个文件从数据库中读出的次数</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.database_writes</td>
+<td>一个文件被修改的次数</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.open_databases</td>
+<td>打开的数据库数量</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.open<em>os</em>files</td>
+<td>文件描述符标识的文件打开的数量</td>
+</tr>
+<tr>
+<td>couchdb.couchdb.request_time</td>
+<td>couchdb 内部不使用 MochiWeb 的请求的长度 ／seconds</td>
+</tr>
+<tr>
+<td>couchdb.httpd.requests</td>
+<td>http  请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd.bulk_requests</td>
+<td>批量请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd.clients<em>requesting</em>changes</td>
+<td>客户端请求改变数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd.view_reads</td>
+<td>查看读取的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>request</em>methods.DELETE</td>
+<td>http delete 请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>request</em>methods.GET</td>
+<td>http get 请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>request</em>methods.HEAD</td>
+<td>http head 请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>request</em>methods.POST</td>
+<td>http post 请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>request</em>methods.PUT</td>
+<td>http put 请求的数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.200</td>
+<td>返回 http 200 ok 响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.201</td>
+<td>返回 http 201创建响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.202</td>
+<td>返回 http 202接受响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.301</td>
+<td>返回 http 301永久移除响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.304</td>
+<td>返回 http 304未修改响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.400</td>
+<td>返回 http 400错误请求响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.401</td>
+<td>返回 http 401未授权响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.403</td>
+<td>返回 http 403禁止请求响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.404</td>
+<td>返回 http 404未找到响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.409</td>
+<td>返回 http 405方法不允许响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.409</td>
+<td>返回 http 409冲突响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.412</td>
+<td>返回 http 412预处理失败响应码数量</td>
+</tr>
+<tr>
+<td>couchdb.httpd<em>status</em>codes.500</td>
+<td>返回 http 500内部服务器错误响应码数量</td>
+</tr>
+</tbody></table>
 
 <h2>配置 CouchDB 监控</h2>
 

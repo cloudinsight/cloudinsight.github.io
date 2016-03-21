@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+    <meta name="keywords" content="RabbitMQ,RabbitMQ监控,RabbitMQ监控工具,RabbitMQ指标">
 <meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
@@ -366,32 +366,109 @@
 
 <p>Cloud Insight 采集 RabbitMQ 以下性能指标：</p>
 
-<ul>
-<li>rabbitmq.node.fd_used</li>
-<li>rabbitmq.node.mem_used</li>
-<li>rabbitmq.node.partitions</li>
-<li>rabbitmq.node.run_queue</li>
-<li>rabbitmq.node.sockets_used</li>
-<li>rabbitmq.queue.consumer_utilisation</li>
-<li>rabbitmq.queue.consumers</li>
-<li>rabbitmq.queue.memory</li>
-<li>rabbitmq.queue.messages</li>
-<li>rabbitmq.queue.messages.ack.count</li>
-<li>rabbitmq.queue.messages.ack.rate</li>
-<li>rabbitmq.queue.messages.deliver.count</li>
-<li>rabbitmq.queue.messages.deliver.rate</li>
-<li>rabbitmq.queue.messages.deliver_get.count</li>
-<li>rabbitmq.queue.messages.deliver_get.rate</li>
-<li>rabbitmq.queue.messages.publish.count</li>
-<li>rabbitmq.queue.messages.publish.rate</li>
-<li>rabbitmq.queue.messages.rate</li>
-<li>rabbitmq.queue.messages.redeliver.count</li>
-<li>rabbitmq.queue.messages.redeliver.rate</li>
-<li>rabbitmq.queue.messages_ready</li>
-<li>rabbitmq.queue.messages_ready.rate</li>
-<li>rabbitmq.queue.messages_unacknowledged</li>
-<li>rabbitmq.queue.messages_unacknowledged.rate</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rabbitmq.node.fd_used</td>
+<td>已使用的文件描述符数量</td>
+</tr>
+<tr>
+<td>rabbitmq.node.mem_used</td>
+<td>内存使用子节数</td>
+</tr>
+<tr>
+<td>rabbitmq.node.partitions</td>
+<td>网络分区后可见节点的数量</td>
+</tr>
+<tr>
+<td>rabbitmq.node.run_queue</td>
+<td>等待运行的 Erlang 进程数量</td>
+</tr>
+<tr>
+<td>rabbitmq.node.sockets_used</td>
+<td>以 socket 方式使用掉的文件描述符数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.consumer_utilisation</td>
+<td>队列消费者采取新消息的时间的比例</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.consumers</td>
+<td>消费者个数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.memory</td>
+<td>与队列关联的 Erlang 进程的内存消耗，包括堆栈，堆和内部结构消耗 /bytes</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages</td>
+<td>队列上的消息队列</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.ack.count</td>
+<td>传送到客户端并且被确认的消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.ack.rate</td>
+<td>每秒传送到客户端并且被确认的消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.deliver.count</td>
+<td>消费者接受并且响应的消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.deliver.rate</td>
+<td>每秒消费者接受并且响应的消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.deliver_get.count</td>
+<td>消费者接受消息（被确认和没有被确认的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get） 的总和数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.deliver_get.rate</td>
+<td>每秒消费者接受消息（被 ack 和没有被 ack 的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get） 的总和数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.publish.count</td>
+<td>发布消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.publish.rate</td>
+<td>每秒发布消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.rate</td>
+<td>每秒队列中总的消息数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.redeliver.count</td>
+<td>deliver_get 的有重新传送标记的消息子集数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages.redeliver.rate</td>
+<td>每秒 deliver_get 的有重新传送标记的消息子集数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages_ready</td>
+<td>准备发送给用户的消息数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages_ready.rate</td>
+<td>每秒准备发送给用户的消息数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages_unacknowledged</td>
+<td>发送给客户端但至今还没被确认的消息数</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.messages_unacknowledged.rate</td>
+<td>每秒发送给客户端但至今还没被确认的消息数</td>
+</tr>
+</tbody></table>
 
 <h2>配置 RabbitMQ 监控</h2>
 

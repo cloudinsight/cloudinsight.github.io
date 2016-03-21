@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+    <meta name="keywords" content="Solr,Solr监控,Solr监控工具,Solr指标">
+<meta name="description" content="Solr监控指标的解释，以及如何使用 Cloud Insight 监控Solr">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -366,21 +366,65 @@
 
 <p>Cloud Insight 默认开启 Solr 以下性能指标的监控：</p>
 
-<ul>
-<li>solr.cache.evictions</li>
-<li>solr.cache.hits</li>
-<li>solr.cache.inserts</li>
-<li>solr.cache.lookups</li>
-<li>solr.search<em>handler.avg</em>requests<em>per</em>sec</li>
-<li>solr.search<em>handler.avg</em>time<em>per</em>req</li>
-<li>solr.search_handler.errors</li>
-<li>solr.search_handler.requests</li>
-<li>solr.search_handler.time</li>
-<li>solr.search_handler.timeouts</li>
-<li>solr.searcher.maxdoc</li>
-<li>solr.searcher.numdocs</li>
-<li>solr.searcher.warmup</li>
-</ul>
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>solr.cache.evictions</code></td>
+<td>每秒缓存驱逐数</td>
+</tr>
+<tr>
+<td><code>solr.cache.hits</code></td>
+<td>每秒缓存命中的数量</td>
+</tr>
+<tr>
+<td><code>solr.cache.inserts</code></td>
+<td>每秒缓存插入数量</td>
+</tr>
+<tr>
+<td><code>solr.cache.lookups</code></td>
+<td>每秒缓存查找数量</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.avg_requests_per_sec</code></td>
+<td>每秒评价请求</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.avg_time_per_req</code></td>
+<td>每个请求的评价时间</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.errors</code></td>
+<td>处理器每秒遇到的错误数</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.requests</code></td>
+<td>处理器每秒处理请求数</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.time</code></td>
+<td>一秒所有请求的处理时间之和</td>
+</tr>
+<tr>
+<td><code>solr.search_handler.timeouts</code></td>
+<td>每秒接受到部分结果的响应数</td>
+</tr>
+<tr>
+<td><code>solr.searcher.maxdoc</code></td>
+<td>包含逻辑上已经删除的但还未从索引中移除的文档总数</td>
+</tr>
+<tr>
+<td><code>solr.searcher.numdocs</code></td>
+<td>在索引中可搜索到的文档数</td>
+</tr>
+<tr>
+<td><code>solr.searcher.warmup</code></td>
+<td>预热时间</td>
+</tr>
+</tbody></table>
 
 <h2>配置 Solr</h2>
 
