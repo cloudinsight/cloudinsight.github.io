@@ -1,692 +1,698 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://docs-ci.oneapm.com/googlefc8e86d4f7e64e0b.html</loc>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://docs-ci.oneapm.com/best-practise/statsd.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/best-practise/dashboard.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/best-practise/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/best-practise/sdk.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/503.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/query_metric.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/parameter.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/automatic.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/basic_usage.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/dashboard/custom.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/event/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/system.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/windows.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/agent-directory.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/ubuntu.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/amazon.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/inner.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/docker.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/redhat.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/agent-instrument.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/platform/chef.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/alert/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/alert/metric.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/404.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services/database.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services/status.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services/authorize.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services/jmx.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/release-note.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/system.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/mongodb.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/solr.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/cassandra.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/php-fpm.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/more.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/postgresql.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/sqlserver.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/tomcat.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/docker.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/memcached.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/mesos.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/couchdb.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/zookeeper.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/couchbase.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/haproxy.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/redis.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/elasticsearch.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/nginx.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/jianliao.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/mysql.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/apache.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/kafka.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/bearychat.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/activemq.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/iis.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/services_example/rabbitmq.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/nodejs.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/python.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/ruby.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/api/sdk.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/agent_update.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/mysql-error.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/win_2008.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/name.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/agent.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/apache_404.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/ubuntu-error.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/service_index.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/yaml_loading.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/yaml.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/windows_v.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/host_unavailable.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/docker_daemon.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/metrics.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/agent_index.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/kill_automatic.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/address_already_in_use.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/syslog.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/java_path.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/remove-agent.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/tomcat_cannot_connect_to_instance_localhost.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/time.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/mysql_m_s.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/emitter.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/load.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/centos-5.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/hostname.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/centos-7.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/qa/http_emitter.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/metric/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/agent_update.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/install.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/questions.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/help.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/videos.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/quick-start/instrument.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/use-case/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/ucloud-summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/aliyun-summary.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/aliyun.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://docs-ci.oneapm.com/cloud-integration/ucloud.html</loc>
-    <lastmod>2016-03-22T00:00:00+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
