@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Cloud Insight - 常见问题</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-qa qa_process_error">
+      <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74438127-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+<div class="ribbon right orange">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown guide">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            使用指南 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/videos.html">视频演示</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/release-note.html">详细文档</a></li>
+            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
+          </ul>
+        </li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <div class="navbar-form navbar-right">
+        <a href="https://user.oneapm.com/account/login.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-xs-3 page-sidebar">
+          <ul>
+<li><a href="#">产品</a>
+
+<ul>
+<li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
+<li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
+<li><a href="/qa/agent.html">Cloud Insight 探针是怎样工作的？</a></li>
+<li><a href="/qa/name.html">怎么修改应用名称？</a></li>
+<li><a href="/qa/host_unavailable.html">如何在主机不可用时收到报警？</a></li>
+<li><a href="/qa/windows_v.html">Cloud Insight 支持哪些 Windows 版本？</a></li>
+<li><a href="/qa/tag.html">tag 使用指南</a></li>
+</ul></li>
+<li><a href="/qa/agent_index.html">Agent 使用</a>
+
+<ul>
+<li><a href="/qa/agent_update.html">怎么更新探针</a></li>
+<li><a href="/qa/http_emitter.html">http_emitter: TypeError(/expected string)</a></li>
+<li><a href="/qa/emitter.html">emitter.py 报错 Unable to post payload</a></li>
+<li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
+<li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
+<li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
+<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
+<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
+<li><a href="/qa/syslog.html">Error setting up syslog</a></li>
+<li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
+<li><a href="/qa/win_2008.html">Windows 2008 R2 安装失败</a></li>
+</ul></li>
+<li><a href="/qa/service_index.html">平台服务配置</a>
+
+<ul>
+<li><a href="/qa/yaml.html">YAML 格式须知</a></li>
+<li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
+<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
+<li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
+<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
+<li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
+<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-xs-9 page-body">
+          <h1>进程配置完成后没有监控到相应数据</h1>
+
+<p>进程简单配置成功后，在仪表盘里面分别配置不同进程监控数据时，例如如下配置进程但仪表盘上没有相应的 <code>forwarder</code> 进程可以监控：</p>
+<pre class="highlight plaintext"><code> - name: forwarder
+   search_string: ['forwarder']
+   ignore_denied_access: True
+</code></pre>
+
+<h3>问题原因</h3>
+
+<p>exact_match 精确匹配，采用的是 Python 正则表达式，如果没有特别配置，默认是 Ture，即上面会精确匹配 forwarder 进程，如果进程不止包含 forwarder ，例如 python forwarder.py 就匹配不上。</p>
+
+<h3>解决方向</h3>
+
+<p>配置 exact_match 参数为 False，即为模糊匹配。</p>
+<pre class="highlight plaintext"><code>  - name: forwarder
+    search_string: ['forwarder']
+    ignore_denied_access: True
+    exact_match: False
+</code></pre>
+
+<p>重启探针，即可生效。</p>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，免费使用全功能 Cloud Insight 15天
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/qa/process_error.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "Cloud Insight - 常见问题";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+      });
+    </script>
+  </body>
+</html>
