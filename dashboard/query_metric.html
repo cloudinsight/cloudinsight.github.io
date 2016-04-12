@@ -302,6 +302,7 @@
 <ul>
 <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
 </ul></li>
 <li><a href="/metric/">指标与示意</a>
 
@@ -365,17 +366,73 @@
 
 <p>在介绍语法前，我们先通过一组样本来解释 Metric 查询的语法。</p>
 
-<p>|Series|MetricName|TagValue: Host|TagValue: Owner|
-|&mdash;|
-|A|system.cpu.idle|ChengMoMacAir|chengmo|
-|B|system.cpu.idle|UbuntuChengMo|chengmo|
-|C|system.cpu.idle|WZL-CentOS|wangzhili|</p>
+<table><thead>
+<tr>
+<th>Series</th>
+<th>MetricName</th>
+<th>TagValue: Host</th>
+<th>TagValue: Owner</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>system.cpu.idle</td>
+<td>ChengMoMacAir</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>B</td>
+<td>system.cpu.idle</td>
+<td>UbuntuChengMo</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>C</td>
+<td>system.cpu.idle</td>
+<td>WZL-CentOS</td>
+<td>wangzhili</td>
+</tr>
+</tbody></table>
 
-<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
-|&mdash;|
-|A|0.3|0.5|0.1|0.2|0.8|0.1|
-|B|0.8|0.3|0.7|0.8|0.9|0.3|
-|C|0.6|0.2|0.4|0.6|0.1|0.1|</p>
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
 
 <h3><code>Aggregation</code> 和 <code>FromTag</code></h3>
 
@@ -390,11 +447,45 @@
 
 <p>所得的结果是：</p>
 
-<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
-|&mdash;|
-|A|0.3|0.5|0.1|0.2|0.8|0.1|
-|B|0.8|0.3|0.7|0.8|0.9|0.3|
-|<strong>Output</strong>|0.8|0.5|0.7|0.8|0.9|0.3|</p>
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>0.8</td>
+<td>0.5</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+</tbody></table>
 
 <p>同样，上述查询也可以简化成：</p>
 <pre class="highlight plaintext"><code>max: system.cpu.idle {owner:chengmo}
@@ -431,21 +522,93 @@
 <pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {owner}
 </code></pre>
 
-<p>|Series|MetricName|TagValue: Host|TagValue: Owner|
-|&mdash;|
-|A|system.cpu.idle|ChengMoMacAir|chengmo|
-|B|system.cpu.idle|UbuntuChengMo|chengmo|
-|C|system.cpu.idle|WZL-CentOS|wangzhili|</p>
+<table><thead>
+<tr>
+<th>Series</th>
+<th>MetricName</th>
+<th>TagValue: Host</th>
+<th>TagValue: Owner</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>system.cpu.idle</td>
+<td>ChengMoMacAir</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>B</td>
+<td>system.cpu.idle</td>
+<td>UbuntuChengMo</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>C</td>
+<td>system.cpu.idle</td>
+<td>WZL-CentOS</td>
+<td>wangzhili</td>
+</tr>
+</tbody></table>
 
 <p>此时，虽然有 3 个 host，但是分组是以 <code>owner</code> 来进行分组。所以，A 与 B 会聚合为一条曲线，而 C 和 A&amp;B 的关系是分组的关系。</p>
 
-<p>|Series|00:00|01:00|02:00|03:00|04:00|05:00|
-|&mdash;|
-|A|0.3|0.5|0.1|0.2|0.8|0.1|
-|B|0.8|0.3|0.7|0.8|0.9|0.3|
-|C|0.6|0.2|0.4|0.6|0.1|0.1|
-|<strong>Output A&amp;B</strong>|0.55|0.4|0.4|0.5|0.85|0.2|
-|<strong>Output C</strong>|0.6|0.2|0.4|0.6|0.1|0.1|</p>
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td><strong>Output A&amp;B</strong></td>
+<td>0.55</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>0.5</td>
+<td>0.85</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td><strong>Output C</strong></td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
 
 <h3>多条件查询</h3>
 
@@ -486,17 +649,19 @@
 
 <p><img src="/images/dashboard/QueryMetric3.png" /></p>
 
-<p>有关参数查询，我们会在下一小节做详细介绍。</p>
+<h4>上一节：<a href="/dashboard/basic_usage.html">基本操作</a></h4>
+
+<h4>下一节：<a href="/dashboard/parameter.html">参数使用</a></h4>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择免费试用我们的全功能产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，免费使用全功能 Cloud Insight 15天
+      注册，永久免费使用 Cloud Insight
     </a>
   </p>
 </div>
