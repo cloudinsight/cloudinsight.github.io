@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - Python SDK 使用文档</title>
+<title>Cloud Insight - 常见问题</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -206,7 +206,7 @@
 
   </head>
 
-  <body class="page-api api_python">
+  <body class="page-qa qa_win_install">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -275,119 +275,72 @@
       <div class="row">
         <div class="col-xs-3 page-sidebar">
           <ul>
-<li><a href="/api/">简介</a></li>
-<li><a href="/api/sdk.html">SDK</a>
+<li><p><a href="#"><strong>产品</strong></a></p>
 
 <ul>
-<li><a href="/api/python.html">Python</a></li>
-<li><a href="/api/nodejs.html">Node.js</a></li>
-<li><a href="/api/ruby.html">Ruby</a></li>
+<li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
+<li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
+<li><a href="/qa/agent.html">Cloud Insight 探针是怎样工作的？</a></li>
+<li><a href="/qa/name.html">怎么修改应用名称？</a></li>
+<li><a href="/qa/host_unavailable.html">如何在主机不可用时收到报警？</a></li>
+<li><a href="/qa/windows_v.html">Cloud Insight 支持哪些 Windows 版本？</a></li>
+<li><a href="/qa/tag.html">tag 使用指南</a></li>
+<li><a href="/qa/network_adapter.html">怎么识别多网卡流量情况？</a></li>
+<li><a href="/qa/browser.html">浏览器不能显示 Cloud Insight 数据</a></li>
+</ul></li>
+<li><p><a href="/qa/agent_index.html"><strong>Agent 使用</strong></a></p>
+
+<ul>
+<li><a href="/qa/agent_update.html">怎么更新探针</a></li>
+<li><a href="/qa/http_emitter.html">http_emitter: TypeError(/expected string)</a></li>
+<li><a href="/qa/emitter.html">emitter.py 报错 Unable to post payload</a></li>
+<li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
+<li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
+<li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
+<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
+<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
+<li><a href="/qa/syslog.html">Error setting up syslog</a></li>
+<li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
+<li><a href="/qa/win_2008.html">Windows 2008 R2 安装失败</a></li>
+<li><a href="/qa/win_install.html">Windows 安装探针失败无报错</a></li>
+</ul></li>
+<li><p><a href="/qa/service_index.html"><strong>平台服务配置</strong></a></p>
+
+<ul>
+<li><a href="/qa/yaml.html">YAML 格式须知</a></li>
+<li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
+<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
+<li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
+<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
+<li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
+<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
+<li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
+<li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
 </ul></li>
 </ul>
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Cloud Insight SDK For Python</h1>
+          <h1>Windows 安装探针失败无报错</h1>
 
-<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。</p>
-
-<p>目前支持的数据类型有：</p>
+<p>Windows 探针有2种安装方式：</p>
 
 <ul>
-<li>Counters</li>
-<li>Gauges</li>
+<li><p>一种是标准安装，点击下载 Windows 版 Agent，双击安装，输入 <code>YOUR_LICENSE_KEY</code>。</p></li>
+<li><p>另一种是命令行安装，点击下载 Windows 版 Agent，打开cmd.exe，定位到 Agent 所在目录，执行下面命令：</p></li>
 </ul>
-
-<p>目前支持的语言有：</p>
-
-<ul>
-<li>Python</li>
-</ul>
-
-<p>使用 SDK 的前提条件为您已经安装了 Cloud Insight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
-
-<h2>下载与安装</h2>
-
-<h3>Python</h3>
-
-<ul>
-<li>使用 <code>pip</code> 安装</li>
-</ul>
-<pre class="highlight plaintext"><code>pip install -i http://pypi.oneapm.com/simple --upgrade oneapm-ci-sdk
+<pre class="highlight plaintext"><code>＃ 32位
+msiexec /qn /i oneapm-ci-agent.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+</code></pre>
+<pre class="highlight plaintext"><code>＃ 64位
+msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
 </code></pre>
 
-<ul>
-<li>从 4.4.0 版本开始，Cloud Insight 已经内嵌入 SDK ，使用的时候可以直接使用，无需安装，使用时可以指定 Python 环境 <code>/opt/oneapm-ci-agent/embedded/bin/python</code> 或者导入探针的 Python 库 <code>/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/</code>。</li>
-</ul>
-
-<h2>数据类型</h2>
-
-<h3>Counters</h3>
-
-<p><code>Counters</code> 是 StatsD 和 Cloud Insight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
-
-<p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
-<pre class="highlight python"><code><span class="c"># Import the module.</span>
-<span class="kn">from</span> <span class="nn">oneapm_ci_sdk</span> <span class="kn">import</span> <span class="n">statsd</span>
-
-<span class="c"># Increment a counter.</span>
-<span class="n">statsd</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">'page.views'</span><span class="p">)</span>
-
-</code></pre>
-
-<p><code>Increment</code> 的步进默认为 <code>1</code>，也可以设置第二个参数来调整步进。</p>
-<pre class="highlight python"><code><span class="n">statsd</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">'page.views'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</code></pre>
-
-<h4>采样率</h4>
-
-<p>也可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
-
-<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
-
-<p>在数据量较大的情况下，可以确保采样的高效。</p>
-<pre class="highlight python"><code><span class="n">statsd</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">'page.views'</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-</code></pre>
-
-<p>采样率会传递至 Agent，所以最终发送的数值，为计算采样率后的真实数值。</p>
-
-<p>同样，<code>decrement</code> 和 <code>increment</code> 一样，使用相同的参数。</p>
-<pre class="highlight python"><code><span class="n">statsd</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="s">'some.other.event'</span><span class="p">)</span>
-
-<span class="c"># Decrease the counter by 5, 15% sample.</span>
-
-<span class="n">statsd</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="s">'some.third.event'</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
-</code></pre>
-
-<h3>Gauges</h3>
-
-<p><code>Gauges</code> 是连续型的数据类型，也就是说，当我们第一次赋值后，该 Metric 表现在图表上，会是一条于 X 轴平行的直线；直到再次为该 Metric 赋了一个不同的值。</p>
-
-<p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
-<pre class="highlight python"><code><span class="c"># Record a gauge .</span>
-<span class="n">statsd</span><span class="o">.</span><span class="n">gauge</span><span class="p">(</span><span class="s">'foo.bar'</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
-</code></pre>
-
-<p>此时，<code>foo.bar</code> 的值为 <code>123</code>。</p>
-
-<h3>Metric Name</h3>
-
-<p>命名 Metric Name 有一下一些规则：</p>
-
-<ul>
-<li>指标名称必须以字母为开头</li>
-<li>只能包含 ASCII 字母，数字，下划线和句点（其它字符将被转换为下划线）</li>
-<li>最多200个字符（从 UI 考虑不要超过100）</li>
-<li>不支持 Unicode</li>
-<li>建议避免空格</li>
-</ul>
-
-<h2>最佳实践</h2>
-
-<ul>
-<li><a href="http://news.oneapm.com/pm2-5-cloud-insight/">使用 Cloud Insight SDK 监控北京空气质量</a></li>
-<li><a href="http://news.oneapm.com/ci-sdk-druid/">使用 Cloud Insight 实现 Druid 监控</a></li>
-</ul>
+<p>如果你想看安装详情，可以去掉 <code>/qn</code>  这个参数。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -407,7 +360,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/api/python.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/win_install.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -416,7 +369,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - Python SDK 使用文档";
+    title = "Cloud Insight - 常见问题";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -441,7 +394,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav a[href='/api/']").parent().addClass("active");
+        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
       });
     </script>
   </body>

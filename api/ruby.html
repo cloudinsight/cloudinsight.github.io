@@ -302,7 +302,84 @@
 
 <h2>下载与安装</h2>
 
-<p>正在完善中&hellip;</p>
+<ol>
+<li><p>在<code>Gemfile</code>中添加：</p>
+<pre class="highlight ruby"><code>  <span class="n">gem</span> <span class="s1">'oneapm_ci'</span>
+</code></pre>
+
+<p>然后执行 <code>bundle</code>.</p></li>
+<li><p>直接执行：</p></li>
+</ol>
+<pre class="highlight ruby"><code>  <span class="n">gem</span> <span class="n">install</span> <span class="n">oneapm_ci</span>
+</code></pre>
+
+<h2>数据类型</h2>
+
+<h3>Counters</h3>
+
+<p><code>Counters</code> 是 StatsD 和 Cloud Insight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
+
+<p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
+<pre class="highlight ruby"><code>  <span class="nb">require</span> <span class="s1">'oneapm_ci'</span>
+
+  <span class="n">statsd</span> <span class="o">=</span> <span class="no">OneapmCi</span><span class="o">::</span><span class="no">Statsd</span><span class="p">.</span><span class="nf">new</span>
+
+  <span class="c1"># Increment a counter.</span>
+  <span class="n">statsd</span><span class="p">.</span><span class="nf">increment</span><span class="p">(</span><span class="s1">'page.views'</span><span class="p">)</span>
+</code></pre>
+
+<p><code>increment</code> 的步进默认为 <code>1</code>，也可以设置第二个参数来调整步进。</p>
+<pre class="highlight ruby"><code>  <span class="n">statsd</span><span class="p">.</span><span class="nf">increment</span><span class="p">(</span><span class="s1">'page.views'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre>
+
+<h4>采样率</h4>
+
+<p>采样率为在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
+
+<p>在数据量较大的情况下，可以确保采样的高效。</p>
+<pre class="highlight ruby"><code>  <span class="n">statsd</span><span class="p">.</span><span class="nf">increment</span><span class="p">(</span><span class="s1">'page.views'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">'page.tag'</span><span class="p">],</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+
+<p>采样率会传递至 Agent，所以最终发送的数值，为计算采样率后的真实数值。</p>
+
+<p>同样，<code>decrement</code> 和 <code>increment</code> 一样，使用相同的参数。</p>
+<pre class="highlight ruby"><code>  <span class="c1"># Decrease the counter</span>
+  <span class="n">statsd</span><span class="p">.</span><span class="nf">decrement</span><span class="p">(</span><span class="s1">'some.other.event'</span><span class="p">)</span>
+
+  <span class="c1"># Decrease the counter by 5, 15% sample.</span>
+  <span class="n">statsd</span><span class="p">.</span><span class="nf">decrement</span><span class="p">(</span><span class="s1">'some.third.event'</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">'some.tag'</span><span class="p">],</span> <span class="mi">0</span><span class="o">.</span><span class="mi">15</span><span class="p">)</span>
+</code></pre>
+
+<h3>Gauges</h3>
+
+<p><code>Gauges</code> 是连续型的数据类型，也就是说，当我们第一次赋值后，该 Metric 表现在图表上，会是一条于 X 轴平行的直线；直到再次为该 Metric 赋了一个不同的值。</p>
+
+<p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而监控系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
+<pre class="highlight ruby"><code>  <span class="c1"># Record a gauge</span>
+  <span class="n">statsd</span><span class="p">.</span><span class="nf">gauge</span><span class="p">(</span><span class="s1">'foo.bar'</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</code></pre>
+
+<p>此时，<code>foo.bar</code> 的值为 <code>123</code>。</p>
+
+<h3>Metric Name</h3>
+
+<p>命名 Metric Name 有一下一些规则：</p>
+
+<ul>
+<li>指标名称必须以字母为开头</li>
+<li>只能包含 ASCII 字母，数字，下划线和句点（其它字符将被转换为下划线）</li>
+<li>最多200个字符（从 UI 考虑不要超过100）</li>
+<li>不支持 Unicode</li>
+<li>建议避免空格</li>
+</ul>
+
+<h2>最佳实践</h2>
+
+<ul>
+<li><a href="https://github.com/superiorlu/unicorn-metrics">使用Cloud Insight SDK监控Unicorn性能</a></li>
+<li><a href="https://github.com/superiorlu/delayed_job_monitor">使用Cloud Insight SDK监控Delayed Job</a></li>
+<li><a href="https://github.com/superiorlu/cloudinsight-ruby-sdk-tutorial">Cloud Insight SDK 使用教程</a></li>
+</ul>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
