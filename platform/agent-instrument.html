@@ -32,6 +32,23 @@
     })();
   </script>
 
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
 
 <link href="/stylesheets/site.css" rel="stylesheet" />
 <script src="/javascripts/jquery-2.2.1.js"></script>
@@ -264,8 +281,8 @@
         <li><a href="/use-case/">客户案例</a></li>
       </ul>
       <div class="navbar-form navbar-right">
-        <a href="https://user.oneapm.com/account/login.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
-        <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
       </div>
     </div>
   </div>
@@ -303,6 +320,7 @@
 <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 <li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/share/">图表分享</a></li>
 </ul></li>
 <li><a href="/metric/">指标与示意</a>
 
@@ -361,49 +379,44 @@
 <h2>启动 / 停止 / 卸载</h2>
 
 <p>启动探针：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent  start
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent start
 </code></pre>
 
 <p>停止探针：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent  stop
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent stop
 </code></pre>
 
 <p>重启探针：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent  restart
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent restart
 </code></pre>
 
 <p>删除探针：</p>
-<pre class="highlight plaintext"><code>yum erase oneapm-ci-agent / apt-get remove oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo yum erase oneapm-ci-agent / apt-get remove oneapm-ci-agent
 </code></pre>
 
 <h2>更新</h2>
 
 <p>CentOS / Redhat 更新</p>
-<pre class="highlight plaintext"><code>yum install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo yum install oneapm-ci-agent
 </code></pre>
 
 <p>Ubuntu / Debian 更新</p>
-<pre class="highlight plaintext"><code>apt-get update &amp;&amp; apt-get install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install oneapm-ci-agent
 </code></pre>
 
 <h2>查看状态</h2>
 
 <p>查看探针是否运行：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent  status
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent status
 </code></pre>
 
-<p>接受探针状态的信息：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent info
+<p>查看探针状态信息：</p>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent info
 </code></pre>
 
-<p>回溯的错误可以通过设置 <code>-v</code> 标志检索：</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent  info  -v
+<p>查看配置文件是否正确：</p>
+<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent configtest
 </code></pre>
-
-<p>查看配置文件是否正确：
-<code>
-/etc/init.d/oneapm-ci-agent  configtest
-</code></p>
 
 <h2>配置</h2>
 
@@ -440,7 +453,7 @@
 
 <h2>排查</h2>
 
-<p>运行上面的 <code>info</code> 命令查看探针状态。</p>
+<p>运行上面的 <code>sudo /etc/init.d/oneapm-ci-agent info</code> 命令查看探针状态。</p>
 
 <p>日志子系统从下面文件中查看：</p>
 

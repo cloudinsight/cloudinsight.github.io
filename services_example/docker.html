@@ -32,6 +32,23 @@
     })();
   </script>
 
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
 
 <link href="/stylesheets/site.css" rel="stylesheet" />
 <script src="/javascripts/jquery-2.2.1.js"></script>
@@ -264,8 +281,8 @@
         <li><a href="/use-case/">客户案例</a></li>
       </ul>
       <div class="navbar-form navbar-right">
-        <a href="https://user.oneapm.com/account/login.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
-        <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
       </div>
     </div>
   </div>
@@ -303,6 +320,7 @@
 <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 <li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/share/">图表分享</a></li>
 </ul></li>
 <li><a href="/metric/">指标与示意</a>
 
@@ -378,83 +396,83 @@
 </thead><tbody>
 <tr>
 <td>docker.mem.cache</td>
-<td>The amount of memory used by the processes of this cgroup that can be associated precisely with a block on a block device</td>
+<td>该cgroup中进程使用的块设备的缓存大小</td>
 </tr>
 <tr>
 <td>docker.mem.rss</td>
-<td>The amount of memory used by the processes of this cgroup that is not associated with disk pages - such as stack and heap memory</td>
+<td>该cgroup中进程使用的和磁盘无关的内存大小，比如堆和栈的内存</td>
 </tr>
 <tr>
 <td>docker.mem.swap</td>
-<td>The amount of swap space currently used by the processes in this cgroup</td>
+<td>该cgroup使用的交换空间的大小</td>
 </tr>
 <tr>
 <td>docker.mem.active_anon</td>
-<td>The amount of memory used by the processes of this cgroup that are not associated with disk pages that have been marked &ldquo;active&rdquo; by the kernel. When the kernel is almost out of memory it will swap &ldquo;inactive&rdquo; pages</td>
+<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>active</code> 状态的的内存大小。系统内存不足时，会将标记为 <code>inactive</code> 的页转移到交换区</td>
 </tr>
 <tr>
 <td>docker.mem.inactive_anon</td>
-<td>The amount of memory used by the processes of this cgroup that are not associated with disk pages that have been marked &ldquo;inactive&rdquo; by the kernel. When the kernel is almost out of memory it will swap &ldquo;inactive&rdquo; pages</td>
+<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>inactive</code> 状态的的内存大小。系统内存不足时，会将标记为 <code>inactive</code> 的页转移到交换区</td>
 </tr>
 <tr>
 <td>docker.mem.active_file</td>
-<td>The amount of memory used by the processes of this cgroup that are associated with disk pages that have been marked &ldquo;active&rdquo; by the kernel</td>
+<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>active</code> 状态的的内存大小</td>
 </tr>
 <tr>
 <td>docker.mem.inactive_file</td>
-<td>The amount of memory used by the processes of this cgroup that are associated with disk pages that have been marked &ldquo;inactive&rdquo; by the kernel</td>
+<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>inactive</code> 状态的的内存大小</td>
 </tr>
 <tr>
 <td>docker.mem.mapped_file</td>
-<td>The amount of memory mapped by the processes in the control group</td>
+<td>在控制组中映射到进程的内存量</td>
 </tr>
 <tr>
 <td>docker.mem.pgfault</td>
-<td>The number of times that a process of the cgroup triggered a page fault by accessing a nonexistent or protected part of its virtual address space</td>
+<td>cgroup中进程访问虚拟地址空间中不存在或者受保护内存导致的页面错误（ page fault ）的次数</td>
 </tr>
 <tr>
 <td>docker.mem.pgmajfault</td>
-<td>The number of times that a process of the cgroup triggered a page fault by accessing a part virtual address space that was swapped out or corresponded to a mapped file</td>
+<td>cgroup中进程访问虚拟地址空间中已经被交换出去或者指向映射文件而导致的页面错误（ page fault ）的次数</td>
 </tr>
 <tr>
 <td>docker.mem.pgpgin</td>
-<td>The number of times pages are &ldquo;charged&rdquo; (added to the accounting) of a cgroup</td>
+<td>该cgroup中内存页被“charged”（添加到记账列表）中的次数</td>
 </tr>
 <tr>
 <td>docker.mem.pgpgout</td>
-<td>The number of times pages are &ldquo;uncharged&rdquo; (removed from the accounting) of a cgroup</td>
+<td>该cgroup中内存页被“uncharged”（添加到记账列表）中的次数</td>
 </tr>
 <tr>
 <td>docker.mem.unevictable</td>
-<td>The amount of memory used by the processes of this cgropu that cannot be reclaimed. Generally memory that has been &ldquo;locked&rdquo; with mlock</td>
+<td>该cgroup中进程使用的不可重用的内存大小。一般来说这部分内存被mlock“锁定”</td>
 </tr>
 <tr>
 <td>docker.disk.size</td>
-<td>The size of the files which have been created or changed by the processes of this cgroup</td>
+<td>该cgroup中进程创建或者修改的文件大小</td>
 </tr>
 <tr>
 <td>docker.cpu.system</td>
-<td>The fraction of time processes of this cgroup had control of the CPU</td>
+<td>该cgroup进程执行中系统调用所占用的CPU时间片</td>
 </tr>
 <tr>
 <td>docker.cpu.user</td>
-<td>The fraction of time the CPU was executing system calls on the behalf of processes of this cgroup</td>
+<td>该cgroup进程所占用的CPU时间片</td>
 </tr>
 <tr>
 <td>docker.containers.running</td>
-<td>The number of containers running on this host</td>
+<td>该主机上运行中容器的个数</td>
 </tr>
 <tr>
 <td>docker.containers.stopped</td>
-<td>The number of containers stopped on this host</td>
+<td>该主机上已经停止的容器个数</td>
 </tr>
 <tr>
 <td>docker.images.available</td>
-<td>The number of active images</td>
+<td>可用Docker镜像数量</td>
 </tr>
 <tr>
 <td>docker.images.intermediate</td>
-<td>The number of inetrmediate images</td>
+<td>中间（临时）镜像数量</td>
 </tr>
 </tbody></table>
 
@@ -475,7 +493,6 @@
 
 <span class="s">instances</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">unix://var/run/docker.sock"</span>
-    <span class="s">new_tag_names</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 
 <h3>重启 Agent</h3>
