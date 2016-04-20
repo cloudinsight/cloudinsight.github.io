@@ -235,7 +235,7 @@
 
   </script>
 
-<div class="ribbon right orange">
+<div class="ribbon right orange hidden-sm hidden-xs">
   <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
 </div>
 
@@ -297,7 +297,488 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>正在完善中&hellip;</h1>
+          <h1>阿里云集成</h1>
+
+<h2>简介</h2>
+
+<p>连接到阿里云您可以：</p>
+
+<ul>
+<li>得到阿里云ECS主机的监控数据，而不需要安装Cloud Insight 探针</li>
+<li>得到阿里云其他服务的CMS监控数据：ECS, RDS</li>
+</ul>
+
+<h2>配置</h2>
+
+<ol>
+<li>登陆到阿里云管理控制台</li>
+<li>开通<a href="https://www.aliyun.com/product/ram">访问控制</a>， 进入访问控制的管理界面</li>
+<li>创建新用户(开启字自动生成AccessKey)， 保存生成的AccessKey对，点击 <em>授权</em>，为新用户增加权限: <strong>AliyunDirectMailReadOnlyAccess</strong> 和 <strong>ReadOnlyAccess</strong></li>
+<li>将您的 <strong>key</strong> 和 <strong>secret</strong> 以及想要监控的的区域 对应填写到Cloud Insight的阿里云集成页面的表格中</li>
+<li><strong>可选</strong>，进入云监控管理界面，点击云服务器ECS，点击安装 插件（推荐，ECS的一些指标需要安装插件之后才能获取)</li>
+<li>完成~</li>
+</ol>
+
+<h2>支持情况</h2>
+
+<p>首先要说明一下我们如何集成阿里云：</p>
+
+<ul>
+<li>使用了阿里云的几个API：ECS、CMS、RDS</li>
+<li>阿里云云监控服务默认就开启，而且云资源购买之后就可以直接使用云监控, 但是<a href="https://help.aliyun.com/document_detail/cms/SDK_References/Preset_Metric_Item_Reference.html">一些ECS指标是需要安装插件才能拿到的</a></li>
+<li>使用您提供的AccessKey获取您的云资源列表(如ECS)，然后调用CMS对每个资源获取监控指标</li>
+</ul>
+
+<p>以下是对阿里云不同服务的支持情况：</p>
+
+<p>想了解阿里云的监控指标，可以参考 <a href="https://help.aliyun.com/document_detail/cms/API_References/Preset_Metric_Item_Reference.html">阿里云 监控项</a>。</p>
+
+<h3>ECS, 对应Cloud Insight的System服务</h3>
+
+<h4>metric 映射</h4>
+
+<table><thead>
+<tr>
+<th>阿里云</th>
+<th>Cloud Insight</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CPUUtilization</td>
+<td>cpu使用率</td>
+<td>单位：%; 只有cpu.user</td>
+</tr>
+<tr>
+<td>DiskReadIOPS/DiskWriteIOPS</td>
+<td>io读写次数</td>
+<td>单位：次</td>
+</tr>
+<tr>
+<td>InternetIn/InternetOut/IntranetIn/IntranetOut</td>
+<td>网络流量</td>
+<td>单位：byte/s</td>
+</tr>
+<tr>
+<td>vm.LoadAverage</td>
+<td>系统负载</td>
+<td>单位：%; 操作系统级监控数据，需要安装插件才能获取</td>
+</tr>
+<tr>
+<td>vm.DiskUtilization</td>
+<td>磁盘使用率</td>
+<td>单位：%; 操作系统级监控数据，需要安装插件才能获取</td>
+</tr>
+<tr>
+<td>vm.DiskIORead/vm.DiskIOWrite</td>
+<td>io读写速度</td>
+<td>单位：kb/s; 操作系统级监控数据，需要安装插件才能获取</td>
+</tr>
+</tbody></table>
+
+<h4>系统信息说明</h4>
+
+<table><thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>以下为 instance tab 信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>zone</td>
+<td>实例所属可用区</td>
+</tr>
+<tr>
+<td>region</td>
+<td>实例所属地域ID</td>
+</tr>
+<tr>
+<td>cluster_id</td>
+<td></td>
+</tr>
+<tr>
+<td>create_time</td>
+<td>创建时间。按照ISO8601标准表示，并需要使用UTC时间。格式为： YYYY-MM-DDThh:mmZ</td>
+</tr>
+<tr>
+<td>expire_time</td>
+<td>过期时间。按照ISO8601标准表示，并需要使用UTC时间。格式为： YYYY-MM-DDThh:mmZ</td>
+</tr>
+<tr>
+<td>description</td>
+<td>实例描述（阿里云自定义的）</td>
+</tr>
+<tr>
+<td>instance<em>charge</em>type</td>
+<td>实例的付费方式。 PrePaid：预付费，即包年包月; PostPaid：后付费，即按量付费</td>
+</tr>
+<tr>
+<td>instance_id</td>
+<td>实例Id</td>
+</tr>
+<tr>
+<td>instance_name</td>
+<td>实例的显示名称</td>
+</tr>
+<tr>
+<td>instance_type</td>
+<td>实例资源规格</td>
+</tr>
+<tr>
+<td>instance<em>type</em>family</td>
+<td>实例规格族</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>公有云厂商</td>
+</tr>
+<tr>
+<td><strong>以下为 network tab 信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>internal_ip</td>
+<td>实例的内网IP地址</td>
+</tr>
+<tr>
+<td>public_ip</td>
+<td>实例的外网IP地址</td>
+</tr>
+<tr>
+<td>internet<em>charge</em>type</td>
+<td>网络计费类型，PayByBandwidth，PayByTraffic两个值中的一个。预付费实例显示PayByBandwidth（按带宽计费）。 PayByTraffic：按流量计费; PayByBandwidth：按带宽计费</td>
+</tr>
+<tr>
+<td>internet<em>max</em>bandwidth_in</td>
+<td>公网入带宽最大值</td>
+</tr>
+<tr>
+<td>internet<em>max</em>bandwidth_out</td>
+<td>公网出带宽最大值</td>
+</tr>
+<tr>
+<td>instance<em>network</em>type</td>
+<td>实例网络类型，可选值Classic， Vpc</td>
+</tr>
+<tr>
+<td><strong>以下为 system tab 信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>cpu</td>
+<td>CPU 核数</td>
+</tr>
+<tr>
+<td>host_name</td>
+<td>主机名</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>内存大小，单位为 MB</td>
+</tr>
+<tr>
+<td>~~disk~~</td>
+<td>磁盘大小 (自定义阿里云镜像没有)</td>
+</tr>
+<tr>
+<td>osname</td>
+<td>操作系统的显示名称 (自定义阿里云镜像没有)</td>
+</tr>
+<tr>
+<td>ostype</td>
+<td>操作系统类型 (自定义阿里云镜像没有)</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>操作系统平台系列（ubuntu,centos..)  (自定义阿里云镜像没有)</td>
+</tr>
+</tbody></table>
+
+<h4>默认的host tag</h4>
+
+<table><thead>
+<tr>
+<th>host tags</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instance<em>charge</em>type</td>
+</tr>
+<tr>
+<td>instance_name</td>
+</tr>
+<tr>
+<td>instance<em>network</em>type</td>
+</tr>
+<tr>
+<td>instance_type</td>
+</tr>
+<tr>
+<td>instance<em>type</em>family</td>
+</tr>
+<tr>
+<td>internet<em>charge</em>type</td>
+</tr>
+<tr>
+<td>region</td>
+</tr>
+<tr>
+<td>zone</td>
+</tr>
+<tr>
+<td>provider</td>
+</tr>
+<tr>
+<td>ostype (自定义阿里云镜像没有)</td>
+</tr>
+<tr>
+<td>platform (自定义阿里云镜像没有)</td>
+</tr>
+</tbody></table>
+
+<h4>默认的metric tag</h4>
+
+<table><thead>
+<tr>
+<th>metric tags</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instance<em>charge</em>type</td>
+</tr>
+<tr>
+<td>instance_name</td>
+</tr>
+<tr>
+<td>instance_type</td>
+</tr>
+<tr>
+<td>internet<em>charge</em>type</td>
+</tr>
+<tr>
+<td>region</td>
+</tr>
+<tr>
+<td>zone</td>
+</tr>
+</tbody></table>
+
+<h3>RDS, 对应Cloud Insight的aliyun_rds服务</h3>
+
+<h4>metric 映射</h4>
+
+<table><thead>
+<tr>
+<th>阿里云</th>
+<th>Cloud Insight</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CpuUsage</td>
+<td>cpu.usage</td>
+<td>单位：%</td>
+</tr>
+<tr>
+<td>DiskUsage</td>
+<td>disk.usage</td>
+<td>单位：%</td>
+</tr>
+<tr>
+<td>IOPSUsage</td>
+<td>ipos.usage</td>
+<td>单位：%</td>
+</tr>
+<tr>
+<td>ConnectionUsage</td>
+<td>connection.usage</td>
+<td>单位：%</td>
+</tr>
+<tr>
+<td>MemoryUsage</td>
+<td>memory.usage</td>
+<td>单位：%</td>
+</tr>
+<tr>
+<td>MySQL_NetworkIn</td>
+<td>mysql.network_in</td>
+<td>单位：kb/s</td>
+</tr>
+<tr>
+<td>MySQL_NetworkOut</td>
+<td>mysql.network_out</td>
+<td>单位：kb/s</td>
+</tr>
+<tr>
+<td>SQLServer_NetworkIn</td>
+<td>sqlserver.network_in</td>
+<td>单位：kb/s</td>
+</tr>
+<tr>
+<td>SQLServer_NetworkOut</td>
+<td>sqlserver.network_out</td>
+<td>单位：kb/s</td>
+</tr>
+</tbody></table>
+
+<h4>系统信息说明</h4>
+
+<table><thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>以下为 instance tab 信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>create_time</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>expire_time</td>
+<td>到期时间，按量付费实例无到期时间</td>
+</tr>
+<tr>
+<td>description</td>
+<td>实例描述</td>
+</tr>
+<tr>
+<td>instance_type</td>
+<td>实例规格类型</td>
+</tr>
+<tr>
+<td>Primary:主实例；ReadOnly：只读实例；Guard：灾备实例；Temp：临时实例</td>
+<td></td>
+</tr>
+<tr>
+<td>engine</td>
+<td>数据库类型</td>
+</tr>
+<tr>
+<td>engine_version</td>
+<td>数据库版本</td>
+</tr>
+<tr>
+<td>pay_type</td>
+<td>付费类型 Postpaid:按量付费；Prepaid：预付费</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>区域</td>
+</tr>
+<tr>
+<td>region</td>
+<td>地域</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>公有云厂商</td>
+</tr>
+<tr>
+<td><strong>以下为 network tab 信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>db<em>net</em>type</td>
+<td>实例网络类型</td>
+</tr>
+<tr>
+<td>network_type</td>
+<td>实例网络规格类型</td>
+</tr>
+<tr>
+<td>Classic：经典网络;VPC：VPC网络</td>
+<td></td>
+</tr>
+<tr>
+<td>connection_mode</td>
+<td>访问模式</td>
+</tr>
+<tr>
+<td>Performance为标准访问模式;Safty为高安全访问模式</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4>默认的host tag</h4>
+
+<table><thead>
+<tr>
+<th>host tags</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instance_type</td>
+</tr>
+<tr>
+<td>pay_type</td>
+</tr>
+<tr>
+<td>region</td>
+</tr>
+<tr>
+<td>zone</td>
+</tr>
+<tr>
+<td>provider</td>
+</tr>
+</tbody></table>
+
+<h4>默认的metric tag</h4>
+
+<table><thead>
+<tr>
+<th>metric tags</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+</tr>
+<tr>
+<td>instance_type</td>
+</tr>
+<tr>
+<td>engine</td>
+</tr>
+<tr>
+<td>network_type</td>
+</tr>
+<tr>
+<td>zone</td>
+</tr>
+<tr>
+<td>region</td>
+</tr>
+</tbody></table>
+
+<h2>问题定位</h2>
+
+<h3>指标不太对?</h3>
+
+<p>你会发现，指标概览和Cloud Insight的demo不一样，指标才只有几个，这是有原因的：</p>
+
+<p>首先，阿里云的监控指标项和我们的指标项只能互相匹配一部分, 并且有几个指标是需要您安装阿里云插件才能获取到；<br>
+其次，有些指标比如磁盘，操作系统等的信息是从API获取不到的；<br>
+再次，某些指标项，比如cpu使用率，阿里云只提供了一个值(cpu.user)来表示(it is true), 而我们的cpu指标下有cpu.user,cpu.system,cpu.idle,cpu.stolen,cpu.iowait, 指标是匹配不上的。</p>
+
+<h3>数据有延迟?</h3>
+
+<p>当使用阿里云集成时，我们是从阿里云 CMS API获取数据。你会看到3~4秒的数据延迟，这主要是API的限制导致的。</p>
+
+<p>从使用阿里云 CMS API的情况来看，在当前时间请求前一分钟和前前一分钟的数据成功返回是不准确的（阿里云方面有确认这个情况），所以我们采取请求前前前(别晕)一分钟的数据，再加上每次请求以及发送给服务器的固定网络开销还有服务器的处理时间，就是所有的延迟所在。</p>
+
+<p>如果这个延迟对您来说有点不能接受的话，推荐您在这些主机上安装Cloud Insight探针，几乎feel不到延迟 :)。</p>
+
+<h3>数据少了(掉点)?</h3>
+
+<p>目前阿里云会偶然地取不到某一分钟的监控数据，我们已经向阿里云提出了这个问题，正在修复中。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
