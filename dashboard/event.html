@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - 常见问题</title>
+<title>Cloud Insight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_network_adapter">
+  <body class="page-dashboard dashboard_event">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,79 +290,115 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-xs-3 page-sidebar">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><p><a href="#"><strong>产品</strong></a></p>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
 
 <ul>
-<li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
-<li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
-<li><a href="/qa/agent.html">Cloud Insight 探针是怎样工作的？</a></li>
-<li><a href="/qa/name.html">怎么修改应用名称？</a></li>
-<li><a href="/qa/host_unavailable.html">如何在主机不可用时收到报警？</a></li>
-<li><a href="/qa/windows_v.html">Cloud Insight 支持哪些 Windows 版本？</a></li>
-<li><a href="/qa/tag.html">tag 使用指南</a></li>
-<li><a href="/qa/network_adapter.html">怎么识别多网卡流量情况？</a></li>
-<li><a href="/qa/browser.html">浏览器不能显示 Cloud Insight 数据</a></li>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 </ul></li>
-<li><p><a href="/qa/agent_index.html"><strong>Agent 使用</strong></a></p>
+<li><a href="/services/">平台服务</a>
 
 <ul>
-<li><a href="/qa/agent_update.html">怎么更新探针</a></li>
-<li><a href="/qa/http_emitter.html">http_emitter: TypeError(/expected string)</a></li>
-<li><a href="/qa/emitter.html">emitter.py 报错 Unable to post payload</a></li>
-<li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
-<li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
-<li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
-<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a></li>
-<li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
-<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a></li>
-<li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
-<li><a href="/qa/syslog.html">Error setting up syslog</a></li>
-<li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
-<li><a href="/qa/win_2008.html">Windows 2008 R2 安装失败</a></li>
-<li><a href="/qa/win_install.html">Windows 安装探针失败无报错</a></li>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
 </ul></li>
-<li><p><a href="/qa/service_index.html"><strong>平台服务配置</strong></a></p>
+<li><a href="/dashboard/">仪表盘</a>
 
 <ul>
-<li><a href="/qa/yaml.html">YAML 格式须知</a></li>
-<li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
-<li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
-<li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
-<li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
-<li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
-<li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
-<li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
-<li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
-<li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/share/">图表分享</a></li>
+<li><a href="/dashboard/event.html">叠加事件</a></li>
+</ul></li>
+<li><a href="/metric/">指标与示意</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
+<li><a href="/services_example/snmp.html">SNMP</a></li>
+<li><a href="/services_example/more.html">配置多个平台服务</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
+<li><a href="/services_example/process.html">进程监控</a></li>
+<li><a href="/services_example/network.html">网络（端口）监控</a></li>
 </ul></li>
 </ul>
 
         </div>
-        <div class="col-xs-9 page-body">
-          <h1>怎么识别多网卡流量情况？</h1>
+        <div class="col-lg-9 page-body">
+          <h1>叠加事件</h1>
 
-<p>一台服务器上面有多块网卡，想看同时查看多块网卡的网络流量情况怎么办？用自定义仪表盘啊。。。</p>
+<p>仪表盘的叠加事件，是通过事件查询，符合名称的事件会在叠加到图表上显示。</p>
 
-<p>首先成功安装探针（我这个账号上只有一台服务器），查看服务器本身有几块网卡，然后查看 Cloud Insight 的指标，如下图：</p>
+<p>关于什么是事件，参考<a href="/event/">事件流</a>，为方便下面解释，现在举例：添加告警策略 <code>avg(last_5m):avg:system.cpu.user {host:wzl-ubuntu} &gt;= 9</code>，策略名称设置为 <code>wzl-ubuntu.cpu over 9</code>（为了出数据，就这么设置了）这个会生成一个创建告警策略的事件，某一时刻到达报警条件，告警触发，几分钟后 CPU 又降了下来，告警策略关闭。这样一个过程会有3个事件，创建告警策略(info)，告警触发(alert)，告警恢复(info)，后面是告警类别。</p>
 
-<p><img src="/images/qa/adapter_1.png" /></p>
+<p>下面具体说一下叠加事件的查询条件，目前支持一下几种查询格式。</p>
 
-<p>然后配置仪表盘，可以直接在 System Network 预定于仪表盘的基础上进行修改，直接创建一个副本 ，生成 network 自定义仪表盘，（为什么要建自定义仪表盘？因为预定义仪表盘不可修改，所以复制成一个自定义仪表盘，在原有基础上进行修改），创建一个新的图表或在原来的基础上进行修改，本文示例是在原来基础上修改，打开了 Network Out 表盘，添加性能指标 <code>system.net.bytes_sent</code>，为了显示所有网卡的数据，后面添加上 <code>avg_by: device_name</code> 显示所有 <code>device_name</code> 的数值，报错即可。</p>
+<p><code>fieldname:value1,value2</code> 和 <code>value3 OR value4</code></p>
 
-<p><img src="/images/qa/adapter_2.png" /></p>
+<p>其中：<code>fieldname</code> 为查询指定字段，<code>value1,value2</code>为可选值列表，<code>value3</code>和<code>value4</code>为不指定字段的全文检索</p>
 
-<p>因为我只监控了一台服务器，直接显示所有网卡流量比较方便，如果你已经监控了多台服务器，而在这一个表盘里只想显示某一台服务器的流量情况，那就多添几个 <code>from</code>： <code>device_name: xxxxx11</code> 等。</p>
+<p><code>fieldname</code> 可以使用以下：</p>
+<pre class="highlight plaintext"><code>event_title
+event_type
+alert_type
+tevent_description
+tevent_object
+tags
+host
+source_type_name 
+</code></pre>
 
-<p>鼠标点击即呈现下图，下面是指标详解：</p>
+<p>可以输入 <code>event_type:ALERT_TRIGGER</code> ，这样就会把报警触发相关的信息都显示出来，还有一个就是<strong>中文的必须加双引号</strong>。</p>
 
-<p><img src="/images/qa/adapter_3.png" /></p>
+<p>你可以搜索 <code>event_title:wzl-ubuntu.cpu over 9</code>，这样3种事件都会显示出来；也可以不加查询指定字段 <code>fieldname</code>，直接加 <code>wzl-ubuntu.cpu over 9</code>，同样会出现3种事件。</p>
 
-<p>整体动图就是：</p>
-
-<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/net.gif" /></p>
+<p>查询是累加的，如果想要删除某个查询条件只能先删除所有叠加事件，再重新添加。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -382,7 +418,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/network_adapter.html"></div>
+     data-url="http://docs-ci.oneapm.com/dashboard/event.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -391,7 +427,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - 常见问题";
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -416,7 +452,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+        $(".navbar-default .navbar-nav .guide").addClass("active");
       });
     </script>
   </body>

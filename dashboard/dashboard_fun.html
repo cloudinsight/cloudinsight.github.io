@@ -321,8 +321,8 @@
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 <li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
 <li><a href="/share/">图表分享</a></li>
+<li><a href="/dashboard/event.html">叠加事件</a></li>
 </ul></li>
-<li><a href="/hostmap/">Hostmap</a></li>
 <li><a href="/metric/">指标与示意</a>
 
 <ul>
@@ -377,15 +377,17 @@
 
 <h3>仪表盘图表类型</h3>
 
-<p>仪表盘图表类型现在有3种，时间序列值，表格值，状态值，下面一一介绍。</p>
+<p>仪表盘图表类型现在有4种，时间序列值，表格值，状态值，饼图下面一一介绍。</p>
 
 <p><img src="/images/dashboard/fun_1.png" /></p>
 
 <ul>
-<li><p>上图中 <code>Connctions</code> 是默认的数据格式，数据是按照时间序列格式采集的，所以按照时间序列显示就是这样，其中这种是曲线图，此外还有面积图和柱状图。</p></li>
-<li><p>上图中 <code>CPU usage</code> 也是时间序列格式，在这种格式的基础上加上了2条标记线，设置绿颜色的 <code>y=60</code> 和红颜色的 <code>y=80</code> ，这样如果数据超过哪些值，在哪些值之间就很一目了然。</p></li>
+<li><p>上图中 <code>cpu use</code> 是默认的数据格式，数据是按照时间序列格式采集的，所以按照时间序列显示就是这样，其中这种是曲线图，此外还有面积图和柱状图。</p></li>
+<li><p>上图中 <code>io</code> 也是时间序列格式，在这种格式的基础上加上了一条标记区域，设置红颜色的 <code>50&lt;y&lt;80</code> 的一段区域 ，这样如果数据超过这段数据，没有到达这段数据，在这段数据情况就很一目了然。</p></li>
 <li><p>上图中 <code>system load</code> 就是表格值，把当时的数据直接显示出来，很直观。</p></li>
-<li><p>上图中 <code>Keys</code> 就是状态值，其实是显示一个具体的指标数值，条件，阈值，背景颜色，字体颜色，字体位置等都可以设置，有具体的条件规则。</p></li>
+<li><p>上图中 <code>net_cvd</code> 就是状态值，其实是显示一个具体的指标数值，条件，阈值，背景颜色，字体颜色，字体位置等都可以设置，有具体的条件规则。</p></li>
+<li><p>上图中 <code>mem</code> 就是饼状图，图中选了3个指标，共同组成一个饼图，各个指标的占比很清楚。</p></li>
+<li><p>上图中 <code>disk used/free</code> 也是时间序列格式，另外还添加了叠加事件。</p></li>
 </ul>
 
 <p>此外，应该也看出来了图表大小可以调节，按照最舒适的角度随意调节。</p>
@@ -412,7 +414,7 @@
 
 <h4>下图为部分使用仪表盘动图</h4>
 
-<p><img src="/images/dashboard/dashboard.gif" /></p>
+<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/dashboard.gif" /></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">

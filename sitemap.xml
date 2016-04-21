@@ -79,6 +79,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://docs-ci.oneapm.com/dashboard/event.html</loc>
+    <lastmod>2016-04-21T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://docs-ci.oneapm.com/event/</loc>
     <lastmod>2016-04-21T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>

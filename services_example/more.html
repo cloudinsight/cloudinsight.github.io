@@ -321,8 +321,8 @@
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
 <li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
 <li><a href="/share/">图表分享</a></li>
+<li><a href="/dashboard/event.html">叠加事件</a></li>
 </ul></li>
-<li><a href="/hostmap/">Hostmap</a></li>
 <li><a href="/metric/">指标与示意</a>
 
 <ul>
@@ -383,15 +383,19 @@
     <span class="s">port</span><span class="pi">:</span> <span class="s">6379</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">mypassword</span>
     <span class="s">tags</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tag_key1:tag_value1</span>
+      <span class="pi">-</span> <span class="s">port:6379</span>
   <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
     <span class="s">port</span><span class="pi">:</span> <span class="s">6378</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">mypassword</span>
     <span class="s">tags</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tag_key2:tag_value2</span>  
+      <span class="pi">-</span> <span class="s">port:6378</span> 
 </code></pre>
 
 <p>如图只需要复制实例部分即可（instances 下面内容），其他配置不需要复制。这样探针会通过6379监控第一个数据库，通过6378 监控第二个数据库，而在 Cloud Insight 上则通过 <code>tags</code> 来区分这2个数据库数据，其他平台服务配置同理，格式参考<a href="/qa/yaml.html">YAML 格式须知</a>。</p>
+
+<p>配置动图显示如下：</p>
+
+<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/more.gif" /></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
