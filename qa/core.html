@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - 常见问题</title>
+<title>Cloud Insight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_address_already_in_use">
+  <body class="page-qa qa_core">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,7 +290,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-xs-3 page-sidebar">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
 <li><p><a href="#"><strong>产品</strong></a></p>
 
@@ -344,29 +344,41 @@
 </ul>
 
         </div>
-        <div class="col-xs-9 page-body">
-          <h1>端口被占用：Errno 98 Address already in use</h1>
+        <div class="col-lg-9 page-body">
+          <h1>如何监控多核 CPU</h1>
 
-<h2>故障说明</h2>
+<p>默认 Cloud Insight 收集总的 CPU 指标数据，而如果服务器是多核的，想要看每个核的使用情况只需要配置即可。</p>
 
-<p>启动 Ci 探针时报出以下错误：</p>
+<p>具体配置方法如下：</p>
 
-<p><img src="/images/qa/AddressAlreadyInUse1.jpg" /></p>
+<p><strong>1 切换至配置文件所在地， <code>/etc/oneapm-ci-agent</code></strong></p>
 
-<h2>故障原因</h2>
-
-<p>Ci 探针默认通过 <code>10010</code> 端口传输数据至 OneAPM 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
-
-<h2>解决方法</h2>
-
-<p>您可以检查占用该端口的应用程序，如果方便，可以 <code>kill</code>此进程或修改此进程的端口；如果不方便修改，则可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 路径下的配置文件，修改此端口。</p>
-<pre class="highlight plaintext"><code># Change port the Agent is listening to
-listen_port: 17121（任意未使用端口）
+<p><strong>2 开启配置文件 <code>conf.d/system_core.yaml</code></strong>   </p>
+<pre class="highlight plaintext"><code>cp system_core.yaml.example  system_core.yaml
 </code></pre>
 
-<p>修改之后重新启动探针会报出如下错误，因为探针在启动时会匹配默认端口 <code>10010</code>，检验出不一致后会寻找配置文件里面的端口号。该报错不影响应用与数据。</p>
+<p><strong>3 重启 OneAPM Cloud Insight Agent，使配置生效</strong></p>
+<pre class="highlight plaintext"><code>sudo  /etc/init.d/oneapm-ci-agent restart
+</code></pre>
 
-<p><img src="/images/qa/AddressAlreadyInUse2.jpg" /></p>
+<p><strong>4 通过查看 Agent Info 信息，来验证配置是否成功</strong></p>
+<pre class="highlight plaintext"><code>system_core
+-----------
+   - instance #0 [OK]
+   - Collected 1 metric, 0 events &amp; 1 service check
+</code></pre>
+
+<p><strong>5 配置仪表盘显示</strong></p>
+
+<ul>
+<li><p>先在<strong>指标</strong>处查看都生成了哪些 <code>core</code> 指标，看看这些指标在哪些 <code>hosts</code> 上，有哪些 <code>tags</code>。</p></li>
+<li><p>创建仪表盘，指标现在要监控的指标，<code>from</code> 参数可以选择要监控的具体哪个核，哪个主机，哪个实例，或者在 <code>avg_by</code> 处选择按照 <code>core</code> 分组显示，这样就显示出所有核数据。</p></li>
+<li><p>保存配置，生出自定义仪表盘，然后这个数据可以分享给别人。</p></li>
+</ul>
+
+<p>仪表盘配置动图如下：</p>
+
+<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/core.gif" /></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -386,7 +398,7 @@ listen_port: 17121（任意未使用端口）
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/address_already_in_use.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/core.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -395,7 +407,7 @@ listen_port: 17121（任意未使用端口）
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - 常见问题";
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -420,7 +432,7 @@ listen_port: 17121（任意未使用端口）
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+        $(".navbar-default .navbar-nav .guide").addClass("active");
       });
     </script>
   </body>

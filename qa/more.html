@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_address_already_in_use">
+  <body class="page-qa qa_more">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -345,28 +345,31 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>端口被占用：Errno 98 Address already in use</h1>
+          <h1>如何监控多个平台服务</h1>
 
-<h2>故障说明</h2>
+<p>一台服务器上如果想同时监控多个 Nginx Redis Mysql 服务，可以在一个配置文件进行配置。</p>
 
-<p>启动 Ci 探针时报出以下错误：</p>
+<p>以 Redis 为例，例如一台服务器上有2个 Redis 数据库，他们通过不同端口连接使用，那此时想同时监控这2台数据库，只需要修改 <code>redis.yaml</code>，具体单个配置参考 <a href="redis.html">Redis 配置平台服务</a>：</p>
+<pre class="highlight yaml"><code><span class="s">init_config</span><span class="pi">:</span>
 
-<p><img src="/images/qa/AddressAlreadyInUse1.jpg" /></p>
-
-<h2>故障原因</h2>
-
-<p>Ci 探针默认通过 <code>10010</code> 端口传输数据至 OneAPM 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
-
-<h2>解决方法</h2>
-
-<p>您可以检查占用该端口的应用程序，如果方便，可以 <code>kill</code>此进程或修改此进程的端口；如果不方便修改，则可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 路径下的配置文件，修改此端口。</p>
-<pre class="highlight plaintext"><code># Change port the Agent is listening to
-listen_port: 17121（任意未使用端口）
+<span class="s">instances</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">6379</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">mypassword</span>
+    <span class="s">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">port:6379</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">6378</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">mypassword</span>
+    <span class="s">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">port:6378</span> 
 </code></pre>
 
-<p>修改之后重新启动探针会报出如下错误，因为探针在启动时会匹配默认端口 <code>10010</code>，检验出不一致后会寻找配置文件里面的端口号。该报错不影响应用与数据。</p>
+<p>如图只需要复制实例部分即可（instances 下面内容），其他配置不需要复制。这样探针会通过6379监控第一个数据库，通过6378 监控第二个数据库，而在 Cloud Insight 上则通过 <code>tags</code> 来区分这2个数据库数据，其他平台服务配置同理，格式参考<a href="/qa/yaml.html">YAML 格式须知</a>。</p>
 
-<p><img src="/images/qa/AddressAlreadyInUse2.jpg" /></p>
+<p>配置动图显示如下：</p>
+
+<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/more.gif" /></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -386,7 +389,7 @@ listen_port: 17121（任意未使用端口）
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/address_already_in_use.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/more.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

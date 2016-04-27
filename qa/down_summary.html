@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - 常见问题</title>
+<title>Cloud Insight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_address_already_in_use">
+  <body class="page-qa qa_down_summary">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,7 +290,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-xs-3 page-sidebar">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
 <li><p><a href="#"><strong>产品</strong></a></p>
 
@@ -344,29 +344,198 @@
 </ul>
 
         </div>
-        <div class="col-xs-9 page-body">
-          <h1>端口被占用：Errno 98 Address already in use</h1>
+        <div class="col-lg-9 page-body">
+          <h1>应用启动失败原因排查</h1>
 
-<h2>故障说明</h2>
+<p>探针启动失败有2种情况，一是探针没有安装成功，二是探针安装成功但没有启动成功。探针有没有安装成功，你可以看是否有可以执行 <code>/etc/init.d/oneapm-ci-agent info</code>，如果不能执行，那就是没有安装成功；如果可以执行就看看输出有什么报错，再进行下一步分析。 </p>
 
-<p>启动 Ci 探针时报出以下错误：</p>
+<p>下面将对各种可能造成的原因给出相应解决方法。</p>
 
-<p><img src="/images/qa/AddressAlreadyInUse1.jpg" /></p>
+<h2>探针没有安装成功</h2>
 
-<h2>故障原因</h2>
+<p>探针在安装的时候会产生安装的 log，所以要看报错确定问题。</p>
 
-<p>Ci 探针默认通过 <code>10010</code> 端口传输数据至 OneAPM 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
-
-<h2>解决方法</h2>
-
-<p>您可以检查占用该端口的应用程序，如果方便，可以 <code>kill</code>此进程或修改此进程的端口；如果不方便修改，则可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 路径下的配置文件，修改此端口。</p>
-<pre class="highlight plaintext"><code># Change port the Agent is listening to
-listen_port: 17121（任意未使用端口）
+<h3>curl 问题</h3>
+<pre class="highlight plaintext"><code>curl: (35) error:0D0C50A1:asn1 encoding routines:ASN1_item_verify:unknown message digest algorithm
 </code></pre>
 
-<p>修改之后重新启动探针会报出如下错误，因为探针在启动时会匹配默认端口 <code>10010</code>，检验出不一致后会寻找配置文件里面的端口号。该报错不影响应用与数据。</p>
+<p>这个问题多由证书本地 openssl 不能识别 SSL 证书签名算法所致。Cloud Insight 使用了 SHA-256 RSA 加密算法。而 openssl 在 OpenSSL 0.9.8o才加入此算法。</p>
 
-<p><img src="/images/qa/AddressAlreadyInUse2.jpg" /></p>
+<p><strong>解决办法</strong>是升级本地 openssl。</p>
+
+<h3>镜像无效</h3>
+<pre class="highlight plaintext"><code>Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
+Trying other mirror.
+http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
+Trying other mirror.
+Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2 from oneapm-ci-agent: [Errno 256] No more mirrors to try.
+[31m
+
+</code></pre>
+
+<p>这是 Centos 5 版本可能产生的问题，以上出错原因是发布 Cloud Insight 探针包时默认的 checksum（检验码）是 sha256 ,而 CentOS 5/rhel 5 版本不符合这个，所以安装不了这个安装包。</p>
+
+<p><strong>解决方法</strong> ：首先删掉因安装 Ci 添加的 yum 源<code>
+rm -rf  /etc/yum.repos.d/oneapm-ci-agent.repo</code>，然后安装一个 hash 加密的模块：<code>
+yum install python-hashlib</code>，然后重新安装探针，参考<a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a>。</p>
+
+<h3>用户密码权限问题</h3>
+<pre class="highlight plaintext"><code>useradd: cannot  open  /etc/passwd
+</code></pre>
+
+<p>这是 Centos 7 版本可能产生的问题，具体参考<a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a>。</p>
+
+<h3>unmet dependencies</h3>
+<pre class="highlight plaintext"><code>* Installing APT package sources for OneAPM
+
+Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.0dkKOJrsNY --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 54B043BC
+gpg: requesting key 54B043BC from hkp server keyserver.ubuntu.com
+gpg: key 54B043BC: "OneAPM Packages &lt;package@oneapm.com&gt;" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+
+* Installing the OneAPM CI Agent package
+
+Ign http://apt.oneapm.com stable InRelease
+Hit http://apt.oneapm.com stable Release.gpg
+Hit http://apt.oneapm.com stable Release
+Hit http://apt.oneapm.com stable/main amd64 Packages
+Hit http://apt.oneapm.com stable/main i386 Packages
+Ign http://apt.oneapm.com stable/main TranslationIndex
+Ign http://apt.oneapm.com stable/main Translation-en_US
+Ign http://apt.oneapm.com stable/main Translation-en
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+You might want to run 'apt-get -f install' to correct these:
+The following packages have unmet dependencies:
+ kunagi : Depends: tomcat6 but it is not going to be installed
+          Recommends: msttcorefonts
+          Recommends: ttf-dejavu but it is not going to be installed
+E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
+ERROR
+</code></pre>
+
+<p>以上报错说明 Ubuntu 系统内 APT 包源本身冲突，如果不安装更新软件的话这个问题不会表现出来，但在安装 Cloud Insight 探针时第一步执行的 sudo apt-get update，此时系统内如果有服务需要升级版本，就会报出错。如果没办法处理冲突问题，那就只能分布安装。具体安装方法见本文尾处。</p>
+
+<h2>探针安装成功没有启动成功</h2>
+
+<p>当一键安装后应用显示 down，没有数据，此时你需要先看看 log 来确定问题，有的已经会直接提示运行哪些命令，执行如下 info 命令。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent info
+</code></pre>
+
+<h3>hostname 报错</h3>
+<pre class="highlight plaintext"><code>2016-01-19 13:33:09,326 | CRITICAL | ci.collector | util(util.py:226) | Unable t                                                                   nt.conf or in your hosts file
+Traceback (most recent call last):
+  File "/opt/oneapm-ci-agent/agent/agent.py", line 335, in &lt;module&gt;
+    sys.exit(main())
+  File "/opt/oneapm-ci-agent/agent/agent.py", line 215, in main
+    hostname = get_hostname(agentConfig)
+  File "/opt/oneapm-ci-agent/agent/util.py", line 227, in get_hostname
+    raise Exception('Unable to reliably determine host name. You can define one
+Exception: Unable to reliably determine host name. You can define one in oneapm-
+</code></pre>
+
+<p>安装 Ci 探针后，默认会以服务器系统的 hostname 作为应用名称，默认的 localhost、 localhost.localdomain、 localhost6.localdomains 等名称是无效的，所以需要修改 hostname，保证其唯一性。</p>
+
+<p><strong>解决方法</strong> 修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> hostname: xxxx 指标（a-zA-Z1-9，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置。</p>
+
+<h3>时间问题</h3>
+<pre class="highlight plaintext"><code>Clocks
+======
+
+  NTP offset: 229140.0818 s
+  System UTC time: 2016-04-22 10:23:32.445928
+</code></pre>
+
+<p>像上面这种时你需要查看你的服务器时间是否是北京时间，因为探针采集数据是按照时间序列采集的，发送到我们云端，此时存储方式也是安装时间序列，发送到前端展示的时候依旧会按照采集到时间序列，但默认前段展示的是北京时间最近30分钟的数据，所以会显示没有数据。</p>
+
+<p><strong>解决方法</strong> 服务器时间同步为北京时间</p>
+
+<h3>Error setting up syslog</h3>
+<pre class="highlight plaintext"><code>[root@S-C7 conf.d]# /etc/init.d/oneapm-ci-agent restart
+Stopping OneAPM CI Agent (using killproc on supervisord): [ OK ] Error setting up syslog: '[Errno 13] Permission denied' Traceback (most recent call last): File "/opt/oneapm-ci-agent/agent/config.py", line 1004, in initialize_logging handler = SysLogHandler(address=sys_log_addr, facility=SysLogHandler.LOG_DAEMON) File "/opt/oneapm-ci-agent/embedded/lib/python2.7/logging/handlers.py", line 761, in __init__ self._connect_unixsocket(address) File "/opt/oneapm-ci-agent/embedded/lib/python2.7/logging/handlers.py", line 789, in _connect_unixsocket self.socket.connect(address) File "/opt/oneapm-ci-agent/embedded/lib/python2.7/socket.py", line 228, in meth return getattr(self._sock,name)(*args) error: [Errno 13] Permission denied
+</code></pre>
+
+<p><strong>解决方法</strong> 此为 syslog 文件找不到，修改 /etc/oneapm-ci-agent/oneapm-ci-agent.conf 里面 log<em>to</em>syslog 设置为 no ，重启探针即可。</p>
+
+<p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/oneapm-ci-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，onestatsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloud Insight SaaS 的传输情况。</p>
+
+<h3>端口被占用</h3>
+<pre class="highlight plaintext"><code>2016-04-26 10:49:03 CST | ERROR | ci.forwarder | forwarder(forwarder.py:479) | Socket error [Errno 98] Address already in use. Is another application listening on the same port ? Exiting
+Traceback (most recent call last):
+  File "/opt/oneapm-ci-agent/agent/forwarder.py", line 467, in run
+    http_server.listen(self._port, address=self._agentConfig['bind_host'])
+  File "/opt/oneapm-ci-agent/embeddedb/python2.7/site-packages/tornado/tcpserver.py", line 117, in listen
+    sockets = bind_sockets(port, address=address)
+  File "/opt/oneapm-ci-agent/embeddedb/python2.7/site-packages/tornado/netutil.py", line 104, in bind_sockets
+    sock.bind(sockaddr)
+  File "/opt/oneapm-ci-agent/embeddedb/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+</code></pre>
+
+<p>Ci 探针默认通过 10010 端口传输数据至 Cloud Insight 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
+
+<p><strong>解决方法</strong>您可以检查占用该端口的应用程序，如果方便，可以 kill 此进程或修改此进程的端口；如果不方便修改，则可以修改 /etc/oneapm-ci-agent/oneapm-ci-agent.conf 路径下的配置文件，修改此端口。</p>
+<pre class="highlight plaintext"><code>listen_port: 17121（任意未使用端口）
+</code></pre>
+
+<p>修改之后重新启动探针即可。</p>
+
+<h3>Unable to post payload</h3>
+<pre class="highlight plaintext"><code>2015-12-25 11:40:54 CST | ERROR | ci.collector | checks.collector(emitter.py:69) | Unable to post payload.
+Traceback (most recent call last):
+  File "/opt/oneapm-ci-agent/agent/emitter.py", line 61, in http_emitter
+    r = requests.post(url, data=zipped, timeout=5, headers=headers)
+  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 108, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 464, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/adapters.py", line 415, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(97, 'Address family not supported by protocol'))
+</code></pre>
+
+<p>如果有以上 Unable to post payload 的问题，但不是连接超时问题，这是因为探针默认会读取 localhost 的数据，如果本机没有把 localhost 解析成 127.0.0.1 ，就会报这个错误，所以可以对本机进行解析，也可以在 Cloud Insight 配置文件里面绑定 127.0.0.1。可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 文件，在里面添加如下内容：</p>
+<pre class="highlight plaintext"><code>bind_host: 127.0.0.1
+</code></pre>
+
+<p>之后重启探针，在 web 上看看是否已经有数据。</p>
+
+<p>如果有以上 Unable to post payload 的问题，但是连接超时问题，可以忽略，偶尔1～2次数据没有传输上去，不会有影响，Cloud Insight Agent 有30M 缓存，数据没有发送成功下次发送时回一并发过去，直至发送成功。 </p>
+
+<h3>license_key</h3>
+
+<p>如果 collector.log 和 forwarder.log 都没有报错，你应该考虑是不是 license<em>key 写错了，我们正确的 license</em>key 末尾都是有等号的，例如 <code>B1oCTldEV6b2bAoVCEwID0918f35hQdXH1I9f9dBHApWFVQIcb79VVZfti4bUAU=</code> ，所以查看自己的 license_key ，修改正确，重启探针就行啦。</p>
+
+<h3>分步安装</h3>
+
+<p>如果操作系统本身 YUM/APT 源有问题，可以进行分步安装：</p>
+<pre class="highlight plaintext"><code>sudo apt-get autoremove
+sudo apt-get autoclean
+wget http://apt.oneapm.com/pool/main/oneapm-ci-agent_x.x.0-1_amd64.deb  (可以自行查看当前版本)
+dpkg -i oneapm-ci-agent_x.x.0-1_amd64.deb
+cd /etc/oneapm-ci-agent/
+cp oneapm-ci-agent.conf.example   oneapm-ci-agent.conf  
+vi oneapm-ci-agent.conf（ 修改成自己的 license_key ）
+/etc/init.d/oneapm-ci-agent restart 
+</code></pre>
+<pre class="highlight plaintext"><code>sudo yum update
+wget http://yum.oneapm.com/x86_64/oneapm-ci-agent-x.x.0-1.x86_64.rpm
+rpm -Uvh oneapm-ci-agent-x.x.0-1.x86_64.rpm
+cd /etc/oneapm-ci-agent/
+cp oneapm-ci-agent.conf.example   oneapm-ci-agent.conf  
+vi oneapm-ci-agent.conf（ 修改成自己的 license_key ）
+/etc/init.d/oneapm-ci-agent restart 
+</code></pre>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -386,7 +555,7 @@ listen_port: 17121（任意未使用端口）
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/address_already_in_use.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/down_summary.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -395,7 +564,7 @@ listen_port: 17121（任意未使用端口）
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - 常见问题";
+    title = "";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -420,7 +589,7 @@ listen_port: 17121（任意未使用端口）
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
+        $(".navbar-default .navbar-nav .guide").addClass("active");
       });
     </script>
   </body>
