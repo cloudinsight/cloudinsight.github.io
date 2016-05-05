@@ -514,7 +514,22 @@ ConnectionError: ('Connection aborted.', error(97, 'Address family not supported
 
 <h3>license_key</h3>
 
-<p>如果 collector.log 和 forwarder.log 都没有报错，你应该考虑是不是 license<em>key 写错了，我们正确的 license</em>key 末尾都是有等号的，例如 <code>B1oCTldEV6b2bAoVCEwID0918f35hQdXH1I9f9dBHApWFVQIcb79VVZfti4bUAU=</code> ，所以查看自己的 license_key ，修改正确，重启探针就行啦。</p>
+<p>如果 collector.log 和 forwarder.log 都没有报错，你应该考虑是不是 license<em>key 写错了，我们正确的 license</em>key 末尾都是有等号的，例如 <code>B1oCTldEV6b2bAoVCEwID0918f35hQdXH1I9f9dBHApWFVQIcb79VVZfti4bUAU=</code> ，所以查看自己的 license_key ，修改正确，重启探针就行啦。正确格式如下：</p>
+<pre class="highlight plaintext"><code>me  18:49:46
+# The host of the OneAPM data collector server to send Agent data to
+ci_url: https://dc-cloud.oneapm.com
+
+# The OneAPM license key to associate your Agent's data with your organization.
+license_key: B1oCTldEV6b2bAoVCEwID0918f4FCQdXH1I9f9dBHApWFVQIcb79VVZPBw4bUAU=
+</code></pre>
+
+<h3>探针发送数据频率</h3>
+
+<p>探针30s 采集一次数据，15s 秒发送一次数据，这是为了保证数据全部发送过去。</p>
+
+<p>探针对于状态值检验（执行 info 命令所输出的系统以及各个监控组件的是非正常发送数据的检验，正常是绿色，黄色是警告，不影响数据，红色是发生错误 ）是10分钟发送一次，所以如果界面上的状态和执行 info 后输出的有所不一致，那再等几分钟，为了避免资源损耗，这个发送频率是10分钟。</p>
+
+<p>同样界面上如果连续10分钟没有收到数据，应用状态就会显示为 down，3天没数据，这个应用就会自动删除。</p>
 
 <h3>分步安装</h3>
 

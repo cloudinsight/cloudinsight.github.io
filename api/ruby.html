@@ -320,17 +320,17 @@
 <h2>下载与安装</h2>
 
 <ol>
-<li>在<code>Gemfile</code>中添加：</li>
-</ol>
-<pre class="highlight ruby"><code>  <span class="err">$</span> <span class="n">gem</span> <span class="s1">'oneapm_ci'</span>
-  <span class="err">$</span> <span class="n">bundle</span>
+<li><p>在<code>Gemfile</code>中添加：</p>
+<pre class="highlight ruby"><code><span class="n">gem</span> <span class="s1">'cloudinsight-sdk'</span>
 </code></pre>
 
-<ol>
-<li>直接执行：</li>
+<p>执行：</p>
+<pre class="highlight plaintext"><code>bundle install
+</code></pre></li>
+<li><p>直接执行：</p>
+<pre class="highlight ruby"><code><span class="n">gem</span> <span class="n">install</span> <span class="n">cloudinsight</span><span class="o">-</span><span class="n">sdk</span>
+</code></pre></li>
 </ol>
-<pre class="highlight ruby"><code>  <span class="n">gem</span> <span class="n">install</span> <span class="n">oneapm_ci</span>
-</code></pre>
 
 <h2>数据类型</h2>
 
@@ -352,6 +352,8 @@
 </code></pre>
 
 <h4>采样率</h4>
+
+<p>可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
 
 <p>采样率为在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
 

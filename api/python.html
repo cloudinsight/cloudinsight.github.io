@@ -306,7 +306,8 @@
         <div class="col-xs-9 page-body">
           <h1>Cloud Insight SDK For Python</h1>
 
-<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。</p>
+<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。
+<a href="https://github.com/cloudinsight/cloudinsight-python-sdk">项目地址</a></p>
 
 <p>目前支持的数据类型有：</p>
 
@@ -315,26 +316,16 @@
 <li>Gauges</li>
 </ul>
 
-<p>目前支持的语言有：</p>
-
-<ul>
-<li>Python</li>
-</ul>
-
 <p>使用 SDK 的前提条件为您已经安装了 Cloud Insight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
 
-<h2>下载与安装</h2>
-
-<h3>Python</h3>
+<h2>安装与使用</h2>
 
 <ul>
-<li>使用 <code>pip</code> 安装</li>
-</ul>
-<pre class="highlight plaintext"><code>pip install -i http://pypi.oneapm.com/simple --upgrade oneapm-ci-sdk
-</code></pre>
-
-<ul>
-<li>从 4.4.0 版本开始，Cloud Insight 已经内嵌入 SDK ，使用的时候可以直接使用，无需安装，使用时可以指定 Python 环境 <code>/opt/oneapm-ci-agent/embedded/bin/python</code> 或者导入探针的 Python 库 <code>/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/</code>。</li>
+<li><p>使用 <code>pip</code> 安装(之前包名是oneapm-ci-sdk, 已不再更新，不建议使用)</p>
+<pre class="highlight plaintext"><code>pip install -i http://pypi.oneapm.com/simple --trusted-host pypi.oneapm.com --upgrade cloudinsight
+</code></pre></li>
+<li><p>从 4.4.0 版本开始，Cloud Insight 已经内嵌入 SDK ，使用的时候可以直接使用，无需安装，使用时可以指定 Python 环境 <code>/opt/oneapm-ci-agent/embedded/bin/python</code> 或者导入探针的 Python 库 <code>/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/</code>。 <strong>注意</strong>:探针版本&lt;=4.5.0的内嵌SDK包名为oneapm-ci-sdk。</p></li>
+<li><p><a href="https://github.com/cloudinsight/cloudinsight-python-sdk/tree/master/example">示例代码参考</a></p></li>
 </ul>
 
 <h2>数据类型</h2>
@@ -345,7 +336,7 @@
 
 <p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
 <pre class="highlight python"><code><span class="c"># Import the module.</span>
-<span class="kn">from</span> <span class="nn">oneapm_ci_sdk</span> <span class="kn">import</span> <span class="n">statsd</span>
+<span class="kn">from</span> <span class="nn">cloudinsight</span> <span class="kn">import</span> <span class="n">statsd</span>
 
 <span class="c"># Increment a counter.</span>
 <span class="n">statsd</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">'page.views'</span><span class="p">)</span>
@@ -360,7 +351,7 @@
 
 <p>也可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
 
-<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
+<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，平均调用 10 次 <code>increment</code>，只自增一次 Metric。</p>
 
 <p>在数据量较大的情况下，可以确保采样的高效。</p>
 <pre class="highlight python"><code><span class="n">statsd</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">'page.views'</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -383,6 +374,10 @@
 <p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
 <pre class="highlight python"><code><span class="c"># Record a gauge .</span>
 <span class="n">statsd</span><span class="o">.</span><span class="n">gauge</span><span class="p">(</span><span class="s">'foo.bar'</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+
+<span class="c"># Record a tagged metric.</span>
+<span class="n">statsd</span><span class="o">.</span><span class="n">gauge</span><span class="p">(</span><span class="s">'users.online'</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s">'gender:male'</span><span class="p">,</span><span class="s">'region:north'</span><span class="p">])</span>
+
 </code></pre>
 
 <p>此时，<code>foo.bar</code> 的值为 <code>123</code>。</p>
@@ -392,6 +387,7 @@
 <p>命名 Metric Name 有一下一些规则：</p>
 
 <ul>
+<li>Metric Name 一般是三个层级: service.metric.sub_metric, 也可以两级: service.metric</li>
 <li>指标名称必须以字母为开头</li>
 <li>只能包含 ASCII 字母，数字，下划线和句点（其它字符将被转换为下划线）</li>
 <li>最多200个字符（从 UI 考虑不要超过100）</li>
