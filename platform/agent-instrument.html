@@ -296,6 +296,7 @@
 <li><a href="/platform/">Agent 安装与配置</a>
 
 <ul>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 <li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
 <li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
@@ -304,7 +305,6 @@
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 </ul></li>
 <li><a href="/services/">平台服务</a>
 
@@ -426,25 +426,63 @@
 </code></pre>
 
 <h3><code>oneapm-ci-agent.conf</code> 配置项</h3>
+<pre class="highlight plaintext"><code>[Main]
 
-<ul>
-<li><code>ci_url</code> - 收集的数据发送的目的服务器地址</li>
-<li><code>license_key</code> - 您的 OneAPM Cloud Insight 的 license key</li>
-<li><code>proxy_host</code> - 代理服务地址</li>
-<li><code>proxy_port</code> - 代理服务端口</li>
-<li><code>proxy_user</code> - 代理服务账户</li>
-<li><code>proxy_password</code> - 代理服务密码</li>
-<li><code>skip_ssl_validation</code> - 跳过 ssl 验证</li>
-<li><code>hostname</code> - 主机名</li>
-<li><code>tags</code> - 标签，多项用逗号间隔</li>
-<li><code>log_level</code> - log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)</li>
-<li><code>collector_log_file</code> - collector 日志文件</li>
-<li><code>forwarder_log_file</code> - forwarder 日志文件</li>
-<li><code>onestatsd_log_file</code> - onestatsd 日志文件</li>
-<li><code>log_to_syslog</code> - 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog</li>
-<li><code>syslog_host</code> - syslog 地址</li>
-<li><code>syslog_port</code> - syslog 端口</li>
-</ul>
+# The host of the OneAPM data collector server to send Agent data to
+# 收集的数据发送的目的服务器地址
+ci_url: https://dc-cloud.oneapm.com     
+
+# The OneAPM license key to associate your Agent's data with your organization.
+# 您的 OneAPM Cloud Insight 的 license key
+license_key: B1oCTldEV6b2bAoVCEwID0918f4FCQdXH1I9xxxxxxxxxxxxxxx9VVZPBw4bUAU=  
+
+
+# If you need a proxy to connect to the Internet, provide the settings here
+# proxy_host: my-proxy.com     # 代理服务地址
+# proxy_port: 3128             # 代理服务端口
+# proxy_user: user             # 代理服务账户
+# proxy_password: password     # 代理服务密码
+# To be used with some proxys that return a 302 which make curl switch from POST to GET
+# proxy_forbid_method_switch: no   
+
+# If you run the agent behind haproxy, you might want to set this to yes
+# skip_ssl_validation: no      # 跳过 ssl 验证
+
+# Force the hostname to whatever you want.
+# hostname: mymachine.mydomain # 主机应用名
+
+
+tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
+
+# The loopback address the Forwarder and Onestatsd will bind.
+# bind_host: localhost         # Forwarder 发送数据的地址
+
+# Change port the Agent is listening to
+# listen_port: 10010           #  Forwarder 发送数据端口
+
+# Enable Agent Developer Mode
+# Agent Developer Mode collects and sends more fine-grained metrics about agent and check performance
+# developer_mode: no           # 开发者模式
+# In developer mode, the number of runs to be included in a single collector profile
+# collector_profile_interval: 20 
+
+# ========================================================================== #
+# Logging
+# ========================================================================== #
+
+# log_level: INFO              # log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)
+
+# collector_log_file: /var/log/oneapm-ci-agent/collector.log  # collector 日志文件
+# forwarder_log_file: /var/log/oneapm-ci-agent/forwarder.log  # forwarder 日志文件
+# onestatsd_log_file: /var/log/oneapm-ci-agent/onestatsd.log  # onestatsd 日志文件
+
+# if syslog is enabled but a host and port are not set, a local domain socket
+# connection will be attempted
+# log_to_syslog: no            # 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog
+# syslog_host:                 # syslog 地址
+# syslog_port:                 # syslog 端口
+
+</code></pre>
 
 <p>平台服务的配置文件目录：</p>
 <pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/conf.d/

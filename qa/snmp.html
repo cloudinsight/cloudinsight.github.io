@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_win_install">
+  <body class="page-qa qa_snmp">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -347,22 +347,73 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Windows 安装探针失败无报错</h1>
+          <h1>SNMP 如何配置监控</h1>
 
-<p>Windows 探针有2种安装方式：</p>
+<p><strong>SNMP</strong> (Simple Network Management Protocol) 是一个基于 TCP/IP 协议的网络设备交互的标准协议。该协议基于简单网关监视协议，利用 SNMP，一个管理工作站可以远程管理所有支持这种协议的设备，Cloud Insight 通过 SNMP 协议监测网络连接的设备，例如路由器，交换器，服务器和防火墙。下面是 SNMP 的几个关键组成部分。</p>
 
-<ul>
-<li><p>一种是标准安装，点击下载 Windows 版 Agent，双击安装，输入 <code>YOUR_LICENSE_KEY</code>。</p></li>
-<li><p>另一种是命令行安装，点击下载 Windows 版 Agent，打开cmd.exe，定位到 Agent 所在目录，执行下面命令：</p></li>
-</ul>
-<pre class="highlight plaintext"><code>＃ 32位
-msiexec /qn /i oneapm-ci-agent.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+<p><strong>SMI</strong>（Structure of Management Information）：管理信息结构，用于定义通过 SNMP 可访问的对象的规则。</p>
+
+<p><strong>MIB</strong>（Management Information Base）：管理信息库，SNMP 访问的管理对象数据库，MIB 给出了一个网络中所有可能的被管理对象的集合的数据结构。MIB 是一个树形结构，SNMP 协议消息通过遍历 MIB 树形目录中的节点来访问网络中的设备。</p>
+
+<p><strong>NMS</strong>：网络管理系统，又称管理站。是系统的控制台，向管理员提供界面以获取与改变设备的配置、信息、状态、操作等信息</p>
+
+<p>下图为 NMS 系统中 SNMP 可访问网络设备的对象识别树 OID（Object Identifier）结构。</p>
+
+<p><img src="/images/qa/snmp_oid.png" /></p>
+
+<p>接下来说明如何监控具体指标，下面是 SNMP 配置文件：</p>
+<pre class="highlight plaintext"><code>init_config:
+   - mibs_folder: /path/to/your/additional/mibs
+instances:
+   -   ip_address: localhost
+       port: 161
+       community_string: public
+       tags:
+            - optional_tag1
+            - optional_tag2
+       metrics:
+            - MIB: UDP-MIB
+              symbol: udpInDatagrams
+            - OID: 1.3.6.1.2.1.6.5
+              name: tcpPassiveOpens
+            - MIB: IF-MIB
+              table: ifTable
+              symbols:
+                - ifInOctets
+                - ifOutOctets
+              metric_tags:
+                - tag: interface
+                  column: ifDescr
 </code></pre>
-<pre class="highlight plaintext"><code>＃ 64位
-msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+
+<p>Cloud Insight 探针支持 SNMP 传输2种方式的数据 <code>Counters</code> 和 <code>Gauge</code>，配置网络设备指标遵循以下几种方式：</p>
+
+<p>指定 MIB 节点并显示其代表符号：</p>
+<pre class="highlight plaintext"><code>metrics:
+  - MIB: UDP-MIB
+    symbol: udpInDatagrams
 </code></pre>
 
-<p>如果你想看安装详情，可以去掉 <code>/qn</code>  这个参数。</p>
+<p>在 YAML 文件在直接指定 OID 以及想要显示的指标名称：</p>
+<pre class="highlight plaintext"><code> metrics:
+  - OID: 1.3.6.1.2.1.6.5
+    name: tcpPassiveOpens
+</code></pre>
+
+<p>指定你想提取信息的 MIB 和表：</p>
+<pre class="highlight plaintext"><code>metrics:
+  - MIB: IF-MIB
+    table: ifTable
+    symbols:
+      - ifInOctets
+    metric_tags:
+      - tag: interface
+    column: ifDescr
+</code></pre>
+
+<p>上面是收集所有表的行的信息以及收集指定 tag。通过 symbol 列表指定指标，通过收集 metric_tags 指定 tag。</p>
+
+<p>上面例子中，探针会收集各个接口接受的8位字节的速率，并以接口名称打上 tag，例如 <code>interface:eth0</code>。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -382,7 +433,7 @@ msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/win_install.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/snmp.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

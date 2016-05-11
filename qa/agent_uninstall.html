@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_win_install">
+  <body class="page-qa qa_agent_uninstall">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -347,22 +347,25 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Windows 安装探针失败无报错</h1>
-
-<p>Windows 探针有2种安装方式：</p>
+          <h1>探针卸载操作</h1>
 
 <ul>
-<li><p>一种是标准安装，点击下载 Windows 版 Agent，双击安装，输入 <code>YOUR_LICENSE_KEY</code>。</p></li>
-<li><p>另一种是命令行安装，点击下载 Windows 版 Agent，打开cmd.exe，定位到 Agent 所在目录，执行下面命令：</p></li>
+<li>CentOS / Redhat 卸载</li>
 </ul>
-<pre class="highlight plaintext"><code>＃ 32位
-msiexec /qn /i oneapm-ci-agent.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
-</code></pre>
-<pre class="highlight plaintext"><code>＃ 64位
-msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+<pre class="highlight plaintext"><code>sudo yum remove oneapm-ci-agent
 </code></pre>
 
-<p>如果你想看安装详情，可以去掉 <code>/qn</code>  这个参数。</p>
+<ul>
+<li>Ubuntu / Debian 卸载</li>
+</ul>
+<pre class="highlight plaintext"><code>sudo apt-get remove oneapm-ci-agent
+</code></pre>
+
+<ul>
+<li>Windows 卸载</li>
+</ul>
+
+<p>在控制面板删除 OneAPM Ci Agent </p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -382,7 +385,7 @@ msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/win_install.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/agent_uninstall.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

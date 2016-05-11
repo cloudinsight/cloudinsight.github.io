@@ -308,12 +308,14 @@
 <li>得到阿里云其他服务的CMS监控数据：ECS, RDS</li>
 </ul>
 
+<p><strong>请注意</strong>: 目前对监控的主机数量做了每个产品20台的限制，即一个阿里云账户可以监控20个ECS和20个RDS, 稍后我们会逐渐放开这些限制。</p>
+
 <h2>配置</h2>
 
 <ol>
 <li>登陆到阿里云管理控制台</li>
 <li>开通<a href="https://www.aliyun.com/product/ram">访问控制</a>， 进入访问控制的管理界面</li>
-<li>创建新用户(开启字自动生成AccessKey)， 保存生成的AccessKey对，点击 <em>授权</em>，为新用户增加权限: <strong>AliyunDirectMailReadOnlyAccess</strong> 和 <strong>ReadOnlyAccess</strong></li>
+<li>创建新用户(开启字自动生成AccessKey)， 保存生成的AccessKey对，点击 <em>授权</em>，为新用户增加权限: <strong>AliyunCloudMonitorReadOnlyAccess</strong> 和 <strong>ReadOnlyAccess</strong></li>
 <li>将您的 <strong>key</strong> 和 <strong>secret</strong> 以及想要监控的的区域 对应填写到Cloud Insight的阿里云集成页面的表格中</li>
 <li><strong>可选</strong>，进入云监控管理界面，点击云服务器ECS，点击安装 插件（推荐，ECS的一些指标需要安装插件之后才能获取)</li>
 <li>完成~</li>

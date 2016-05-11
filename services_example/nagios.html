@@ -296,6 +296,7 @@
 <li><a href="/platform/">Agent 安装与配置</a>
 
 <ul>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 <li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
 <li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
 <li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
@@ -304,7 +305,6 @@
 <li><a href="/platform/chef.html">Chef 安装</a></li>
 <li><a href="/platform/inner.html">内网环境安装探针</a></li>
 <li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 </ul></li>
 <li><a href="/services/">平台服务</a>
 
@@ -401,7 +401,7 @@ service_perfdata_file_template=[SERVICEPERFDATA]\t$TIMET$\t$HOSTNAME$\t$SERVICED
 
 <h3>编辑配置文件</h3>
 
-<p>编辑配置文件 <code>conf.d/nginx.yaml</code>，使 Cloud Insight Agent 可以与 Nagios 通信。</p>
+<p>编辑配置文件 <code>conf.d/nagios.yaml</code>，使 Cloud Insight Agent 可以与 Nagios 通信。</p>
 <pre class="highlight plaintext"><code>cp /etc/oneapm-ci-agent/conf.d/nagios.yaml.example /etc/oneapm-ci-agent/conf.d/nagios.yaml
 vim /etc/oneapm-ci-agent/conf.d/nagios.yaml
 </code></pre>
@@ -418,7 +418,7 @@ instances:
 
 <p>重启 Cloud Insight Agent，使配置生效。</p>
 
-<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功&#39;。</p>
+<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 
 <p>若 Agent Info 指令执行不成功，尝试在 root 权限下执行该指令。</p>
 <pre class="highlight plaintext"><code>Checks
