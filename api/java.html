@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloud Insight - Java SDK 使用文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-dashboard dashboard_automatic">
+  <body class="page-api api_java">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,160 +290,101 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-xs-3 page-sidebar">
           <ul>
-<li><a href="/release-note.html">版本更新</a></li>
-<li><a href="/platform/">Agent 安装与配置</a>
+<li><a href="/api/">简介</a></li>
+<li><a href="/api/sdk.html">SDK</a>
 
 <ul>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
-<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
-<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
-<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
-<li><a href="/platform/docker.html">Docker 安装</a></li>
-<li><a href="/platform/windows.html">Windows 安装</a></li>
-<li><a href="/platform/chef.html">Chef 安装</a></li>
-<li><a href="/platform/inner.html">内网环境安装探针</a></li>
-<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
-</ul></li>
-<li><a href="/services/">平台服务</a>
-
-<ul>
-<li><a href="/services/authorize.html">监控授权</a></li>
-<li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/database.html">数据库</a></li>
-<li><a href="/services/jmx.html">JMX 远程监控</a></li>
-</ul></li>
-<li><a href="/dashboard/">仪表盘</a>
-
-<ul>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
-<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
-<li><a href="/share/">图表分享</a></li>
-<li><a href="/dashboard/event.html">叠加事件</a></li>
-</ul></li>
-<li><a href="/metric/">指标与示意</a>
-
-<ul>
-<li><a href="/platform/system.html">System 数据指标解释</a></li>
-<li><a href="/metric/metric_explorer.html">指标浏览器</a></li>
-</ul></li>
-<li><a href="/alert/">报警与策略</a>
-
-<ul>
-<li><a href="/alert/metric.html">指标报警</a></li>
-</ul></li>
-<li><a href="/event/">事件</a></li>
-<li><a href="/services_example/">平台服务配置示例</a>
-
-<ul>
-<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
-<li><a href="/services_example/apache.html">Apache</a></li>
-<li><a href="/services_example/bearychat.html">BearyChat</a></li>
-<li><a href="/services_example/cacti.html">Cacti</a></li>
-<li><a href="/services_example/cassandra.html">Cassandra</a></li>
-<li><a href="/services_example/couchbase.html">Couchbase</a></li>
-<li><a href="/services_example/couchdb.html">CouchDB</a></li>
-<li><a href="/services_example/docker.html">Docker</a></li>
-<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
-<li><a href="/services_example/gearman.html">Gearman</a></li>
-<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
-<li><a href="/services_example/haproxy.html">Haproxy</a></li>
-<li><a href="/services_example/iis.html">IIS</a></li>
-<li><a href="/services_example/kafka.html">Kafka</a></li>
-<li><a href="/services_example/memcached.html">Memcached</a></li>
-<li><a href="/services_example/mesos.html">Mesos</a></li>
-<li><a href="/services_example/mongodb.html">MongoDB</a></li>
-<li><a href="/services_example/mysql.html">MySQL</a></li>
-<li><a href="/services_example/nagios.html">Nagios</a></li>
-<li><a href="/services_example/nginx.html">NGINX</a></li>
-<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
-<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
-<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
-<li><a href="/services_example/redis.html">Redis</a></li>
-<li><a href="/services_example/snmp.html">SNMP</a></li>
-<li><a href="/services_example/solr.html">Solr</a></li>
-<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
-<li><a href="/services_example/supervisor.html">Supervisor</a></li>
-<li><a href="/services_example/tomcat.html">Tomcat</a></li>
-<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
-<li><a href="/services_example/jianliao.html">简聊</a></li>
-<li><a href="/services_example/process.html">进程监控</a></li>
-<li><a href="/services_example/network.html">网络（端口）监控</a></li>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
 </ul></li>
 </ul>
 
         </div>
-        <div class="col-lg-9 page-body">
-          <h1>平台服务仪表盘</h1>
+        <div class="col-xs-9 page-body">
+          <h1>Cloud Insight SDK For Java</h1>
 
-<p>平台服务仪表盘是，Cloud Insight 根据开启的平台服务监控，展现预定义的仪表盘，来显示平台服务的运行情况。</p>
+<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。
+<a href="https://github.com/cloudinsight/cloudinsight-java-sdk">项目地址</a></p>
 
-<p>该文档，以 Apache 为例，为大家介绍平台服务仪表盘的功能。</p>
-
-<h2>仪表盘列表</h2>
-
-<p>点击左侧导航的「仪表盘」，进入仪表盘列表。</p>
-
-<p><img src="/images/dashboard/dashboard2.png" /></p>
-
-<p>仪表盘中列出，已经安装（开启配置文件）的平台服务的仪表盘。在右侧上方，可以对仪表盘进行搜索，最右面显示了已经监控的平台服务。</p>
-
-<p><img src="/images/dashboard/dashboard3.png" /></p>
-
-<p>点击 <code>apache</code> 进入 Apache 仪表盘。</p>
-
-<h2>Apache 仪表盘</h2>
-
-<p>进入 Apache 仪表盘后，会看到各项指标的展现。除开指标的展现外，还包括以下几个功能：</p>
+<p>目前支持的数据类型有：</p>
 
 <ul>
-<li>参数选择</li>
-<li>时间选择</li>
-<li>全屏</li>
+<li>Counters</li>
+<li>Gauges</li>
 </ul>
 
-<p><img src="/images/dashboard/dashboard4.png" /></p>
+<p>使用 SDK 的前提条件为您已经安装了 Cloud Insight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
 
-<h3>参数选择</h3>
-
-<p>参数选择默认为 <code>*</code>，对应的数据检索为：<code>apache.net.bytes{*}</code>，即所有平台的 <code>apache.net.bytes</code> 的聚合值。</p>
-
-<p>当选择 <code>host:ci-test-server-1</code> 时，数据检索为：<code>apache.net.bytes{host:ci-test-serverr-1}</code>。</p>
-
-<p>由于 <code>ci-test-server-1</code> 这个平台没有配置 Apache 监控，所以此时数据显示为空。</p>
-
-<p><img src="/images/dashboard/dashboard5.png" /></p>
-
-<h3>时间选择</h3>
-
-<p>时间选择和 OneAPM 系列产品一样，提供两种选择模式：</p>
+<h2>使用</h2>
 
 <ul>
-<li>预定义选择：基于当前时间往前推移的预定义选择</li>
-<li>自定义选择</li>
+<li><p>pom 文件添加 maven 依赖</p>
+<pre class="highlight xml"><code><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.oneapm<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cloudinsight-sdk<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.0.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></li>
 </ul>
 
-<p>自定义选择分为几个步骤：</p>
+<h2>数据类型</h2>
+
+<h3>Counters</h3>
+
+<p><code>Counters</code> 是 StatsD 和 Cloud Insight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增 1 或自减 1。</p>
+
+<p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
+<pre class="highlight java"><code><span class="c1">// Create a client.</span>
+<span class="n">CloudInsightStatsDClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CloudInsightStatsDClient</span><span class="o">();</span>
+
+<span class="c1">// Increment a counter.</span>
+<span class="n">client</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="s">"page.views"</span><span class="o">,</span> <span class="s">"machine:awsBeijing"</span><span class="o">);</span>
+
+</code></pre>
+
+<p>同样，<code>decrement</code> 和 <code>increment</code> 一样，使用相同的参数。</p>
+<pre class="highlight java"><code> <span class="n">client</span><span class="o">.</span><span class="na">decrement</span><span class="o">(</span><span class="s">"page.views"</span><span class="o">,</span> <span class="s">"machine:awsBeijing"</span><span class="o">);</span>
+</code></pre>
+
+<h3>Gauges</h3>
+
+<p><code>Gauges</code> 是连续型的数据类型，也就是标量，当我们第一次赋值后，该 Metric 表现在图表上，会是一条于 X 轴平行的直线；直到再次为该 Metric 赋了一个不同的值。</p>
+
+<p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
+<pre class="highlight java"><code><span class="c1">// Record a gauge .</span>
+<span class="n">client</span><span class="o">.</span><span class="na">gauge</span><span class="o">(</span><span class="s">"foo.bar"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+
+<span class="c1">// Record a tagged metric.</span>
+<span class="n">client</span><span class="o">.</span><span class="na">gauge</span><span class="o">(</span><span class="s">"foo.bar"</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="s">"gender:male"</span><span class="o">,</span> <span class="s">"region:north"</span><span class="o">);</span>
+
+
+</code></pre>
+
+<p>此时，<code>foo.bar</code> 的值为 <code>10</code>。</p>
+
+<h3>Metric Name</h3>
+
+<p>命名 Metric Name 有一下一些规则：</p>
 
 <ul>
-<li>选择时间范围的起始日期</li>
-<li>选择时间范围的起始时间</li>
-<li>选色时间范围的时间跨度，来确保截止时间</li>
+<li>Metric Name 一般是三个层级: service.metric.sub_metric, 也可以两级: service.metric</li>
+<li>指标名称必须以字母为开头</li>
+<li>只能包含 ASCII 字母，数字，下划线和句点（其它字符将被转换为下划线）</li>
+<li>最多200个字符（从 UI 考虑不要超过100）</li>
+<li>不支持 Unicode</li>
+<li>建议避免空格</li>
+<li>Metric Name 不能以系统已经集成的服务开头,比如 system, mysql 等</li>
 </ul>
 
-<p><img src="/images/dashboard/dashboard7.png" /></p>
+<h2>最佳实践</h2>
 
-<h3>仪表盘设置</h3>
-
-<p>创建好仪表盘后仍可继续设置仪表盘，</p>
-
-<h3>全屏</h3>
-
-<p>点击右上方的全屏按钮，可以进入全屏模式，来满足用户的投屏需求。</p>
-
-<p><img src="/images/dashboard/dashboard6.jpg" /></p>
+<ul>
+<li><a href="http://news.oneapm.com/pm2-5-cloud-insight/">使用 Cloud Insight SDK 监控北京空气质量</a></li>
+<li><a href="http://news.oneapm.com/ci-sdk-druid/">使用 Cloud Insight 实现 Druid 监控</a></li>
+</ul>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -463,7 +404,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/dashboard/automatic.html"></div>
+     data-url="http://docs-ci.oneapm.com/api/java.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -472,7 +413,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "";
+    title = "Cloud Insight - Java SDK 使用文档";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -497,7 +438,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav .guide").addClass("active");
+        $(".navbar-default .navbar-nav a[href='/api/']").parent().addClass("active");
       });
     </script>
   </body>

@@ -327,6 +327,7 @@
 
 <ul>
 <li><a href="/platform/system.html">System 数据指标解释</a></li>
+<li><a href="/metric/metric_explorer.html">指标浏览器</a></li>
 </ul></li>
 <li><a href="/alert/">报警与策略</a>
 
@@ -340,11 +341,14 @@
 <li><a href="/services_example/activemq.html">ActiveMQ</a></li>
 <li><a href="/services_example/apache.html">Apache</a></li>
 <li><a href="/services_example/bearychat.html">BearyChat</a></li>
+<li><a href="/services_example/cacti.html">Cacti</a></li>
 <li><a href="/services_example/cassandra.html">Cassandra</a></li>
 <li><a href="/services_example/couchbase.html">Couchbase</a></li>
 <li><a href="/services_example/couchdb.html">CouchDB</a></li>
 <li><a href="/services_example/docker.html">Docker</a></li>
 <li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/gearman.html">Gearman</a></li>
+<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
 <li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/iis.html">IIS</a></li>
 <li><a href="/services_example/kafka.html">Kafka</a></li>
@@ -361,6 +365,7 @@
 <li><a href="/services_example/snmp.html">SNMP</a></li>
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/supervisor.html">Supervisor</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
 <li><a href="/services_example/jianliao.html">简聊</a></li>
@@ -372,6 +377,27 @@
         </div>
         <div class="col-lg-9 page-body">
           <h1>版本更新</h1>
+
+<h2>v 4.6.0</h2>
+
+<p><code>发布时间：2016.05.16</code></p>
+
+<ul>
+<li>新增支持 Supervisord，Gunicorn，Gearman，Cacti</li>
+<li>新增对接瀑布 IM</li>
+<li>支持指标编辑，设置备注</li>
+<li>增加指标浏览器，可以快速选择指标并批量保存到仪表盘中</li>
+<li>增加 Java／Nodejs SDK 文档支持</li>
+</ul>
+
+<h2>v 4.5.2</h2>
+
+<p><code>发布时间：2016.04.28</code></p>
+
+<ul>
+<li>修复事件流400错误</li>
+<li>修复报警策略条件选择 &ldquo;总是&rdquo; 无法保存</li>
+</ul>
 
 <h2>v 4.5.1</h2>
 
@@ -434,6 +460,7 @@
 <li>支持事件流 chart api</li>
 <li>改进事件流布局</li>
 <li>修改报警，仪表盘等 bug</li>
+<li>修复 Windows 版探针内存溢出问题</li>
 </ul>
 
 <h2>v 4.3.0</h2>
@@ -450,7 +477,7 @@
 <li>修复 Disk 仪表盘单位显示问题</li>
 <li>修改产品设计状态，调整策略状态页</li>
 <li>禁用事件流自动刷新</li>
-<li><strong>妇女</strong>也顶大半边天</li>
+<li><strong>妇女</strong>也顶半边天</li>
 </ul>
 
 <h2>v 4.2.3</h2>
