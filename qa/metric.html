@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloud Insight - 常见问题</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_host_unavailable">
+  <body class="page-qa qa_metric">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,7 +290,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-xs-3 page-sidebar">
           <ul>
 <li><p><a href="#"><strong>产品</strong></a></p>
 
@@ -348,19 +348,31 @@
 </ul>
 
         </div>
-        <div class="col-lg-9 page-body">
-          <h1>如何在主机不可用时收到报警？</h1>
+        <div class="col-xs-9 page-body">
+          <h1>怎么批量创建不同主机，相同指标的图表？</h1>
 
-<p>每台主机通过 Cloud Insight Agent 发送数据和我们服务端联系，正常联系时会显示 UP 的状态，可以看到各项系统指标都是有心跳的。</p>
+<p>我有 50 台主机，想实时查看每一台的 <code>system.mem.used</code> 这个指标，如果在一个图表里面看实在太挤了，想每个服务器一个图表，一张张的创建太麻烦，况且指标都一样，是否有什么快捷的方式？</p>
+
+<p>用指标流浪功能呗！功能文档参考<a href="http://docs-ci.oneapm.com/metric/metric_explorer.html">指标浏览</a>。</p>
 
 <ul>
-<li> 选择性能指标：选择一个指标（CPU，内存，磁盘等都可以），通过 host 或 tag 选择要监控的主机</li>
-<li>设置报警条件：指标在几分钟内小于多少等等随意，关键是配置下面<code>当数据丢失超过几分钟时，通知用户</code></li>
-<li>命名报警</li>
-<li>设置通知用户</li>
+<li>指标浏览器允许您快速选择指标并保存到仪表盘中。</li>
+<li>您可以从指标浏览器中选择并预览指标。还可以对指标按照标签进行过滤或分组。</li>
+<li>选择的指标可以保存到已有的仪表盘终，也可以用其创建全新的仪表盘。</li>
 </ul>
 
-<p>这样在服务器不可用时就可以收到报警了</p>
+<p>那针对本文中的情景如何配置？如图：</p>
+
+<p><img src="/images/qa/metric_more.png" /></p>
+
+<ul>
+<li>选择要展示的指标，例如文中 <code>system.mem.free</code>，可以选择多个指标</li>
+<li>选择特定主机的数据，通过<strong>来自</strong>做限制，如果是所有主机（50个），那可以不用配置</li>
+<li>选择 <code>host</code> 这个 key，默认数据就会显示符合条件的所有 host </li>
+<li>（可选）选择聚合器，看你是先看 <code>max/min/avg/sum</code> 哪种数据了</li>
+<li>（可选）设置图表前缀，所以图表前面都会有这个标识</li>
+<li>将数据保存到既有仪表盘还是新建仪表盘就看你喜好了</li>
+</ul>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -380,7 +392,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/host_unavailable.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/metric.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -389,7 +401,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "";
+    title = "Cloud Insight - 常见问题";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -414,7 +426,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav .guide").addClass("active");
+        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
       });
     </script>
   </body>

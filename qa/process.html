@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloud Insight - 常见问题</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_host_unavailable">
+  <body class="page-qa qa_process">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -290,7 +290,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-xs-3 page-sidebar">
           <ul>
 <li><p><a href="#"><strong>产品</strong></a></p>
 
@@ -348,19 +348,22 @@
 </ul>
 
         </div>
-        <div class="col-lg-9 page-body">
-          <h1>如何在主机不可用时收到报警？</h1>
+        <div class="col-xs-9 page-body">
+          <h1>怎么监控进程，挂掉的时候可以收到报警？</h1>
 
-<p>每台主机通过 Cloud Insight Agent 发送数据和我们服务端联系，正常联系时会显示 UP 的状态，可以看到各项系统指标都是有心跳的。</p>
+<p>首先要实现监控具体进程，参考文档<a href="http://localhost:4567/services_example/process.html">配置进程监控</a>。</p>
+
+<p>然后可以配置仪表盘，实时显示进程数据，例如选定某个指标，数据来自 <code>process:xxxx</code> 进程。</p>
+
+<p>关于报警策略的设置，其实和仪表盘配置是一样的，如图：</p>
+
+<p><img src="/images/qa/process_alert.png" /></p>
 
 <ul>
-<li> 选择性能指标：选择一个指标（CPU，内存，磁盘等都可以），通过 host 或 tag 选择要监控的主机</li>
-<li>设置报警条件：指标在几分钟内小于多少等等随意，关键是配置下面<code>当数据丢失超过几分钟时，通知用户</code></li>
-<li>命名报警</li>
-<li>设置通知用户</li>
+<li>选择性能指标：指标任意选一个 <code>process</code> 的指标，<code>over</code> 选定特定进程，例如 <code>process:python</code> 就是监控 Python 进程数据的。</li>
+<li>设置报警条件：设置一个阈值，达到阈值时会触发报警；此外还可以配置设置数据丢失（进程挂了自然也就不会再发送数据）时，直接发送报警邮件。</li>
+<li>再下面，就是命名报警和通知用户了。</li>
 </ul>
-
-<p>这样在服务器不可用时就可以收到报警了</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -380,7 +383,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/host_unavailable.html"></div>
+     data-url="http://docs-ci.oneapm.com/qa/process.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -389,7 +392,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "";
+    title = "Cloud Insight - 常见问题";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -414,7 +417,7 @@
 
     <script type="text/javascript">
       $(function() {
-        $(".navbar-default .navbar-nav .guide").addClass("active");
+        $(".navbar-default .navbar-nav a[href='/qa/']").parent().addClass("active");
       });
     </script>
   </body>
