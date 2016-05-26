@@ -312,28 +312,28 @@
 
 <h3>Gauges</h3>
 
-<p>Gauges 表示在特定时间的特定事物的数量，例如空气质量 PM2.5，用户连接数等。</p>
+<p>Gauges 表示在特定时间的某事物的值，例如空气质量 PM2.5，用户连接数等。</p>
 <pre class="highlight plaintext"><code>statsd.gauge('bj.pm25', 123)
 statsd.gauge('users.active', 1001)
 </code></pre>
 
 <h3>Counters</h3>
 
-<p>Counters 追踪一秒内特定事物发生了几次，如数据库请求数，网页浏览量等。</p>
+<p>Counters 计数器，统计一秒内某事物发生了几次，如数据库请求数，网页浏览量等。</p>
 <pre class="highlight plaintext"><code>statsd.increment('database.query.count')
 statsd.increment('page_view.count', 10)
 </code></pre>
 
 <h3>Histograms</h3>
 
-<p>Histograms 追踪一组值的统计分步，例如一定数量的数据库查询或用户上传文件的大小。每个 Histograms 将会追踪平均值，最小值，最大值，中值，95值和总数。</p>
+<p>Histograms 统计一组值的分布情况，例如一定数量的数据库查询或用户上传文件的大小的平均值，最小值，最大值，中位值，95值和总数。</p>
 <pre class="highlight plaintext"><code>statsd.histogram('database.query.time', 0.5)
 statsd.histogram('file.upload.size', file.get_size())
 </code></pre>
 
 <h3>Sets</h3>
 
-<p>Sets 计算一个组中惟一值的数量，例如你想追踪只有一次访问你网站的用户就可以用 sets 来统计。</p>
+<p>Sets 计算一组中惟一值的数量，例如你想统计只有一次访问你网站的用户就可以用 sets 来统计。</p>
 <pre class="highlight plaintext"><code>statsd.set('users.uniques', user.id)
 </code></pre>
 

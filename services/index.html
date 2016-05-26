@@ -313,6 +313,7 @@
 <li><a href="/services/status.html">状态页监控</a></li>
 <li><a href="/services/database.html">数据库</a></li>
 <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
@@ -410,6 +411,10 @@
 <p>在编辑完配置文件后，可以通过以下指令对配置文件的正确性进行检查。</p>
 <pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent configtest
 </code></pre>
+
+<h2>自定义 AgentCheck</h2>
+
+<p>目前探针所支持的平台服务都是标准服务，如果想在此基础上添加监控指标或者将自己业务数据上传，可以使用 SDK/API 或者配置自定义 AgentCheck，SDK/API 方法参考文档 <a href="/api/">Cloud Insight API 与 SDK</a> ，配置 AgentCheck 上传数据指标可以检验是否上传成功，和普通的平台服务例如 Nginx 一样。详细配置见 <a href="/services/agent-check.html">自定义 AgentCheck</a>。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">

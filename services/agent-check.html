@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-platform platform_agent-directory">
+  <body class="page-services services_agent-check">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -378,60 +378,198 @@
 
         </div>
         <div class="col-lg-9 page-body">
-          <h1>Agent 目录结构</h1>
+          <h1>自定义 AgentCheck</h1>
 
-<p>按照各个操作系统的安装说明，在完成探针的安装后， 默认情况下，目录结构如下：</p>
+<h2>概览</h2>
 
-<ul>
-<li><code>/opt/oneapm-ci-agent</code> 探针程序目录</li>
-<li><code>/etc/oneapm-ci-agent</code> 探针配置文件目录</li>
-</ul>
+<p>本文介绍如何通过自定义 <code>AgentCheck</code> 从数据源收集指标。下面，我们将通过一个简单的示例对 <code>AgentCheck</code> 接口一窥究竟。</p>
 
-<h2>配置文件</h2>
+<h2>安装探针</h2>
 
-<p><code>/etc/oneapm-ci-agent</code> 的目录结构如下：</p>
-<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+<p>本文的基础是你已经成功<a href="http://docs-ci.oneapm.com/platform/">安装探针</a>，如果没有安装成功，请参考<a href="http://docs-ci.oneapm.com/qa/down_summary.html">问题排错指南</a>。如果已经成功安装探针，可以进行接下来的操作了。</p>
 
-.
-├── checks.d
-├── conf.d
-│   ├── activemq_58.yaml.example
-│   ├── activemq.yaml.example
-│   ├── agent_metrics.yaml.default
-│   ├── apache.yaml.example
-│   ├── cassandra.yaml.example
-│   ├── couchbase.yaml.example
-│   ├── couch.yaml.example
-│   ├── disk.yaml.default
-│   ├── docker_daemon.yaml.example
-│   ├── elastic.yaml.example
-│   ├── jmx.yaml.example
-│   ├── kafka_consumer.yaml.example
-│   ├── kafka.yaml.example
-│   ├── mcache.yaml.example
-│   ├── mesos_master.yaml.example
-│   ├── mesos_slave.yaml.example
-│   ├── mongo.yaml.example
-│   ├── mysql.yaml.example
-│   ├── network.yaml.default
-│   ├── nginx.yaml.example
-│   ├── php_fpm.yaml.example
-│   ├── postgres.yaml.example
-│   ├── rabbitmq.yaml.example
-│   ├── redisdb.yaml.example
-│   ├── solr.yaml.example
-│   ├── tomcat.yaml.example
-│   └── zookeeper.yaml.example
-├── oneapm-ci-agent.conf
-├── oneapm-ci-agent.conf.example
-└── supervisor.conf
+<h2>Agent Check 接口</h2>
 
-2 directories, 30 files
+<p>自定义的 check 都需要从 <code>checks/__init__.py</code> 继承 <code>AgentCheck</code> 类，并且 <code>check</code> 方法要有一个 <code>instance</code> 参数，其中 <code>instance</code> 是一个特定实例的字典，<code>check</code> 方法会在每个实例检查周期（即30s）内执行一次。</p>
+
+<h2>发送指标</h2>
+
+<p>在 check 中发送指标非常容易，发送指标有以下几个方法：</p>
+<pre class="highlight plaintext"><code>self.gauge( ... ) # Sample a gauge metric
+self.increment( ... ) # Increment a counter metric
+self.decrement( ... ) # Decrement a counter metric
+self.histogram( ... ) # Sample a histogram metric
+self.rate( ... ) # Sample a point, with the rate calculated at the end of the check
+self.count( ... ) # Sample a raw count metric
+self.monotonic_count( ... ) # Sample an increasing counter metric
 </code></pre>
 
-<h2>操作与配置</h2>
+<p>所有的这些方法都有下面几个参数：</p>
 
-<p>请参考<a href="/platform/agent-instrument.html">Agent 操作与配置</a></p>
+<ul>
+<li><code>metric</code>: 指标名称</li>
+<li><code>value</code>: 指标的值（默认递增为1，递减为－1）</li>
+<li><code>tags</code>:（可选）和这个指标关联的标签</li>
+<li><code>hostname</code>:（可选）和这个指标关联的主机，默认为当前主机</li>
+<li><code>device_name</code>:（可选）和这个指标关联的设备</li>
+</ul>
+
+<p>这些方法可以在 <code>check</code> 函数的任意地方被调用，<code>check</code> 函数执行完后，所有的指标都会被收集并和其他探针指标一并提交至 <code>Cloudinsight</code>。</p>
+
+<h2>异常</h2>
+
+<p>如果由于配置不正确或者编码错误导致 <code>check</code> 不能运行，或者无法收集到任何指标，这时应该抛出一个特定的异常信息。这个异常将可以被记录到探针的log（即/var/log/oneapm-ci-agent/collector.log）中，您也可以通过探针的 info 命令进行输出，便于调试，如下：</p>
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent info
+
+  Checks
+  ======
+
+  my_custom_check
+  ---------------
+    - instance #0 [ERROR]: ConnectionError('Connection refused.',)
+    - Collected 0 metrics &amp; 0 events
+</code></pre>
+
+<h2>日志信息</h2>
+
+<p>我们可以在自定义的 <code>check</code> 函数中通过 <code>self.log</code> 记录日志信息，例如 <code>self.log.info(&#39;hello&#39;)</code> 。记录的日志信息可以在探针日志文件（即/var/log/oneapm-ci-agent/collector.log）中被找到，例如 <code>checks.{name}</code>，其中 <code>{name}</code> 是您 <code>check</code> 模块的名字。</p>
+
+<h2>配置</h2>
+
+<p>每个 check 都有一个配置文件，位于 <code>conf.d</code> 目录下，配置文件是采用 yaml 格式编写的，名字需要和 <code>check</code> 模块的名字一致（例如 <code>nginx.py</code> 和 <code>nginx.yaml</code>）。</p>
+
+<p>配置文件结构如下：</p>
+<pre class="highlight plaintext"><code>init_config:
+    key1: val1
+    key2: val2
+
+instances:
+    - username: jon_smith
+      password: 1234
+
+    - username: jane_smith
+      password: 5678
+</code></pre>
+
+<ul>
+<li><strong>init_config</strong>: init_config 部分可以配置任意数量的键值对，这个会在每次 <code>check</code> 函数初始化时用到。</li>
+<li><strong>instances</strong>: instances 部分是一个实例的列表，其中的每个实例都会被作为参数传递至 <code>check</code> 函数并执行，这意味着 <code>check</code> 函数支持多实例。</li>
+</ul>
+
+<h2>目录结构</h2>
+
+<p>在您开始编写自定义 check 前，您需要对探针端 checks 的目录结构有足够的了解。有两个地方可以存放您的自定义 check 相关文件，如下：</p>
+
+<ul>
+<li><code>checks.d</code> 文件夹，也是探针所在地</li>
+</ul>
+
+<p>所有的 Linux 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/checks.d/
+</code></pre>
+
+<p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>C:\Program Files (x86)\OneAPM\OneAPM Ci Agent\checks.d
+或
+C:\Program Files\OneAPM\OneAPM Ci Agent\checks.d
+</code></pre>
+
+<ul>
+<li><code>conf.d</code> 文件夹，探针配置文件所在地</li>
+</ul>
+
+<p>Linux 系统中，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/conf.d
+</code></pre>
+
+<p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>C:\ProgramData\OneAPM\conf.d
+或
+C:\Documents and Settings\All Users\Application Data\OneAPM\conf.d\
+</code></pre>
+
+<h2>一个简单的 HTTP check</h2>
+
+<p><strong>配置文件的名字和 check 的名字必须一致，例如你要 check 的文件是 <code>mycheck.py</code>，那你的配置文件名称就必须为 <code>mycheck.yaml</code>。</strong></p>
+
+<p>现在让我们编写一个检测 HTTP 节点状态的 check，每运行一次 check，都向 HTTP 节点发送一个 get 请求，如果响应成功（即返回200），则将响应时间作为一项指标提交至 Cloudinsight。</p>
+
+<ul>
+<li>定义配置文件 <code>conf.d/http.yaml</code>，如下：</li>
+</ul>
+<pre class="highlight plaintext"><code>init_config:
+    default_timeout: 5
+
+instances:
+  - url: https://cn.bing.com
+
+  - url: http://httpbin.org/delay/10
+    timeout: 8
+
+  - url: http://httpbin.org/status/400
+</code></pre>
+
+<ul>
+<li>定义 <code>check</code> 方法，check 的核心就是制造 http 请求并获取该请求的响应时间，<code>checks.d/http.py</code> 文件内容如下:</li>
+</ul>
+<pre class="highlight plaintext"><code>import time
+import requests
+
+from checks import AgentCheck
+
+class HTTPCheck(AgentCheck):
+    def check(self, instance):
+        if 'url' not in instance:
+            self.log.info("Skipping instance, no url found.")
+            return
+
+        # Load values from the instance config
+        url = instance['url']
+        default_timeout = self.init_config.get('default_timeout', 5)
+        timeout = float(instance.get('timeout', default_timeout))
+
+        # Check the URL
+        start_time = time.time()
+        try:
+            r = requests.get(url, timeout=timeout)
+            end_time = time.time()
+        except requests.exceptions.Timeout as e:
+            self.log.error(e)
+            raise
+
+        if r.status_code != 200:
+            return
+
+        timing = end_time - start_time
+        self.gauge('http.reponse_time', timing, tags=['http_check'])
+
+
+if __name__ == '__main__':
+    check, instances = HTTPCheck.from_yaml('/path/to/conf.d/http.yaml')
+    for instance in instances:
+        print "\nRunning the check against url: %s" % (instance['url'])
+        check.check(instance)
+        print 'Metrics: %s' % (check.get_metrics())
+</code></pre>
+
+<p>可见，check 接口是很简单的，非常容易上手，还不 try 一把？</p>
+
+<h2>排错</h2>
+
+<p>您可以执行以下命令进行调试：</p>
+<pre class="highlight plaintext"><code>sudo -u oneapm-ci-agent ci-agent check my_check
+</code></pre>
+
+<h3>Windows 测试自定义 check</h3>
+
+<p>测试 Windows 自定义 check 很简单，探针安装后有一个 shell.exe 的文件，您可以直接在上面运行 Python 文件。</p>
+
+<p>例如你 check my_check，保证已经配置正确 .py 和 .yaml 文件，可以在 shell.exe 里面运行：</p>
+<pre class="highlight plaintext"><code>&gt;&gt;&gt; from checks import run_check
+&gt;&gt;&gt; run_check('my_check')
+</code></pre>
+
+<p>将输出 check 返回的指标数据。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -451,7 +589,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/platform/agent-directory.html"></div>
+     data-url="http://docs-ci.oneapm.com/services/agent-check.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
