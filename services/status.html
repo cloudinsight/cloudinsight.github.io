@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -238,7 +238,7 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -378,7 +378,7 @@
 
 <h2>介绍</h2>
 
-<p>Cloud Insight 对 NGINX PHP-FPM 和 Apache 采用状态页监控，来采集其性能数据。</p>
+<p>Cloudinsight 对 NGINX PHP-FPM 和 Apache 采用状态页监控，来采集其性能数据。</p>
 
 <p>以 NGINX 为例：</p>
 
@@ -386,11 +386,11 @@
 
 <p>NGINX 自带监控模块，输出 NGINX 状态页，来表征其运行情况。</p>
 
-<p>而 Cloud Insight Agent 从状态页对数值进行周期性的巡检，来采集指标；并添加上数据聚合所需要的各类标签信息，上传至 Cloud Insight 后端。</p>
+<p>而 Cloudinsight Agent 从状态页对数值进行周期性的巡检，来采集指标；并添加上数据聚合所需要的各类标签信息，上传至 Cloudinsight 后端。</p>
 
 <h2>启动 <code>status</code> 模块</h2>
 
-<p>以下平台服务需要，开启 <code>status</code> 模块，来让 Cloud Insight Agent 采集数据：</p>
+<p>以下平台服务需要，开启 <code>status</code> 模块，来让 Cloudinsight Agent 采集数据：</p>
 
 <ul>
 <li><a href="/services_example/apache.html">Apache</a></li>
@@ -412,7 +412,7 @@
 
 <h4>1. 检查是否支持 `http<em>stub</em>status_module&rsquo;</h4>
 
-<p>开启 Cloud Insight NGINX 监控，需要 NGINX 的 <code>http_stub_status_module</code>，您可以通过以下指令来检查，当前版本的 NGINX 是否支持：</p>
+<p>开启 Cloudinsight NGINX 监控，需要 NGINX 的 <code>http_stub_status_module</code>，您可以通过以下指令来检查，当前版本的 NGINX 是否支持：</p>
 <pre class="highlight plaintext"><code>nginx -V |&amp; grep http_stub_status_module
 </code></pre>
 
@@ -439,7 +439,7 @@
 
 <h4>3. 关联 URL</h4>
 
-<p>打开 Cloud Insight NGINX 配置文件 <code>conf.d/nginx.yaml</code>，添加状态页 URL 地址：</p>
+<p>打开 Cloudinsight NGINX 配置文件 <code>conf.d/nginx.yaml</code>，添加状态页 URL 地址：</p>
 
 <p><img src="/images/service/Apache4042.png" /></p>
 
@@ -461,7 +461,7 @@
   <span class="pi">-</span> <span class="s">nginx_status_url</span><span class="pi">:</span> <span class="s">http://localhost/nginx_status/</span>             <span class="c1"># NGINX 状态页 URL</span>
   <span class="c1"># ssl_validation: False                                        # 是否启用 SSL，默认为True</span>
     <span class="s">tags</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">instance:foo</span>                                             <span class="c1"># 自定义标签，用于在 Cloud Insight 平台对 NGINX 服务器进行分组</span>
+      <span class="pi">-</span> <span class="s">instance:foo</span>                                             <span class="c1"># 自定义标签，用于在 Cloudinsight 平台对 NGINX 服务器进行分组</span>
   <span class="c1">#</span>
   <span class="c1"># - nginx_status_url: http://example2.com:1234/nginx_status/   ＃ 监控多个 NGINX 实例时进行配置</span>
   <span class="c1"># ssl_validation: False</span>
@@ -472,12 +472,12 @@
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>
