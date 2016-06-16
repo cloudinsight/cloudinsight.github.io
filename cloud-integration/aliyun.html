@@ -235,10 +235,6 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -348,33 +344,58 @@
 </thead><tbody>
 <tr>
 <td>CPUUtilization</td>
-<td>cpu使用率</td>
-<td>单位：%; 只有cpu.user</td>
+<td>system.cpu.user</td>
+<td>单位：%</td>
 </tr>
 <tr>
-<td>DiskReadIOPS/DiskWriteIOPS</td>
-<td>io读写次数</td>
-<td>单位：次</td>
+<td>DiskReadIOPS</td>
+<td>system.io.r_s</td>
+<td>单位：次, io 读取次数</td>
 </tr>
 <tr>
-<td>InternetIn/InternetOut/IntranetIn/IntranetOut</td>
-<td>网络流量</td>
-<td>单位：byte/s</td>
+<td>DiskWriteIOPS</td>
+<td>system.io.w_s</td>
+<td>单位：次，io写入次数</td>
+</tr>
+<tr>
+<td>InternetIn</td>
+<td>system.net.bytes_rcvd</td>
+<td>单位：byte/s, 外网入流量</td>
+</tr>
+<tr>
+<td>InternetOut</td>
+<td>system.net.bytes_sent</td>
+<td>单位：byte/s, 外网出流量</td>
+</tr>
+<tr>
+<td>IntranetIn</td>
+<td>system.net.bytes_rcvd</td>
+<td>单位：byte/s, 内网入流量</td>
+</tr>
+<tr>
+<td>IntranetOut</td>
+<td>system.net.bytes_sent</td>
+<td>单位：byte/s, 内网出流量</td>
 </tr>
 <tr>
 <td>vm.LoadAverage</td>
-<td>系统负载</td>
-<td>单位：%; 操作系统级监控数据，需要安装插件才能获取</td>
+<td>system.load.1/5/15</td>
+<td>单位：%; 系统负载，操作系统级监控数据，需要安装插件才能获取</td>
 </tr>
 <tr>
 <td>vm.DiskUtilization</td>
-<td>磁盘使用率</td>
-<td>单位：%; 操作系统级监控数据，需要安装插件才能获取</td>
+<td>system.disk.in_use</td>
+<td>单位：%; 磁盘使用率，操作系统级监控数据，需要安装插件才能获取</td>
 </tr>
 <tr>
-<td>vm.DiskIORead/vm.DiskIOWrite</td>
-<td>io读写速度</td>
-<td>单位：kb/s; 操作系统级监控数据，需要安装插件才能获取</td>
+<td>vm.DiskIORead</td>
+<td>system.io.rkb_s</td>
+<td>单位：kb/s; io读取速度, 操作系统级监控数据，需要安装插件才能获取</td>
+</tr>
+<tr>
+<td>vm.DiskIOWrite</td>
+<td>system.io.wkb_s</td>
+<td>单位：kb/s; io写入速度, 操作系统级监控数据，需要安装插件才能获取</td>
 </tr>
 </tbody></table>
 

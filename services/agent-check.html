@@ -1,0 +1,626 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Cloud Insight 文档</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-services services_agent-check">
+      <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74438127-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown guide">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            使用指南 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/videos.html">视频演示</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/release-note.html">详细文档</a></li>
+            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
+          </ul>
+        </li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <div class="navbar-form navbar-right">
+        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+          <ul>
+<li><a href="/release-note.html">版本更新</a></li>
+<li><a href="/platform/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
+<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/platform/docker.html">Docker 安装</a></li>
+<li><a href="/platform/windows.html">Windows 安装</a></li>
+<li><a href="/platform/chef.html">Chef 安装</a></li>
+<li><a href="/platform/inner.html">内网环境安装探针</a></li>
+<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/authorize.html">监控授权</a></li>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/database.html">数据库</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/share/">图表分享</a></li>
+<li><a href="/dashboard/event.html">叠加事件</a></li>
+</ul></li>
+<li><a href="/metric/">指标与示意</a>
+
+<ul>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+<li><a href="/metric/metric_explorer.html">指标浏览</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件</a></li>
+<li><a href="/services_example/">平台服务配置示例</a>
+
+<ul>
+<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
+<li><a href="/services_example/apache.html">Apache</a></li>
+<li><a href="/services_example/bearychat.html">BearyChat</a></li>
+<li><a href="/services_example/cacti.html">Cacti</a></li>
+<li><a href="/services_example/cassandra.html">Cassandra</a></li>
+<li><a href="/services_example/couchbase.html">Couchbase</a></li>
+<li><a href="/services_example/couchdb.html">CouchDB</a></li>
+<li><a href="/services_example/docker.html">Docker</a></li>
+<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/gearman.html">Gearman</a></li>
+<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
+<li><a href="/services_example/haproxy.html">Haproxy</a></li>
+<li><a href="/services_example/iis.html">IIS</a></li>
+<li><a href="/services_example/kafka.html">Kafka</a></li>
+<li><a href="/services_example/memcached.html">Memcached</a></li>
+<li><a href="/services_example/mesos.html">Mesos</a></li>
+<li><a href="/services_example/mongodb.html">MongoDB</a></li>
+<li><a href="/services_example/mysql.html">MySQL</a></li>
+<li><a href="/services_example/nagios.html">Nagios</a></li>
+<li><a href="/services_example/nginx.html">NGINX</a></li>
+<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
+<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
+<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
+<li><a href="/services_example/redis.html">Redis</a></li>
+<li><a href="/services_example/snmp.html">SNMP</a></li>
+<li><a href="/services_example/solr.html">Solr</a></li>
+<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/ssh.html">SSH</a></li>
+<li><a href="/services_example/supervisord.html">Supervisord</a></li>
+<li><a href="/services_example/tomcat.html">Tomcat</a></li>
+<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
+<li><a href="/services_example/jianliao.html">简聊</a></li>
+<li><a href="/services_example/process.html">进程监控</a></li>
+<li><a href="/services_example/network.html">网络（端口）监控</a></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-lg-9 page-body">
+          <h1>自定义 AgentCheck</h1>
+
+<h2>概览</h2>
+
+<p>本文介绍如何通过自定义 <code>AgentCheck</code> 从数据源收集指标。下面，我们将通过一个简单的示例对 <code>AgentCheck</code> 接口一窥究竟。</p>
+
+<h2>安装探针</h2>
+
+<p>本文的基础是你已经成功<a href="http://docs-ci.oneapm.com/platform/">安装探针</a>，如果没有安装成功，请参考<a href="http://docs-ci.oneapm.com/qa/down_summary.html">问题排错指南</a>。如果已经成功安装探针，可以进行接下来的操作了。</p>
+
+<h2>Agent Check 接口</h2>
+
+<p>自定义的 check 都需要从 <code>checks/__init__.py</code> 继承 <code>AgentCheck</code> 类，并且 <code>check</code> 方法要有一个 <code>instance</code> 参数，其中 <code>instance</code> 是一个特定实例的字典，<code>check</code> 方法会在每个实例检查周期（即30s）内执行一次。</p>
+
+<h2>发送指标</h2>
+
+<p>在 check 中发送指标非常容易，发送指标有以下几个方法：</p>
+<pre class="highlight plaintext"><code>self.gauge( ... ) # Sample a gauge metric
+self.increment( ... ) # Increment a counter metric
+self.decrement( ... ) # Decrement a counter metric
+self.histogram( ... ) # Sample a histogram metric
+self.rate( ... ) # Sample a point, with the rate calculated at the end of the check
+self.count( ... ) # Sample a raw count metric
+self.monotonic_count( ... ) # Sample an increasing counter metric
+</code></pre>
+
+<p>所有的这些方法都有下面几个参数：</p>
+
+<ul>
+<li><code>metric</code>: 指标名称</li>
+<li><code>value</code>: 指标的值（默认递增为1，递减为－1）</li>
+<li><code>tags</code>:（可选）和这个指标关联的标签</li>
+<li><code>hostname</code>:（可选）和这个指标关联的主机，默认为当前主机</li>
+<li><code>device_name</code>:（可选）和这个指标关联的设备</li>
+</ul>
+
+<p>这些方法可以在 <code>check</code> 函数的任意地方被调用，<code>check</code> 函数执行完后，所有的指标都会被收集并和其他探针指标一并提交至 <code>Cloudinsight</code>。</p>
+
+<h2>异常</h2>
+
+<p>如果由于配置不正确或者编码错误导致 <code>check</code> 不能运行，或者无法收集到任何指标，这时应该抛出一个特定的异常信息。这个异常将可以被记录到探针的log（即/var/log/oneapm-ci-agent/collector.log）中，您也可以通过探针的 info 命令进行输出，便于调试，如下：</p>
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent info
+
+  Checks
+  ======
+
+  my_custom_check
+  ---------------
+    - instance #0 [ERROR]: ConnectionError('Connection refused.',)
+    - Collected 0 metrics &amp; 0 events
+</code></pre>
+
+<h2>日志信息</h2>
+
+<p>我们可以在自定义的 <code>check</code> 函数中通过 <code>self.log</code> 记录日志信息，例如 <code>self.log.info(&#39;hello&#39;)</code> 。记录的日志信息可以在探针日志文件（即/var/log/oneapm-ci-agent/collector.log）中被找到，例如 <code>checks.{name}</code>，其中 <code>{name}</code> 是您 <code>check</code> 模块的名字。</p>
+
+<h2>配置</h2>
+
+<p>每个 check 都有一个配置文件，位于 <code>conf.d</code> 目录下，配置文件是采用 yaml 格式编写的，名字需要和 <code>check</code> 模块的名字一致（例如 <code>nginx.py</code> 和 <code>nginx.yaml</code>）。</p>
+
+<p>配置文件结构如下：</p>
+<pre class="highlight plaintext"><code>init_config:
+    key1: val1
+    key2: val2
+
+instances:
+    - username: jon_smith
+      password: 1234
+
+    - username: jane_smith
+      password: 5678
+</code></pre>
+
+<ul>
+<li><strong>init_config</strong>: init_config 部分可以配置任意数量的键值对，这个会在每次 <code>check</code> 函数初始化时用到。</li>
+<li><strong>instances</strong>: instances 部分是一个实例的列表，其中的每个实例都会被作为参数传递至 <code>check</code> 函数并执行，这意味着 <code>check</code> 函数支持多实例。</li>
+</ul>
+
+<h2>目录结构</h2>
+
+<p>在您开始编写自定义 check 前，您需要对探针端 checks 的目录结构有足够的了解。有两个地方可以存放您的自定义 check 相关文件，如下：</p>
+
+<ul>
+<li><code>checks.d</code> 文件夹，也是探针所在地</li>
+</ul>
+
+<p>所有的 Linux 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/checks.d/
+</code></pre>
+
+<p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>C:\Program Files (x86)\OneAPM\OneAPM Ci Agent\checks.d
+或
+C:\Program Files\OneAPM\OneAPM Ci Agent\checks.d
+</code></pre>
+
+<ul>
+<li><code>conf.d</code> 文件夹，探针配置文件所在地</li>
+</ul>
+
+<p>Linux 系统中，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/conf.d
+</code></pre>
+
+<p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
+<pre class="highlight plaintext"><code>C:\ProgramData\OneAPM\conf.d
+或
+C:\Documents and Settings\All Users\Application Data\OneAPM\conf.d\
+</code></pre>
+
+<h2>一个简单的 HTTP check</h2>
+
+<p><strong>配置文件的名字和 check 的名字必须一致，例如你要 check 的文件是 <code>mycheck.py</code>，那你的配置文件名称就必须为 <code>mycheck.yaml</code>。</strong></p>
+
+<p>现在让我们编写一个检测 HTTP 节点状态的 check，每运行一次 check，都向 HTTP 节点发送一个 get 请求，如果响应成功（即返回200），则将响应时间作为一项指标提交至 Cloudinsight。</p>
+
+<ul>
+<li>定义配置文件 <code>conf.d/http.yaml</code>，如下：</li>
+</ul>
+<pre class="highlight plaintext"><code>init_config:
+    default_timeout: 5
+
+instances:
+  - url: https://cn.bing.com
+
+  - url: http://httpbin.org/delay/10
+    timeout: 8
+
+  - url: http://httpbin.org/status/400
+</code></pre>
+
+<ul>
+<li>定义 <code>check</code> 方法，check 的核心就是制造 http 请求并获取该请求的响应时间，<code>checks.d/http.py</code> 文件内容如下:</li>
+</ul>
+<pre class="highlight plaintext"><code>import time
+import requests
+
+from checks import AgentCheck
+
+class HTTPCheck(AgentCheck):
+    def check(self, instance):
+        if 'url' not in instance:
+            self.log.info("Skipping instance, no url found.")
+            return
+
+        # Load values from the instance config
+        url = instance['url']
+        default_timeout = self.init_config.get('default_timeout', 5)
+        timeout = float(instance.get('timeout', default_timeout))
+
+        # Check the URL
+        start_time = time.time()
+        try:
+            r = requests.get(url, timeout=timeout)
+            end_time = time.time()
+        except requests.exceptions.Timeout as e:
+            self.log.error(e)
+            raise
+
+        if r.status_code != 200:
+            return
+
+        timing = end_time - start_time
+        self.gauge('http.reponse_time', timing, tags=['http_check'])
+
+
+if __name__ == '__main__':
+    check, instances = HTTPCheck.from_yaml('/path/to/conf.d/http.yaml')
+    for instance in instances:
+        print "\nRunning the check against url: %s" % (instance['url'])
+        check.check(instance)
+        print 'Metrics: %s' % (check.get_metrics())
+</code></pre>
+
+<p>可见，check 接口是很简单的，非常容易上手，还不 try 一把？</p>
+
+<h2>排错</h2>
+
+<p>您可以执行以下命令进行调试：</p>
+<pre class="highlight plaintext"><code>sudo -u oneapm-ci-agent ci-agent check my_check
+</code></pre>
+
+<h3>Windows 测试自定义 check</h3>
+
+<p>测试 Windows 自定义 check 很简单，探针安装后有一个 shell.exe 的文件，您可以直接在上面运行 Python 文件。</p>
+
+<p>例如你 check my_check，保证已经配置正确 .py 和 .yaml 文件，可以在 shell.exe 里面运行：</p>
+<pre class="highlight plaintext"><code>&gt;&gt;&gt; from checks import run_check
+&gt;&gt;&gt; run_check('my_check')
+</code></pre>
+
+<p>将输出 check 返回的指标数据。</p>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，永久免费使用 Cloud Insight
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/services/agent-check.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+      });
+    </script>
+  </body>
+</html>

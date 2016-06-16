@@ -235,10 +235,6 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -313,6 +309,7 @@
 <li><a href="/services/status.html">状态页监控</a></li>
 <li><a href="/services/database.html">数据库</a></li>
 <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
@@ -327,6 +324,7 @@
 
 <ul>
 <li><a href="/platform/system.html">System 数据指标解释</a></li>
+<li><a href="/metric/metric_explorer.html">指标浏览</a></li>
 </ul></li>
 <li><a href="/alert/">报警与策略</a>
 
@@ -340,11 +338,14 @@
 <li><a href="/services_example/activemq.html">ActiveMQ</a></li>
 <li><a href="/services_example/apache.html">Apache</a></li>
 <li><a href="/services_example/bearychat.html">BearyChat</a></li>
+<li><a href="/services_example/cacti.html">Cacti</a></li>
 <li><a href="/services_example/cassandra.html">Cassandra</a></li>
 <li><a href="/services_example/couchbase.html">Couchbase</a></li>
 <li><a href="/services_example/couchdb.html">CouchDB</a></li>
 <li><a href="/services_example/docker.html">Docker</a></li>
 <li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
+<li><a href="/services_example/gearman.html">Gearman</a></li>
+<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
 <li><a href="/services_example/haproxy.html">Haproxy</a></li>
 <li><a href="/services_example/iis.html">IIS</a></li>
 <li><a href="/services_example/kafka.html">Kafka</a></li>
@@ -361,6 +362,8 @@
 <li><a href="/services_example/snmp.html">SNMP</a></li>
 <li><a href="/services_example/solr.html">Solr</a></li>
 <li><a href="/services_example/sqlserver.html">SQL Server</a></li>
+<li><a href="/services_example/ssh.html">SSH</a></li>
+<li><a href="/services_example/supervisord.html">Supervisord</a></li>
 <li><a href="/services_example/tomcat.html">Tomcat</a></li>
 <li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
 <li><a href="/services_example/jianliao.html">简聊</a></li>
@@ -440,7 +443,7 @@
    SetHandler server-status
    Order deny,Allow
    Deny from all
-   Allow from all
+   Allow from 127.0.0.1       # 表示只允许本机访问
 &lt;/Location&gt;
 </code></pre>
 
@@ -481,6 +484,7 @@ apache
 
 <ul>
 <li><a href="/qa/apache_404.html">Apache 异常报错</a></li>
+<li>有任何关于产品的使用疑惑，参考<a href="http://docs-ci.oneapm.com/qa/">常见问题</a>。</li>
 </ul>
 
           <hr style="margin-top: 50px;" />
