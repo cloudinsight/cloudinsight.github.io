@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - Python SDK 使用文档</title>
+<title>Cloudinsight - Python SDK 使用文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -235,14 +235,10 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -306,9 +302,9 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Cloud Insight SDK For Python</h1>
+          <h1>Cloudinsight SDK For Python</h1>
 
-<p>Cloud Insight 根据 StatsD 进行了修改，形成了 Cloud Insight SDK，可以方便用户上传自定义指标至 Cloud Insight。
+<p>Cloudinsight 根据 StatsD 进行了修改，形成了 Cloudinsight SDK，可以方便用户上传自定义指标至 Cloudinsight。
 <a href="https://github.com/cloudinsight/cloudinsight-python-sdk">项目地址</a></p>
 
 <p>目前支持的数据类型有以下几种，具体参考 <a href="/api/metric.html">Metrics 说明</a>：</p>
@@ -318,7 +314,7 @@
 <li>Gauges</li>
 </ul>
 
-<p>使用 SDK 的前提条件为您已经安装了 Cloud Insight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
+<p>使用 SDK 的前提条件为您已经安装了 Cloudinsight Agent。Agent 的采集周期为 <strong>30 s</strong>，数据发送周期为 <strong>15 s</strong>。</p>
 
 <h2>安装与使用</h2>
 
@@ -326,7 +322,7 @@
 <li><p>使用 <code>pip</code> 安装(之前包名是oneapm-ci-sdk, 已不再更新，不建议使用)</p>
 <pre class="highlight plaintext"><code>pip install -i http://pypi.oneapm.com/simple --trusted-host pypi.oneapm.com --upgrade cloudinsight
 </code></pre></li>
-<li><p>从 4.4.0 版本开始，Cloud Insight 已经内嵌入 SDK ，使用的时候可以直接使用，无需安装，使用时可以指定 Python 环境 <code>/opt/oneapm-ci-agent/embedded/bin/python</code> 或者导入探针的 Python 库 <code>/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/</code>。 <strong>注意</strong>:探针版本&lt;=4.5.0的内嵌SDK包名为oneapm-ci-sdk。</p></li>
+<li><p>从 4.4.0 版本开始，Cloudinsight 已经内嵌入 SDK ，使用的时候可以直接使用，无需安装，使用时可以指定 Python 环境 <code>/opt/oneapm-ci-agent/embedded/bin/python</code> 或者导入探针的 Python 库 <code>/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/</code>。 <strong>注意</strong>:探针版本&lt;=4.5.0的内嵌SDK包名为oneapm-ci-sdk。</p></li>
 <li><p><a href="https://github.com/cloudinsight/cloudinsight-python-sdk/tree/master/example">示例代码参考</a></p></li>
 </ul>
 
@@ -334,9 +330,9 @@
 
 <h3>Counters</h3>
 
-<p><code>Counters</code> 是 StatsD 和 Cloud Insight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
+<p><code>Counters</code> 是 StatsD 和 Cloudinsight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
 
-<p>由于 Cloud Insight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
+<p>由于 Cloudinsight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
 <pre class="highlight python"><code><span class="c"># Import the module.</span>
 <span class="kn">from</span> <span class="nn">cloudinsight</span> <span class="kn">import</span> <span class="n">statsd</span>
 
@@ -400,19 +396,19 @@
 <h2>最佳实践</h2>
 
 <ul>
-<li><a href="http://news.oneapm.com/pm2-5-cloud-insight/">使用 Cloud Insight SDK 监控北京空气质量</a></li>
-<li><a href="http://news.oneapm.com/ci-sdk-druid/">使用 Cloud Insight 实现 Druid 监控</a></li>
+<li><a href="http://news.oneapm.com/pm2-5-cloud-insight/">使用 Cloudinsight SDK 监控北京空气质量</a></li>
+<li><a href="http://news.oneapm.com/ci-sdk-druid/">使用 Cloudinsight 实现 Druid 监控</a></li>
 </ul>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>
@@ -431,7 +427,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - Python SDK 使用文档";
+    title = "Cloudinsight - Python SDK 使用文档";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

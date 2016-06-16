@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -235,14 +235,10 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -382,9 +378,9 @@
 
 <h2>介绍</h2>
 
-<p>Cloud Insight 通过使用 <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html">JMX 远程监控</a>某些服务的应用指标。</p>
+<p>Cloudinsight 通过使用 <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html">JMX 远程监控</a>某些服务的应用指标。</p>
 
-<p>为了收集这些指标，Cloud Insight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloud Insight Agent。</p>
+<p>为了收集这些指标，Cloudinsight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloudinsight Agent。</p>
 
 <p><img src="/images/service/jmx1.png" /></p>
 
@@ -417,15 +413,15 @@
 
 <p><img src="/images/service/jmx2.png" /></p>
 
-<p>之后请重启 Tomcat 与 Cloud Insight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
+<p>之后请重启 Tomcat 与 Cloudinsight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
 
 <p><img src="/images/service/jmx3.png" /></p>
 
 <h3>修改配置文件</h3>
 
-<p>修改 <code>conf.d/tomcat.yaml</code> 配置文件，可以决定 Cloud Insight 通过 JMX 采集哪些性能指标，以及指定 Java 执行路径等重要信息。</p>
+<p>修改 <code>conf.d/tomcat.yaml</code> 配置文件，可以决定 Cloudinsight 通过 JMX 采集哪些性能指标，以及指定 Java 执行路径等重要信息。</p>
 
-<p>为了更好让您理解如何配置 Cloud Insight Java 系列的平台服务，我们为您列举每一项配置参数的意义。</p>
+<p>为了更好让您理解如何配置 Cloudinsight Java 系列的平台服务，我们为您列举每一项配置参数的意义。</p>
 
 <p>我们以 Tomcat 的配置文件为例，为大家介绍配置文件的参数意义。同理，ActiveMQ Kafka 等使用 JMX 来采集指标的平台服务的配置文件，结构类似。</p>
 <pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
@@ -436,19 +432,19 @@
     <span class="c1"># process_name_regex: .*process_name.*     # 实现 JMX 监控， 除了配置 host 和 port 外，还可通过 attach api的方式，具体见http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html</span>
 
     <span class="c1"># tools_jar_path: /usr/lib/jvm/java-7-openjdk-amd64/lib/tools.jar    # 通过 attach API 方式实现 JMX 监控时，需配置 tools.jar 的路径</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>                      <span class="c1"># Tomcat 实例名称，将在 Cloud Insight 平台生成对应的标签，如: instance:tomcat_instance</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>                      <span class="c1"># Tomcat 实例名称，将在 Cloudinsight 平台生成对应的标签，如: instance:tomcat_instance</span>
     <span class="s">java_bin_path</span><span class="pi">:</span> <span class="s">/path/to/java</span>               <span class="c1"># 探针找不到 Java 可执行路径时，需配置此项</span>
     <span class="s">java_options</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-Xmx200m</span><span class="nv"> </span><span class="s">-Xms50m"</span>           <span class="c1"># Java JVM 对应项</span>
     <span class="s">trust_store_path</span><span class="pi">:</span> <span class="s">/path/to/trustStore.jks</span>  <span class="c1"># 若 JMX 远程连接开启 SSL，需配置此项</span>
     <span class="s">trust_store_password</span><span class="pi">:</span> <span class="s">password</span>             <span class="c1"># SSL 证书密码</span>
     <span class="s">tags</span><span class="pi">:</span>                 
-      <span class="s">env</span><span class="pi">:</span> <span class="s">stage</span>                               <span class="c1"># 自定义标签，用于在 Cloud Insight 平台对 Tomcat 服务器进行分组</span>
+      <span class="s">env</span><span class="pi">:</span> <span class="s">stage</span>                               <span class="c1"># 自定义标签，用于在 Cloudinsight 平台对 Tomcat 服务器进行分组</span>
     <span class="c1">#     newTag: test</span>
 </code></pre>
 
 <h3>查看可用指标</h3>
 
-<p>由于 JMX 采集的指标特别多，而 Cloud Insight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
+<p>由于 JMX 采集的指标特别多，而 Cloudinsight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
 
 <p>想要查看目前哪些指标被采集，需要运行指令，来自查.</p>
 
@@ -499,7 +495,7 @@
 
 <p>JMX 检查需要的 <code>conf</code> 部分，它已经放在在 <code>init_config</code> 部分或 <code>instances</code> 部分里面。</p>
 
-<p>通过 <code>conf</code> 部分将被用于确定什么 JMX 属性必须被收集和发送的 Cloud Insight。</p>
+<p>通过 <code>conf</code> 部分将被用于确定什么 JMX 属性必须被收集和发送的 Cloudinsight。</p>
 
 <p>配置部分如下所示：</p>
 <pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
@@ -596,7 +592,7 @@
             <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
 </code></pre>
 
-<p>在这种情况下，你可以给指标指定一个别名，这将成为 Cloud Insight 的标准指标名称。您还可以指定指标类型无论是常规规则或计数器。如果你选择计数器，探针将以每秒的速度计算这个指标。</p>
+<p>在这种情况下，你可以给指标指定一个别名，这将成为 Cloudinsight 的标准指标名称。您还可以指定指标类型无论是常规规则或计数器。如果你选择计数器，探针将以每秒的速度计算这个指标。</p>
 
 <ul>
 <li>属性名称的列表：</li>
@@ -701,7 +697,7 @@
 
 <h3>350 个指标限制</h3>
 
-<p>鉴于监控的这些服务的性质，有可能直接提交极高数量的指标到 Cloud Insight。因此，我们设定了 350 个指标的限制。</p>
+<p>鉴于监控的这些服务的性质，有可能直接提交极高数量的指标到 Cloudinsight。因此，我们设定了 350 个指标的限制。</p>
 
 <p>要查看您收集了什么，以及还剩下收集多少指标的限制，您可以通过使用上面的命令来查看那些指标是可用的。</p>
 
@@ -709,7 +705,7 @@
 
 <h3>Java 的路径</h3>
 
-<p>Cloud Insight Agent 并不捆绑 JVM，但是需要您的系统已经安装 JVM。因此，您必须确保 Java 主目录存在于运行探针的用户的路径上。</p>
+<p>Cloudinsight Agent 并不捆绑 JVM，但是需要您的系统已经安装 JVM。因此，您必须确保 Java 主目录存在于运行探针的用户的路径上。</p>
 
 <p>另外，您也可以在某个集成的配置文件中指定 JVM 路径：</p>
 <pre class="highlight plaintext"><code>java_bin_path：/path/java
@@ -718,12 +714,12 @@
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>

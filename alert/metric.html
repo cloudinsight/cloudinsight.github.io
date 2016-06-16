@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -235,14 +235,10 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -380,9 +376,9 @@
         <div class="col-lg-9 page-body">
           <h1>基于指标的报警</h1>
 
-<p>如同上文所提到的，Cloud Insight 支持不同数据源的报警。</p>
+<p>如同上文所提到的，Cloudinsight 支持不同数据源的报警。</p>
 
-<p>而基于指标的报警是指，针对 Cloud Insight 采集到的指标，通过聚合的指标数值（选择标签信息），和设定报警条件（时间窗口、判断条件等），进行报警。</p>
+<p>而基于指标的报警是指，针对 Cloudinsight 采集到的指标，通过聚合的指标数值（选择标签信息），和设定报警条件（时间窗口、判断条件等），进行报警。</p>
 
 <h2>创建报警策略</h2>
 
@@ -439,11 +435,11 @@
 
 <p>如果一台物理主机，除开存在宕机、网络瘫痪，再或者保险丝被烧断，这些可怕的情况外；一直处于运行情况。那么该物理主机的 <code>system.load.1</code> 是一个密集型指标。</p>
 
-<p>因为 Cloud Insight Agent 会一直采集数值，并上传给后端。</p>
+<p>因为 Cloudinsight Agent 会一直采集数值，并上传给后端。</p>
 
 <p>而在 AWS 中由于存在 Auto-Scaling 机制，一些主机只有在业务量特别大的情况下，才启动。此时这些主机的 <code>system.load.1</code> 只有业务量增长，才会有数值。此时该指标就是一个稀疏型指标。</p>
 
-<p>而在 Cloud Insight 测试环境中，Docker 的 Container 存在周期性的停止和重启，此时 Docker 有关的指标，都是稀疏型的。</p>
+<p>而在 Cloudinsight 测试环境中，Docker 的 Container 存在周期性的停止和重启，此时 Docker 有关的指标，都是稀疏型的。</p>
 
 <p>当如果一个指标是密集型指标时，那么掉点就意味着重大事故已经发生。此时，应该选择：<strong>当数据丢失超过 X 分钟时，通知用户。</strong>。反之，则不通知。</p>
 
@@ -466,9 +462,9 @@
 
 <p>选择当报警触发时，需要通知的用户。</p>
 
-<p>Cloud Insight 会通过邮件的方式通知他们，策略被触发和关闭。</p>
+<p>Cloudinsight 会通过邮件的方式通知他们，策略被触发和关闭。</p>
 
-<p>为了避免报警风暴的产生，Cloud Insight 设定最小的邮件发送间隔为：20 分钟。</p>
+<p>为了避免报警风暴的产生，Cloudinsight 设定最小的邮件发送间隔为：20 分钟。</p>
 
 <h4>设置报警策略动图如下：</h4>
 
@@ -477,12 +473,12 @@
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>

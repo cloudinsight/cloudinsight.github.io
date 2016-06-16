@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -235,14 +235,10 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -298,13 +294,13 @@
 <li><a href="/qa/down_summary.html">应用安装失败全解析</a></li>
 <li><a href="/qa/metrics.html">指标含义看不懂？</a></li>
 <li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
-<li><a href="/qa/agent.html">Cloud Insight 探针是怎样工作的？</a></li>
+<li><a href="/qa/agent.html">Cloudinsight 探针是怎样工作的？</a></li>
 <li><a href="/qa/name.html">怎么修改应用名称？</a></li>
 <li><a href="/qa/host_unavailable.html">如何在主机不可用时收到报警？</a></li>
-<li><a href="/qa/windows_v.html">Cloud Insight 支持哪些 Windows 版本？</a></li>
+<li><a href="/qa/windows_v.html">Cloudinsight 支持哪些 Windows 版本？</a></li>
 <li><a href="/qa/tag.html">tag 使用指南</a></li>
 <li><a href="/qa/network_adapter.html">怎么识别多网卡流量情况？</a></li>
-<li><a href="/qa/browser.html">浏览器不能显示 Cloud Insight 数据</a></li>
+<li><a href="/qa/browser.html">浏览器不能显示 Cloudinsight 数据</a></li>
 <li><a href="/qa/more.html">如何监控多个平台服务</a></li>
 <li><a href="/qa/core.html">如何监控多核 CPU</a></li>
 <li><a href="/qa/process.html">怎么监控进程，挂掉的时候可以收到报警？</a></li>
@@ -320,9 +316,9 @@
 <li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
 <li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
 <li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
-<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloudinsight 报错问题</a></li>
 <li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
-<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a></li>
+<li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloudinsight 报错问题</a></li>
 <li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
 <li><a href="/qa/syslog.html">Error setting up syslog</a></li>
 <li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
@@ -363,7 +359,7 @@
 <pre class="highlight plaintext"><code>curl: (35) error:0D0C50A1:asn1 encoding routines:ASN1_item_verify:unknown message digest algorithm
 </code></pre>
 
-<p>这个问题多由证书本地 openssl 不能识别 SSL 证书签名算法所致。Cloud Insight 使用了 SHA-256 RSA 加密算法。而 openssl 在 OpenSSL 0.9.8o才加入此算法。</p>
+<p>这个问题多由证书本地 openssl 不能识别 SSL 证书签名算法所致。Cloudinsight 使用了 SHA-256 RSA 加密算法。而 openssl 在 OpenSSL 0.9.8o才加入此算法。</p>
 
 <p><strong>解决办法</strong>是升级本地 openssl。</p>
 
@@ -379,17 +375,17 @@ Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af
 
 </code></pre>
 
-<p>这是 Centos 5 版本可能产生的问题，以上出错原因是发布 Cloud Insight 探针包时默认的 checksum（检验码）是 sha256 ,而 CentOS 5/rhel 5 版本不符合这个，所以安装不了这个安装包。</p>
+<p>这是 Centos 5 版本可能产生的问题，以上出错原因是发布 Cloudinsight 探针包时默认的 checksum（检验码）是 sha256 ,而 CentOS 5/rhel 5 版本不符合这个，所以安装不了这个安装包。</p>
 
 <p><strong>解决方法</strong> ：首先删掉因安装 Ci 添加的 yum 源<code>
 rm -rf  /etc/yum.repos.d/oneapm-ci-agent.repo</code>，然后安装一个 hash 加密的模块：<code>
-yum install python-hashlib</code>，然后重新安装探针，参考<a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloud Insight 报错问题</a>。</p>
+yum install python-hashlib</code>，然后重新安装探针，参考<a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloudinsight 报错问题</a>。</p>
 
 <h3>用户密码权限问题</h3>
 <pre class="highlight plaintext"><code>useradd: cannot  open  /etc/passwd
 </code></pre>
 
-<p>这是 Centos 7 版本可能产生的问题，具体参考<a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloud Insight 报错问题</a>。</p>
+<p>这是 Centos 7 版本可能产生的问题，具体参考<a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloudinsight 报错问题</a>。</p>
 
 <h3>unmet dependencies</h3>
 <pre class="highlight plaintext"><code>* Installing APT package sources for OneAPM
@@ -423,7 +419,7 @@ E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a s
 ERROR
 </code></pre>
 
-<p>以上报错说明 Ubuntu 系统内 APT 包源本身冲突，如果不安装更新软件的话这个问题不会表现出来，但在安装 Cloud Insight 探针时第一步执行的 sudo apt-get update，此时系统内如果有服务需要升级版本，就会报出错。如果没办法处理冲突问题，那就只能分布安装。具体安装方法见本文尾处。</p>
+<p>以上报错说明 Ubuntu 系统内 APT 包源本身冲突，如果不安装更新软件的话这个问题不会表现出来，但在安装 Cloudinsight 探针时第一步执行的 sudo apt-get update，此时系统内如果有服务需要升级版本，就会报出错。如果没办法处理冲突问题，那就只能分布安装。具体安装方法见本文尾处。</p>
 
 <h2>探针安装成功没有启动成功</h2>
 
@@ -466,7 +462,7 @@ Stopping OneAPM CI Agent (using killproc on supervisord): [ OK ] Error setting u
 
 <p><strong>解决方法</strong> 此为 syslog 文件找不到，修改 /etc/oneapm-ci-agent/oneapm-ci-agent.conf 里面 log<em>to</em>syslog 设置为 no ，重启探针即可。</p>
 
-<p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/oneapm-ci-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，onestatsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloud Insight SaaS 的传输情况。</p>
+<p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/oneapm-ci-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，onestatsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloudinsight SaaS 的传输情况。</p>
 
 <h3>端口被占用</h3>
 <pre class="highlight plaintext"><code>2016-04-26 10:49:03 CST | ERROR | ci.forwarder | forwarder(forwarder.py:479) | Socket error [Errno 98] Address already in use. Is another application listening on the same port ? Exiting
@@ -482,7 +478,7 @@ Traceback (most recent call last):
 error: [Errno 98] Address already in use
 </code></pre>
 
-<p>Ci 探针默认通过 10010 端口传输数据至 Cloud Insight 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
+<p>Ci 探针默认通过 10010 端口传输数据至 Cloudinsight 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
 
 <p><strong>解决方法</strong>您可以检查占用该端口的应用程序，如果方便，可以 kill 此进程或修改此进程的端口；如果不方便修改，则可以修改 /etc/oneapm-ci-agent/oneapm-ci-agent.conf 路径下的配置文件，修改此端口。</p>
 <pre class="highlight plaintext"><code>listen_port: 17121（任意未使用端口）
@@ -508,13 +504,13 @@ Traceback (most recent call last):
 ConnectionError: ('Connection aborted.', error(97, 'Address family not supported by protocol'))
 </code></pre>
 
-<p>如果有以上 Unable to post payload 的问题，但不是连接超时问题，这是因为探针默认会读取 localhost 的数据，如果本机没有把 localhost 解析成 127.0.0.1 ，就会报这个错误，所以可以对本机进行解析，也可以在 Cloud Insight 配置文件里面绑定 127.0.0.1。可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 文件，在里面添加如下内容：</p>
+<p>如果有以上 Unable to post payload 的问题，但不是连接超时问题，这是因为探针默认会读取 localhost 的数据，如果本机没有把 localhost 解析成 127.0.0.1 ，就会报这个错误，所以可以对本机进行解析，也可以在 Cloudinsight 配置文件里面绑定 127.0.0.1。可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code> 文件，在里面添加如下内容：</p>
 <pre class="highlight plaintext"><code>bind_host: 127.0.0.1
 </code></pre>
 
 <p>之后重启探针，在 web 上看看是否已经有数据。</p>
 
-<p>如果有以上 Unable to post payload 的问题，但是连接超时问题，可以忽略，偶尔1～2次数据没有传输上去，不会有影响，Cloud Insight Agent 有30M 缓存，数据没有发送成功下次发送时回一并发过去，直至发送成功。 </p>
+<p>如果有以上 Unable to post payload 的问题，但是连接超时问题，可以忽略，偶尔1～2次数据没有传输上去，不会有影响，Cloudinsight Agent 有30M 缓存，数据没有发送成功下次发送时回一并发过去，直至发送成功。 </p>
 
 <h3>license_key</h3>
 
@@ -559,12 +555,12 @@ vi oneapm-ci-agent.conf（ 修改成自己的 license_key ）
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>

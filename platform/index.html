@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -235,14 +235,10 @@
 
   </script>
 
-<div class="ribbon right orange hidden-sm hidden-xs">
-  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -380,26 +376,26 @@
         <div class="col-lg-9 page-body">
           <h1>平台</h1>
 
-<p>Cloud Insight 提供基础设施的监控，以操作系统的监控为核心。在这里，我们将这种监控方式，称之为<strong>平台监控</strong>；而运行在平台下的服务，如数据库、Web 服务，我们称之为<strong>平台服务</strong>。</p>
+<p>Cloudinsight 提供基础设施的监控，以操作系统的监控为核心。在这里，我们将这种监控方式，称之为<strong>平台监控</strong>；而运行在平台下的服务，如数据库、Web 服务，我们称之为<strong>平台服务</strong>。</p>
 
 <h2>平台安装</h2>
 
-<p>运行在平台的 Cloud Insight 探针，我们称之为 Agent。Agent 包括以下几个功能：</p>
+<p>运行在平台的 Cloudinsight 探针，我们称之为 Agent。Agent 包括以下几个功能：</p>
 
 <ul>
 <li>采集平台和平台服务的性能指标</li>
 <li>记录平台和平台服务的事件</li>
 <li>生效平台和平台服务的 Agent 配置</li>
-<li>向 Cloud Insight 发送数据</li>
+<li>向 Cloudinsight 发送数据</li>
 </ul>
 
-<p>当 Cloud Insight 页面出现无数据，或者其他的异常情况。很大程度上，是因为 Agent 运行异常的问题。此时，可以通过 Agent 自检来排除问题：</p>
+<p>当 Cloudinsight 页面出现无数据，或者其他的异常情况。很大程度上，是因为 Agent 运行异常的问题。此时，可以通过 Agent 自检来排除问题：</p>
 
 <ul>
 <li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
 </ul>
 
-<p>将 Agent 安装至平台开始监控平台的运行情况，即平台的安装。Cloud Insight Agent 目前可以安装在 CentOS、Ubuntu、Debain、Fedora、RedHat、Windows 操作系统上。</p>
+<p>将 Agent 安装至平台开始监控平台的运行情况，即平台的安装。Cloudinsight Agent 目前可以安装在 CentOS、Ubuntu、Debain、Fedora、RedHat、Windows 操作系统上。</p>
 
 <ul>
 <li><a href="/platform/redhat.html">RedHat CentOS Fedora 安装</a></li>
@@ -421,11 +417,11 @@
 
 <h3>DOWN / UP 状态</h3>
 
-<p>其中「状态」代表平台是处于 DOWN 还是 UP 的状态。UP 则代表安装在平台中的 Cloud Insight 可以正常发送数据，并且 OneAPM 可以接收到数据。</p>
+<p>其中「状态」代表平台是处于 DOWN 还是 UP 的状态。UP 则代表安装在平台中的 Cloudinsight 可以正常发送数据，并且 OneAPM 可以接收到数据。</p>
 
 <p>DOWN 的状态，代表在 3 分钟内 OneAPM 为接收到您平台中的 Agent 中的数据。此时，您可以查阅 <a href="#">Agent 常用操作</a>，来自行排查 Agent 故障。</p>
 
-<p>若 Agent Log 中显示正常，但是在 Cloud Insight 中显示平台异常，请<a href="mailto:support@oneapm.com">邮件联系 OneAPM 销售支持</a>，我们会耐心解答您的问题。</p>
+<p>若 Agent Log 中显示正常，但是在 Cloudinsight 中显示平台异常，请<a href="mailto:support@oneapm.com">邮件联系 OneAPM 销售支持</a>，我们会耐心解答您的问题。</p>
 
 <h3>CPU / IO Wait / Load 15 指标</h3>
 
@@ -443,23 +439,23 @@
 
 <p>当平台配置了平台服务，开始监控的时候，OneAPM 端因为接收到 Agent 端传输过来的错误信息，会在这一个区域展现。</p>
 
-<p>如图，MySQL 因为权限配置问题，导致 Cloud Insight Agent 没有权限收集 MySQL 数据库中的性能指标，则会发出此类错误消息。</p>
+<p>如图，MySQL 因为权限配置问题，导致 Cloudinsight Agent 没有权限收集 MySQL 数据库中的性能指标，则会发出此类错误消息。</p>
 
 <h3>系统信息</h3>
 
-<p>Cloud Insight 还可以显示平台的系统信息，如 CPU 核数、Cache 大小等等。</p>
+<p>Cloudinsight 还可以显示平台的系统信息，如 CPU 核数、Cache 大小等等。</p>
 
 <p><img src="/images/platform/start8.png" /></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>
