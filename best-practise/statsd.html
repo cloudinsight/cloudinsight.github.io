@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight - Statsd 最佳实践</title>
+<title>Cloudinsight - Statsd 最佳实践</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -248,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -298,12 +306,12 @@
       <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>
@@ -322,7 +330,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloud Insight - Statsd 最佳实践";
+    title = "Cloudinsight - Statsd 最佳实践";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');

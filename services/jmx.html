@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -248,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -292,42 +300,44 @@
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><a href="/release-note.html">版本更新</a></li>
-<li><a href="/platform/">Agent 安装与配置</a>
+<li><a href="/release-note.html">Release Note</a></li>
+<li><a href="/agent/">Agent 安装与配置</a>
 
 <ul>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
-<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
-<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
-<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
-<li><a href="/platform/docker.html">Docker 安装</a></li>
-<li><a href="/platform/windows.html">Windows 安装</a></li>
-<li><a href="/platform/chef.html">Chef 安装</a></li>
-<li><a href="/platform/inner.html">内网环境安装探针</a></li>
-<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a></li>
+</ul></li>
+<li><a href="/platform/">平台及拓补</a>
+
+<ul>
+<li><a href="/platform/platform_config.html">平台操作</a></li>
+<li><a href="/platform/hostmap.html">拓补/Hostmap</a></li>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
 </ul></li>
 <li><a href="/services/">平台服务</a>
 
 <ul>
-<li><a href="/services/authorize.html">监控授权</a></li>
 <li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/database.html">数据库</a></li>
 <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/authorize.html">数据库授权监控</a></li>
 <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
 <ul>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
 <li><a href="/share/">图表分享</a></li>
-<li><a href="/dashboard/event.html">叠加事件</a></li>
 </ul></li>
-<li><a href="/metric/">指标与示意</a>
+<li><a href="/metric/">指标与浏览</a>
 
 <ul>
-<li><a href="/platform/system.html">System 数据指标解释</a></li>
 <li><a href="/metric/metric_explorer.html">指标浏览</a></li>
 </ul></li>
 <li><a href="/alert/">报警与策略</a>
@@ -336,44 +346,7 @@
 <li><a href="/alert/metric.html">指标报警</a></li>
 </ul></li>
 <li><a href="/event/">事件</a></li>
-<li><a href="/services_example/">平台服务配置示例</a>
-
-<ul>
-<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
-<li><a href="/services_example/apache.html">Apache</a></li>
-<li><a href="/services_example/bearychat.html">BearyChat</a></li>
-<li><a href="/services_example/cacti.html">Cacti</a></li>
-<li><a href="/services_example/cassandra.html">Cassandra</a></li>
-<li><a href="/services_example/couchbase.html">Couchbase</a></li>
-<li><a href="/services_example/couchdb.html">CouchDB</a></li>
-<li><a href="/services_example/docker.html">Docker</a></li>
-<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
-<li><a href="/services_example/gearman.html">Gearman</a></li>
-<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
-<li><a href="/services_example/haproxy.html">Haproxy</a></li>
-<li><a href="/services_example/iis.html">IIS</a></li>
-<li><a href="/services_example/kafka.html">Kafka</a></li>
-<li><a href="/services_example/memcached.html">Memcached</a></li>
-<li><a href="/services_example/mesos.html">Mesos</a></li>
-<li><a href="/services_example/mongodb.html">MongoDB</a></li>
-<li><a href="/services_example/mysql.html">MySQL</a></li>
-<li><a href="/services_example/nagios.html">Nagios</a></li>
-<li><a href="/services_example/nginx.html">NGINX</a></li>
-<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
-<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
-<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
-<li><a href="/services_example/redis.html">Redis</a></li>
-<li><a href="/services_example/snmp.html">SNMP</a></li>
-<li><a href="/services_example/solr.html">Solr</a></li>
-<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
-<li><a href="/services_example/ssh.html">SSH</a></li>
-<li><a href="/services_example/supervisord.html">Supervisord</a></li>
-<li><a href="/services_example/tomcat.html">Tomcat</a></li>
-<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
-<li><a href="/services_example/jianliao.html">简聊</a></li>
-<li><a href="/services_example/process.html">进程监控</a></li>
-<li><a href="/services_example/network.html">网络（端口）监控</a></li>
-</ul></li>
+<li><a href="/services_example/">平台服务配置示例</a></li>
 </ul>
 
         </div>
@@ -382,9 +355,9 @@
 
 <h2>介绍</h2>
 
-<p>Cloud Insight 通过使用 <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html">JMX 远程监控</a>某些服务的应用指标。</p>
+<p>Cloudinsight 通过使用 <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html">JMX 远程监控</a>某些服务的应用指标。</p>
 
-<p>为了收集这些指标，Cloud Insight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloud Insight Agent。</p>
+<p>为了收集这些指标，Cloudinsight 会调用一个轻量级的 Java 插件 JMXFetch 连接到 MBean 服务器，并通过 OneStatsd 服务器，将这些指标发送到 Cloudinsight Agent。</p>
 
 <p><img src="/images/service/jmx1.png" /></p>
 
@@ -417,15 +390,15 @@
 
 <p><img src="/images/service/jmx2.png" /></p>
 
-<p>之后请重启 Tomcat 与 Cloud Insight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
+<p>之后请重启 Tomcat 与 Cloudinsight，再次执行 <code>info</code> 命令，出现下图即为配置成功。</p>
 
 <p><img src="/images/service/jmx3.png" /></p>
 
 <h3>修改配置文件</h3>
 
-<p>修改 <code>conf.d/tomcat.yaml</code> 配置文件，可以决定 Cloud Insight 通过 JMX 采集哪些性能指标，以及指定 Java 执行路径等重要信息。</p>
+<p>修改 <code>conf.d/tomcat.yaml</code> 配置文件，可以决定 Cloudinsight 通过 JMX 采集哪些性能指标，以及指定 Java 执行路径等重要信息。</p>
 
-<p>为了更好让您理解如何配置 Cloud Insight Java 系列的平台服务，我们为您列举每一项配置参数的意义。</p>
+<p>为了更好让您理解如何配置 Cloudinsight Java 系列的平台服务，我们为您列举每一项配置参数的意义。</p>
 
 <p>我们以 Tomcat 的配置文件为例，为大家介绍配置文件的参数意义。同理，ActiveMQ Kafka 等使用 JMX 来采集指标的平台服务的配置文件，结构类似。</p>
 <pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
@@ -436,19 +409,19 @@
     <span class="c1"># process_name_regex: .*process_name.*     # 实现 JMX 监控， 除了配置 host 和 port 外，还可通过 attach api的方式，具体见http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html</span>
 
     <span class="c1"># tools_jar_path: /usr/lib/jvm/java-7-openjdk-amd64/lib/tools.jar    # 通过 attach API 方式实现 JMX 监控时，需配置 tools.jar 的路径</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>                      <span class="c1"># Tomcat 实例名称，将在 Cloud Insight 平台生成对应的标签，如: instance:tomcat_instance</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">tomcat_instance</span>                      <span class="c1"># Tomcat 实例名称，将在 Cloudinsight 平台生成对应的标签，如: instance:tomcat_instance</span>
     <span class="s">java_bin_path</span><span class="pi">:</span> <span class="s">/path/to/java</span>               <span class="c1"># 探针找不到 Java 可执行路径时，需配置此项</span>
     <span class="s">java_options</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-Xmx200m</span><span class="nv"> </span><span class="s">-Xms50m"</span>           <span class="c1"># Java JVM 对应项</span>
     <span class="s">trust_store_path</span><span class="pi">:</span> <span class="s">/path/to/trustStore.jks</span>  <span class="c1"># 若 JMX 远程连接开启 SSL，需配置此项</span>
     <span class="s">trust_store_password</span><span class="pi">:</span> <span class="s">password</span>             <span class="c1"># SSL 证书密码</span>
     <span class="s">tags</span><span class="pi">:</span>                 
-      <span class="s">env</span><span class="pi">:</span> <span class="s">stage</span>                               <span class="c1"># 自定义标签，用于在 Cloud Insight 平台对 Tomcat 服务器进行分组</span>
+      <span class="s">env</span><span class="pi">:</span> <span class="s">stage</span>                               <span class="c1"># 自定义标签，用于在 Cloudinsight 平台对 Tomcat 服务器进行分组</span>
     <span class="c1">#     newTag: test</span>
 </code></pre>
 
 <h3>查看可用指标</h3>
 
-<p>由于 JMX 采集的指标特别多，而 Cloud Insight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
+<p>由于 JMX 采集的指标特别多，而 Cloudinsight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
 
 <p>想要查看目前哪些指标被采集，需要运行指令，来自查.</p>
 
@@ -499,7 +472,7 @@
 
 <p>JMX 检查需要的 <code>conf</code> 部分，它已经放在在 <code>init_config</code> 部分或 <code>instances</code> 部分里面。</p>
 
-<p>通过 <code>conf</code> 部分将被用于确定什么 JMX 属性必须被收集和发送的 Cloud Insight。</p>
+<p>通过 <code>conf</code> 部分将被用于确定什么 JMX 属性必须被收集和发送的 Cloudinsight。</p>
 
 <p>配置部分如下所示：</p>
 <pre class="highlight yaml"><code><span class="c1"># Make sure you replace the API and/or APP key below</span>
@@ -596,7 +569,7 @@
             <span class="s">metric_type</span><span class="pi">:</span> <span class="s">counter</span>
 </code></pre>
 
-<p>在这种情况下，你可以给指标指定一个别名，这将成为 Cloud Insight 的标准指标名称。您还可以指定指标类型无论是常规规则或计数器。如果你选择计数器，探针将以每秒的速度计算这个指标。</p>
+<p>在这种情况下，你可以给指标指定一个别名，这将成为 Cloudinsight 的标准指标名称。您还可以指定指标类型无论是常规规则或计数器。如果你选择计数器，探针将以每秒的速度计算这个指标。</p>
 
 <ul>
 <li>属性名称的列表：</li>
@@ -701,7 +674,7 @@
 
 <h3>350 个指标限制</h3>
 
-<p>鉴于监控的这些服务的性质，有可能直接提交极高数量的指标到 Cloud Insight。因此，我们设定了 350 个指标的限制。</p>
+<p>鉴于监控的这些服务的性质，有可能直接提交极高数量的指标到 Cloudinsight。因此，我们设定了 350 个指标的限制。</p>
 
 <p>要查看您收集了什么，以及还剩下收集多少指标的限制，您可以通过使用上面的命令来查看那些指标是可用的。</p>
 
@@ -709,7 +682,7 @@
 
 <h3>Java 的路径</h3>
 
-<p>Cloud Insight Agent 并不捆绑 JVM，但是需要您的系统已经安装 JVM。因此，您必须确保 Java 主目录存在于运行探针的用户的路径上。</p>
+<p>Cloudinsight Agent 并不捆绑 JVM，但是需要您的系统已经安装 JVM。因此，您必须确保 Java 主目录存在于运行探针的用户的路径上。</p>
 
 <p>另外，您也可以在某个集成的配置文件中指定 JVM 路径：</p>
 <pre class="highlight plaintext"><code>java_bin_path：/path/java
@@ -718,12 +691,12 @@
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>

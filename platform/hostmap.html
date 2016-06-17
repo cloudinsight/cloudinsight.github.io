@@ -1,0 +1,488 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Cloudinsight 文档</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-platform platform_hostmap">
+      <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74438127-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+<div class="ribbon right orange hidden-sm hidden-xs">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown guide">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            快速入门 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
+          </ul>
+
+        </li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <div class="navbar-form navbar-right">
+        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+          <ul>
+<li><a href="/release-note.html">Release Note</a></li>
+<li><a href="/agent/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a></li>
+</ul></li>
+<li><a href="/platform/">平台及拓补</a>
+
+<ul>
+<li><a href="/platform/platform_config.html">平台操作</a></li>
+<li><a href="/platform/hostmap.html">拓补/Hostmap</a></li>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
+</ul></li>
+<li><a href="/services/">平台服务</a>
+
+<ul>
+<li><a href="/services/status.html">状态页监控</a></li>
+<li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/authorize.html">数据库授权监控</a></li>
+<li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
+</ul></li>
+<li><a href="/dashboard/">仪表盘</a>
+
+<ul>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
+<li><a href="/share/">图表分享</a></li>
+</ul></li>
+<li><a href="/metric/">指标与浏览</a>
+
+<ul>
+<li><a href="/metric/metric_explorer.html">指标浏览</a></li>
+</ul></li>
+<li><a href="/alert/">报警与策略</a>
+
+<ul>
+<li><a href="/alert/metric.html">指标报警</a></li>
+</ul></li>
+<li><a href="/event/">事件</a></li>
+<li><a href="/services_example/">平台服务配置示例</a></li>
+</ul>
+
+        </div>
+        <div class="col-lg-9 page-body">
+          <h1>HostMap</h1>
+
+<p>HostMap 在<strong>平台</strong>&mdash;&gt;<strong>拓补</strong>中。</p>
+
+<p>HostMap 主要就这五个功能, <strong>全屏</strong>、<strong>过滤</strong>、<strong>分类</strong>，<strong>size by</strong>和<strong>节点展示</strong>。</p>
+
+<h2>全屏</h2>
+
+<p>顾名思义，点击即进入全凭模式。</p>
+
+<p><img src="/images/platform/hostmap_full.png" /></p>
+
+<h2>过滤器</h2>
+
+<p><img src="/images/platform/hostmap.png" /></p>
+
+<ul>
+<li>过滤器的作用就是把节点展示区的所以服务器（六边形），按一定规则筛选出来</li>
+<li>过滤规则只能选，不能在页面上增删</li>
+<li>过滤规则可以多选，直到你选光了（不建议这么做，无意义）</li>
+<li>支持输入搜索过滤规则</li>
+</ul>
+
+<p>过滤器的规则分为三类: <strong>系统固定状态值</strong>、<strong>已安装的服务平台</strong>（中间件），以及<strong>平台标签</strong>（ps: 即节点标签）。</p>
+
+<h3>过滤器-规则-系统固定状态值</h3>
+
+<p>这个类别下面只有一个<code>up</code>选项。因为这类规则的优先级最高。所以，下拉框的第一位永远是<code>up</code>。</p>
+
+<p>在<strong>全屏按钮</strong>的图中有很多白灰色的节点，那说明他们统统挂（down）啦。只要轻轻的点击<code>up</code>，世界就清静了。</p>
+
+<h3>过滤器-规则-已安装的服务平台</h3>
+
+<p><strong>已安装的服务平台</strong>的优先级仅次于<strong>系统固定状态值</strong>。如果你安装的节点中配置了<strong>平台服务</strong>，那么他就一定会出现在<strong>过滤器</strong>的下拉框中。所有出现在下拉框中的<strong>平台服务</strong>都在一起，且按字母递增序排列。</p>
+
+<blockquote>
+<p>ps: 这里不区分平台服务本身的状态（正常，警告，错误）。</p>
+</blockquote>
+
+<h3>过滤器-规则-平台标签</h3>
+
+<ul>
+<li><strong>平台标签</strong>的优先级最低，下拉框尽量的往下翻，你就能找到，也是字母序的</li>
+<li><strong>平台标签</strong>分两类，通过操作界面添加的标签，通过探针配置添加的标签。在 HostMap 使用过程中不做区分。</li>
+</ul>
+
+<h2>分类器</h2>
+
+<p><strong>分类器</strong>也是多选的，不过上限是3个。过多的分类无意义，难以理解，且不好看。如果真的想细分，完全可以辅助于<strong>过滤器</strong>来实现。目前，受限于<strong>select2</strong>插件不能实现有序选择，所以会有分类规则不按选择顺序排放的bug（会安默认规则排放）。节点区的分类优先级，也是依据于分类框的显示顺序的。</p>
+
+<h2>size by</h2>
+
+<p><strong>size by</strong> 是根据选定的 CPU iowait load15 等指标的值来进行显示大小。</p>
+
+<h2>节点区</h2>
+
+<p>你用鼠标拖拽来平移节点区，也可以利用滚轮来放大和缩小该区域。永远不用担心玩 high 了，对着背景区域 click 一下，一切就能复原。</p>
+
+<h3>节点</h3>
+
+<p>当节点放大到一定程度时（其半径为95px）时，就会显示其细节信息，如 hostname，以及该节点配置过的平台服务（至多显示六个）。</p>
+
+<p>当 hostname 过长时，会隐藏过多的字节。遇到这种情况，你可以把 hostname 取的简洁一点。如果真的想看全部字段的话，就把 hostmap 缩放的小一点，然后把鼠标放上去。当当，一个 tooltip 出现拉， hostname 终于能看全拉。好无奈，tooltip 的设计初衷是为了再一堆节点中快速找出想要查看节点。这种用法只是其副效果。</p>
+
+<blockquote>
+<p>ps: tooltip和节点的细节信息不会同时出现</p>
+</blockquote>
+
+<p>单击节点后，会有节点信息概览框出现。此处使用简单，不做分析哦。（主要是太杂了，写起来很累）。</p>
+
+<h3>分类框</h3>
+
+<p>鼠标移动到<strong>分类框</strong>上面时，会有高亮效果。此时点击后，会将此<strong>分类框</strong>居中显示。</p>
+
+<h2>其他功能</h2>
+
+<p>每当节点位置变动时，都会以动态的变化效果展示。这个需要动态图展示，然而我并不会做动态图。另外，当你改变浏览器窗口大小时，hostmap布局也会动态改变的哦。 </p>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，永久免费使用 Cloudinsight
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/platform/hostmap.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+      });
+    </script>
+  </body>
+</html>

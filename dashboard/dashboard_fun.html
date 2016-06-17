@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
-<meta name="description" content="Cloud Insight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloud Insight 文档</title>
+<title>Cloudinsight 文档</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -248,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -292,42 +300,44 @@
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><a href="/release-note.html">版本更新</a></li>
-<li><a href="/platform/">Agent 安装与配置</a>
+<li><a href="/release-note.html">Release Note</a></li>
+<li><a href="/agent/">Agent 安装与配置</a>
 
 <ul>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
-<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
-<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
-<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
-<li><a href="/platform/docker.html">Docker 安装</a></li>
-<li><a href="/platform/windows.html">Windows 安装</a></li>
-<li><a href="/platform/chef.html">Chef 安装</a></li>
-<li><a href="/platform/inner.html">内网环境安装探针</a></li>
-<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a></li>
+</ul></li>
+<li><a href="/platform/">平台及拓补</a>
+
+<ul>
+<li><a href="/platform/platform_config.html">平台操作</a></li>
+<li><a href="/platform/hostmap.html">拓补/Hostmap</a></li>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
 </ul></li>
 <li><a href="/services/">平台服务</a>
 
 <ul>
-<li><a href="/services/authorize.html">监控授权</a></li>
 <li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/database.html">数据库</a></li>
 <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/authorize.html">数据库授权监控</a></li>
 <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
 <ul>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
 <li><a href="/share/">图表分享</a></li>
-<li><a href="/dashboard/event.html">叠加事件</a></li>
 </ul></li>
-<li><a href="/metric/">指标与示意</a>
+<li><a href="/metric/">指标与浏览</a>
 
 <ul>
-<li><a href="/platform/system.html">System 数据指标解释</a></li>
 <li><a href="/metric/metric_explorer.html">指标浏览</a></li>
 </ul></li>
 <li><a href="/alert/">报警与策略</a>
@@ -336,44 +346,7 @@
 <li><a href="/alert/metric.html">指标报警</a></li>
 </ul></li>
 <li><a href="/event/">事件</a></li>
-<li><a href="/services_example/">平台服务配置示例</a>
-
-<ul>
-<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
-<li><a href="/services_example/apache.html">Apache</a></li>
-<li><a href="/services_example/bearychat.html">BearyChat</a></li>
-<li><a href="/services_example/cacti.html">Cacti</a></li>
-<li><a href="/services_example/cassandra.html">Cassandra</a></li>
-<li><a href="/services_example/couchbase.html">Couchbase</a></li>
-<li><a href="/services_example/couchdb.html">CouchDB</a></li>
-<li><a href="/services_example/docker.html">Docker</a></li>
-<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
-<li><a href="/services_example/gearman.html">Gearman</a></li>
-<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
-<li><a href="/services_example/haproxy.html">Haproxy</a></li>
-<li><a href="/services_example/iis.html">IIS</a></li>
-<li><a href="/services_example/kafka.html">Kafka</a></li>
-<li><a href="/services_example/memcached.html">Memcached</a></li>
-<li><a href="/services_example/mesos.html">Mesos</a></li>
-<li><a href="/services_example/mongodb.html">MongoDB</a></li>
-<li><a href="/services_example/mysql.html">MySQL</a></li>
-<li><a href="/services_example/nagios.html">Nagios</a></li>
-<li><a href="/services_example/nginx.html">NGINX</a></li>
-<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
-<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
-<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
-<li><a href="/services_example/redis.html">Redis</a></li>
-<li><a href="/services_example/snmp.html">SNMP</a></li>
-<li><a href="/services_example/solr.html">Solr</a></li>
-<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
-<li><a href="/services_example/ssh.html">SSH</a></li>
-<li><a href="/services_example/supervisord.html">Supervisord</a></li>
-<li><a href="/services_example/tomcat.html">Tomcat</a></li>
-<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
-<li><a href="/services_example/jianliao.html">简聊</a></li>
-<li><a href="/services_example/process.html">进程监控</a></li>
-<li><a href="/services_example/network.html">网络（端口）监控</a></li>
-</ul></li>
+<li><a href="/services_example/">平台服务配置示例</a></li>
 </ul>
 
         </div>
@@ -384,17 +357,20 @@
 
 <h3>仪表盘图表类型</h3>
 
-<p>仪表盘图表类型现在有4种，时间序列值，表格值，状态值，饼图下面一一介绍。</p>
+<p>仪表盘图表类型现在有7种，热力图，饼图，状态值，表格，时间序列值，TopN，树状图下面一一介绍。</p>
 
 <p><img src="/images/dashboard/fun_1.png" /></p>
 
 <ul>
 <li><p>上图中 <code>cpu use</code> 是默认的数据格式，数据是按照时间序列格式采集的，所以按照时间序列显示就是这样，其中这种是曲线图，此外还有面积图和柱状图。</p></li>
-<li><p>上图中 <code>io</code> 也是时间序列格式，在这种格式的基础上加上了一条标记区域，设置红颜色的 <code>50&lt;y&lt;80</code> 的一段区域 ，这样如果数据超过这段数据，没有到达这段数据，在这段数据情况就很一目了然。</p></li>
+<li><p>上图中 <code>cpu.user</code> 是热力图，数值大显示颜色深，可以查看最近一周服务器的 CPU 使用情况。</p></li>
+<li><p>上图中 <code>avg-system.load.1-top5</code> 是 TopN 数值。显示的是某个指标在一个维度的降／升序排列。</p></li>
 <li><p>上图中 <code>system load</code> 就是表格值，把当时的数据直接显示出来，很直观。</p></li>
 <li><p>上图中 <code>net_cvd</code> 就是状态值，其实是显示一个具体的指标数值，条件，阈值，背景颜色，字体颜色，字体位置等都可以设置，有具体的条件规则。</p></li>
-<li><p>上图中 <code>mem</code> 就是饼状图，图中选了3个指标，共同组成一个饼图，各个指标的占比很清楚。</p></li>
-<li><p>上图中 <code>disk used/free</code> 也是时间序列格式，另外还添加了叠加事件。</p></li>
+<li><p>上图中 <code>avg-system.disk.used-treemap</code> 是树状图，显示不同 device 所占磁盘大小。</p></li>
+<li><p>上图中 <code>mem</code> 也是时间序列格式的值，不过显示的是面积图。把一个服务器不同 device 的数据累积显示。</p></li>
+<li><p>上图中 <code>avg-system.net.bytes_sent-timesseries</code> 显示的是<strong>添加标记</strong>后的图表，对现有数据添加一个标记线／标记区域，可以警示数据到临界值的状况。</p></li>
+<li><p>上图中 <code>avg-system.load.1</code> 显示的是添加了叠加事件的状态，叠加事件和指标一同变化，从中看出发生某件事件时指标的变化情况。</p></li>
 </ul>
 
 <p>此外，应该也看出来了图表大小可以调节，按照最舒适的角度随意调节。</p>
@@ -419,19 +395,46 @@
 
 <p>同样的<a href="/qa/network_adapter.html">显示所有网卡流量情况</a>也是这样配置。</p>
 
-<h4>下图为部分使用仪表盘动图</h4>
+<h3>叠加事件</h3>
 
-<p><img src="http://7xt8dk.com2.z0.glb.clouddn.com/dashboard.gif" /></p>
+<p>仪表盘的叠加事件，是通过事件查询，符合名称的事件会在叠加到图表上显示。</p>
+
+<p>关于什么是事件，参考<a href="/event/">事件流</a>，为方便下面解释，现在举例：添加告警策略 <code>avg(last_5m):avg:system.cpu.user {host:wzl-ubuntu} &gt;= 9</code>，策略名称设置为 <code>wzl-ubuntu.cpu over 9</code>（为了出数据，就这么设置了）这个会生成一个创建告警策略的事件，某一时刻到达报警条件，告警触发，几分钟后 CPU 又降了下来，告警策略关闭。这样一个过程会有3个事件，创建告警策略(info)，告警触发(alert)，告警恢复(info)，后面是告警类别。</p>
+
+<p>下面具体说一下叠加事件的查询条件，目前支持一下几种查询格式。</p>
+
+<p><code>fieldname:value1,value2</code> 和 <code>value3 OR value4</code></p>
+
+<p>其中：<code>fieldname</code> 为查询指定字段，<code>value1,value2</code>为可选值列表，<code>value3</code>和<code>value4</code>为不指定字段的全文检索</p>
+
+<p><code>fieldname</code> 可以使用以下：</p>
+<pre class="highlight plaintext"><code>event_title
+event_type
+alert_type
+event_description
+event_object
+tags
+host
+source_type_name 
+</code></pre>
+
+<p>可以输入 <code>event_type:ALERT_TRIGGER</code> ，这样就会把报警触发相关的信息都显示出来，还有一个就是<strong>中文的必须加双引号</strong>。</p>
+
+<p>你可以搜索 <code>event_title:wzl-ubuntu.cpu over 9</code>，这样3种事件都会显示出来；也可以不加查询指定字段 <code>fieldname</code>，直接加 <code>wzl-ubuntu.cpu over 9</code>，同样会出现3种事件。</p>
+
+<p>查询是累加的，如果想要删除某个查询条件只能先删除所有叠加事件，再重新添加。</p>
+
+<h4>上一节：<a href="/dashboard/parameter.html">参数使用</a></h4>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
-    如果您对 Cloud Insight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
   </p>
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloud Insight
+      注册，永久免费使用 Cloudinsight
     </a>
   </p>
 </div>

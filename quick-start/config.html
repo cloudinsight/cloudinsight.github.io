@@ -1,0 +1,473 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Cloud Insight - 次世代系统监控、数据管理、数据可视化平台 - 快速入门</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-quick-start quick-start_config">
+      <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74438127-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+<div class="ribbon right orange hidden-sm hidden-xs">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown guide">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            快速入门 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/quick-start/">快速入门</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
+            <li><a href="/services/index.html">平台服务</a></li>
+            <li><a href="/dashboard/index.html">仪表盘</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
+            <li><a href="/alert/index.html">告警与策略</a></li>
+            <li><a href="/event/index.html">事件</a></li>
+            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
+          </ul>
+
+        </li>
+        <li class="dropdown cloud-integration">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            云厂商集成 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cloud-integration/">集成简介</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+          </ul>
+        </li>
+        <li><a href="/api/">API 与 SDK</a></li>
+        <li><a href="/qa/">常见问题</a></li>
+        <li><a href="/best-practise/">最佳实践</a></li>
+        <li><a href="/use-case/">客户案例</a></li>
+      </ul>
+      <div class="navbar-form navbar-right">
+        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
+        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+          <ul>
+<li><a href="/quick-start/">快速入门</a></li>
+<li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+<li><p><a href="/quick-start/config.html">Agent 配置文件</a></p></li>
+<li><p><a href="/quick-start/videos.html">视频演示</a></p></li>
+</ul>
+
+        </div>
+        <div class="col-lg-9 page-body">
+          <h1>Agent 配置文件</h1>
+
+<p>本章介绍 Agent 的配置文件，以方便更好的使用 Cloud Insight Agent。</p>
+
+<p><strong>For Linux</strong></p>
+
+<p>Agent 配置文件放置于 <code>/etc/oneapm-ci-agent</code>，该路径下的文件结构如下。</p>
+<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+.
+├── checks.d
+├── conf.d
+│   ├── activemq_58.yaml.example
+...
+│   ├── tomcat.yaml.example
+│   ├── win32_event_log.yaml.example
+│   ├── wmi_check.yaml.example
+│   └── zookeeper.yaml.example
+├── oneapm-ci-agent.conf
+├── oneapm-ci-agent.conf.example
+└── supervisor.conf
+
+2 directories, 49 files
+</code></pre>
+
+<p>里面包括 3 类配置文件：</p>
+
+<ul>
+<li><code>oneapm-ci-agent.conf</code>：Agent 配置文件</li>
+<li><code>supervisor.conf</code>：</li>
+<li><code>conf.d/平台服务名称.yaml.example</code>：平台服务配置示例</li>
+</ul>
+
+<h3>配置 <code>oneapm-ci-agent</code></h3>
+
+<ul>
+<li><code>ci_url</code> - 收集的数据发送的目的服务器地址</li>
+<li><code>license_key</code> - 您的 OneAPM Cloud Insight 的 license key</li>
+<li><code>proxy_host</code> - 代理服务地址</li>
+<li><code>proxy_port</code> - 代理服务端口</li>
+<li><code>proxy_user</code> - 代理服务账户</li>
+<li><code>proxy_password</code> - 代理服务密码</li>
+<li><code>skip_ssl_validation</code> - 跳过 ssl 验证，此时 ci_url 后面的地址 https 改为 http</li>
+<li><code>hostname</code> - 主机名</li>
+<li><code>tags</code> - 标签，多项用逗号间隔，(bd:bj-db,user:wang)</li>
+<li><code>log_level</code> - log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)</li>
+<li><code>collector_log_file</code> - collector 日志文件</li>
+<li><code>forwarder_log_file</code> - forwarder 日志文件</li>
+<li><code>onestatsd_log_file</code> - onestatsd 日志文件</li>
+<li><code>log_to_syslog</code> - 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog</li>
+<li><code>syslog_host</code> - syslog 地址</li>
+<li><code>syslog_port</code> - syslog 端口</li>
+</ul>
+
+<h3>配置 <code>supervisor.conf</code></h3>
+
+<p>以下仅列出探针用到的配置，如果有疑问，可以查看更详细的<a href="http://supervisord.org/configuration.html">官方 supervisor 配置文档</a>。</p>
+
+<ul>
+<li><code>supervisorctl</code>
+
+<ul>
+<li><code>serverurl</code>: 连接 supervisord 服务的地址，可以是 url 或者 unix socket</li>
+</ul></li>
+<li><code>unix_http_server</code>
+
+<ul>
+<li><code>file: supervisord</code> 的 unix socket 文件</li>
+</ul></li>
+<li><code>rpcinterface:supervisor</code>
+
+<ul>
+<li><code>supervisor.rpcinterface_factory</code>: rpc 的工厂函数，不用管这个 - -</li>
+</ul></li>
+<li><code>supervisord</code>
+
+<ul>
+<li><code>http_port</code>: supervisord 端口</li>
+<li><code>minfds</code>: supervisord 启动所需的最小的文件描述符个数</li>
+<li><code>loglevel</code>: log 级别，可用的有 critical, error, warn, info, debug, trace, blather</li>
+<li><code>logfile</code>: log 文件</li>
+<li><code>logfile_maxbytes</code>: log 文件的最大 bytes 值，超过就会分割为备份文件</li>
+<li><code>nodaemon</code>: 如果值是 true, supervisord 会在前台运行，false 就是后台运行</li>
+<li><code>pidfile</code>: supervisord 的 pid 文件</li>
+<li><code>logfile_backups</code>: 日志分割文件保留数，如果是0就不会有备份文件</li>
+<li><code>user</code>: 让 supervisord 切换到这个用户再运行，只有是用 root 启动的 supervisord 才能切换</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>program:collector,forwarder,onestatsd,jmxfetch</code>
+
+<ul>
+<li><code>command</code>: 这个程序启动时候会执行的命令</li>
+<li><code>stdout_logfile</code>: 这个程序的标准输出写入的目标文件，如果是 <code>NONE</code>,将不会创建 log 文件</li>
+<li><code>stderr_logfile</code>: 这个程序的错误输出写入的目标文件，如果是 <code>NONE</code>,静不会创建 log 文件</li>
+<li><code>priority</code>: 这个程序在启动和关闭时候的顺序的相对优先级，值越低，启动越早，关闭越晚</li>
+<li><code>startsecs</code>: 这个程序在被认为启动成功之前，需要运行的时间</li>
+<li><code>startretries</code>: supervisord 在启动程序失败后会尝试启动的次数</li>
+<li><code>user</code>: 使 supervisord 使用这个用户运行这个程序</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>group:oneapm-ci-agent</code>
+
+<ul>
+<li><code>programs</code>: 作为这个组的成员的程序的名字，程序需要在 <code>program:x</code> 中有定义</li>
+</ul></li>
+</ul>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      注册，永久免费使用 Cloudinsight
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/quick-start/config.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "Cloud Insight - 次世代系统监控、数据管理、数据可视化平台 - 快速入门";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+      });
+    </script>
+  </body>
+</html>
