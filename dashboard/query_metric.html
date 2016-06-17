@@ -242,7 +242,7 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -353,11 +353,11 @@
         <div class="col-lg-9 page-body">
           <h1>Metric 查询</h1>
 
-<p>添加监控图表，会弹出以下对话框。使用 Cloud Insight 的 Metric 查询，就可以得到您所需要的图表。</p>
+<p>添加监控图表，会弹出以下对话框。使用 Cloudinsight 的 Metric 查询，就可以得到您所需要的图表。</p>
 
 <p><img src="/images/dashboard/BasicUsage4.png" /></p>
 
-<p>Cloud Insight 提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。</p>
+<p>Cloudinsight 提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。</p>
 
 <h2>语法</h2>
 <pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
@@ -490,11 +490,11 @@
 <pre class="highlight plaintext"><code>max: system.cpu.idle {owner:chengmo}
 </code></pre>
 
-<p>这就是标签管理在 Cloud Insight 的重要性啦。该部分留到标签的章节，做详细的介绍。</p>
+<p>这就是标签管理在 Cloudinsight 的重要性啦。该部分留到标签的章节，做详细的介绍。</p>
 
 <h3><code>by</code> 其实就是 <code>group_by</code></h3>
 
-<p>Cloud Insight 还支持类似 SQL 的 <code>group_by</code> 查询语法。这个在查看：</p>
+<p>Cloudinsight 还支持类似 SQL 的 <code>group_by</code> 查询语法。这个在查看：</p>
 
 <ul>
 <li>多个磁盘分区的容量</li>
@@ -517,7 +517,7 @@
 
 <h3>聚合和分组并存</h3>
 
-<p>除开单纯的聚合和分组，Cloud Insight 还支持聚合和分组的复合查询。如：</p>
+<p>除开单纯的聚合和分组，Cloudinsight 还支持聚合和分组的复合查询。如：</p>
 <pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {owner}
 </code></pre>
 
@@ -644,7 +644,7 @@
 
 <h3>参数查询</h3>
 
-<p>Cloud Insight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
+<p>Cloudinsight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
 
 <p><img src="/images/dashboard/QueryMetric3.png" /></p>
 

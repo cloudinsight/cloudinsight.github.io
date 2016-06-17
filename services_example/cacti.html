@@ -242,7 +242,7 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -355,13 +355,13 @@
 
 <p>Cacti 是一款开源的网络流量监测图形分析工具。它通过 snmpget来获取数据，使用 RRDtool绘画图形。</p>
 
-<p>Cloudinsight Agent 通过 python-rrdtool 读取 Cacti 生成的 rrd 文件（在 cacti 根目录的 rra 文件夹下），并将其中的数据解析后上传至 Cloud Insight 进行可视化。</p>
+<p>Cloudinsight Agent 通过 python-rrdtool 读取 Cacti 生成的 rrd 文件（在 cacti 根目录的 rra 文件夹下），并将其中的数据解析后上传至 Cloudinsight 进行可视化。</p>
 
 <p><img src="/images/service_example/cacti.png" /></p>
 
 <h2>性能指标</h2>
 
-<p>Cloud Insight 采集 Cacti 以下性能指标：</p>
+<p>Cloudinsight 采集 Cacti 以下性能指标：</p>
 
 <table><thead>
 <tr>
@@ -420,7 +420,7 @@ sudo chmod -R g+rx /var/lib/cacti/rra/
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloud Insight Agent，使配置生效。</p>
+<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks
@@ -434,7 +434,7 @@ cacti
   - Collected 3 metrics &amp; 0 events
 </code></pre>
 
-<p>有关 Agent Info 信息的查看，请访问帮助中心，查看 <a href="/quick-start/instrument.html">Cloud Insight Agent 常用操作</a>。</p>
+<p>有关 Agent Info 信息的查看，请访问帮助中心，查看 <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
 
 <h4>配置示例参考 <a href="https://github.com/cloudinsight/cloudinsight-docker-cacti">https://github.com/cloudinsight/cloudinsight-docker-cacti</a></h4>
 

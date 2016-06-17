@@ -242,7 +242,7 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -355,7 +355,7 @@
 
 <p>Nagios 是一个监视系统运行状态和网络信息的监视系统。能监视所指定的本地或远程主机以及服务，同时提供异常通知功能。可运行在 *nux 平台上，同时提供一个可选的基于浏览器的 WEB 界面以方便系统管理人员查看网络状态，各种系统问题，日志等。</p>
 
-<p>Cloud Insight 依赖于 Nagios 输出的指标数据，即启用 Nagios 的性能数据处理功能来收集数据，可视化 Nagios 收集的数据。</p>
+<p>Cloudinsight 依赖于 Nagios 输出的指标数据，即启用 Nagios 的性能数据处理功能来收集数据，可视化 Nagios 收集的数据。</p>
 
 <p><img src="/images/service_example/nagios.png" /></p>
 
@@ -363,7 +363,7 @@
 
 <h3>配置开启 Nagios 数据传输功能</h3>
 
-<p>将主机性能数据，服务性能数据处理发送给 Cloud Insight Agent，修改下面7项：</p>
+<p>将主机性能数据，服务性能数据处理发送给 Cloudinsight Agent，修改下面7项：</p>
 <pre class="highlight plaintext"><code>process_performance_data=1  
 host_perfdata_command=process-host-perfdata
 service_perfdata_command=process-service-perfdata
@@ -375,7 +375,7 @@ service_perfdata_file_template=[SERVICEPERFDATA]\t$TIMET$\t$HOSTNAME$\t$SERVICED
 
 <h3>编辑配置文件</h3>
 
-<p>编辑配置文件 <code>conf.d/nagios.yaml</code>，使 Cloud Insight Agent 可以与 Nagios 通信。</p>
+<p>编辑配置文件 <code>conf.d/nagios.yaml</code>，使 Cloudinsight Agent 可以与 Nagios 通信。</p>
 <pre class="highlight plaintext"><code>cp /etc/oneapm-ci-agent/conf.d/nagios.yaml.example /etc/oneapm-ci-agent/conf.d/nagios.yaml
 vim /etc/oneapm-ci-agent/conf.d/nagios.yaml
 </code></pre>
@@ -390,7 +390,7 @@ instances:
 
 <h3>重启 Agent</h3>
 
-<p>重启 Cloud Insight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 
@@ -406,7 +406,7 @@ nagios
   - Collected 8 metrics &amp; 0 events &amp; 1 service check 
 </code></pre>
 
-<p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloud Insight Agent 常用操作</a>。</p>
+<p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
 
 <h4>配置示例参考 <a href="https://github.com/startover/cloudinsight-docker-nagios">https://github.com/startover/cloudinsight-docker-nagios</a></h4>
 

@@ -242,7 +242,7 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloud Insight 文档</a>
+      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -404,13 +404,13 @@ rpm -Uvh oneapm-ci-agent-4.2.0-1.x86_64.rpm
 
 <p><code>listen 8082</code> 表示监听端口，可以修改为任意端口，但是一定要在防火墙打开这个端口。</p>
 
-<p>同样复制并修改 <code>/etc/oneapm-ci-agent/</code> 下 Cloud Insight 的配置文件，<code>oneapm-ci-agent.conf</code>；</p>
+<p>同样复制并修改 <code>/etc/oneapm-ci-agent/</code> 下 Cloudinsight 的配置文件，<code>oneapm-ci-agent.conf</code>；</p>
 <pre class="highlight plaintext"><code>ci_url:http://192.168.43.145:8082    
 skip_ssl_validation: yes     # 跳过 ssl 加密
 license_key: 自己的 license_key
 </code></pre>
 
-<p>这样重启探针即可生效，通过配置的 ci_url ，探针将数据发送到 <code>http://192.168.43.145:8082/infrastructure/metrics</code> ，而这个地址经由 Nginx 代理服务器 8082 端口进行处理，这个地址和配置文件进行匹配再将数据转发到 Cloud Insight 的服务器 <code>https://dc-cloud.oneapm.com/infrastructure/metrics</code>，这样数据就发送出去了。之后后端对数据进行处理，在 web 上进行展示。 </p>
+<p>这样重启探针即可生效，通过配置的 ci_url ，探针将数据发送到 <code>http://192.168.43.145:8082/infrastructure/metrics</code> ，而这个地址经由 Nginx 代理服务器 8082 端口进行处理，这个地址和配置文件进行匹配再将数据转发到 Cloudinsight 的服务器 <code>https://dc-cloud.oneapm.com/infrastructure/metrics</code>，这样数据就发送出去了。之后后端对数据进行处理，在 web 上进行展示。 </p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
