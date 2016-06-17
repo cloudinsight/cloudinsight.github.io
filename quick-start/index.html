@@ -235,6 +235,10 @@
 
   </script>
 
+<div class="ribbon right orange hidden-sm hidden-xs">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -244,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -288,15 +300,9 @@
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><p><a href="/quick-start/">快速入门</a></p>
-
-<ul>
-<li><a href="/quick-start/install.html">安装配置</a></li>
-<li><a href="/quick-start/instrument.html">常用操作</a></li>
-<li><a href="/quick-start/questions.html">常见问题</a></li>
-<li><a href="/quick-start/agent_update.html">探针更新</a></li>
-<li><a href="/quick-start/help.html">更多帮助</a></li>
-</ul></li>
+<li><a href="/quick-start/">快速入门</a></li>
+<li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+<li><p><a href="/quick-start/config.html">Agent 配置文件</a></p></li>
 <li><p><a href="/quick-start/videos.html">视频演示</a></p></li>
 </ul>
 
@@ -304,76 +310,11 @@
         <div class="col-lg-9 page-body">
           <h1>开始使用 Cloudinsight</h1>
 
-<h2>初次使用 Cloudinsight</h2>
+<p>初次使用 Cloudinsight 时，由于您尚未在您的平台中安装 Cloudinsight Agent，所以页面显示「您还没有添加任何平台，点击查看 Cloudinsight 快速入门」的提示。</p>
 
-<p>初次使用 Cloudinsight 时，由于您尚未在您的平台中安装 Cloudinsight Agent，所以页面显示「暂无数据」的提示。</p>
-
-<p>此时，请点击左侧导航中的设置「添加平台」，开始添加 Cloudinsight Agent 至您的平台中。</p>
-
-<p><img src="/images/start/start3.png" /></p>
-
-<p>进入「添加平台」页面后，请选择您所需要安装的平台所属的操作系统。本例以 Ubuntu 操作系统为例。</p>
-
-<p><img src="/images/start/start4.png" /></p>
-
-<p>复制安装指令至 Ubuntu Terminal 中，并运行指令。若出现以下提示，则代表安装成功。</p>
-
-<p><img src="/images/start/start5.png" /></p>
-
-<p>若安装不成功，请尝试使用 root 权限进行安装，或者自行排查 CI<em>LICENSE</em>KEY 是否过期，以及正在安装 Agent 的平台是否处于联网的状态。</p>
-
-<h2>监控平台</h2>
-
-<p>返回「平台」页面，若您看到刚才安装的平台名称，以及显示平台服务：system，则代表安装成功。</p>
-
-<p><img src="/images/start/start6.png" /></p>
-
-<h3>DOWN / UP 状态</h3>
-
-<p>其中「状态」代表平台是处于 DOWN 还是 UP 的状态。UP 则代表安装在平台中的 Cloudinsight 可以正常发送数据，并且 OneAPM 可以接收到数据。</p>
-
-<p>DOWN 的状态，代表在 10 分钟内 OneAPM 未接收到您平台中的 Agent 中的数据。</p>
-
-<p><strong>其他有关 CPU IOWait Load15 信息，以及其他详细信息，请访问 <a href="/platform/">平台</a>。</strong></p>
+<p><img src="/images/start/install.gif" /></p>
 
 <h2>配置平台服务</h2>
-
-<p>Cloudinsight 的配置也相当简单，首先点击左侧导航中的配置平台按钮，然后选择自己需要监控的平台服务，接着按照弹出框的操作步骤进行配置即可。</p>
-
-<p>配置完成后，可以在 Agent 端使用 Agent Info 指令查看配置是否成功；也可进入 OneAPM 前端页面检查配置是否成功。</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent info
-</code></pre>
-
-<p>更多 Agent 操作，请访问 <a href="/platform/agent-instrument.html">Agent 常用操作</a>。</p>
-
-<p><img src="/images/start/start10.png" /></p>
-
-<p>总体来说，平台服务的配置分两种情况：</p>
-
-<ul>
-<li>需要对 Agent 进行授权的；</li>
-<li>不需要对 Agent 进行授权的。</li>
-</ul>
-
-<p>所有不需要对 Agent 授权的平台服务配置，只需将 <code>*.yaml.example</code> 配置示例，复制为 <code>*.yaml</code> 配置文件，即可开始平台服务监控。</p>
-
-<p><img src="/images/start/start11.png" /></p>
-
-<h2>仪表盘</h2>
-
-<p><strong>详细操作和说明，请访问 <a href="/dashboard/">仪表盘</a>。</strong></p>
-
-<h2>指标</h2>
-
-<p><strong>详细操作和说明，请访问 <a href="../metric.html">指标</a>。</strong></p>
-
-<h2>报警</h2>
-
-<p><strong>详细操作和说明，请访问 <a href="/alert/">报警</a>。</strong></p>
-
-<h2>事件流</h2>
-
-<p><strong>详细操作和说明，请访问 <a href="../event.html">事件流</a>。</strong></p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">

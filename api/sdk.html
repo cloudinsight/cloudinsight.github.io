@@ -235,6 +235,10 @@
 
   </script>
 
+<div class="ribbon right orange hidden-sm hidden-xs">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -244,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -309,8 +321,10 @@
 <p>目前支持的数据类型有：</p>
 
 <ul>
-<li>Counters</li>
+<li>Counters (Increment，Decrement)</li>
 <li>Gauges</li>
+<li>Histogram</li>
+<li>Set</li>
 </ul>
 
 <p>目前支持的语言有：</p>
@@ -329,25 +343,42 @@
 
 <h3>Counters</h3>
 
-<p><code>Counters</code> 是 StatsD 和 Cloudinsight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
+<p><code>Counters</code> 是 StatsD 和 Cloudinsight SDK 最基本的一种数据类型。是计数器，统计一秒内某事物发生了几次，如数据库请求数，网页浏览量等。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
 
 <p>由于 Cloudinsight Agent 的采集周期为 30 s，最终展现至界面的至为采集周期的平均值。</p>
-
-<h4>采样率</h4>
-
-<p>也可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
-
-<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。</p>
-
-<p>在数据量较大的情况下，可以确保采样的高效。</p>
+<pre class="highlight plaintext"><code>statsd.increment('database.query.count')
+statsd.increment('page_view.count', 10)
+</code></pre>
 
 <h3>Gauges</h3>
 
 <p><code>Gauges</code> 是连续型的数据类型，也就是说，当我们第一次赋值后，该 Metric 表现在图表上，会是一条于 X 轴平行的直线；直到再次为该 Metric 赋了一个不同的值。</p>
 
-<p><code>Gauges</code> 可以用来度量一些已经计算过的数值，如 WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
+<p><code>Gauges</code> 可以用来表示在特定时间的某事物的值，例如空气质量 PM2.5，用户连接数，WebSockets 的有效链接数；而系统目前登录的用户数，则在每次用户登录时，调用 <code>Counters</code> 中的 <code>increment</code> 比较适合。</p>
+<pre class="highlight plaintext"><code>statsd.gauge('bj.pm25', 123)
+statsd.gauge('users.active', 1001)
+</code></pre>
 
-<p>同样，<code>Gauges</code> 也支持 <code>sample_rate</code>，但是某些不是频繁更新的数值，请谨慎使用。</p>
+<h3>Histograms</h3>
+
+<p>Histograms 统计一组值的分布情况，例如一定数量的数据库查询或用户上传文件的大小的平均值，最小值，最大值，中位值，95值和总数。</p>
+<pre class="highlight plaintext"><code>statsd.histogram('database.query.time', 0.5)
+statsd.histogram('file.upload.size', file.get_size())
+</code></pre>
+
+<h3>Sets</h3>
+
+<p>Sets 计算一组中惟一值的数量，例如你想统计只有一次访问你网站的用户就可以用 sets 来统计。</p>
+<pre class="highlight plaintext"><code>statsd.set('users.uniques', user.id)
+</code></pre>
+
+<h4>Sample Rates</h4>
+
+<p>也可以通过 <code>sample_rate</code> 参数来设置采样率。假设 <code>sample_rate=0.1</code>：</p>
+
+<p>在采集周期 30 s 内，只采集 10% 的数据。也就是说，调用了 10 次 <code>increment</code>，只自增了一次 Metric。在数据量较大的情况下，可以确保采样的高效。</p>
+<pre class="highlight plaintext"><code>statsd.increment('page.views', sample_rate=0.1)
+</code></pre>
 
 <h3>Metric Name</h3>
 

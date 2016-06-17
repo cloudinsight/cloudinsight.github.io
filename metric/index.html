@@ -235,6 +235,10 @@
 
   </script>
 
+<div class="ribbon right orange hidden-sm hidden-xs">
+  <a href="https://github.com/cloudinsight" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+</div>
+
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -244,21 +248,29 @@
       <ul class="nav navbar-nav">
         <li class="dropdown guide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            使用指南 <span class="caret"></span>
+            快速入门 <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/videos.html">视频演示</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/release-note.html">详细文档</a></li>
-            <li><a href="/platform/index.html">Agent 安装与配置</a></li>
+            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+          </ul>
+        </li>
+        <li class="dropdown agent">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            详细文档 <span class="caret"></span>
+             <ul class="dropdown-menu">
+            <li><a href="/release-note.html">Release Note</a></li>
+            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
+            <li><a href="/platform/index.html">平台及拓补</a></li>
             <li><a href="/services/index.html">平台服务</a></li>
             <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与示意</a></li>
+            <li><a href="/metric/index.html">指标与浏览</a></li>
             <li><a href="/alert/index.html">告警与策略</a></li>
             <li><a href="/event/index.html">事件</a></li>
             <li><a href="/services_example/index.html">平台服务配置示例</a></li>
           </ul>
+
         </li>
         <li class="dropdown cloud-integration">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -288,42 +300,44 @@
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><a href="/release-note.html">版本更新</a></li>
-<li><a href="/platform/">Agent 安装与配置</a>
+<li><a href="/release-note.html">Release Note</a></li>
+<li><a href="/agent/">Agent 安装与配置</a>
 
 <ul>
-<li><a href="/platform/agent-instrument.html">Agent 操作与配置</a></li>
-<li><a href="/platform/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
-<li><a href="/platform/ubuntu.html">Debain / Ubuntu 安装</a></li>
-<li><a href="/platform/amazon.html">Amazon Linux 安装</a></li>
-<li><a href="/platform/docker.html">Docker 安装</a></li>
-<li><a href="/platform/windows.html">Windows 安装</a></li>
-<li><a href="/platform/chef.html">Chef 安装</a></li>
-<li><a href="/platform/inner.html">内网环境安装探针</a></li>
-<li><a href="/platform/agent-directory.html">Agent 目录结构</a></li>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debain / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a></li>
+</ul></li>
+<li><a href="/platform/">平台及拓补</a>
+
+<ul>
+<li><a href="/platform/platform_config.html">平台操作</a></li>
+<li><a href="/platform/hostmap.html">拓补/Hostmap</a></li>
+<li><a href="/platform/system.html">System 数据指标解释</a></li>
 </ul></li>
 <li><a href="/services/">平台服务</a>
 
 <ul>
-<li><a href="/services/authorize.html">监控授权</a></li>
 <li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/database.html">数据库</a></li>
 <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+<li><a href="/services/authorize.html">数据库授权监控</a></li>
 <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
 <ul>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
 <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/dashboard_fun.html">自定义仪表盘功能操作</a></li>
+<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
 <li><a href="/share/">图表分享</a></li>
-<li><a href="/dashboard/event.html">叠加事件</a></li>
 </ul></li>
-<li><a href="/metric/">指标与示意</a>
+<li><a href="/metric/">指标与浏览</a>
 
 <ul>
-<li><a href="/platform/system.html">System 数据指标解释</a></li>
 <li><a href="/metric/metric_explorer.html">指标浏览</a></li>
 </ul></li>
 <li><a href="/alert/">报警与策略</a>
@@ -332,44 +346,7 @@
 <li><a href="/alert/metric.html">指标报警</a></li>
 </ul></li>
 <li><a href="/event/">事件</a></li>
-<li><a href="/services_example/">平台服务配置示例</a>
-
-<ul>
-<li><a href="/services_example/activemq.html">ActiveMQ</a></li>
-<li><a href="/services_example/apache.html">Apache</a></li>
-<li><a href="/services_example/bearychat.html">BearyChat</a></li>
-<li><a href="/services_example/cacti.html">Cacti</a></li>
-<li><a href="/services_example/cassandra.html">Cassandra</a></li>
-<li><a href="/services_example/couchbase.html">Couchbase</a></li>
-<li><a href="/services_example/couchdb.html">CouchDB</a></li>
-<li><a href="/services_example/docker.html">Docker</a></li>
-<li><a href="/services_example/elasticsearch.html">ElasticSearch</a></li>
-<li><a href="/services_example/gearman.html">Gearman</a></li>
-<li><a href="/services_example/gunicorn.html">Gunicorn</a></li>
-<li><a href="/services_example/haproxy.html">Haproxy</a></li>
-<li><a href="/services_example/iis.html">IIS</a></li>
-<li><a href="/services_example/kafka.html">Kafka</a></li>
-<li><a href="/services_example/memcached.html">Memcached</a></li>
-<li><a href="/services_example/mesos.html">Mesos</a></li>
-<li><a href="/services_example/mongodb.html">MongoDB</a></li>
-<li><a href="/services_example/mysql.html">MySQL</a></li>
-<li><a href="/services_example/nagios.html">Nagios</a></li>
-<li><a href="/services_example/nginx.html">NGINX</a></li>
-<li><a href="/services_example/php-fpm.html">PHP-FPM</a></li>
-<li><a href="/services_example/postgresql.html">PostgreSQL</a></li>
-<li><a href="/services_example/rabbitmq.html">RabbitMQ</a></li>
-<li><a href="/services_example/redis.html">Redis</a></li>
-<li><a href="/services_example/snmp.html">SNMP</a></li>
-<li><a href="/services_example/solr.html">Solr</a></li>
-<li><a href="/services_example/sqlserver.html">SQL Server</a></li>
-<li><a href="/services_example/ssh.html">SSH</a></li>
-<li><a href="/services_example/supervisord.html">Supervisord</a></li>
-<li><a href="/services_example/tomcat.html">Tomcat</a></li>
-<li><a href="/services_example/zookeeper.html">ZooKeeper</a></li>
-<li><a href="/services_example/jianliao.html">简聊</a></li>
-<li><a href="/services_example/process.html">进程监控</a></li>
-<li><a href="/services_example/network.html">网络（端口）监控</a></li>
-</ul></li>
+<li><a href="/services_example/">平台服务配置示例</a></li>
 </ul>
 
         </div>
