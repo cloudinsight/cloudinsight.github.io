@@ -253,7 +253,7 @@
           <ul class="dropdown-menu">
             <li><a href="/quick-start/">快速入门</a></li>
             <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
-            <li><a href="/quick-start/config.html)">Agent 配置文件</a></li>
+            <li><a href="/quick-start/config.html">Agent 配置文件</a></li>
           </ul>
         </li>
         <li class="dropdown agent">
@@ -335,7 +335,7 @@
 <li><a href="/qa/syslog.html">Error setting up syslog</a></li>
 <li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 &ldquo;暂无数据&rdquo;</a></li>
 <li><a href="/qa/win_2008.html">Windows 2008 R2 安装失败</a></li>
-<li><a href="/qa/win_install.html">Windows 安装探针失败无报错</a></li>
+<li><a href="/qa/win_install.html">Windows 安装探针失败</a></li>
 </ul></li>
 <li><p><a href="/qa/service_index.html"><strong>平台服务配置</strong></a></p>
 
@@ -357,7 +357,7 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Windows 安装探针失败无报错</h1>
+          <h1>Windows 安装探针失败</h1>
 
 <p>Windows 探针有2种安装方式：</p>
 
@@ -373,6 +373,24 @@ msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
 </code></pre>
 
 <p>如果你想看安装详情，可以去掉 <code>/qn</code>  这个参数。</p>
+
+<h3>安装失败排除</h3>
+
+<p>Windows 安装失败可以查看<strong>事件查看器</strong>中关于 OneAPMCiAgent 的报错，根据报错查看相关文档。</p>
+
+<p>不过大多数是 hostname 的问题，就像下面的报错：</p>
+
+<p><img src="/images/qa/win_ins1.png" /></p>
+
+<p>这是因为安装 Ci 探针后，默认会以服务器系统的 hostname 作为应用名称，默认的 localhost、 localhost.localdomain、 localhost6.localdomains 等名称是无效的，所以需要修改 hostname，保证其唯一性。</p>
+
+<p><strong>解决方法：</strong></p>
+
+<p>修改 OneAPMCiAgent 配置文件，在控制面板上 setting 上修改 hostname: xxxx 指标（任意可识别的名称，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置，如图：</p>
+
+<p><img src="/images/qa/win_ins2.png" /></p>
+
+<p>然后重启探针即可(Actions&ndash;restart)。</p>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
