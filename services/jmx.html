@@ -54,6 +54,8 @@
 <script src="/javascripts/jquery-2.2.1.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
 <script src="/javascripts/all.js"></script>
+<script src="/javascripts/sine-waves.js"></script>
+<script src="/javascripts/sine-waves-action-header.js"></script>
 <style media="screen">
   .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -235,62 +237,44 @@
 
   </script>
 
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Cloudinsight 文档</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown guide">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            快速入门 <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/quick-start/">快速入门</a></li>
-            <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
-            <li><a href="/quick-start/config.html">Agent 配置文件</a></li>
-          </ul>
-        </li>
-        <li class="dropdown agent">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            详细文档 <span class="caret"></span>
-             <ul class="dropdown-menu">
-            <li><a href="/release-note.html">Release Note</a></li>
-            <li><a href="/agent/index.html">Agent 安装与配置</a></li>
-            <li><a href="/platform/index.html">平台及拓补</a></li>
-            <li><a href="/services/index.html">平台服务</a></li>
-            <li><a href="/dashboard/index.html">仪表盘</a></li>
-            <li><a href="/metric/index.html">指标与浏览</a></li>
-            <li><a href="/alert/index.html">告警与策略</a></li>
-            <li><a href="/event/index.html">事件</a></li>
-            <li><a href="/services_example/index.html">平台服务配置示例</a></li>
-          </ul>
-
-        </li>
-        <li class="dropdown cloud-integration">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            云厂商集成 <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/cloud-integration/">集成简介</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
-            <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
-          </ul>
-        </li>
-        <li><a href="/api/">API 与 SDK</a></li>
-        <li><a href="/qa/">常见问题</a></li>
-        <li><a href="/best-practise/">最佳实践</a></li>
-        <li><a href="/use-case/">客户案例</a></li>
-      </ul>
-      <div class="navbar-form navbar-right">
-        <a href="http://user.oneapm.com/pages/v2/login?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">登 录</a>
-        <a href="https://user.oneapm.com/pages/v2/signup?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-default" target="_blank">注 册</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<header class="main-header clearfix">
+	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
+			<a href="../index.html" class="logo-container">
+				<div class="oneapm-logo"></div>
+			</a>
+		</div>
+		<a href="#" class="burger-wrapper">
+			<div class="burger"></div>
+		</a>
+		<div class="nav-container">
+			<ul class="nav-list">
+				<li>
+					<a href="/quick-start/">快速入门</a>
+				</li>
+				<li>
+					<a href="/agent/">安装配置</a>
+				</li>
+				<li>
+					<a href="/platform/">操作指南</a>
+				</li>
+				<li>
+					<a href="/best-practise/">实践案例</a>
+				</li>
+				<li>
+					<a href="/qa/">常见问题</a>
+				</li>
+			</ul>
+			<ul class="login-list">
+				<li>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+				</li>
+				<li>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
 
     <div class="container page-container">
       <div class="row">
@@ -733,6 +717,115 @@
         </div>
       </div>
     </div>
+    <div class="footer-nav-block">
+  <div class="container">
+    <div class="footer-support">
+      <ul class="footer-support-list">
+        <li><img src="/images/home/support.svg"></li>
+        <li class="support-title">技术支持</li>
+        <li class="support-mail">support@oneapm.com</li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/quick-start/">文档</a>
+          </li>
+          <li>
+            <a href="/quick-start/">快速入门</a>
+          </li>
+          <li>
+            <a href="/agent/">安装配置</a>
+          </li>
+          <li>
+            <a href="/platform/">操作指南</a>
+          </li>
+          <li>
+            <a href="/best-practise/">实践案例</a>
+          </li>
+          <li>
+            <a href="/qa/">常见问题</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/product/product.html">产品</a>
+          </li>
+          <li>
+            <a href="/product/product.html">基础组件监控</a>
+          </li>
+          <li>
+            <a href="/product/api_sdk.html">API 与 SDK</a>
+          </li>
+          <li>
+            <a href="/product/cialert.html">异常数据告警</a>
+          </li>
+          <li>
+            <a href="../price.html">报价</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li><a href="/about/group.html">关于</a></li>
+          <li><a href="/about/group.html">团队介绍</a></li>
+          <li><a href="/about/cooperation.html">合作伙伴</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright-block">
+  <div class="container">
+    <div class="copyright-link">
+      <div class="socialLink">
+        <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+          <img src="/images/home/github.svg">
+          <p class="hidden-xs hidden-xxs">Github</p>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="#" class="social-btn qr">
+          <img src="/images/home/wechat.svg">
+          <p class="hidden-xs hidden-xxs">微信</p>
+          <div class="QRcode">
+            <img src="/images/home/wechatQR.svg">
+          </div>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+          <img src="/images/home/oschina.svg">
+          <p class="hidden-xs hidden-xxs">开源中国</p>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+          <img src="/images/home/weibo.svg">
+          <p class="hidden-xs hidden-xxs">微博</p>
+        </a>
+      </div>
+    </div>
+    <div class="copyright-text">
+      <a href="http://www.oneapm.com/">
+        <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+      </a>
+      <p class="copyright">
+          Copyright © 2008-
+          <span id="cr-end-time"></span>
+          北京蓝海讯通科技股份有限公司
+          <br>
+          <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+          京公网安备 11010802016192
+        <br>
+      </p>
+    </div>
+  </div>
+</div>
 
     <script type="text/javascript">
       $(function() {
