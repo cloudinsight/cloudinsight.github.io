@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Cloudinsight 文档</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<script src="/javascripts/sine-waves.js"></script>
+<script src="/javascripts/sine-waves-action-header.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-agent agent_summary">
+      <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74438127-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+<header class="main-header clearfix">
+	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
+			<a href="../index.html" class="logo-container">
+				<div class="oneapm-logo"></div>
+			</a>
+		</div>
+		<a href="#" class="burger-wrapper">
+			<div class="burger"></div>
+		</a>
+		<div class="nav-container">
+			<ul class="nav-list">
+				<li>
+					<a href="/quick-start/">快速入门</a>
+				</li>
+				<li>
+					<a href="/agent/">安装配置</a>
+				</li>
+				<li>
+					<a href="/platform/">操作指南</a>
+				</li>
+				<li>
+					<a href="/best-practise/">实践案例</a>
+				</li>
+				<li>
+					<a href="/qa/">常见问题</a>
+				</li>
+			</ul>
+			<ul class="login-list">
+				<li>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+				</li>
+				<li>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+          <ul>
+<li><a href="/agent/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a><br></li>
+</ul></li>
+<li><a href="/api/">API与SDK</a></li>
+<li><a href="/api/sdk.html">SDK</a>
+
+<ul>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
+<li><a href="/api/java.html">Java</a></li>
+<li><a href="/api/dotnet.html">DotNET</a></li>
+<li><a href="/api/php.html">PHP</a><br></li>
+</ul></li>
+<li><a href="/cloud-integration/">云厂商接入</a>
+
+<ul>
+<li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+<li><a href="/cloud-integration/ucloud.html">UCloud</a><br></li>
+</ul></li>
+</ul>
+
+        </div>
+        <div class="col-lg-9 page-body">
+          <ul>
+<li><a href="/agent/">Agent 安装与配置</a>
+
+<ul>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a><br></li>
+</ul></li>
+<li><a href="/api/">API与SDK</a></li>
+<li><a href="/api/sdk.html">SDK</a>
+
+<ul>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
+<li><a href="/api/java.html">Java</a></li>
+<li><a href="/api/dotnet.html">DotNET</a></li>
+<li><a href="/api/php.html">PHP</a><br></li>
+</ul></li>
+<li><a href="/cloud-integration/">云厂商接入</a>
+
+<ul>
+<li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+<li><a href="/cloud-integration/ucloud.html">UCloud</a><br></li>
+</ul></li>
+</ul>
+
+          <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      立即注册 Cloudinsight
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/agent/summary.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-nav-block">
+  <div class="container">
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/quick-start/">文档</a>
+          </li>
+          <li>
+            <a href="/quick-start/">快速入门</a>
+          </li>
+          <li>
+            <a href="/agent/">安装配置</a>
+          </li>
+          <li>
+            <a href="/platform/">操作指南</a>
+          </li>
+          <li>
+            <a href="/best-practise/">实践案例</a>
+          </li>
+          <li>
+            <a href="/qa/">常见问题</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
+          </li>
+          <li>
+            <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
+          </li>
+          <li>
+            <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
+          </li>
+          <li>
+            <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
+          </li>
+          <li>
+            <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li><a href="/about/group.html">关于</a></li>
+          <li><a href="/about/group.html">团队介绍</a></li>
+          <li><a href="/about/cooperation.html">合作伙伴</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-support">
+          <ul class="footer-support-list">
+            <li><img src="/images/home/support.svg"></li>
+            <li class="support-title">技术支持</li>
+            <li class="support-mail">support@oneapm.com</li>
+          </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright-block">
+  <div class="container">
+    <div class="copyright-link">
+      <div class="socialLink">
+        <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+          <img src="/images/home/github.svg">
+          <p class="hidden-xs hidden-xxs">Github</p>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="#" class="social-btn qr">
+          <img src="/images/home/wechat.svg">
+          <p class="hidden-xs hidden-xxs">微信</p>
+          <div class="QRcode">
+            <img src="/images/home/wechatQR.svg">
+          </div>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+          <img src="/images/home/oschina.svg">
+          <p class="hidden-xs hidden-xxs">开源中国</p>
+        </a>
+      </div>
+      <div class="socialLink">
+        <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+          <img src="/images/home/weibo.svg">
+          <p class="hidden-xs hidden-xxs">微博</p>
+        </a>
+      </div>
+    </div>
+    <div class="copyright-text">
+      <a href="http://cloudinsight.oneapm.com/">
+        <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+      </a>
+      <p class="copyright">
+          Copyright © 2008-
+          <span id="cr-end-time"></span>
+          北京蓝海讯通科技股份有限公司
+          <br>
+          <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+          京公网安备 11010802016192
+        <br>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+      });
+    </script>
+  </body>
+</html>

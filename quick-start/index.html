@@ -282,19 +282,403 @@
           <ul>
 <li><a href="/quick-start/">快速入门</a></li>
 <li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
-<li><p><a href="/quick-start/config.html">Agent 配置文件</a></p></li>
-<li><p><a href="/quick-start/videos.html">视频演示</a></p></li>
+<li><a href="/quick-start/config.html">Agent 配置文件</a></li>
+<li><a href="/quick-start/videos.html">视频演示</a></li>
 </ul>
 
         </div>
         <div class="col-lg-9 page-body">
           <h1>开始使用 Cloudinsight</h1>
 
-<p>初次使用 Cloudinsight 时，由于您尚未在您的平台中安装 Cloudinsight Agent，所以页面显示「您还没有添加任何平台，点击查看 Cloudinsight 快速入门」的提示。</p>
+<p>开始使用 Cloudinsight 分为几步：</p>
 
-<p><img src="/images/start/install.gif" /></p>
+<ol>
+<li>安装 Cloudinsight Agent</li>
+<li>修改 Agent 配置文件</li>
+<li>查看操作系统指标</li>
+<li>配置 Cloudinsight 监控服务</li>
+<li>查看监控服务数据</li>
+</ol>
 
-<h2>配置平台服务</h2>
+<h2>I.安装 Cloudinsight Agent</h2>
+
+<p>在 Cloudinsight 产品界面「设置 -&gt; 添加平台」中会显示安装 Agent 指令，我们以 Debian 为例：</p>
+<pre class="highlight plaintext"><code>$ CI_LICENSE_KEY=YourLicenseKey= bash -c "$(curl -L https://download.oneapm.com/oneapm_ci_agent/install_agent.sh)"
+</code></pre>
+
+<p>需要注意的事项：</p>
+
+<ol>
+<li><code>CI_LICENSE_KEY</code> 后面接的是您的 License Key，请替换为自己的 License Key。</li>
+<li>若您的系统需要管理员权限，请在指令最前方加上 <code>sudo</code> 执行，并输入管理员密码。</li>
+</ol>
+
+<h3>常见的错误提示</h3>
+
+<p>在探针安装过程中，常见的几种错误类型（点击以下链接查看解决办法）：</p>
+
+<ul>
+<li><a href="/qa/hostname.html">您的主机名称为 localhost 无法通过安装 : Unable to reliably determine host name</a></li>
+<li><a href="/qa/http_emitter.html">机器编码不支持 <code>utf-8</code> 编码：TypeError(&lsquo;expected string or buffer&rsquo;)</a></li>
+</ul>
+
+<p>若您的错误类型不属于以上任何一种，您可以：</p>
+
+<ol>
+<li>查看 <a href="/qa/down_summary.html">Agent 安装常见错误 • 文档</a></li>
+<li>进行手动安装</li>
+<li><a href="http://support.oneapm.com/request/new/">提交工单给 Cloudinsight 技术支持人员</a></li>
+</ol>
+
+<h3>手动安装</h3>
+
+<h4>1.下载 Cloudinsight Agent 文件</h4>
+<pre class="highlight plaintext"><code>$ sudo apt-get autoremove
+$ sudo apt-get autoclean
+$ wget http://apt.oneapm.com/pool/main/oneapm-ci-agent_x.x.0-1_amd64.deb  （可以自行查看当前版本，其中amd64/i386分别对应64位/32位系统）
+</code></pre>
+
+<p><em>注：请不要复制中文的解释字符：（可以自行查看当前版本）</em></p>
+
+<h4>2.安装 Cloudinsight Agent</h4>
+<pre class="highlight plaintext"><code>$ dpkg -i oneapm-ci-agent_x.x.0-1_amd64.deb  （修改版本号）
+</code></pre>
+
+<p><em>注：请不要复制中文的解释字符：（修改版本号）</em></p>
+
+<h4>3.配置 License Key</h4>
+<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/
+$ cp oneapm-ci-agent.conf.example   oneapm-ci-agent.conf  
+$ vi oneapm-ci-agent.conf  （修改成自己的 license_key）
+</code></pre>
+
+<p><em>注：请不要复制中文的解释字符：（修改成自己的 license_key）</em></p>
+
+<h4>4.重启 Cloudinsight Agent</h4>
+<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent restart
+</code></pre>
+
+<h2>II.修改 Agent 配置文件</h2>
+
+<p>在使用 Cloudinsight 前，需要先了解 Agent 的目录结构，方便日后 Agent 错误排查，以及了解采集的数据。</p>
+<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+.
+├── checks.d
+├── conf.d
+│   ├── activemq_58.yaml.example
+...
+│   ├── tomcat.yaml.example
+│   ├── win32_event_log.yaml.example
+│   ├── wmi_check.yaml.example
+│   └── zookeeper.yaml.example
+├── oneapm-ci-agent.conf
+├── oneapm-ci-agent.conf.example
+└── supervisor.conf
+
+2 directories, 49 files
+</code></pre>
+
+<p>Agent 安装在 <code>/etc/init.d/oneapm-ci-agent</code> 路径，而配置文件的路径都在 <code>/etc/oneapm-ci-agent</code>。</p>
+
+<p>所以所有的探针执行操作，都需要将路径定位至 <code>/etc/init.d/oneapm-ci-agent</code> 路径，如 Agent 启动命令：</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent start
+</code></pre>
+
+<p>而修改配置文件，都在 <code>/etc/oneapm-ci-agent</code> 路径下，如修改 Agent 中的 <code>Hostname</code>，需要：</p>
+<pre class="highlight plaintext"><code>vi `/etc/oneapm-ci-agent/oneapm-ci-agent.conf
+</code></pre>
+
+<h3>配置文件类型</h3>
+
+<p>Agent 配置文件分为以下 3 类：</p>
+
+<ol>
+<li><code>oneapm-ci-agent.conf</code> Agent 配置文件</li>
+<li><code>conf.d/XXXXX.yaml</code> 您需要监控的服务的配置文件</li>
+<li><code>supervisor.conf</code> supervisor 配置文件</li>
+</ol>
+
+<p><em>注：Cloudinsight Agent 是通过 supervisor 进行进程管理，此处无需了解该配置。</em></p>
+
+<h3>第一次修改 Agent 配置文件</h3>
+
+<p>第一次打开 Agent 配置文件，建议阅读配置文件注释项，来了解配置项的含义。常用的配置项有：</p>
+
+<ul>
+<li><code>license_key</code> 您唯一识别号 License Key</li>
+<li><code>hostname</code> 给您主机起个名称，来区别其他主机上传的数据</li>
+<li><code>tags</code> 主机标签信息，用来标识该主机的一些属性信息，更为方便地管理主机</li>
+<li><code>collector_log_file</code> Agent 模块 collector 的日志文件路径，相同的还有 forwareder 和 onestatsd</li>
+<li><code>ci-url</code> 数据发送的目标服务器地址，默认为 Cloudinsight 后端地址</li>
+<li><code>listen_port</code> Agent 监听端口号，默认为 <code>10010</code></li>
+</ul>
+
+<h3>问题排查相关指令</h3>
+
+<p>一般来说，Agent 在安装后会默认启动。如上文所示，常见问题可以通过：<a href="/qa/down_summary.html">Agent 安装常见错误 • 文档</a> 进行排查。</p>
+
+<p>但是当您修改了 Agent 配置文件后，需要以下几种常用之类来帮助您更好地使用 Cloudinsight。</p>
+
+<h4>1.重启 Agent</h4>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent restart
+</code></pre>
+
+<p>类似的指令还有：</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent restart
+$ /etc/init.d/oneapm-ci-agent stop
+</code></pre>
+
+<h4>2.快速查看 Agent 状态</h4>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent status
+</code></pre>
+
+<h4>3.查看 Agent 基本信息</h4>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+</code></pre>
+
+<p>在 <code>info</code> 执行结果，您会看到：</p>
+
+<ol>
+<li>系统时钟信息</li>
+<li>Agent 采集的数据统计信息</li>
+<li>Agent 3 个模块：Forwareder, Collector 和 OneStatsd 的运行状态</li>
+</ol>
+
+<p>若出现异常情况会在 <code>info</code> 执行结果中标明。</p>
+
+<h4>4.打包日志文件提供给技术支持人员</h4>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent flare
+</code></pre>
+
+<p>若 Cloudinsight 文档不能解决您的问题，可以通过<a href="http://support.oneapm.com/request/new/">提交工单给 Cloudinsight 技术支持人员</a>，来帮助您解决问题。</p>
+
+<p>但是技术人员需要查看您的日志文件，此时可以通过 <code>flare</code> 对日志文件进行打包。</p>
+
+<h2>III.查看操作系统指标</h2>
+
+<p>成功安装 Agent 后，打开 Cloudinsight 产品页，就会看到安装成功的主机的操作系统相关指标。</p>
+
+<p><img src="/images/quick_system_os.png" /></p>
+
+<p style="text-align:center">图 1</p>
+
+<p>您可以在以下三个地方查看操作系统相关指标：</p>
+
+<ul>
+<li>平台 • 快速查看（如图 1）</li>
+<li>系统概览仪表盘（如图 2）：点击平台名称进入</li>
+<li>平台仪表盘（如图 3）：点击导航仪表盘进入</li>
+</ul>
+
+<p><img src="/images/quick_system_dash.png" /></p>
+
+<p style="text-align:center">图 2</p>
+
+<p><img src="/images/quick_dash_system.png" /></p>
+
+<p style="text-align:center">图 3</p>
+
+<p>若您对操作系统指标的含义、采集单位不是很熟悉，建议阅读：<a href="/platform/system.html">system 数据指标解释 • 文档</a>。</p>
+
+<h2>IV.配置 Cloudinsight 监控服务</h2>
+
+<p>至此，Cloudinsight Agent 安装成功。若您需要给探针添加数据库监控，如 MySQL, MongoDB 监控；或者 Tomcat 监控，HAProxy 监控。首先需要了解如何在 Agent 中配置这些服务。</p>
+
+<p>Agent 采集 MySQL, Tomcat 这些平台服务的数据指标，依赖于服务自身提供的数据对外接口。如 MySQL 需要配置 Agent 授权，提供数据给 Agent 并由 Agent 发送至 Cloudinsight 后端；而 Tomcat 依赖于 JMX 来提供数据。</p>
+
+<p>Cloudinsight Agent 采集平台服务数据的原理，分为以下 3 种：</p>
+
+<ul>
+<li><a href="/services/status.html">基于状态页的数据采集</a></li>
+<li><a href="/services/jmx.html">基于 JMX 的数据采集</a></li>
+<li><a href="/services/authorize.html">基于数据库授权的数据采集</a></li>
+</ul>
+
+<p>若想要全面了解 Cloudinsight Agent 如何采集数据，并且灵活配置平台服务监控，建议阅读以上文章。</p>
+
+<p>再次我们以 MySQL 和 Tomcat 为例，为大家介绍如何配置平台服务监控。</p>
+
+<h3>MySQL 监控</h3>
+
+<h4>1.给 Cloudinsight 创建一个名为 <code>oneapm</code> 的角色</h4>
+<pre class="highlight plaintext"><code>$ sudo mysql -e "CREATE USER 'oneapm'@'localhost' IDENTIFIED BY 'YourPassword';"
+</code></pre>
+
+<p>至此，我们为 MySQL 配置了一个名为 <code>oneapm</code> 的角色，并且密码为 <code>YourPassword</code>。</p>
+
+<h4>2.为该角色赋予 <code>performance_scheme</code> 权限</h4>
+<pre class="highlight plaintext"><code>$ sudo mysql -e "GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'oneapm'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
+$ sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'oneapm'@'localhost';"
+</code></pre>
+
+<p>此处，<code>oneapm@localhost</code> 中地址可以修改为您实际环境中的地址；最大连接数默认为 <code>5</code>。</p>
+
+<h4>3.确认权限是否创建成功</h4>
+<pre class="highlight plaintext"><code>$ mysql -u oneapm --password=YourPassword -e "SHOW /*!50000 ENGINE*/ INNODB STATUS" | \
+grep Uptime &amp;&amp; echo -e "\033[0;32mMySQL user - OK\033[0m" || \
+echo -e "\033[0;31mCannot connect to MySQL\033[0m"
+mysql -u oneapm --password=YourPassword -e "show slave status" &amp;&amp; \
+echo -e "\033[0;32mMySQL grant - OK\033[0m" || \
+echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
+</code></pre>
+
+<p><em>注：若您修改了密码和地址，请将其中的相关字段替换为您修改后的字符。</em></p>
+
+<p>若出现相关成功提示，则代表授权已经配置成功。至此，您已经为 MySQL 增加了一个可以访问 MySQL 相关性能数据的角色 <code>oneapm</code>。</p>
+
+<p>我们还需要修改 Agent 中 <code>mysql.yaml</code> 文件来开启 MySQL 监控。</p>
+
+<h4>4.配置 <code>mysql.yaml</code></h4>
+
+<p>将路径定位至 <code>/etc/oneapm-ci-agent/conf.d</code></p>
+<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/conf.d
+</code></pre>
+
+<p>该目录下存储着 Cloudinsight 支持所有的平台服务监控的配置文件的示例文件，后缀为 <code>*.yaml.example</code>。</p>
+
+<p>若您不熟悉 <code>yaml</code> 语法，建议直接从示例文件中创建副本开启监控。</p>
+<pre class="highlight plaintext"><code>$ cp mysql.yaml.example mysql.yaml
+</code></pre>
+
+<p>或者阅读：<a href="/qa/yaml.html">YAML 格式须知 • 文档</a>。</p>
+
+<p>然后打开 <code>mysql.yaml</code>文件。建议阅读配置项的注释，了解配置项的涵义。</p>
+
+<p>常用的配置项有：</p>
+
+<ul>
+<li><code>server</code>：MySQL 服务地址</li>
+<li><code>user</code>：配置的角色名称</li>
+<li><code>pass</code>：配置的角色名称</li>
+<li><code>tags</code>：给该 MySQL 以及采集的数据加上标签信息</li>
+</ul>
+
+<p>若您的 MySQL 存在特殊情况，如 <code>sock</code> 路径不在默认路径下，或者需要关闭一些 MySQL 指标，都可以在配置文件中进行配置。</p>
+
+<h4>5.确定 Agent 是否采集到 MySQL 相关数据</h4>
+
+<p>执行 Agent Info 指令来查看，Agent 是否开始采集 MySQL 相关指标的数据。</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+</code></pre>
+
+<p>若出现以下提示信息，则代表 Agent 已经成功采集 MySQL 数据。</p>
+<pre class="highlight plaintext"><code>Checks
+======
+
+[...]
+
+mysql
+-----
+  - instance #0 [OK]
+  - Collected 8 metrics &amp; 0 events`
+</code></pre>
+
+<h3>Tomcat 监控</h3>
+
+<h4>1.开启 JMXRemote</h4>
+
+<p>监控 Tomcat 的第一步是要检查 JMXRemote 是否处于 <code>enable</code> 状态。若没有处于 <code>enable</code> 状态，您可以添加以下参数至 <code>setenv.sh</code> 文件：</p>
+<pre class="highlight plaintext"><code>set CATALINA_OPTS=-Dcom.sun.management.jmxremote
+  -Dcom.sun.management.jmxremote.port=%my.jmx.port%
+  -Dcom.sun.management.jmxremote.ssl=false
+  -Dcom.sun.management.jmxremote.authenticate=false
+</code></pre>
+
+<p>或者查阅 <a href="http://tomcat.apache.org/tomcat-6.0-doc/monitoring.html">Monitoring and Managing Tomcat • 官网文档</a></p>
+
+<h4>2.配置 <code>tomcat.yaml</code></h4>
+
+<p>将路径定位至 <code>/etc/oneapm-ci-agent/conf.d</code></p>
+<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/conf.d
+</code></pre>
+
+<p>该目录下存储着 Cloudinsight 支持所有的平台服务监控的配置文件的示例文件，后缀为 <code>*.yaml.example</code>。</p>
+
+<p>若您不熟悉 <code>yaml</code> 语法，建议直接从示例文件中创建副本开启监控。</p>
+<pre class="highlight plaintext"><code>$ cp tomcat.yaml.example tomcat.yaml
+</code></pre>
+
+<p>或者阅读：<a href="/qa/yaml.html">YAML 格式须知 • 文档</a>。</p>
+
+<p>然后打开 <code>tomcat.yaml</code>文件。建议阅读配置项的注释，了解配置项的涵义。</p>
+
+<p>常用的配置项有：</p>
+
+<ul>
+<li><code>host</code>：Tomcat 所在主机，默认为 localhost</li>
+<li><code>port</code>：JMX 远程连接端口</li>
+<li><code>user</code>：JMX 远程连接用户名</li>
+<li><code>password</code>：JMX 远程连接密码</li>
+<li><code>name</code>：Tomcat 实例名称，将在 Cloudinsight 平台生成对应的标签，如: <code>instance:tomcat_instance</code></li>
+<li><code>java_bin_path</code>：探针找不到 Java 可执行路径时，需配置此项</li>
+<li><code>java_options</code>：Java JVM 对应项</li>
+<li><code>trust_store_path</code>：若 JMX 远程连接开启 SSL，需配置此项</li>
+<li><code>trust_store_password</code>：SSL 证书密码</li>
+<li><code>tags</code>：标签信息</li>
+</ul>
+
+<p>由于 JMX 采集的指标特别多，而 Cloudinsight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
+
+<p>至此，我们需要为您介绍 Agent 操作中的 jmx 指令。</p>
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent jmx
+</code></pre>
+
+<p>如需要查看哪些指标因为数量限制未被 Agent 采集：</p>
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent jmx list_limited_attributes
+</code></pre>
+
+<p>详细操作命令，以及如何自定义指标采集，请查阅：<a href="/services/jmx.html">JMX 远程监控 • 文档</a>。</p>
+
+<h4>3.确定 Agent 是否采集到 Tomcat 相关数据</h4>
+
+<p>执行 Agent Info 指令来查看，Agent 是否开始采集 Tomcat 相关指标的数据。</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+</code></pre>
+
+<p>若出现以下提示信息，则代表 Agent 已经成功采集 MySQL 数据。</p>
+<pre class="highlight plaintext"><code>Checks
+======
+
+[...]
+
+tomcat
+------
+  - instance #0 [OK]
+  - Collected 8 metrics &amp; 0 events
+</code></pre>
+
+<h2>V.查看监控服务数据</h2>
+
+<p>成功配置平台服务监控后，您就可以在 Cloudinsight 界面中看到相关指标了。</p>
+
+<p>您可以在平台列表中，点击 MySQL 平台服务，快速查看 MySQL 运行情况和相关指标，如图 4。</p>
+
+<p><img src="/images/quick_system_mysql.png" /></p>
+
+<p style="text-align:center">图 4</p>
+
+<p>或者前往仪表盘页面，查看为您定制的平台服务仪表盘 • MySQL 概览，了解 MySQL 的关键指标。如图 5。</p>
+
+<p><img src="/images/quick_dash_mysql.png" /></p>
+
+<p style="text-align:center">图 5</p>
+
+<p>想要了解 MySQL 每个指标的含义和单位，来更好地创建自定义仪表盘。建议前往指标概览页面，查看 MySQL 相关指标的含义和采集单位。如图 6.</p>
+
+<p><img src="/images/quick_mysql_metric.png" /></p>
+
+<p style="text-align:center">图 6</p>
+
+<h2>延伸阅读</h2>
+
+<p>至此所有的快速入门指南，已经完毕。您可以点击以下链接，更为深入地了解 Cloudinsight。</p>
+
+<ul>
+<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+<li><a href="../platform/">操作指南</a></li>
+<li><a href="../qa/">常见问题</a></li>
+<li><a href="../api/">API &amp; SDK</a></li>
+</ul>
 
           <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
@@ -304,7 +688,7 @@
   <br />
   <p>
     <a href="https://user.oneapm.com/account/register.do?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
-      注册，永久免费使用 Cloudinsight
+      立即注册 Cloudinsight
     </a>
   </p>
 </div>
@@ -347,15 +731,7 @@
     </div>
     <div class="footer-nav-block">
   <div class="container">
-    <div class="footer-support">
-      <ul class="footer-support-list">
-        <li><img src="/images/home/support.svg"></li>
-        <li class="support-title">技术支持</li>
-        <li class="support-mail">support@oneapm.com</li>
-      </ul>
-    </div>
     <div class="footer-nav">
-
       <div class="footer-nav-col">
         <ul class="footer-nav-list">
           <li>
@@ -381,19 +757,19 @@
       <div class="footer-nav-col">
         <ul class="footer-nav-list">
           <li>
-            <a href="/product/product.html">产品</a>
+            <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
           </li>
           <li>
-            <a href="/product/product.html">基础组件监控</a>
+            <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
           </li>
           <li>
-            <a href="/product/api_sdk.html">API 与 SDK</a>
+            <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
           </li>
           <li>
-            <a href="/product/cialert.html">异常数据告警</a>
+            <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
           </li>
           <li>
-            <a href="../price.html">报价</a>
+            <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
           </li>
         </ul>
       </div>
@@ -404,6 +780,13 @@
           <li><a href="/about/cooperation.html">合作伙伴</a></li>
         </ul>
       </div>
+    </div>
+    <div class="footer-support">
+          <ul class="footer-support-list">
+            <li><img src="/images/home/support.svg"></li>
+            <li class="support-title">技术支持</li>
+            <li class="support-mail">support@oneapm.com</li>
+          </ul>
     </div>
   </div>
 </div>
@@ -439,7 +822,7 @@
       </div>
     </div>
     <div class="copyright-text">
-      <a href="http://www.oneapm.com/">
+      <a href="http://cloudinsight.oneapm.com/">
         <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
       </a>
       <p class="copyright">
@@ -454,6 +837,7 @@
     </div>
   </div>
 </div>
+
 
     <script type="text/javascript">
       $(function() {
