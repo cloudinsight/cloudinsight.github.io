@@ -273,6 +273,11 @@
 		</div>
 	</div>
 </header>
+<div class="flagInfo clearfix">
+    <div class="flag-left"></div>
+    <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
+    <span class="cl">X</span>
+</div>
 
     <div class="container page-container">
       <div class="row">
@@ -285,14 +290,6 @@
 <li><a href="/platform/platform_config.html">平台操作</a></li>
 <li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
 <li><a href="/platform/system.html">System 数据指标解释</a><br></li>
-</ul></li>
-<li><a href="/services/">平台服务</a>
-
-<ul>
-<li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/jmx.html">JMX 远程监控</a></li>
-<li><a href="/services/authorize.html">数据库授权监控</a></li>
-<li><a href="/services/agent-check.html">自定义 AgentCheck</a><br></li>
 </ul></li>
 <li><a href="/dashboard/">仪表盘</a>
 
@@ -313,12 +310,35 @@
 <li><a href="/alert/metric.html">指标报警</a><br></li>
 </ul></li>
 <li><a href="/event/">事件</a><br></li>
-<li><a href="/services_example/">平台服务配置示例</a></li>
 </ul>
 
         </div>
         <div class="col-lg-9 page-body">
           <h1>Release Note</h1>
+
+<h2>v 4.6.3</h2>
+
+<p><code>发布时间：2016.07.18</code></p>
+
+<ul>
+<li>新增仪表盘的全屏和关灯功能</li>
+<li>新增各语言 SDK：Python, NodeJS, Ruby, Java, DotNET, PHP</li>
+<li>新增 30 天的数据查询</li>
+<li>修复了指标的单位问题</li>
+<li>修复了整数类指标 Y 轴的小数问题</li>
+</ul>
+
+<h2>v 4.6.2</h2>
+
+<p><code>发布时间：2016.07.05</code></p>
+
+<ul>
+<li>新增非聚合报警功能</li>
+<li>新增指标浏览器可以将生成图表添加到仪表盘或保存为模板功能</li>
+<li>新增团队内部用户标签功能</li>
+<li>修复 Agent 写入 Metric 数目问题</li>
+<li>修复平台拓扑部分着色问题</li>
+</ul>
 
 <h2>v 4.6.1</h2>
 
@@ -376,7 +396,7 @@
 <li>增加仪表盘分享功能</li>
 <li>增加首页面引导功能</li>
 <li>增加阿里云平台服务监控功能</li>
-<li>增加支持文件监控及多核监控 </li>
+<li>增加支持文件监控及多核监控</li>
 <li>增加支持 Nagios 监控</li>
 <li>改进仪表盘状态值显示</li>
 <li>优化仪表盘列表和报警策略列表加载速度</li>

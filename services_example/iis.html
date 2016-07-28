@@ -273,20 +273,47 @@
 		</div>
 	</div>
 </header>
+<div class="flagInfo clearfix">
+    <div class="flag-left"></div>
+    <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
+    <span class="cl">X</span>
+</div>
 
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
           <ul>
-<li><a href="/release-note.html">Release Note</a><br></li>
-<li><a href="/platform/">平台及拓扑</a>
+<li><a href="/agent/">Agent 安装与配置</a>
 
 <ul>
-<li><a href="/platform/platform_config.html">平台操作</a></li>
-<li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
-<li><a href="/platform/system.html">System 数据指标解释</a><br></li>
+<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+<li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+<li><a href="/agent/windows.html">Windows 安装</a></li>
+<li><a href="/agent/docker.html">Docker 安装</a></li>
+<li><a href="/agent/chef.html">Chef 安装</a></li>
+<li><a href="/agent/inner.html">内网环境安装探针</a></li>
+<li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
+<li><a href="/quick-start/config.html">Agent 配置文件</a><br></li>
 </ul></li>
-<li><a href="/services/">平台服务</a>
+<li><a href="/api/">API与SDK</a>
+
+<ul>
+<li><a href="/api/sdk.html">SDK</a></li>
+<li><a href="/api/python.html">Python</a></li>
+<li><a href="/api/nodejs.html">Node.js</a></li>
+<li><a href="/api/ruby.html">Ruby</a></li>
+<li><a href="/api/java.html">Java</a></li>
+<li><a href="/api/dotnet.html">DotNET</a></li>
+<li><a href="/api/php.html">PHP</a><br></li>
+</ul></li>
+<li><a href="/cloud-integration/">云厂商接入</a>
+
+<ul>
+<li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+<li><a href="/cloud-integration/ucloud.html">UCloud</a><br></li>
+</ul></li>
+<li><a href="/services/">平台服务基础配置</a>
 
 <ul>
 <li><a href="/services/status.html">状态页监控</a></li>
@@ -294,26 +321,47 @@
 <li><a href="/services/authorize.html">数据库授权监控</a></li>
 <li><a href="/services/agent-check.html">自定义 AgentCheck</a><br></li>
 </ul></li>
-<li><a href="/dashboard/">仪表盘</a>
+<li><a href="/services_example/">平台服务配置示例</a>
 
 <ul>
-<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
-<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
-<li><a href="/share/">图表分享</a><br></li>
+<li><a href="/services_example/activemq.html">activemq</a></li>
+<li><a href="/services_example/apache.html">apache</a></li>
+<li><a href="/services_example/bearychat.html">bearychat</a></li>
+<li><a href="/services_example/cacti.html">cacti</a></li>
+<li><a href="/services_example/cassandra.html">cassandra</a></li>
+<li><a href="/services_example/couchbase.html">couchbase</a></li>
+<li><a href="/services_example/couchdb.html">couchdb</a></li>
+<li><a href="/services_example/docker.html">docker</a></li>
+<li><a href="/services_example/elasticsearch.html">elasticsearch</a></li>
+<li><a href="/services_example/event_viewer.html">event_viewer</a></li>
+<li><a href="/services_example/gearman.html">gearman</a></li>
+<li><a href="/services_example/gunicorn.html">gunicorn</a></li>
+<li><a href="/services_example/haproxy.html">haproxy</a></li>
+<li><a href="/services_example/http.html">http</a></li>
+<li><a href="/services_example/iis.html">iis</a></li>
+<li><a href="/services_example/jianliao.html">jianliao</a></li>
+<li><a href="/services_example/kafka.html">kafka</a></li>
+<li><a href="/services_example/memcached.html">memcached</a></li>
+<li><a href="/services_example/mesos.html">mesos</a></li>
+<li><a href="/services_example/mongodb.html">mongodb</a></li>
+<li><a href="/services_example/mysql.html">mysql</a></li>
+<li><a href="/services_example/nagios.html">nagios</a></li>
+<li><a href="/services_example/nginx.html">nginx</a></li>
+<li><a href="/services_example/php-fpm.html">php-fpm</a></li>
+<li><a href="/services_example/postgresql.html">postgresql</a></li>
+<li><a href="/services_example/pubu.html">pubu</a></li>
+<li><a href="/services_example/rabbitmq.html">rabbitmq</a></li>
+<li><a href="/services_example/redis.html">redis</a></li>
+<li><a href="/services_example/snmp.html">snmp</a></li>
+<li><a href="/services_example/solr.html">solr</a></li>
+<li><a href="/services_example/sqlserver.html">sqlserver</a></li>
+<li><a href="/services_example/ssh.html">ssh</a></li>
+<li><a href="/services_example/supervisord.html">supervisord</a></li>
+<li><a href="/services_example/tcp.html">tcp</a></li>
+<li><a href="/services_example/tomcat.html">tomcat</a></li>
+<li><a href="/services_example/wmi.html">wmi</a></li>
+<li><a href="/services_example/zookeeper.html">zookeeper</a></li>
 </ul></li>
-<li><a href="/metric/">指标与浏览</a>
-
-<ul>
-<li><a href="/metric/metric_explorer.html">指标浏览</a><br></li>
-</ul></li>
-<li><a href="/alert/">报警与策略</a>
-
-<ul>
-<li><a href="/alert/metric.html">指标报警</a><br></li>
-</ul></li>
-<li><a href="/event/">事件</a><br></li>
-<li><a href="/services_example/">平台服务配置示例</a></li>
 </ul>
 
         </div>
@@ -328,7 +376,7 @@
 
 <h2>性能指标</h2>
 
-<p>Cloudinsight 采集 IIS 以下性能指标： </p>
+<p>Cloudinsight 采集 IIS 以下性能指标：</p>
 
 <table><thead>
 <tr>
@@ -438,7 +486,9 @@ winmgmt /resyncperf
 <p><strong>2. 配置探针连接到 IIS</strong></p>
 
 <p>编辑 <code>conf.d/iis.yaml</code>，将 IIS 所在服务器添加到配置文件中：</p>
-<pre class="highlight plaintext"><code>instances:
+<pre class="highlight plaintext"><code>init_config:
+
+instances:
   -  host: . # "." 表示本机
      tags:
        - mytag1
