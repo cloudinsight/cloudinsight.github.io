@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -349,17 +350,17 @@
 <li><p>另一种是命令行安装，点击下载 Windows 版 Agent，打开cmd.exe，定位到 Agent 所在目录，执行下面命令：</p></li>
 </ul>
 <pre class="highlight plaintext"><code>＃ 32位
-msiexec /qn /i oneapm-ci-agent.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+msiexec /qn /i cloudinsight-agent.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
 </code></pre>
 <pre class="highlight plaintext"><code>＃ 64位
-msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
+msiexec /qn /i cloudinsight-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
 </code></pre>
 
 <p>如果你想看安装详情，可以去掉 <code>/qn</code>  这个参数。</p>
 
 <h3>安装失败排除</h3>
 
-<p>Windows 安装失败可以查看<strong>事件查看器</strong>中关于 OneAPMCiAgent 的报错，根据报错查看相关文档。</p>
+<p>Windows 安装失败可以查看<strong>事件查看器</strong>中关于 CloudinsightAgent 的报错，根据报错查看相关文档。</p>
 
 <p>不过大多数是 hostname 的问题，就像下面的报错：</p>
 
@@ -369,7 +370,7 @@ msiexec /qn /i oneapm-ci-agent.amd64.msi CI_LICENSE_KEY="YOUR_LICENSE_KEY"
 
 <p><strong>解决方法：</strong></p>
 
-<p>修改 OneAPMCiAgent 配置文件，在控制面板上 setting 上修改 hostname: xxxx 指标（任意可识别的名称，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置，如图：</p>
+<p>修改 CloudinsightAgent 配置文件，在控制面板上 setting 上修改 hostname: xxxx 指标（任意可识别的名称，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置，如图：</p>
 
 <p><img src="/images/qa/win_ins2.png" /></p>
 

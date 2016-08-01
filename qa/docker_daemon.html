@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -340,14 +341,14 @@
 
         </div>
         <div class="col-xs-9 page-body">
-          <h1>Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</h1>
+          <h1>Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</h1>
 
-<p>配置 Docker 监控时发生报错 <code>Unable to connect to socket. oneapm-ci-agent user must be part of the &#39;docker&#39; group</code>，这是因为 docker 的守护进程总是以 root 用户来运行。docker 守护进程绑定的是 Unix 的 socket 而不是一个 TCP 端口。Unix 的 socket 默认属于 root 用户，所以，使用 docker 时必须加上 sudo。</p>
+<p>配置 Docker 监控时发生报错 <code>Unable to connect to socket. cloudinsight-agent user must be part of the &#39;docker&#39; group</code>，这是因为 docker 的守护进程总是以 root 用户来运行。docker 守护进程绑定的是 Unix 的 socket 而不是一个 TCP 端口。Unix 的 socket 默认属于 root 用户，所以，使用 docker 时必须加上 sudo。</p>
 
 <p>为了避免使用 docker 时总是使用 sudo，从0.5.3开始，可以通过创建一个 docker 组，将用户加入这个组内来实现。当 docker 守护进程启动时，它会把 Unix 的读写权限赋予 docker 组。当你作为 docker 组内用户使用 docker 客户端时，你就无须使用 sudo 了。</p>
 
 <p>所以当 docker 正常运行在服务器上后，要把 agent 加到 docker 组中：</p>
-<pre class="highlight plaintext"><code>usermod -a -G docker oneapm-ci-agent
+<pre class="highlight plaintext"><code>usermod -a -G docker cloudinsight-agent
 </code></pre>
 
 <p>如果添加到 docker 组后仍然报错，你可能需要查看是否有 docker 组，查看 docker.sock 是否属于 docker 组：</p>
@@ -355,7 +356,7 @@
 </code></pre>
 
 <p>如果是 root 组，就把 agent 加进 root 组，执行：</p>
-<pre class="highlight plaintext"><code>usermod -a -G root oneapm-ci-agent
+<pre class="highlight plaintext"><code>usermod -a -G root cloudinsight-agent
 </code></pre>
 
 <p>重启探针即可。</p>

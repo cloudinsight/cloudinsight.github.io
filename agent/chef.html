@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -382,11 +383,11 @@
 
 <p>使用 <a href="http://berkshelf.com">Berkshelf</a> 添加 Cookbook：
 <code>
-cookbook `oneapm-ci-agent`
+cookbook `cloudinsight-agent`
 </code>
 若未安装 Berkshelf，请使用 Knife 添加 Cookbook：
 <code>
-knife cookbook site install oneapm-ci-agent
+knife cookbook site install cloudinsight-agent
 </code>
 <img src="/images/agent/chef_1.png" /></p>
 
@@ -394,7 +395,7 @@ knife cookbook site install oneapm-ci-agent
 
 <p>在 Enviorment 或者 Role 中，也可以添加 Recipe，为 Cloudinsight 授权：
 <code>
-node.default[&#39;oneapm-ci-agent&#39;][&#39;license_key&#39;] = &quot;LICENSE_KEY&quot;
+node.default[&#39;cloudinsight-agent&#39;][&#39;license_key&#39;] = &quot;LICENSE_KEY&quot;
 </code>
 <img src="/images/agent/chef_2.png" /></p>
 
@@ -406,7 +407,7 @@ berks upload
 </code>
  未安装 Berkself 的用户请使用 Knife
 <code>
-knife cookbook upload oneapm-ci-agent
+knife cookbook upload cloudinsight-agent
 </code>
 <img src="/images/agent/chef_3.png" /></p>
 
@@ -419,7 +420,7 @@ knife cookbook list | grep oneapm &amp;&amp; \ echo -e &quot;\e[0;32oneapm cookb
 
 <p>Cookbook 上传成功后，在 Node 中的 run<em>list 或 role 中添加如下信息：
 &ldquo;`
-&quot;run</em>list&rdquo;: [ &ldquo;recipe[oneapm-ci-agent::oneapm-ci-agent]&rdquo; ]
+&quot;run</em>list&rdquo;: [ &ldquo;recipe[cloudinsight-agent::cloudinsight-agent]&rdquo; ]
 &ldquo;`
 <img src="/images/agent/chef_4.png" /></p>
 

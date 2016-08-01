@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -385,31 +386,31 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>listen_queue.size</td>
+<td>php<em>fpm.listen</em>queue.size</td>
 <td>请求等待队列最高的数量</td>
 </tr>
 <tr>
-<td>processes.active</td>
+<td>php_fpm.processes.active</td>
 <td>活跃进程数量</td>
 </tr>
 <tr>
-<td>processes.idle</td>
+<td>php_fpm.processes.idle</td>
 <td>空闲进程数量</td>
 </tr>
 <tr>
-<td>processes.max_reached</td>
+<td>php<em>fpm.processes.max</em>reached</td>
 <td>最大的活跃进程数量</td>
 </tr>
 <tr>
-<td>processes.total</td>
+<td>php_fpm.processes.total</td>
 <td>总进程数量</td>
 </tr>
 <tr>
-<td>requests.accepted</td>
+<td>php_fpm.requests.accepted</td>
 <td>当前池子接受的请求数</td>
 </tr>
 <tr>
-<td>requests.slow</td>
+<td>php_fpm.requests.slow</td>
 <td>缓慢请求的数量</td>
 </tr>
 </tbody></table>
@@ -459,7 +460,7 @@ instances:
     #
     # Use this if you have basic authentication on these pages
     # user: cloudinsight
-    # password: ONEAPM
+    # password: cloudinsight
     #
     # Array of custom tags
     # By default metrics and service check will be tagged by pool and host
@@ -471,7 +472,7 @@ instances:
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

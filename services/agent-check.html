@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -406,8 +407,8 @@ self.monotonic_count( ... ) # Sample an increasing counter metric
 
 <h2>异常</h2>
 
-<p>如果由于配置不正确或者编码错误导致 <code>check</code> 不能运行，或者无法收集到任何指标，这时应该抛出一个特定的异常信息。这个异常将可以被记录到探针的log（即/var/log/oneapm-ci-agent/collector.log）中，您也可以通过探针的 info 命令进行输出，便于调试，如下：</p>
-<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent info
+<p>如果由于配置不正确或者编码错误导致 <code>check</code> 不能运行，或者无法收集到任何指标，这时应该抛出一个特定的异常信息。这个异常将可以被记录到探针的log（即/var/log/cloudinsight-agent/collector.log）中，您也可以通过探针的 info 命令进行输出，便于调试，如下：</p>
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/cloudinsight-agent info
 
   Checks
   ======
@@ -420,7 +421,7 @@ self.monotonic_count( ... ) # Sample an increasing counter metric
 
 <h2>日志信息</h2>
 
-<p>我们可以在自定义的 <code>check</code> 函数中通过 <code>self.log</code> 记录日志信息，例如 <code>self.log.info(&#39;hello&#39;)</code> 。记录的日志信息可以在探针日志文件（即/var/log/oneapm-ci-agent/collector.log）中被找到，例如 <code>checks.{name}</code>，其中 <code>{name}</code> 是您 <code>check</code> 模块的名字。</p>
+<p>我们可以在自定义的 <code>check</code> 函数中通过 <code>self.log</code> 记录日志信息，例如 <code>self.log.info(&#39;hello&#39;)</code> 。记录的日志信息可以在探针日志文件（即/var/log/cloudinsight-agent/collector.log）中被找到，例如 <code>checks.{name}</code>，其中 <code>{name}</code> 是您 <code>check</code> 模块的名字。</p>
 
 <h2>配置</h2>
 
@@ -453,13 +454,13 @@ instances:
 </ul>
 
 <p>所有的 Linux 系统，您可以在下面找到文件：</p>
-<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/checks.d/
+<pre class="highlight plaintext"><code>/etc/cloudinsight-agent/checks.d/
 </code></pre>
 
 <p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
-<pre class="highlight plaintext"><code>C:\Program Files (x86)\OneAPM\OneAPM Ci Agent\checks.d
+<pre class="highlight plaintext"><code>C:\Program Files (x86)\Cloudinsight\Cloudinsight Agent\checks.d
 或
-C:\Program Files\OneAPM\OneAPM Ci Agent\checks.d
+C:\Program Files\Cloudinsight\Cloudinsight Agent\checks.d
 </code></pre>
 
 <ul>
@@ -467,13 +468,13 @@ C:\Program Files\OneAPM\OneAPM Ci Agent\checks.d
 </ul>
 
 <p>Linux 系统中，您可以在下面找到文件：</p>
-<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/conf.d
+<pre class="highlight plaintext"><code>/etc/cloudinsight-agent/conf.d
 </code></pre>
 
 <p>Windows Server &gt;= 2008 系统，您可以在下面找到文件：</p>
-<pre class="highlight plaintext"><code>C:\ProgramData\OneAPM\conf.d
+<pre class="highlight plaintext"><code>C:\ProgramData\Cloudinsight\conf.d
 或
-C:\Documents and Settings\All Users\Application Data\OneAPM\conf.d\
+C:\Documents and Settings\All Users\Application Data\Cloudinsight\conf.d\
 </code></pre>
 
 <h2>一个简单的 HTTP check</h2>
@@ -545,7 +546,7 @@ if __name__ == '__main__':
 <h2>排错</h2>
 
 <p>您可以执行以下命令进行调试：</p>
-<pre class="highlight plaintext"><code>sudo -u oneapm-ci-agent ci-agent check my_check
+<pre class="highlight plaintext"><code>sudo -u cloudinsight-agent ci-agent check my_check
 </code></pre>
 
 <h3>Windows 测试自定义 check</h3>

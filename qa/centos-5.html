@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -346,14 +347,14 @@
 
 <p><img src="/images/qa/centos5.png" /></p>
 
-<p>查看 oneapm-ci-agent-install.log 的日志，部分如下：</p>
+<p>查看 cloudinsight-agent-install.log 的日志，部分如下：</p>
 <pre class="highlight plaintext"><code>Loaded plugins: fastestmirror
 Loading mirror speeds from cached hostfile
 http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
 Trying other mirror.
 http://yum.oneapm.com/x86_64/repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2: [Errno -3] Error performing checksum
 Trying other mirror.
-Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2 from oneapm-ci-agent: [Errno 256] No more mirrors to try.
+Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af3006ebe1a-primary.sqlite.bz2 from cloudinsight-agent: [Errno 256] No more mirrors to try.
 [31m
 
 </code></pre>
@@ -363,7 +364,7 @@ Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af
 <h2>解决方法</h2>
 
 <p><strong>首先删掉因安装 Ci 添加的 yum 源</strong></p>
-<pre class="highlight plaintext"><code>rm -rf  /etc/yum.repos.d/oneapm-ci-agent.repo
+<pre class="highlight plaintext"><code>rm -rf  /etc/yum.repos.d/cloudinsight-agent.repo
 </code></pre>
 
 <p><strong>然后安装一个 hash加密的模块：</strong>

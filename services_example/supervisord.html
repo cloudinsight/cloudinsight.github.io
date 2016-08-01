@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -398,8 +399,8 @@
 
 <p><strong>1. 配置 Cloudinsight Agent 连接到 supervisord 进程</strong></p>
 
-<p>切换路径至 <code>/etc/oneapm-ci-agent</code>，开启配置文件 <code>conf.d/supervisord.yaml</code></p>
-<pre class="highlight plaintext"><code>cd /etc/oneapm-ci-agent
+<p>切换路径至 <code>/etc/cloudinsight-agent</code>，开启配置文件 <code>conf.d/supervisord.yaml</code></p>
+<pre class="highlight plaintext"><code>cd /etc/cloudinsight-agent
 cp  conf.d/supervisord.yaml.example   conf.d/supervisord.yaml
 </code></pre>
 
@@ -408,12 +409,12 @@ cp  conf.d/supervisord.yaml.example   conf.d/supervisord.yaml
 
 instances:
   - name: server2
-  - socket: unix:///opt/oneapm-ci-agent/run/oneapm-agent-supervisor.sock
+  - socket: unix:///opt/cloudinsight-agent/run/oneapm-agent-supervisor.sock
 </code></pre>
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

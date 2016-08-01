@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -443,37 +444,37 @@
 <ul>
 <li>列出匹配的 <code>attributes</code>：</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_matching_attributes
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx list_matching_attributes
 </code></pre>
 
 <ul>
 <li>列出配置成功，却因为 Agent 采集限制，未被采集的 <code>attributes</code>:</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_limited_attributes
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx list_limited_attributes
 </code></pre>
 
 <ul>
 <li>列出已被收集的 <code>attributes</code>：</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_collected_attributes
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx list_collected_attributes
 </code></pre>
 
 <ul>
 <li>列出不匹配任何 <code>instances</code> 配置的 <code>attributes</code>：</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_not_matching_attributes
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx list_not_matching_attributes
 </code></pre>
 
 <ul>
 <li>列出所有 JMXFetch 支持的 <code>attributes</code>：</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx list_everything
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx list_everything
 </code></pre>
 
 <ul>
 <li>开始采集已配置生效的指标，并在控制台显示它们：</li>
 </ul>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent jmx collect
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent jmx collect
 </code></pre>
 
 <h3>如何自定义要收集的数据：</h3>

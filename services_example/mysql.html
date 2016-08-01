@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -528,9 +529,9 @@
 
 <h2>配置 MySQL 监控</h2>
 
-<h3>创建 OneAPM 访问权限</h3>
+<h3>创建 Cloudinsight 访问权限</h3>
 
-<p>为您的 MySQL 服务器建立 OneAPM Cloudinsight 访问权限。</p>
+<p>为您的 MySQL 服务器建立 Cloudinsight 访问权限。</p>
 <pre class="highlight plaintext"><code>sudo mysql -e "CREATE USER 'oneapm'@'localhost' IDENTIFIED BY 'YourPassword';"
 sudo mysql -e "GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'oneapm'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
 sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'oneapm'@'localhost';"
@@ -564,7 +565,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

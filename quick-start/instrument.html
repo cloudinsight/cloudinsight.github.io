@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -296,9 +297,9 @@
 <p><strong>For Linux</strong></p>
 
 <p>执行以下指令，会得到如下结果。</p>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent
 
-Usage: /etc/init.d/oneapm-ci-agent {start|stop|restart|info|status|configcheck|configtest|jmx|flare}
+Usage: /etc/init.d/cloudinsight-agent {start|stop|restart|info|status|configcheck|configtest|jmx|flare}
 </code></pre>
 
 <p>可见 Agent 支持以下的操作：</p>
@@ -316,7 +317,7 @@ Usage: /etc/init.d/oneapm-ci-agent {start|stop|restart|info|status|configcheck|c
 </ul>
 
 <p>启动 Agent 需执行以下指令，同理于停止和重启 Agent。</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent start
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent start
 </code></pre>
 
 <p><code>info</code> 指令查看 Agent 的概要信息。执行 <code>info</code> 指令，可见 Cloudinsight Agent 由 <code>Collector</code>、<code>Forwarder</code>、<code>Onestatsd</code> 3 部分构成。</p>
@@ -331,7 +332,7 @@ Usage: /etc/init.d/oneapm-ci-agent {start|stop|restart|info|status|configcheck|c
 
 <p><strong>For Windows</strong></p>
 
-<p>所有配置都可以在 OneAPM Ci Agent Manager 控制面板上进行操作。</p>
+<p>所有配置都可以在 Cloudinsight Agent Manager 控制面板上进行操作。</p>
 <pre class="highlight plaintext"><code>Logs and Status {Agent Status}
 Actions  {start|stop|restart|flare|exit}
 </code></pre>
@@ -341,11 +342,11 @@ Actions  {start|stop|restart|flare|exit}
 <h2>更新</h2>
 
 <p>CentOS / Redhat 更新：</p>
-<pre class="highlight plaintext"><code>sudo yum install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo yum install cloudinsight-agent
 </code></pre>
 
 <p>Ubuntu / Debian 更新：</p>
-<pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install cloudinsight-agent
 </code></pre>
 
 <p>Windows 更新：重新安装</p>
@@ -353,11 +354,11 @@ Actions  {start|stop|restart|flare|exit}
 <h2>卸载：</h2>
 
 <p>CentOS / Redhat 卸载：</p>
-<pre class="highlight plaintext"><code>sudo yum remove oneapm-ci-agent  
+<pre class="highlight plaintext"><code>sudo yum remove cloudinsight-agent  
 </code></pre>
 
 <p>Ubuntu / Debian 卸载：</p>
-<pre class="highlight plaintext"><code>sudo apt-get remove oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo apt-get remove cloudinsight-agent
 </code></pre>
 
 <p>Windows 卸载：程序，卸载</p>

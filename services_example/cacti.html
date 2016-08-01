@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -407,8 +408,8 @@ sudo mysql -e "grant select on cacti.* to 'oneapm'@'localhost';"
 
 <p><strong>2.编辑配置文件</strong></p>
 
-<p>切换路径至 <code>/etc/oneapm-ci-agent</code> ，开启配置文件 <code>/conf.d/cacti.yaml</code> 。</p>
-<pre class="highlight plaintext"><code>cd /etc/oneapm-ci-agent
+<p>切换路径至 <code>/etc/cloudinsight-agent</code> ，开启配置文件 <code>/conf.d/cacti.yaml</code> 。</p>
+<pre class="highlight plaintext"><code>cd /etc/cloudinsight-agent
 
 cp conf.d/cacti.yaml.example conf.d/cacti.yaml
 </code></pre>
@@ -429,13 +430,13 @@ instances:
 </code></pre>
 
 <p><strong>3.授予文件访问权限</strong></p>
-<pre class="highlight plaintext"><code>sudo gpasswd -a oneapm-ci-agent www-data
+<pre class="highlight plaintext"><code>sudo gpasswd -a cloudinsight-agent www-data
 sudo chmod -R g+rx /var/lib/cacti/rra/
 </code></pre>
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -343,15 +344,15 @@
           <h1>&lsquo;nmet dependencies&rsquo; Ubuntu 安装错误</h1>
 
 <p>在 Ubuntu 操作系统上安装探针是报错如下：</p>
-<pre class="highlight plaintext"><code>* Installing APT package sources for OneAPM
+<pre class="highlight plaintext"><code>* Installing APT package sources for Cloudinsight
 
 Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.0dkKOJrsNY --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 54B043BC
 gpg: requesting key 54B043BC from hkp server keyserver.ubuntu.com
-gpg: key 54B043BC: "OneAPM Packages &lt;package@oneapm.com&gt;" not changed
+gpg: key 54B043BC: "Cloudinsight Packages &lt;package@oneapm.com&gt;" not changed
 gpg: Total number processed: 1
 gpg:              unchanged: 1
 
-* Installing the OneAPM CI Agent package
+* Installing the Cloudinsight Agent package
 
 Ign http://apt.oneapm.com stable InRelease
 Hit http://apt.oneapm.com stable Release.gpg
@@ -372,10 +373,10 @@ The following packages have unmet dependencies:
           Recommends: ttf-dejavu but it is not going to be installed
 E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
 ERROR
-Failed to install the OneAPM package, sometimes it may be
+Failed to install the Cloudinsight package, sometimes it may be
 due to another APT source failing. See the logs above to
 determine the cause.
-If the cause is unclear, please contact OneAPM support.
+If the cause is unclear, please contact Cloudinsight support.
 </code></pre>
 
 <h2>报错说明：</h2>
@@ -387,10 +388,10 @@ If the cause is unclear, please contact OneAPM support.
 <p>这个问题 Cloudinsight 本身没有问题，所以可以在安装时分布安装，跳过 update 的操作，具体方法如下：</p>
 <pre class="highlight plaintext"><code>sudo apt-get autoremove
 sudo apt-get autoclean
-wget http://apt.oneapm.com/pool/main/oneapm-ci-agent_x.x.0-1_amd64.deb  (可以自行查看当前版本)
-dpkg -i oneapm-ci-agent_x.x.0-1_amd64.deb
-vi /etc/oneapm-ci-agent/oneapm-ci-agent.conf     （ 修改成自己的 license_key ）
-/etc/init.d/oneapm-ci-agent restart
+wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  (可以自行查看当前版本)
+dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb
+vi /etc/cloudinsight-agent/cloudinsight-agent.conf     （ 修改成自己的 license_key ）
+/etc/init.d/cloudinsight-agent restart
 </code></pre>
 
 <p>以上几步即包括删除不需要的软件包，下载当前最近 Cloudinsight 探针（里面包括探针各种依赖包），修改探针配置文件，添加进自己的 license_key ，重启探针，让配置生效，其他之前的一键复制也是运行的这些功能。</p>

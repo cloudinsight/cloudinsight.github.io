@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -373,18 +374,18 @@
 <p>如果你服务器的环境变量里面设置了 http_proxy，那可以直接修改探针的配置文件，首先单独下载探针包，在本地进行安装，探针包里包含 Python 所需要的环境变量：</p>
 
 <p><strong>CentOS</strong> 环境</p>
-<pre class="highlight plaintext"><code>wget http://yum.oneapm.com/x86_64/oneapm-ci-agent-x.x.0-1.x86_64.rpm
-rpm -Uvh oneapm-ci-agent-x.x.0-1.x86_64.rpm
+<pre class="highlight plaintext"><code>wget http://yum.oneapm.com/x86_64/cloudinsight-agent-x.x.0-1.x86_64.rpm
+rpm -Uvh cloudinsight-agent-x.x.0-1.x86_64.rpm
 </code></pre>
 
 <p><strong>Ubuntu</strong> 环境</p>
-<pre class="highlight plaintext"><code>wget http://apt.oneapm.com/pool/main/oneapm-ci-agent_x.x.0-1_amd64.deb  
-dpkg -i oneapm-ci-agent_x.x.0-1_amd64.deb
+<pre class="highlight plaintext"><code>wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  
+dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb
 </code></pre>
 
 <p><em>可自行查看最近版本</em></p>
 
-<p>安装好探针后好不能启动，在 <code>/etc/oneapm-ci-agent</code> 目录下面复制一份 <code>oneapm-ci-agent.conf</code> ，这是探针的配置文件，探针会根据这个文件把数据发送到相应的服务器上，然后修改配置文件如下：</p>
+<p>安装好探针后好不能启动，在 <code>/etc/cloudinsight-agent</code> 目录下面复制一份 <code>cloudinsight-agent.conf</code> ，这是探针的配置文件，探针会根据这个文件把数据发送到相应的服务器上，然后修改配置文件如下：</p>
 <pre class="highlight plaintext"><code># If you need a proxy to connect to the Internet, provide the settings here
 ci_url: https://dc-cloud.oneapm.com
 proxy_host: my_host
@@ -399,8 +400,8 @@ license_key: 自己的 license_key
 <h4>使用 Nginx Http Proxy 代理服务器</h4>
 
 <p>如果使用 Nginx Http Proxy 代理服务器，配置相对多一些，首先是单独下载安装探针：</p>
-<pre class="highlight plaintext"><code>wget http://yum.oneapm.com/x86_64/oneapm-ci-agent-4.2.0-1.x86_64.rpm
-rpm -Uvh oneapm-ci-agent-4.2.0-1.x86_64.rpm
+<pre class="highlight plaintext"><code>wget http://yum.oneapm.com/x86_64/cloudinsight-agent-4.2.0-1.x86_64.rpm
+rpm -Uvh cloudinsight-agent-4.2.0-1.x86_64.rpm
 </code></pre>
 
 <p>创建一个 <code>8082.conf</code> 的配置文件，然后修改这个 Nginx 代理配置文件如下：</p>
@@ -419,7 +420,7 @@ rpm -Uvh oneapm-ci-agent-4.2.0-1.x86_64.rpm
 
 <p><code>listen 8082</code> 表示监听端口，可以修改为任意端口，但是一定要在防火墙打开这个端口。</p>
 
-<p>同样复制并修改 <code>/etc/oneapm-ci-agent/</code> 下 Cloudinsight 的配置文件，<code>oneapm-ci-agent.conf</code>；</p>
+<p>同样复制并修改 <code>/etc/cloudinsight-agent/</code> 下 Cloudinsight 的配置文件，<code>cloudinsight-agent.conf</code>；</p>
 <pre class="highlight plaintext"><code>ci_url:http://192.168.43.145:8082    
 skip_ssl_validation: yes     # 跳过 ssl 加密
 license_key: 自己的 license_key

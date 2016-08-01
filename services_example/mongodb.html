@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -628,11 +629,11 @@
 
 <h2>配置 MongoDB 监控</h2>
 
-<h3>创建 OneAPM 访问权限</h3>
+<h3>创建 Cloudinsight 访问权限</h3>
 
 <p><strong>注：只有在 MongoDB 开启了权限认证时，才需要为 Cloudinsight 配置授权。未开启，请跳过此步骤。</strong></p>
 
-<p>为 OneAPM 创建只读权限的 Admin 用户。OneAPM 需要 admin 权限才能完整采集 MongoDB 性能数据。</p>
+<p>为 Cloudinsight 创建只读权限的 Admin 用户。Cloudinsight 需要 admin 权限才能完整采集 MongoDB 性能数据。</p>
 
 <p>在 Mongo Shell 中执行以下指令。</p>
 <pre class="highlight plaintext"><code>use admin
@@ -673,7 +674,7 @@ echo -e "\033[0;31moneapm user - Missing\033[0m"
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

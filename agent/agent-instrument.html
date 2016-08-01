@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -370,65 +371,65 @@
 
 <p>概述 Cloudinsight Agent 的基本使用方法。如果您尚未安装探针，可以先进行安装。</p>
 
-<p>默认情况下，探针将被安装在 <code>/opt/oneapm-ci-agent</code> 目录。</p>
+<p>默认情况下，探针将被安装在 <code>/opt/cloudinsight-agent</code> 目录。</p>
 
 <h2>启动 / 停止 / 卸载</h2>
 
 <p>启动探针：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent start
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent start
 </code></pre>
 
 <p>停止探针：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent stop
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent stop
 </code></pre>
 
 <p>重启探针：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent restart
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent restart
 </code></pre>
 
 <p>删除探针：</p>
-<pre class="highlight plaintext"><code>sudo yum erase oneapm-ci-agent / apt-get remove oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo yum erase cloudinsight-agent / apt-get remove cloudinsight-agent
 </code></pre>
 
 <h2>更新</h2>
 
 <p>CentOS / Redhat 更新</p>
-<pre class="highlight plaintext"><code>sudo yum install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo yum install cloudinsight-agent
 </code></pre>
 
 <p>Ubuntu / Debian 更新</p>
-<pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install oneapm-ci-agent
+<pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install cloudinsight-agent
 </code></pre>
 
 <h2>查看状态</h2>
 
 <p>查看探针是否运行：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent status
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent status
 </code></pre>
 
 <p>查看探针状态信息：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent info
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent info
 </code></pre>
 
 <p>查看配置文件是否正确：</p>
-<pre class="highlight plaintext"><code>sudo /etc/init.d/oneapm-ci-agent configtest
+<pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent configtest
 </code></pre>
 
 <h2>配置</h2>
 
 <p>探针的配置文件：</p>
-<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf
+<pre class="highlight plaintext"><code>/etc/cloudinsight-agent/cloudinsight-agent.conf
 </code></pre>
 
-<h3><code>oneapm-ci-agent.conf</code> 配置项</h3>
+<h3><code>cloudinsight-agent.conf</code> 配置项</h3>
 <pre class="highlight plaintext"><code>[Main]
 
-# The host of the OneAPM data collector server to send Agent data to
+# The host of the Cloudinsight data collector server to send Agent data to
 # 收集的数据发送的目的服务器地址
 ci_url: https://dc-cloud.oneapm.com     
 
-# The OneAPM license key to associate your Agent's data with your organization.
-# 您的 OneAPM Cloudinsight 的 license key
+# The Cloudinsight license key to associate your Agent's data with your organization.
+# 您的 Cloudinsight 的 license key
 license_key: B1oCTldEV6b2bAoVCEwID0918f4FCQdXH1I9xxxxxxxxxxxxxxx9VVZPBw4bUAU=  
 
 
@@ -467,9 +468,9 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 
 # log_level: INFO              # log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)
 
-# collector_log_file: /var/log/oneapm-ci-agent/collector.log  # collector 日志文件
-# forwarder_log_file: /var/log/oneapm-ci-agent/forwarder.log  # forwarder 日志文件
-# onestatsd_log_file: /var/log/oneapm-ci-agent/onestatsd.log  # onestatsd 日志文件
+# collector_log_file: /var/log/cloudinsight-agent/collector.log  # collector 日志文件
+# forwarder_log_file: /var/log/cloudinsight-agent/forwarder.log  # forwarder 日志文件
+# onestatsd_log_file: /var/log/cloudinsight-agent/onestatsd.log  # onestatsd 日志文件
 
 # if syslog is enabled but a host and port are not set, a local domain socket
 # connection will be attempted
@@ -480,21 +481,21 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 </code></pre>
 
 <p>平台服务的配置文件目录：</p>
-<pre class="highlight plaintext"><code>/etc/oneapm-ci-agent/conf.d/
+<pre class="highlight plaintext"><code>/etc/cloudinsight-agent/conf.d/
 </code></pre>
 
 <p>平台服务的配置各有不同，详情请查看：<a href="/services/">平台服务</a></p>
 
 <h2>排查</h2>
 
-<p>运行上面的 <code>sudo /etc/init.d/oneapm-ci-agent info</code> 命令查看探针状态。</p>
+<p>运行上面的 <code>sudo /etc/init.d/cloudinsight-agent info</code> 命令查看探针状态。</p>
 
 <p>日志子系统从下面文件中查看：</p>
 
 <ul>
-<li><code>/var/log/oneapm-ci-agent/supervisord.log</code></li>
-<li><code>/var/log/oneapm-ci-agent/collector.log</code></li>
-<li><code>/var/log/oneapm-ci-agent/forwarder.log</code></li>
+<li><code>/var/log/cloudinsight-agent/supervisord.log</code></li>
+<li><code>/var/log/cloudinsight-agent/collector.log</code></li>
+<li><code>/var/log/cloudinsight-agent/forwarder.log</code></li>
 </ul>
 
           <hr style="margin-top: 50px;" />

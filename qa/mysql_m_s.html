@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -344,7 +345,7 @@
 
 <p>MySQL 在 Master 与 Slave 之间完成一个异步的复制过程需要由三个线程来完成，其中两个线程（ Sql 线程和 IO 线程）在 Slave 端，另外一个线程（ IO 线程）在 Master 端。<code>Slave_IO_Running</code> 和 <code>Slave_SQL_Running</code> 两列的值都为 &ldquo;Yes&quot;，这表明 Slave 的 I/O 和 SQL 线程都在正常运行，主从同步功能也就是正常的</p>
 
-<p>默认情况下，这2个指标并不会显示，这时就需要修改<code>/etc/oneapm-ci-agent/conf.d/mysql.yaml</code>，添加如下配置：（支持Slave<em>IO</em>Running，Slave<em>SQL</em>Running，Last<em>IO</em>Errno，Last<em>SQL</em>Errno这四项指标）</p>
+<p>默认情况下，这2个指标并不会显示，这时就需要修改<code>/etc/cloudinsight-agent/conf.d/mysql.yaml</code>，添加如下配置：（支持Slave<em>IO</em>Running，Slave<em>SQL</em>Running，Last<em>IO</em>Errno，Last<em>SQL</em>Errno这四项指标）</p>
 <pre class="highlight plaintext"><code>queries: # Optional
      - # Sample Custom metric
        query: show slave status

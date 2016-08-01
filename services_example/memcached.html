@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -385,107 +386,107 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>bytes</td>
+<td>memcache.bytes</td>
 <td>用来存储缓存项的字节数</td>
 </tr>
 <tr>
-<td>bytes<em>read</em>rate</td>
+<td>memcache.bytes<em>read</em>rate</td>
 <td>缓存节点已从网络读取的字节数</td>
 </tr>
 <tr>
-<td>bytes<em>written</em>rate</td>
+<td>memcache.bytes<em>written</em>rate</td>
 <td>缓存节点已写入网络的字节数</td>
 </tr>
 <tr>
-<td>cas<em>badval</em>rate</td>
+<td>memcache.cas<em>badval</em>rate</td>
 <td>Cas（检查和设置）值不匹配已存储 Cas 值的情况下，缓存已收到的 Cas 请求数</td>
 </tr>
 <tr>
-<td>cas<em>hits</em>rate</td>
+<td>memcache.cas<em>hits</em>rate</td>
 <td>找到了请求的密钥并且 Cas 值匹配的情况下，缓存已收到的 Cas 请求数</td>
 </tr>
 <tr>
-<td>cas<em>misses</em>rate</td>
+<td>memcache.cas<em>misses</em>rate</td>
 <td>未找到所请求密钥的情况下，缓存已收到的 Cas 请求数</td>
 </tr>
 <tr>
-<td>cmd<em>flush</em>rate</td>
+<td>memcache.cmd<em>flush</em>rate</td>
 <td>缓存已收到的 flush 命令数</td>
 </tr>
 <tr>
-<td>cmd<em>get</em>rate</td>
+<td>memcache.cmd<em>get</em>rate</td>
 <td>缓存已收到的 get 命令数</td>
 </tr>
 <tr>
-<td>cmd<em>set</em>rate</td>
+<td>memcache.cmd<em>set</em>rate</td>
 <td>缓存已收到的 set 命令数</td>
 </tr>
 <tr>
-<td>connection_structures</td>
+<td>memcache.connection_structures</td>
 <td>Memcached分配的连接结构的数量</td>
 </tr>
 <tr>
-<td>curr_connections</td>
+<td>memcache.curr_connections</td>
 <td>当前连接数</td>
 </tr>
 <tr>
-<td>curr_items</td>
+<td>memcache.curr_items</td>
 <td>当前项目数</td>
 </tr>
 <tr>
-<td>delete<em>hits</em>rate</td>
-<td>减少命中数   找到了所请求密钥的情况下，缓存已收到的减量请求数</td>
+<td>memcache.delete<em>hits</em>rate</td>
+<td>减少命中数 找到了所请求密钥的情况下，缓存已收到的减量请求数</td>
 </tr>
 <tr>
-<td>delete<em>misses</em>rate</td>
+<td>memcache.delete<em>misses</em>rate</td>
 <td>减少未命中数  未找到所请求密钥的情况下，缓存已收到的减量请求数</td>
 </tr>
 <tr>
-<td>evictions_rate</td>
+<td>memcache.evictions_rate</td>
 <td>缓存为给新的写入留出空间而移除的未过期项目数</td>
 </tr>
 <tr>
-<td>fill_percent</td>
+<td>memcache.fill_percent</td>
 <td>已使用空间百分比</td>
 </tr>
 <tr>
-<td>get<em>hits</em>rate</td>
+<td>memcache.get<em>hits</em>rate</td>
 <td>缓存命中率，即单位总命中次数除以总命中次数与未命中次数之和</td>
 </tr>
 <tr>
-<td>get<em>misses</em>rate</td>
+<td>memcache.get<em>misses</em>rate</td>
 <td>获取未命中数  未找到所请求密钥的情况下，缓存收到的 get 请求数</td>
 </tr>
 <tr>
-<td>limit_maxbytes</td>
+<td>memcache.limit_maxbytes</td>
 <td>Memcached在存储时被允许使用的字节总数</td>
 </tr>
 <tr>
-<td>pointer_size</td>
+<td>memcache.pointer_size</td>
 <td>在hostsystem的位数</td>
 </tr>
 <tr>
-<td>rusage<em>system</em>rate</td>
+<td>memcache.rusage<em>system</em>rate</td>
 <td>系统使用时间</td>
 </tr>
 <tr>
-<td>rusage<em>user</em>rate</td>
+<td>memcache.rusage<em>user</em>rate</td>
 <td>用户使用时间</td>
 </tr>
 <tr>
-<td>threads</td>
+<td>memcache.threads</td>
 <td>所使用的当前的Memcached服务器进程的线程数</td>
 </tr>
 <tr>
-<td>total<em>connections</em>rate</td>
+<td>memcache.total<em>connections</em>rate</td>
 <td>Memcached运行以来接受的连接总数</td>
 </tr>
 <tr>
-<td>total_items</td>
+<td>memcache.total_items</td>
 <td>所有项目数量，即存储的items数量</td>
 </tr>
 <tr>
-<td>uptime</td>
+<td>memcache.uptime</td>
 <td>Memcached运行时间，单位：秒</td>
 </tr>
 </tbody></table>
@@ -511,7 +512,7 @@
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功&#39;。</p>
 <pre class="highlight plaintext"><code>Checks

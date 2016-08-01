@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -382,8 +383,8 @@
 
 <p><strong>1.配置探针的 SNMP 配置文件，以连接到网络设备</strong></p>
 
-<p>切换路径至 <code>/etc/oneapm-ci-agent</code></p>
-<pre class="highlight plaintext"><code>cd /etc/oneapm-ci-agent
+<p>切换路径至 <code>/etc/cloudinsight-agent</code></p>
+<pre class="highlight plaintext"><code>cd /etc/cloudinsight-agent
 </code></pre>
 
 <p>开启配置文件 <code>conf.d/snmp.yaml</code></p>
@@ -416,12 +417,12 @@ instances:
 
 <p><strong>3.重启 Agent</strong></p>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent restart
+<p>重启 Cloudinsight Agent，使配置生效。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent restart
 </code></pre>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。</p>
-<pre class="highlight plaintext"><code>/etc/init.d/oneapm-ci-agent info
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent info
 </code></pre>
 
 <p>当出现以下信息，则代表安装成功。</p>

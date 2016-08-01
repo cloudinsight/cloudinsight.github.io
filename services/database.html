@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -375,8 +376,8 @@
 
 <span class="s">instances</span><span class="pi">:</span>                                <span class="s">＃创建实例</span>
   <span class="s">- server</span><span class="pi">:</span> <span class="s">localhost                     ＃ MySQL 所在主机，为localhost时mysql会采用 unix domain socket连接，此时要确认可以通过 localhost 连接数据库，默认为localhost</span>
-    <span class="s">user</span><span class="pi">:</span> <span class="s">my_username                     ＃创建OneAPM 的用户</span>
-    <span class="s">pass</span><span class="pi">:</span> <span class="s">my_password                     ＃ OneAPM 的用户的密码</span>
+    <span class="s">user</span><span class="pi">:</span> <span class="s">my_username                     ＃创建Cloudinsight 的用户</span>
+    <span class="s">pass</span><span class="pi">:</span> <span class="s">my_password                     ＃ Cloudinsight 的用户的密码</span>
     <span class="s">port</span><span class="pi">:</span> <span class="s">3306                            ＃ 可选，MySQL 默认端口</span>
     <span class="s">sock</span><span class="pi">:</span> <span class="s">/path/to/sock                   ＃ 通过unix socket连接数据库</span>
     <span class="s"># defaults_file</span><span class="pi">:</span> <span class="s">my.cnf               ＃  Alternate configuration mechanism</span>
@@ -399,9 +400,9 @@
 
 <h3>以配置 MySQL 监控为例</h3>
 
-<h4>创建 OneAPM 访问权限</h4>
+<h4>创建 Cloudinsight 访问权限</h4>
 
-<p>为您的 MySQL 服务器建立 OneAPM Cloudinsight 访问权限，此处的用户密码即 mysql.yaml 配置文件里面的的 user pass。</p>
+<p>为您的 MySQL 服务器建立 Cloudinsight 访问权限，此处的用户密码即 mysql.yaml 配置文件里面的的 user pass。</p>
 <pre class="highlight plaintext"><code>sudo mysql -e "CREATE USER 'oneapm'@'localhost' IDENTIFIED BY 'YourPassword';"
 sudo mysql -e "GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'oneapm'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
 sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'oneapm'@'localhost';"
@@ -418,7 +419,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <h4>编辑配置文件</h4>
 
-<p>编辑配置文件 <code>/etc/oneapm-ci-agent/conf.d/mysql.yaml</code>，使 Cloudinsight Agent 可以与 MySQL 通信。</p>
+<p>编辑配置文件 <code>/etc/cloudinsight-agent/conf.d/mysql.yaml</code>，使 Cloudinsight Agent 可以与 MySQL 通信。</p>
 <pre class="highlight yaml"><code><span class="s">init_config</span><span class="pi">:</span>
 
 <span class="s">instances</span><span class="pi">:</span>
@@ -435,7 +436,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <h4>重启 Agent</h4>
 
-<p>重启 OneAPM Cloudinsight Agent，<code>/etc/init.d/oneapm-ci-agent  restart</code> 使配置生效。</p>
+<p>重启 Cloudinsight Agent，<code>/etc/init.d/cloudinsight-agent  restart</code> 使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

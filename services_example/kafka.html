@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -385,87 +386,87 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>messages_in</td>
+<td>kafka.messages_in</td>
 <td>传入消息速率</td>
 </tr>
 <tr>
-<td>net.bytes_in</td>
+<td>kafka.net.bytes_in</td>
 <td>传入字节速率 (bytes/s)</td>
 </tr>
 <tr>
-<td>net.bytes_out</td>
+<td>kafka.net.bytes_out</td>
 <td>传出字节速率 (bytes/s)</td>
 </tr>
 <tr>
-<td>net.bytes_rejected</td>
+<td>kafka.net.bytes_rejected</td>
 <td>被拒绝的字节速率(bytes/s)</td>
 </tr>
 <tr>
-<td>replication.isr_expands</td>
+<td>kafka.replication.isr_expands</td>
 <td>副本加入ISR池的速率 （nodes/s）</td>
 </tr>
 <tr>
-<td>replication.isr_shrinks</td>
+<td>kafka.replication.isr_shrinks</td>
 <td>副本离开ISR池的速率 （nodes/s）</td>
 </tr>
 <tr>
-<td>replication.leader_elections</td>
+<td>kafka.replication.leader_elections</td>
 <td>leader 选举频率</td>
 </tr>
 <tr>
-<td>replication.unclean<em>leader</em>elections</td>
+<td>kafka.replication.unclean<em>leader</em>elections</td>
 <td></td>
 </tr>
 <tr>
-<td>request.fetch.failed</td>
+<td>kafka.request.fetch.failed</td>
 <td>客户端请求失败次数</td>
 </tr>
 <tr>
-<td>request.fetch.time.99percentile</td>
+<td>kafka.request.fetch.time.99percentile</td>
 <td>99%请求获取时间</td>
 </tr>
 <tr>
-<td>request.fetch.time.avg</td>
+<td>kafka.request.fetch.time.avg</td>
 <td>获取请求的平均时间</td>
 </tr>
 <tr>
-<td>request.handler.avg.idle.pct</td>
+<td>kafka.request.handler.avg.idle.pct</td>
 <td>处理请求线程的平均闲置时间百分比</td>
 </tr>
 <tr>
-<td>request.metadata.time.99percentile</td>
+<td>kafka.request.metadata.time.99percentile</td>
 <td>99%元数据请求时间 （milliseconds）</td>
 </tr>
 <tr>
-<td>request.metadata.time.avg</td>
+<td>kafka.request.metadata.time.avg</td>
 <td>元数据平均请求时间</td>
 </tr>
 <tr>
-<td>request.offsets.time.99percentile</td>
+<td>kafka.request.offsets.time.99percentile</td>
 <td>99% offset 请求时间 （milliseconds）</td>
 </tr>
 <tr>
-<td>request.offsets.time.avg</td>
+<td>kafka.request.offsets.time.avg</td>
 <td>offset 平均请求时间</td>
 </tr>
 <tr>
-<td>request.produce.failed</td>
+<td>kafka.request.produce.failed</td>
 <td>失败的 produce 请求数</td>
 </tr>
 <tr>
-<td>request.produce.time.99percentile</td>
+<td>kafka.request.produce.time.99percentile</td>
 <td>99% produce 请求时间</td>
 </tr>
 <tr>
-<td>request.produce.time.avg</td>
+<td>kafka.request.produce.time.avg</td>
 <td>produce 请求数的平均时间</td>
 </tr>
 <tr>
-<td>request.update_metadata.time.99percentile</td>
+<td>kafka.request.update_metadata.time.99percentile</td>
 <td>更新99%元数据请求的时间 （milliseconds）</td>
 </tr>
 <tr>
-<td>request.update_metadata.time.avg</td>
+<td>kafka.request.update_metadata.time.avg</td>
 <td>更新元数据请求的平均时间 （milliseconds）</td>
 </tr>
 </tbody></table>
@@ -474,7 +475,7 @@
 
 <h3>JMX</h3>
 
-<p>OneAPM Cloudinsight Agent 通过 JMX 获取 Kafka 中的性能指标。</p>
+<p>Cloudinsight Agent 通过 JMX 获取 Kafka 中的性能指标。</p>
 
 <p>由于每个实体最多可以监控 350 个性能指标，所以您需要按照下方的配置方法，修改配置文件来确定自己需要哪些指标。</p>
 
@@ -655,7 +656,7 @@
 
 <h3>重启 Agent</h3>
 
-<p>重启 OneAPM Cloudinsight Agent，使配置生效。</p>
+<p>重启 Cloudinsight Agent，使配置生效。</p>
 
 <p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。当出现以下信息，则代表安装成功。</p>
 <pre class="highlight plaintext"><code>Checks

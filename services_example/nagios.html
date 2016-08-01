@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -391,8 +392,8 @@ service_perfdata_file_template=[SERVICEPERFDATA]\t$TIMET$\t$HOSTNAME$\t$SERVICED
 <h3>编辑配置文件</h3>
 
 <p>编辑配置文件 <code>conf.d/nagios.yaml</code>，使 Cloudinsight Agent 可以与 Nagios 通信。</p>
-<pre class="highlight plaintext"><code>cp /etc/oneapm-ci-agent/conf.d/nagios.yaml.example /etc/oneapm-ci-agent/conf.d/nagios.yaml
-vim /etc/oneapm-ci-agent/conf.d/nagios.yaml
+<pre class="highlight plaintext"><code>cp /etc/cloudinsight-agent/conf.d/nagios.yaml.example /etc/cloudinsight-agent/conf.d/nagios.yaml
+vim /etc/cloudinsight-agent/conf.d/nagios.yaml
 </code></pre>
 <pre class="highlight plaintext"><code>init_config:
   # check_freq: 15

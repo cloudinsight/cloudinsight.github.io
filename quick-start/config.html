@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -295,8 +296,8 @@
 
 <p><strong>For Linux</strong></p>
 
-<p>Agent 配置文件放置于 <code>/etc/oneapm-ci-agent</code>，该路径下的文件结构如下。</p>
-<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+<p>Agent 配置文件放置于 <code>/etc/cloudinsight-agent</code>，该路径下的文件结构如下。</p>
+<pre class="highlight plaintext"><code>$ /etc/cloudinsight-agent : tree .
 .
 ├── checks.d
 ├── conf.d
@@ -306,8 +307,8 @@
 │   ├── win32_event_log.yaml.example
 │   ├── wmi_check.yaml.example
 │   └── zookeeper.yaml.example
-├── oneapm-ci-agent.conf
-├── oneapm-ci-agent.conf.example
+├── cloudinsight-agent.conf
+├── cloudinsight-agent.conf.example
 └── supervisor.conf
 
 2 directories, 49 files
@@ -316,16 +317,16 @@
 <p>里面包括 3 类配置文件：</p>
 
 <ul>
-<li><code>oneapm-ci-agent.conf</code>：Agent 配置文件</li>
+<li><code>cloudinsight-agent.conf</code>：Agent 配置文件</li>
 <li><code>supervisor.conf</code>：</li>
 <li><code>conf.d/平台服务名称.yaml.example</code>：平台服务配置示例</li>
 </ul>
 
-<h3>配置 <code>oneapm-ci-agent</code></h3>
+<h3>配置 <code>cloudinsight-agent</code></h3>
 
 <ul>
 <li><code>ci_url</code> - 收集的数据发送的目的服务器地址</li>
-<li><code>license_key</code> - 您的 OneAPM Cloudinsight 的 license key</li>
+<li><code>license_key</code> - 您的 Cloudinsight 的 license key</li>
 <li><code>proxy_host</code> - 代理服务地址</li>
 <li><code>proxy_port</code> - 代理服务端口</li>
 <li><code>proxy_user</code> - 代理服务账户</li>
@@ -388,7 +389,7 @@
 <li><code>user</code>: 使 supervisord 使用这个用户运行这个程序</li>
 <li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
 </ul></li>
-<li><code>group:oneapm-ci-agent</code>
+<li><code>group:cloudinsight-agent</code>
 
 <ul>
 <li><code>programs</code>: 作为这个组的成员的程序的名字，程序需要在 <code>program:x</code> 中有定义</li>

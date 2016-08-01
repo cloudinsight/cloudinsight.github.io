@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -344,7 +345,7 @@
 
 <p>安装 Tomcat  Solr  ActiveMQ Cassandra Kafka 等监控时，都需要采用 JMX 远程监控，修改好配置文件后，执行  <code>info</code> 报错如下：
 <code>
- /etc/init.d/oneapm-ci-agent info
+ /etc/init.d/cloudinsight-agent info
 </code></p>
 
 <p><img src="/images/qa/java_path1.png" /></p>
@@ -370,11 +371,11 @@
 
 <p>修改完之后重启探针 ：
 <code>
-/etc/init.d/oneapm-ci-agent  restart
+/etc/init.d/cloudinsight-agent  restart
 </code>
 查看探针状态，是否还有报错
 <code>
-/etc/init.d/oneapm-ci-agent   info
+/etc/init.d/cloudinsight-agent   info
 </code>
 输出如下图就没问题啦！</p>
 

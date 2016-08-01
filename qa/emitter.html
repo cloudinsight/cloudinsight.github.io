@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-xs-3 page-sidebar">
@@ -331,7 +332,7 @@
 <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
 <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
 <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. oneapm-ci-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
+<li><a href="/qa/docker_daemon.html">Docker &ndash; Unable to connect to socket. cloudinsight-agent user must be part of the &lsquo;docker&rsquo; group</a></li>
 <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
 <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in &ldquo;byte string&rdquo;, line 5 ,column11</a></li>
 <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE<em>VERIFY</em>FAILED certificate verify failed (_ssl.c:590)</a></li>
@@ -342,30 +343,30 @@
         <div class="col-xs-9 page-body">
           <h1>emitter.py 报错 Unable to post payload</h1>
 
-<p>探针安装后启动成功，但 web 上没有数据，此时可以查看探针的 log ，在 <code>/var/log/oneapm-ci-agent</code> 目录下面有 <code>collector.log</code> 和 <code>forwarder.log</code> 2个文件，看看里面报 <code>error</code> 的段落，如图：</p>
+<p>探针安装后启动成功，但 web 上没有数据，此时可以查看探针的 log ，在 <code>/var/log/cloudinsight-agent</code> 目录下面有 <code>collector.log</code> 和 <code>forwarder.log</code> 2个文件，看看里面报 <code>error</code> 的段落，如图：</p>
 <pre class="highlight plaintext"><code>2015-12-25 11:40:54 CST | ERROR | ci.collector | checks.collector(emitter.py:69) | Unable to post payload.
 Traceback (most recent call last):
-  File "/opt/oneapm-ci-agent/agent/emitter.py", line 61, in http_emitter
+  File "/opt/cloudinsight-agent/agent/emitter.py", line 61, in http_emitter
     r = requests.post(url, data=zipped, timeout=5, headers=headers)
-  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 108, in post
+  File "/opt/cloudinsight-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 108, in post
     return request('post', url, data=data, json=json, **kwargs)
-  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 50, in request
+  File "/opt/cloudinsight-agent/embedded/lib/python2.7/site-packages/requests/api.py", line 50, in request
     response = session.request(method=method, url=url, **kwargs)
-  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 464, in request
+  File "/opt/cloudinsight-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 464, in request
     resp = self.send(prep, **send_kwargs)
-  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+  File "/opt/cloudinsight-agent/embedded/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
     r = adapter.send(request, **kwargs)
-  File "/opt/oneapm-ci-agent/embedded/lib/python2.7/site-packages/requests/adapters.py", line 415, in send
+  File "/opt/cloudinsight-agent/embedded/lib/python2.7/site-packages/requests/adapters.py", line 415, in send
     raise ConnectionError(err, request=request)
 ConnectionError: ('Connection aborted.', error(97, 'Address family not supported by protocol'))
 </code></pre>
 
-<p>如果有以上 <code>Unable to post payload</code> 的问题，可以修改 <code>/etc/oneapm-ci-agent/oneapm-ci-agent.conf</code>  文件，在里面添加如下内容：</p>
+<p>如果有以上 <code>Unable to post payload</code> 的问题，可以修改 <code>/etc/cloudinsight-agent/cloudinsight-agent.conf</code>  文件，在里面添加如下内容：</p>
 <pre class="highlight plaintext"><code>bind_host: 127.0.0.1
 </code></pre>
 
 <p>之后重启探针，在 web 上看看是否已经有数据。</p>
-<pre class="highlight plaintext"><code>service oneapm-ci-agent restart
+<pre class="highlight plaintext"><code>service cloudinsight-agent restart
 </code></pre>
 
 <p>这是因为探针默认会读取 localhost 的数据，如果本机没有把 localhost 解析成 127.0.0.1 ，就会报这个错误，所以可以对本机进行解析，也可以在 Cloudinsight 配置文件里面绑定 127.0.0.1。</p>

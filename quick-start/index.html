@@ -279,6 +279,7 @@
     <span class="cl">X</span>
 </div>
 
+
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
@@ -336,33 +337,33 @@
 <h4>1.下载 Cloudinsight Agent 文件</h4>
 <pre class="highlight plaintext"><code>$ sudo apt-get autoremove
 $ sudo apt-get autoclean
-$ wget http://apt.oneapm.com/pool/main/oneapm-ci-agent_x.x.0-1_amd64.deb  （可以自行查看当前版本，其中amd64/i386分别对应64位/32位系统）
+$ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  （可以自行查看当前版本，其中amd64/i386分别对应64位/32位系统）
 </code></pre>
 
 <p><em>注：请不要复制中文的解释字符：（可以自行查看当前版本）</em></p>
 
 <h4>2.安装 Cloudinsight Agent</h4>
-<pre class="highlight plaintext"><code>$ dpkg -i oneapm-ci-agent_x.x.0-1_amd64.deb  （修改版本号）
+<pre class="highlight plaintext"><code>$ dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb  （修改版本号）
 </code></pre>
 
 <p><em>注：请不要复制中文的解释字符：（修改版本号）</em></p>
 
 <h4>3.配置 License Key</h4>
-<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/
-$ cp oneapm-ci-agent.conf.example   oneapm-ci-agent.conf  
-$ vi oneapm-ci-agent.conf  （修改成自己的 license_key）
+<pre class="highlight plaintext"><code>$ cd /etc/cloudinsight-agent/
+$ cp cloudinsight-agent.conf.example   cloudinsight-agent.conf  
+$ vi cloudinsight-agent.conf  （修改成自己的 license_key）
 </code></pre>
 
 <p><em>注：请不要复制中文的解释字符：（修改成自己的 license_key）</em></p>
 
 <h4>4.重启 Cloudinsight Agent</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent restart
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent restart
 </code></pre>
 
 <h2>II.修改 Agent 配置文件</h2>
 
 <p>在使用 Cloudinsight 前，需要先了解 Agent 的目录结构，方便日后 Agent 错误排查，以及了解采集的数据。</p>
-<pre class="highlight plaintext"><code>$ /etc/oneapm-ci-agent : tree .
+<pre class="highlight plaintext"><code>$ /etc/cloudinsight-agent : tree .
 .
 ├── checks.d
 ├── conf.d
@@ -372,21 +373,21 @@ $ vi oneapm-ci-agent.conf  （修改成自己的 license_key）
 │   ├── win32_event_log.yaml.example
 │   ├── wmi_check.yaml.example
 │   └── zookeeper.yaml.example
-├── oneapm-ci-agent.conf
-├── oneapm-ci-agent.conf.example
+├── cloudinsight-agent.conf
+├── cloudinsight-agent.conf.example
 └── supervisor.conf
 
 2 directories, 49 files
 </code></pre>
 
-<p>Agent 安装在 <code>/etc/init.d/oneapm-ci-agent</code> 路径，而配置文件的路径都在 <code>/etc/oneapm-ci-agent</code>。</p>
+<p>Agent 安装在 <code>/etc/init.d/cloudinsight-agent</code> 路径，而配置文件的路径都在 <code>/etc/cloudinsight-agent</code>。</p>
 
-<p>所以所有的探针执行操作，都需要将路径定位至 <code>/etc/init.d/oneapm-ci-agent</code> 路径，如 Agent 启动命令：</p>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent start
+<p>所以所有的探针执行操作，都需要将路径定位至 <code>/etc/init.d/cloudinsight-agent</code> 路径，如 Agent 启动命令：</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent start
 </code></pre>
 
-<p>而修改配置文件，都在 <code>/etc/oneapm-ci-agent</code> 路径下，如修改 Agent 中的 <code>Hostname</code>，需要：</p>
-<pre class="highlight plaintext"><code>$ vi /etc/oneapm-ci-agent/oneapm-ci-agent.conf
+<p>而修改配置文件，都在 <code>/etc/cloudinsight-agent</code> 路径下，如修改 Agent 中的 <code>Hostname</code>，需要：</p>
+<pre class="highlight plaintext"><code>$ vi /etc/cloudinsight-agent/cloudinsight-agent.conf
 </code></pre>
 
 <h3>配置文件类型</h3>
@@ -394,7 +395,7 @@ $ vi oneapm-ci-agent.conf  （修改成自己的 license_key）
 <p>Agent 配置文件分为以下 3 类：</p>
 
 <ol>
-<li><code>oneapm-ci-agent.conf</code> Agent 配置文件</li>
+<li><code>cloudinsight-agent.conf</code> Agent 配置文件</li>
 <li><code>conf.d/XXXXX.yaml</code> 您需要监控的服务的配置文件</li>
 <li><code>supervisor.conf</code> supervisor 配置文件</li>
 </ol>
@@ -421,20 +422,20 @@ $ vi oneapm-ci-agent.conf  （修改成自己的 license_key）
 <p>但是当您修改了 Agent 配置文件后，需要以下几种常用之类来帮助您更好地使用 Cloudinsight。</p>
 
 <h4>1.重启 Agent</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent restart
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent restart
 </code></pre>
 
 <p>类似的指令还有：</p>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent restart
-$ /etc/init.d/oneapm-ci-agent stop
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent restart
+$ /etc/init.d/cloudinsight-agent stop
 </code></pre>
 
 <h4>2.快速查看 Agent 状态</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent status
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent status
 </code></pre>
 
 <h4>3.查看 Agent 基本信息</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent info
 </code></pre>
 
 <p>在 <code>info</code> 执行结果，您会看到：</p>
@@ -448,7 +449,7 @@ $ /etc/init.d/oneapm-ci-agent stop
 <p>若出现异常情况会在 <code>info</code> 执行结果中标明。</p>
 
 <h4>4.打包日志文件提供给技术支持人员</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent flare
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent flare
 </code></pre>
 
 <p>若 Cloudinsight 文档不能解决您的问题，可以通过<a href="http://support.oneapm.com/request/new/">提交工单给 Cloudinsight 技术支持人员</a>，来帮助您解决问题。</p>
@@ -531,8 +532,8 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <h4>4.配置 <code>mysql.yaml</code></h4>
 
-<p>将路径定位至 <code>/etc/oneapm-ci-agent/conf.d</code></p>
-<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/conf.d
+<p>将路径定位至 <code>/etc/cloudinsight-agent/conf.d</code></p>
+<pre class="highlight plaintext"><code>$ cd /etc/cloudinsight-agent/conf.d
 </code></pre>
 
 <p>该目录下存储着 Cloudinsight 支持所有的平台服务监控的配置文件的示例文件，后缀为 <code>*.yaml.example</code>。</p>
@@ -559,7 +560,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 <h4>5.确定 Agent 是否采集到 MySQL 相关数据</h4>
 
 <p>执行 Agent Info 指令来查看，Agent 是否开始采集 MySQL 相关指标的数据。</p>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent info
 </code></pre>
 
 <p>若出现以下提示信息，则代表 Agent 已经成功采集 MySQL 数据。</p>
@@ -589,8 +590,8 @@ mysql
 
 <h4>2.配置 <code>tomcat.yaml</code></h4>
 
-<p>将路径定位至 <code>/etc/oneapm-ci-agent/conf.d</code></p>
-<pre class="highlight plaintext"><code>$ cd /etc/oneapm-ci-agent/conf.d
+<p>将路径定位至 <code>/etc/cloudinsight-agent/conf.d</code></p>
+<pre class="highlight plaintext"><code>$ cd /etc/cloudinsight-agent/conf.d
 </code></pre>
 
 <p>该目录下存储着 Cloudinsight 支持所有的平台服务监控的配置文件的示例文件，后缀为 <code>*.yaml.example</code>。</p>
@@ -621,11 +622,11 @@ mysql
 <p>由于 JMX 采集的指标特别多，而 Cloudinsight 认为只选取一些常用的指标，就可以满足大部分的用户场景。所以我们针对采集指标的数量，做了最大 350 条的限制。</p>
 
 <p>至此，我们需要为您介绍 Agent 操作中的 jmx 指令。</p>
-<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent jmx
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/cloudinsight-agent jmx
 </code></pre>
 
 <p>如需要查看哪些指标因为数量限制未被 Agent 采集：</p>
-<pre class="highlight plaintext"><code>$ sudo /etc/init.d/oneapm-ci-agent jmx list_limited_attributes
+<pre class="highlight plaintext"><code>$ sudo /etc/init.d/cloudinsight-agent jmx list_limited_attributes
 </code></pre>
 
 <p>详细操作命令，以及如何自定义指标采集，请查阅：<a href="/services/jmx.html">JMX 远程监控 • 文档</a>。</p>
@@ -633,7 +634,7 @@ mysql
 <h4>3.确定 Agent 是否采集到 Tomcat 相关数据</h4>
 
 <p>执行 Agent Info 指令来查看，Agent 是否开始采集 Tomcat 相关指标的数据。</p>
-<pre class="highlight plaintext"><code>$ /etc/init.d/oneapm-ci-agent info
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent info
 </code></pre>
 
 <p>若出现以下提示信息，则代表 Agent 已经成功采集 MySQL 数据。</p>
