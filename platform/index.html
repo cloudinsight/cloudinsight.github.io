@@ -278,46 +278,159 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
+<script type="text/javascript">
+	$(function () {
+		var key=window.location.pathname;
+		var arr5=['agent','api','cloud-integration','services','services_example'];
+		var arr1=['quick-start'];
+		var arr3=['release-note','platform','dashboard','metric','alert','event'];
+		var arr4=['use-case','best-practise'];
+		var arr2=['qa'];
+		var Arr=[arr1,arr2,arr3,arr4,arr5];
+		for(var i=0;i<6;i++) {
+			$.each(Arr[i], function (e, a) {
+				if (key.indexOf(a) !== -1) {
+					switch (i + 1) {
+						case 1:
+							key = '/quick-start/';
+							break;
+						case 5:
+							key = '/agent/';
+							break;
+						case 3:
+							key = '/platform/';
+							break;
+						case 4:
+							key = '/best-practise/';
+							break;
+						case 2:
+							key = '/qa/';
+							break;
+					}
+				}
+			});
+		}
+		var keyInfo="'"+key+"'";
+		var panelHead;
+			panelHead= $(".nav-container  a[href="+keyInfo+"]");
+			panelHead.addClass('show');
+	});
+</script>
 
 
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
-          <ul>
-<li><a href="/release-note.html">Release Note</a><br></li>
-<li><a href="/platform/">平台及拓扑</a>
-
-<ul>
-<li><a href="/platform/platform_config.html">平台操作</a></li>
-<li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
-<li><a href="/platform/system.html">System 数据指标解释</a><br></li>
-</ul></li>
-<li><a href="/dashboard/">仪表盘</a>
-
-<ul>
-<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
-<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
-<li><a href="/share/">图表分享</a><br></li>
-</ul></li>
-<li><a href="/metric/">指标与浏览</a>
-
-<ul>
-<li><a href="/metric/metric_explorer.html">指标浏览</a><br></li>
-</ul></li>
-<li><a href="/alert/">报警与策略</a>
-
-<ul>
-<li><a href="/alert/metric.html">指标报警</a><br></li>
-</ul></li>
-<li><a href="/event/">事件</a><br></li>
-</ul>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" href="/release-note.html">
+          Release Note
+        </a>
+      </h4>
+    </div>
+    <!--<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">-->
+      <!--<div class="panel-body">-->
+        <!--<ul>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed"  href="/platform/">
+          平台及拓扑
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/platform/platform_config.html">平台操作</a></li>
+          <li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
+          <li><a href="/platform/system.html">System 数据指标解释</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/dashboard/">
+          仪表盘
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+          <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+          <li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
+          <li><a href="/dashboard/share.html">图表分享</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/metric/">
+          指标与浏览
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/metric/metric_explorer.html">指标浏览</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/alert/">
+          报警与策略
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/alert/metric.html">指标报警</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/event/">
+          事件
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
         </div>
         <div class="col-lg-9 page-body">
-          <h1>平台</h1>
+          <div class="body-box">
+            <h1>平台</h1>
 
 <p>Cloudinsight 提供基础设施的监控，以操作系统的监控为核心。在这里，我们将这种监控方式，称之为<strong>平台监控</strong>；而运行在平台下的服务，如数据库、Web 服务，我们称之为<strong>平台服务</strong>。</p>
+
+<hr>
 
 <h2>平台安装</h2>
 
@@ -341,6 +454,8 @@
 <li><a href="/agent/windows.html">Windows 安装</a></li>
 <li><a href="/agent/docker.html">Docker 安装</a></li>
 </ul>
+
+<hr>
 
 <h2>平台列表</h2>
 
@@ -376,7 +491,7 @@
 
 <p><img src="/images/platform/overview2.png" /></p>
 
-          <hr style="margin-top: 50px;" />
+            <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
     如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
@@ -422,122 +537,158 @@
 </script>
 <!-- 多说公共JS代码 end -->
 
+            <div class="return"></div>
+          </div>
+          <div class="footer-in">
+            <div class="footer-nav-block">
+    <div class="container">
+        <div class="footer-nav">
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="/quick-start/">文档</a>
+                    </li>
+                    <li>
+                        <a href="/quick-start/">快速入门</a>
+                    </li>
+                    <li>
+                        <a href="/agent/">安装配置</a>
+                    </li>
+                    <li>
+                        <a href="/platform/">操作指南</a>
+                    </li>
+                    <li>
+                        <a href="/best-practise/">实践案例</a>
+                    </li>
+                    <li>
+                        <a href="/qa/">常见问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-support">
+            <ul class="footer-support-list">
+                <li><img src="/images/home/support.svg"></li>
+                <li class="support-title">技术支持</li>
+                <li class="support-mail">support@oneapm.com</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer-copyright-block">
+    <div class="container">
+        <div class="copyright-link">
+            <div class="socialLink">
+                <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+                    <img src="/images/home/github.svg">
+                    <p class="hidden-xs hidden-xxs">Github</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="#" class="social-btn qr">
+                    <img src="/images/home/wechat.svg">
+                    <p class="hidden-xs hidden-xxs">微信</p>
+                    <div class="QRcode">
+                        <img src="/images/home/wechatQR.svg">
+                    </div>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+                    <img src="/images/home/oschina.svg">
+                    <p class="hidden-xs hidden-xxs">开源中国</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+                    <img src="/images/home/weibo.svg">
+                    <p class="hidden-xs hidden-xxs">微博</p>
+                </a>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <a href="http://cloudinsight.oneapm.com/">
+                <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+            </a>
+            <p class="copyright">
+                Copyright © 2008-
+                <span id="cr-end-time"></span>
+                北京蓝海讯通科技股份有限公司
+                <br>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+                京公网安备 11010802016192
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-nav-block">
-  <div class="container">
-    <div class="footer-nav">
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="/quick-start/">文档</a>
-          </li>
-          <li>
-            <a href="/quick-start/">快速入门</a>
-          </li>
-          <li>
-            <a href="/agent/">安装配置</a>
-          </li>
-          <li>
-            <a href="/platform/">操作指南</a>
-          </li>
-          <li>
-            <a href="/best-practise/">实践案例</a>
-          </li>
-          <li>
-            <a href="/qa/">常见问题</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-support">
-          <ul class="footer-support-list">
-            <li><img src="/images/home/support.svg"></li>
-            <li class="support-title">技术支持</li>
-            <li class="support-mail">support@oneapm.com</li>
-          </ul>
-    </div>
-  </div>
-</div>
-<div class="footer-copyright-block">
-  <div class="container">
-    <div class="copyright-link">
-      <div class="socialLink">
-        <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
-          <img src="/images/home/github.svg">
-          <p class="hidden-xs hidden-xxs">Github</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="#" class="social-btn qr">
-          <img src="/images/home/wechat.svg">
-          <p class="hidden-xs hidden-xxs">微信</p>
-          <div class="QRcode">
-            <img src="/images/home/wechatQR.svg">
-          </div>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
-          <img src="/images/home/oschina.svg">
-          <p class="hidden-xs hidden-xxs">开源中国</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
-          <img src="/images/home/weibo.svg">
-          <p class="hidden-xs hidden-xxs">微博</p>
-        </a>
-      </div>
-    </div>
-    <div class="copyright-text">
-      <a href="http://cloudinsight.oneapm.com/">
-        <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
-      </a>
-      <p class="copyright">
-          Copyright © 2008-
-          <span id="cr-end-time"></span>
-          北京蓝海讯通科技股份有限公司
-          <br>
-          <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
-          京公网安备 11010802016192
-        <br>
-      </p>
-    </div>
-  </div>
-</div>
+
 
 
     <script type="text/javascript">
       $(function() {
         $(".navbar-default .navbar-nav .guide").addClass("active");
+        (function () {
+          $('.panel-default').mouseenter(function () {
+            if(!$(this).hasClass('active')){
+              $(this).children().addClass('in');
+            }
+          })
+          $('.panel-default').mouseleave(function () {
+              if(!$(this).hasClass('active')) {
+                $(this).children().removeClass('in');
+              }
+            })
+          var key=window.location.pathname;
+          var lastindex;
+          var keyInfo;
+          if(key.indexOf('quick-start') !== -1){
+            keyInfo="'"+key+"'";
+          }else if(key.indexOf('/',1) !== -1){
+            lastindex=key.indexOf('/',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"'";
+          }else {
+            lastindex=key.indexOf('.',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"html'";
+          }
+          var panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
+          panelHead.siblings().addClass('in');
+          panelHead.parent().siblings('div').map(function () {
+            $(this).removeClass('active');
+          });
+          panelHead.parent().addClass('active');
+        })();
       });
     </script>
   </body>

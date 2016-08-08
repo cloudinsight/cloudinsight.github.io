@@ -278,44 +278,155 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
+<script type="text/javascript">
+	$(function () {
+		var key=window.location.pathname;
+		var arr5=['agent','api','cloud-integration','services','services_example'];
+		var arr1=['quick-start'];
+		var arr3=['release-note','platform','dashboard','metric','alert','event'];
+		var arr4=['use-case','best-practise'];
+		var arr2=['qa'];
+		var Arr=[arr1,arr2,arr3,arr4,arr5];
+		for(var i=0;i<6;i++) {
+			$.each(Arr[i], function (e, a) {
+				if (key.indexOf(a) !== -1) {
+					switch (i + 1) {
+						case 1:
+							key = '/quick-start/';
+							break;
+						case 5:
+							key = '/agent/';
+							break;
+						case 3:
+							key = '/platform/';
+							break;
+						case 4:
+							key = '/best-practise/';
+							break;
+						case 2:
+							key = '/qa/';
+							break;
+					}
+				}
+			});
+		}
+		var keyInfo="'"+key+"'";
+		var panelHead;
+			panelHead= $(".nav-container  a[href="+keyInfo+"]");
+			panelHead.addClass('show');
+	});
+</script>
 
 
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
-          <ul>
-<li><a href="/release-note.html">Release Note</a><br></li>
-<li><a href="/platform/">平台及拓扑</a>
-
-<ul>
-<li><a href="/platform/platform_config.html">平台操作</a></li>
-<li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
-<li><a href="/platform/system.html">System 数据指标解释</a><br></li>
-</ul></li>
-<li><a href="/dashboard/">仪表盘</a>
-
-<ul>
-<li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
-<li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
-<li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
-<li><a href="/share/">图表分享</a><br></li>
-</ul></li>
-<li><a href="/metric/">指标与浏览</a>
-
-<ul>
-<li><a href="/metric/metric_explorer.html">指标浏览</a><br></li>
-</ul></li>
-<li><a href="/alert/">报警与策略</a>
-
-<ul>
-<li><a href="/alert/metric.html">指标报警</a><br></li>
-</ul></li>
-<li><a href="/event/">事件</a><br></li>
-</ul>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" href="/release-note.html">
+          Release Note
+        </a>
+      </h4>
+    </div>
+    <!--<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">-->
+      <!--<div class="panel-body">-->
+        <!--<ul>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed"  href="/platform/">
+          平台及拓扑
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/platform/platform_config.html">平台操作</a></li>
+          <li><a href="/platform/hostmap.html">拓扑/Hostmap</a></li>
+          <li><a href="/platform/system.html">System 数据指标解释</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/dashboard/">
+          仪表盘
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/dashboard/custom.html">自定义仪表盘</a></li>
+          <li><a href="/dashboard/automatic.html">平台服务仪表盘</a></li>
+          <li><a href="/dashboard/upload_custom.html">自定义数据仪表盘</a></li>
+          <li><a href="/dashboard/share.html">图表分享</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/metric/">
+          指标与浏览
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/metric/metric_explorer.html">指标浏览</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/alert/">
+          报警与策略
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/alert/metric.html">指标报警</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/event/">
+          事件
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
         </div>
         <div class="col-lg-9 page-body">
-          <h1>自定义仪表盘</h1>
+          <div class="body-box">
+            <h1>自定义仪表盘</h1>
 
 <p>自定义仪表盘是 Cloudinsight 的核心功能。在仪表盘的章节中，我们提到 Cloudinsight 仪表盘的核心逻辑是：</p>
 
@@ -329,16 +440,509 @@
 <li>针对操作的结果，提供曲线图、柱状图等多样化的展现形式。</li>
 </ol>
 
-<p>由于 Cloudinsight 自定义仪表盘的操作，有一些些复杂，所以我们拆来来说：</p>
+<p>由于 Cloudinsight 自定义仪表盘的操作，有一些些复杂，所以我们拆开来说：</p>
 
 <ul>
-<li><a href="/dashboard/basic_usage.html">基本操作</a></li>
-<li><a href="/dashboard/query_metric.html">Metric 查询</a></li>
-<li><a href="/dashboard/parameter.html">参数使用</a></li>
-<li><a href="/dashboard/dashboard_fun.html">功能操作</a></li>
+<li>基本操作</li>
+<li>Metric 查询</li>
+<li>参数使用</li>
+<li>功能操作</li>
 </ul>
 
-          <hr style="margin-top: 50px;" />
+<hr>
+
+<h2>基本操作</h2>
+
+<p>平台服务仪表盘，能够提供用户只读的权限；而自定义仪表盘提供增删改的权限。所有的基本操作包括：</p>
+
+<ul>
+<li>创建仪表盘</li>
+<li>删除仪表盘</li>
+<li>编辑仪表盘</li>
+<li>创建副本</li>
+</ul>
+
+<p>而使用仪表盘包括以下的页面：</p>
+
+<ul>
+<li>仪表盘列表</li>
+<li>仪表盘搜索</li>
+<li>收藏仪表盘</li>
+</ul>
+
+<h3>创建和删除仪表盘</h3>
+
+<p>用户可通过「添加仪表盘」按钮，或者从其他仪表盘「创建副本」来创建新的自定义仪表盘。</p>
+
+<p><strong>添加仪表盘</strong></p>
+
+<p><img src="/images/dashboard/BasicUsage1.png" /></p>
+
+<p>输入仪表盘名称，即创建了一个新的自定义仪表盘。</p>
+
+<p><strong>创建副本</strong></p>
+
+<p>由于平台服务仪表盘，针对所有用户都只有只读权限。如果想编辑平台服务仪表盘，需要：</p>
+
+<ul>
+<li>创建该平台服务仪表盘的副本</li>
+<li>该副本会变为一个新的自定义仪表盘</li>
+<li>编辑该自定义仪表盘</li>
+</ul>
+
+<p><img src="/images/dashboard/BasicUsage2.png" /></p>
+
+<p><strong>删除仪表盘</strong></p>
+
+<p>删除仪表盘和创建副本，都隐藏在仪表盘页面右上角的设置按钮中。</p>
+
+<p><img src="/images/dashboard/BasicUsage3.png" /></p>
+
+<h3>编辑仪表盘</h3>
+
+<p>编辑仪表盘包括：</p>
+
+<ul>
+<li>修改仪表盘的名称</li>
+<li>添加监控图表</li>
+</ul>
+
+<p>仪表盘是全团队可见的，但是仪表盘的最初创建者，会记录在仪表盘列表中。而团队成员都拥有，对自定义仪表盘的读写权限。</p>
+
+<p>针对以下的「添加监控图表」，由于逻辑复杂，所以我们留到下一个小节，做介绍。</p>
+
+<p><img src="/images/dashboard/BasicUsage4.png" /></p>
+
+<hr>
+
+<h2>Metric 查询</h2>
+
+<p>添加监控图表，会弹出以下对话框。使用 Cloudinsight 的 Metric 查询，就可以得到您所需要的图表。</p>
+
+<p><img src="/images/dashboard/BasicUsage4.png" /></p>
+
+<p>Cloudinsight 提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。</p>
+
+<h3>语法</h3>
+<pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
+</code></pre>
+
+<p>在介绍语法前，我们先通过一组样本来解释 Metric 查询的语法。</p>
+
+<table><thead>
+<tr>
+<th>Series</th>
+<th>MetricName</th>
+<th>TagValue: Host</th>
+<th>TagValue: Owner</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>system.cpu.idle</td>
+<td>ChengMoMacAir</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>B</td>
+<td>system.cpu.idle</td>
+<td>UbuntuChengMo</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>C</td>
+<td>system.cpu.idle</td>
+<td>WZL-CentOS</td>
+<td>wangzhili</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
+
+<h4><code>Aggregation</code> 和 <code>FromTag</code></h4>
+
+<ul>
+<li>Aggregation：聚合算子。指 Metric 查询范围 FromTag 所查询到的多条 series 通过 avg、max、min、sum 哪种方式聚合。</li>
+<li>FromTag：查询范围。指 Metric 所需聚合的 series 的查询条件。</li>
+</ul>
+
+<p>如：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, host:UbuntuChengMO}
+</code></pre>
+
+<p>所得的结果是：</p>
+
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>0.8</td>
+<td>0.5</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+</tbody></table>
+
+<p>同样，上述查询也可以简化成：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {owner:chengmo}
+</code></pre>
+
+<p>这就是标签管理在 Cloudinsight 的重要性啦。该部分留到标签的章节，做详细的介绍。</p>
+
+<h4><code>by</code> 其实就是 <code>group_by</code></h4>
+
+<p>Cloudinsight 还支持类似 SQL 的 <code>group_by</code> 查询语法。这个在查看：</p>
+
+<ul>
+<li>多个磁盘分区的容量</li>
+<li>Docker 中不同 Container 的性能消耗</li>
+</ul>
+
+<p>都是非常有用的。还是以上诉例子举例，如果我们想要看每个 <code>host</code> 的 CPU 空闲率：</p>
+<pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {host}
+</code></pre>
+
+<p>此时，第一个 <code>{FromTag}</code> 缺省代表从所有 Metrics 中查询数据。如图所示，得到以下图表：</p>
+
+<p><img src="/images/dashboard/QueryMetric1.png" /></p>
+
+<p>在实际的测试环境中，由于我们有 6 台测试主机，所以会得到如下的曲线。并且，当鼠标悬停至曲线时，下方的悬停窗口会分别显示 6 台主机的 <code>system.cpu.idle</code>。</p>
+
+<p><img src="/images/dashboard/QueryMetric2.png" /></p>
+
+<h3>灵活查询</h3>
+
+<h4>聚合和分组并存</h4>
+
+<p>除开单纯的聚合和分组，Cloudinsight 还支持聚合和分组的复合查询。如：</p>
+<pre class="highlight plaintext"><code>avg: system.cpu.idle {} by {owner}
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Series</th>
+<th>MetricName</th>
+<th>TagValue: Host</th>
+<th>TagValue: Owner</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>system.cpu.idle</td>
+<td>ChengMoMacAir</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>B</td>
+<td>system.cpu.idle</td>
+<td>UbuntuChengMo</td>
+<td>chengmo</td>
+</tr>
+<tr>
+<td>C</td>
+<td>system.cpu.idle</td>
+<td>WZL-CentOS</td>
+<td>wangzhili</td>
+</tr>
+</tbody></table>
+
+<p>此时，虽然有 3 个 host，但是分组是以 <code>owner</code> 来进行分组。所以，A 与 B 会聚合为一条曲线，而 C 和 A&amp;B 的关系是分组的关系。</p>
+
+<table><thead>
+<tr>
+<th>Series</th>
+<th>00:00</th>
+<th>01:00</th>
+<th>02:00</th>
+<th>03:00</th>
+<th>04:00</th>
+<th>05:00</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>0.3</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.8</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>0.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td><strong>Output A&amp;B</strong></td>
+<td>0.55</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>0.5</td>
+<td>0.85</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td><strong>Output C</strong></td>
+<td>0.6</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
+
+<h4>多条件查询</h4>
+
+<p><code>FromTag</code> 可以承接多个条件，如上文提到的：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, host:UbuntuChengMO}
+</code></pre>
+
+<p>查询到是两个 Host 的聚合结果。那么，如果是以下查询呢：</p>
+<pre class="highlight plaintext"><code>max: system.cpu.idle {host:ChengMoMacAir, owner:wangzhili}
+</code></pre>
+
+<p>此时，查询到结果为 <code>NULL</code>。因为，Metric 查询遵循以下原则：</p>
+
+<ul>
+<li><strong>同一 Tag Key，Metric 查询求并集；</strong></li>
+<li><strong>不同 Tag Key，Metric 查询求交集。</strong></li>
+</ul>
+
+<p>也就是说，上述查询分别代表：</p>
+
+<ul>
+<li>我想查询 <code>host</code> 为 <code>ChengMoMacAir</code> 和 <code>host:UbuntuChengMO</code> 的聚合结果</li>
+<li>我想查询 <code>host</code> 为 <code>ChengMoMacAir</code> 且 <code>owner</code> 为 <code>wangzhili</code> 的聚合结果</li>
+</ul>
+
+<p>自然，根据表格，我们发现这样的 Host 是不存在的，故而结果为 <code>NULL</code>。</p>
+
+<p>我们之所以这么设计，是因为此类思考更符合人的思维习惯：</p>
+
+<ul>
+<li>当人们选择多个 host 时，自然而然想到的是这些 host 的求和结果，即：同一 Tag Key 求并集；</li>
+<li>当人们选择某个 host，又再次选择另一个 Tag 时，想到的是在这个 host 下满足这些 tag 的结果，即：不同 Tag Key 求交集。</li>
+</ul>
+
+<h4>参数查询</h4>
+
+<p>Cloudinsight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
+
+<p><img src="/images/dashboard/QueryMetric3.png" /></p>
+
+<hr>
+
+<h2>参数使用</h2>
+
+<p>Cloudinsight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
+
+<p><img src="/images/dashboard/QueryMetric3.png" /></p>
+
+<p>什么意思呢？我们先来温习下 Metric 查询的语法：</p>
+<pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
+</code></pre>
+
+<p>就是将 <code>{FromTag}</code> 设置为一个参数，可以让用户在界面做任意的更改。</p>
+
+<p>我们以 <em>System 总览 • 仪表盘</em>，举例来说：</p>
+
+<p><img src="/images/dashboard/Parameter1.png" /></p>
+
+<p>我们需要一张仪表盘，能够：</p>
+
+<ul>
+<li>可以查看<strong>所有主机</strong>的总体性能；</li>
+<li>又能够随时定位到<strong>单台主机</strong>的性能。</li>
+</ul>
+
+<p>此时，就需要使用参数来达到要求。</p>
+
+<p><img src="/images/dashboard/Parameter2.png" /></p>
+
+<p>在上图中，我们可以看到 <code>$scope</code> 代表的是 <code>host:*</code> ，则此时 Metric 查询语句为：</p>
+<pre class="highlight plaintext"><code>avg:system.load.1 {host:*}
+</code></pre>
+
+<p>而之前监控图表设置的 Metric 查询为：</p>
+<pre class="highlight plaintext"><code>avg:system.load.1 {$scope}
+</code></pre>
+
+<p>是不是有点像 C 语言中宏的概念。也就是说，<strong>参数是一个可以根据下拉框随时被替换的字段，来满足动态查询</strong>。</p>
+
+<p>若此时，我选择 <code>$host</code> 为 <code>host:centos.license</code> 则显示效果如图：</p>
+
+<p><img src="/images/dashboard/Parameter3.png" /></p>
+
+<h3>注意事项</h3>
+
+<p>您可以通过如下方式进行 Metric 查询：</p>
+<pre class="highlight plaintext"><code>avg:system.load.1 {$host, host:centos.license}
+</code></pre>
+
+<p>但是我们不建议您这么做。是因为变量和常量在查询上隔离，能够帮助您更有效地管理 Metric 和 Host。</p>
+
+<p><img src="/images/dashboard/Parameter4.png" /></p>
+
+<p>另外，只有 <code>{FromTag}</code> 中可以设置参数；用于分组的 <code>{TagKey}</code> 不能使用参数。</p>
+
+<hr>
+
+<h2>自定义仪表盘功能操作</h2>
+
+<p>随着版本不断更新迭代，仪表盘的功能也在不断丰富着，基本创建删除编辑功能参见<a href="/dashboard/basic_usage.html">仪表盘基本操作</a>。</p>
+
+<h3>仪表盘图表类型</h3>
+
+<p>仪表盘图表类型现在有7种，热力图，饼图，状态值，表格，时间序列值，TopN，树状图下面一一介绍。</p>
+
+<p><img src="/images/dashboard/fun_1.png" /></p>
+
+<ul>
+<li><p>上图中 <code>cpu use</code> 是默认的数据格式，数据是按照时间序列格式采集的，所以按照时间序列显示就是这样，其中这种是曲线图，此外还有面积图和柱状图。</p></li>
+<li><p>上图中 <code>cpu.user</code> 是热力图，数值大显示颜色深，可以查看最近一周服务器的 CPU 使用情况。</p></li>
+<li><p>上图中 <code>avg-system.load.1-top5</code> 是 TopN 数值。显示的是某个指标在一个维度的降／升序排列。</p></li>
+<li><p>上图中 <code>system load</code> 就是表格值，把当时的数据直接显示出来，很直观。</p></li>
+<li><p>上图中 <code>net_cvd</code> 就是状态值，其实是显示一个具体的指标数值，条件，阈值，背景颜色，字体颜色，字体位置等都可以设置，有具体的条件规则。</p></li>
+<li><p>上图中 <code>avg-system.disk.used-treemap</code> 是树状图，显示不同 device 所占磁盘大小。</p></li>
+<li><p>上图中 <code>mem</code> 也是时间序列格式的值，不过显示的是面积图。把一个服务器不同 device 的数据累积显示。</p></li>
+<li><p>上图中 <code>avg-system.net.bytes_sent-timesseries</code> 显示的是<strong>添加标记</strong>后的图表，对现有数据添加一个标记线／标记区域，可以警示数据到临界值的状况。</p></li>
+<li><p>上图中 <code>avg-system.load.1</code> 显示的是添加了叠加事件的状态，叠加事件和指标一同变化，从中看出发生某件事件时指标的变化情况。</p></li>
+</ul>
+
+<p>此外，应该也看出来了图表大小可以调节，按照最舒适的角度随意调节。</p>
+
+<h3>显示 rate 增长率</h3>
+
+<p>仪表盘除了展示实时数据外，还可以展示 rate ，这点对于业务需求是很重要的，所有仪表盘类型都可以设置。设置方法很简单，点击勾选即可。</p>
+
+<p><img src="/images/dashboard/fun_2.png" /></p>
+
+<h3>显示特定数据</h3>
+
+<p>默认的仪表盘会显示所有数据的总和，如果想显示特定数据就要用自定义仪表盘进行特别设置，基本操作原理参见 <a href="/dashboard/query_metric.html">Metric 查询</a>，本文以显示 Python 进程数为例。</p>
+
+<p>想要监控 Python 进程，如果有进程挂了触发报警可以及时知道。具体配置见<a href="/services_example/process.html">进程监控</a>，配置好后，默认 <code>process.threads</code> 显示的是所有进程的数据。</p>
+
+<p>想要只显示 Python，先在指标处找到 <code>process.threads</code> 这个指标，看看其 <code>Tags</code> 是否有配置的如 <code>process: python</code> 这样的进程标签例，如果没有那就得看看有哪些配置错误，如果有的话就可以继续在仪表盘里面设置 Python 进程数仪表盘。</p>
+
+<p>配置自定义仪表盘，先选定 <code>process.threads</code> 这个指标，再设置 <code>From</code> 指定查询范围，在选定前面的指标后，后面会列出只有此指标的 FromTag （即在指标中看到的那些 Tags），示例选了2个进程来监控，配置效果图如下：</p>
+
+<p><img src="/images/dashboard/fun_3.png" /></p>
+
+<p>同样的<a href="/qa/network_adapter.html">显示所有网卡流量情况</a>也是这样配置。</p>
+
+<h3>叠加事件</h3>
+
+<p>仪表盘的叠加事件，是通过事件查询，符合名称的事件会在叠加到图表上显示。</p>
+
+<p>关于什么是事件，参考<a href="/event/">事件流</a>，为方便下面解释，现在举例：添加告警策略 <code>avg(last_5m):avg:system.cpu.user {host:wzl-ubuntu} &gt;= 9</code>，策略名称设置为 <code>wzl-ubuntu.cpu over 9</code>（为了出数据，就这么设置了）这个会生成一个创建告警策略的事件，某一时刻到达报警条件，告警触发，几分钟后 CPU 又降了下来，告警策略关闭。这样一个过程会有3个事件，创建告警策略(info)，告警触发(alert)，告警恢复(info)，后面是告警类别。</p>
+
+<p>下面具体说一下叠加事件的查询条件，目前支持一下几种查询格式。</p>
+
+<p><code>fieldname:value1,value2</code> 和 <code>value3 OR value4</code></p>
+
+<p>其中：<code>fieldname</code> 为查询指定字段，<code>value1,value2</code>为可选值列表，<code>value3</code>和<code>value4</code>为不指定字段的全文检索</p>
+
+<p><code>fieldname</code> 可以使用以下：</p>
+<pre class="highlight plaintext"><code>event_title
+event_type
+alert_type
+event_description
+event_object
+tags
+host
+source_type_name
+</code></pre>
+
+<p>可以输入 <code>event_type:ALERT_TRIGGER</code> ，这样就会把报警触发相关的信息都显示出来，还有一个就是<strong>中文的必须加双引号</strong>。</p>
+
+<p>你可以搜索 <code>event_title:wzl-ubuntu.cpu over 9</code>，这样3种事件都会显示出来；也可以不加查询指定字段 <code>fieldname</code>，直接加 <code>wzl-ubuntu.cpu over 9</code>，同样会出现3种事件。</p>
+
+<p>查询是累加的，如果想要删除某个查询条件只能先删除所有叠加事件，再重新添加。</p>
+
+            <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
     如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
@@ -384,122 +988,158 @@
 </script>
 <!-- 多说公共JS代码 end -->
 
+            <div class="return"></div>
+          </div>
+          <div class="footer-in">
+            <div class="footer-nav-block">
+    <div class="container">
+        <div class="footer-nav">
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="/quick-start/">文档</a>
+                    </li>
+                    <li>
+                        <a href="/quick-start/">快速入门</a>
+                    </li>
+                    <li>
+                        <a href="/agent/">安装配置</a>
+                    </li>
+                    <li>
+                        <a href="/platform/">操作指南</a>
+                    </li>
+                    <li>
+                        <a href="/best-practise/">实践案例</a>
+                    </li>
+                    <li>
+                        <a href="/qa/">常见问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-support">
+            <ul class="footer-support-list">
+                <li><img src="/images/home/support.svg"></li>
+                <li class="support-title">技术支持</li>
+                <li class="support-mail">support@oneapm.com</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer-copyright-block">
+    <div class="container">
+        <div class="copyright-link">
+            <div class="socialLink">
+                <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+                    <img src="/images/home/github.svg">
+                    <p class="hidden-xs hidden-xxs">Github</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="#" class="social-btn qr">
+                    <img src="/images/home/wechat.svg">
+                    <p class="hidden-xs hidden-xxs">微信</p>
+                    <div class="QRcode">
+                        <img src="/images/home/wechatQR.svg">
+                    </div>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+                    <img src="/images/home/oschina.svg">
+                    <p class="hidden-xs hidden-xxs">开源中国</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+                    <img src="/images/home/weibo.svg">
+                    <p class="hidden-xs hidden-xxs">微博</p>
+                </a>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <a href="http://cloudinsight.oneapm.com/">
+                <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+            </a>
+            <p class="copyright">
+                Copyright © 2008-
+                <span id="cr-end-time"></span>
+                北京蓝海讯通科技股份有限公司
+                <br>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+                京公网安备 11010802016192
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-nav-block">
-  <div class="container">
-    <div class="footer-nav">
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="/quick-start/">文档</a>
-          </li>
-          <li>
-            <a href="/quick-start/">快速入门</a>
-          </li>
-          <li>
-            <a href="/agent/">安装配置</a>
-          </li>
-          <li>
-            <a href="/platform/">操作指南</a>
-          </li>
-          <li>
-            <a href="/best-practise/">实践案例</a>
-          </li>
-          <li>
-            <a href="/qa/">常见问题</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-support">
-          <ul class="footer-support-list">
-            <li><img src="/images/home/support.svg"></li>
-            <li class="support-title">技术支持</li>
-            <li class="support-mail">support@oneapm.com</li>
-          </ul>
-    </div>
-  </div>
-</div>
-<div class="footer-copyright-block">
-  <div class="container">
-    <div class="copyright-link">
-      <div class="socialLink">
-        <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
-          <img src="/images/home/github.svg">
-          <p class="hidden-xs hidden-xxs">Github</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="#" class="social-btn qr">
-          <img src="/images/home/wechat.svg">
-          <p class="hidden-xs hidden-xxs">微信</p>
-          <div class="QRcode">
-            <img src="/images/home/wechatQR.svg">
-          </div>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
-          <img src="/images/home/oschina.svg">
-          <p class="hidden-xs hidden-xxs">开源中国</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
-          <img src="/images/home/weibo.svg">
-          <p class="hidden-xs hidden-xxs">微博</p>
-        </a>
-      </div>
-    </div>
-    <div class="copyright-text">
-      <a href="http://cloudinsight.oneapm.com/">
-        <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
-      </a>
-      <p class="copyright">
-          Copyright © 2008-
-          <span id="cr-end-time"></span>
-          北京蓝海讯通科技股份有限公司
-          <br>
-          <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
-          京公网安备 11010802016192
-        <br>
-      </p>
-    </div>
-  </div>
-</div>
+
 
 
     <script type="text/javascript">
       $(function() {
         $(".navbar-default .navbar-nav .guide").addClass("active");
+        (function () {
+          $('.panel-default').mouseenter(function () {
+            if(!$(this).hasClass('active')){
+              $(this).children().addClass('in');
+            }
+          })
+          $('.panel-default').mouseleave(function () {
+              if(!$(this).hasClass('active')) {
+                $(this).children().removeClass('in');
+              }
+            })
+          var key=window.location.pathname;
+          var lastindex;
+          var keyInfo;
+          if(key.indexOf('quick-start') !== -1){
+            keyInfo="'"+key+"'";
+          }else if(key.indexOf('/',1) !== -1){
+            lastindex=key.indexOf('/',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"'";
+          }else {
+            lastindex=key.indexOf('.',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"html'";
+          }
+          var panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
+          panelHead.siblings().addClass('in');
+          panelHead.parent().siblings('div').map(function () {
+            $(this).removeClass('active');
+          });
+          panelHead.parent().addClass('active');
+        })();
       });
     </script>
   </body>

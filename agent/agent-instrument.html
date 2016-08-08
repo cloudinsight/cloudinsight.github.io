@@ -278,102 +278,250 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
+<script type="text/javascript">
+	$(function () {
+		var key=window.location.pathname;
+		var arr5=['agent','api','cloud-integration','services','services_example'];
+		var arr1=['quick-start'];
+		var arr3=['release-note','platform','dashboard','metric','alert','event'];
+		var arr4=['use-case','best-practise'];
+		var arr2=['qa'];
+		var Arr=[arr1,arr2,arr3,arr4,arr5];
+		for(var i=0;i<6;i++) {
+			$.each(Arr[i], function (e, a) {
+				if (key.indexOf(a) !== -1) {
+					switch (i + 1) {
+						case 1:
+							key = '/quick-start/';
+							break;
+						case 5:
+							key = '/agent/';
+							break;
+						case 3:
+							key = '/platform/';
+							break;
+						case 4:
+							key = '/best-practise/';
+							break;
+						case 2:
+							key = '/qa/';
+							break;
+					}
+				}
+			});
+		}
+		var keyInfo="'"+key+"'";
+		var panelHead;
+			panelHead= $(".nav-container  a[href="+keyInfo+"]");
+			panelHead.addClass('show');
+	});
+</script>
 
 
     <div class="container page-container">
       <div class="row">
         <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
-          <ul>
-<li><a href="/agent/">Agent 安装与配置</a>
-
-<ul>
-<li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
-<li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
-<li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
-<li><a href="/agent/windows.html">Windows 安装</a></li>
-<li><a href="/agent/docker.html">Docker 安装</a></li>
-<li><a href="/agent/chef.html">Chef 安装</a></li>
-<li><a href="/agent/inner.html">内网环境安装探针</a></li>
-<li><a href="/quick-start/instrument.html">Agent 基本操作</a></li>
-<li><a href="/quick-start/config.html">Agent 配置文件</a><br></li>
-</ul></li>
-<li><a href="/api/">API与SDK</a>
-
-<ul>
-<li><a href="/api/sdk.html">SDK</a></li>
-<li><a href="/api/python.html">Python</a></li>
-<li><a href="/api/nodejs.html">Node.js</a></li>
-<li><a href="/api/ruby.html">Ruby</a></li>
-<li><a href="/api/java.html">Java</a></li>
-<li><a href="/api/dotnet.html">DotNET</a></li>
-<li><a href="/api/php.html">PHP</a><br></li>
-</ul></li>
-<li><a href="/cloud-integration/">云厂商接入</a>
-
-<ul>
-<li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
-<li><a href="/cloud-integration/ucloud.html">UCloud</a><br></li>
-</ul></li>
-<li><a href="/services/">平台服务基础配置</a>
-
-<ul>
-<li><a href="/services/status.html">状态页监控</a></li>
-<li><a href="/services/jmx.html">JMX 远程监控</a></li>
-<li><a href="/services/authorize.html">数据库授权监控</a></li>
-<li><a href="/services/agent-check.html">自定义 AgentCheck</a><br></li>
-</ul></li>
-<li><a href="/services_example/">平台服务配置示例</a>
-
-<ul>
-<li><a href="/services_example/activemq.html">activemq</a></li>
-<li><a href="/services_example/apache.html">apache</a></li>
-<li><a href="/services_example/bearychat.html">bearychat</a></li>
-<li><a href="/services_example/cacti.html">cacti</a></li>
-<li><a href="/services_example/cassandra.html">cassandra</a></li>
-<li><a href="/services_example/couchbase.html">couchbase</a></li>
-<li><a href="/services_example/couchdb.html">couchdb</a></li>
-<li><a href="/services_example/docker.html">docker</a></li>
-<li><a href="/services_example/elasticsearch.html">elasticsearch</a></li>
-<li><a href="/services_example/event_viewer.html">event_viewer</a></li>
-<li><a href="/services_example/gearman.html">gearman</a></li>
-<li><a href="/services_example/gunicorn.html">gunicorn</a></li>
-<li><a href="/services_example/haproxy.html">haproxy</a></li>
-<li><a href="/services_example/http.html">http</a></li>
-<li><a href="/services_example/iis.html">iis</a></li>
-<li><a href="/services_example/jianliao.html">jianliao</a></li>
-<li><a href="/services_example/kafka.html">kafka</a></li>
-<li><a href="/services_example/memcached.html">memcached</a></li>
-<li><a href="/services_example/mesos.html">mesos</a></li>
-<li><a href="/services_example/mongodb.html">mongodb</a></li>
-<li><a href="/services_example/mysql.html">mysql</a></li>
-<li><a href="/services_example/nagios.html">nagios</a></li>
-<li><a href="/services_example/nginx.html">nginx</a></li>
-<li><a href="/services_example/php-fpm.html">php-fpm</a></li>
-<li><a href="/services_example/postgresql.html">postgresql</a></li>
-<li><a href="/services_example/pubu.html">pubu</a></li>
-<li><a href="/services_example/rabbitmq.html">rabbitmq</a></li>
-<li><a href="/services_example/redis.html">redis</a></li>
-<li><a href="/services_example/snmp.html">snmp</a></li>
-<li><a href="/services_example/solr.html">solr</a></li>
-<li><a href="/services_example/sqlserver.html">sqlserver</a></li>
-<li><a href="/services_example/ssh.html">ssh</a></li>
-<li><a href="/services_example/supervisord.html">supervisord</a></li>
-<li><a href="/services_example/tcp.html">tcp</a></li>
-<li><a href="/services_example/tomcat.html">tomcat</a></li>
-<li><a href="/services_example/wmi.html">wmi</a></li>
-<li><a href="/services_example/zookeeper.html">zookeeper</a></li>
-</ul></li>
-</ul>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" href="/agent/">
+          Agent 安装与设置
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+          <li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+          <li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+          <li><a href="/agent/windows.html">Windows 安装</a></li>
+          <li><a href="/agent/docker.html">Docker 安装</a></li>
+          <li><a href="/agent/chef.html">Chef 安装</a></li>
+          <li><a href="/agent/inner.html">内网环境安装探针</a></li>
+          <li><a href="/agent/agent-instrument.html">Agent 操作与配置</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed"  href="/api/">
+          API与SDK
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/api/sdk.html">SDK</a></li>
+          <li><a href="/api/python.html">Python</a></li>
+          <li><a href="/api/nodejs.html">Node.js</a></li>
+          <li><a href="/api/ruby.html">Ruby</a></li>
+          <li><a href="/api/java.html">Java</a></li>
+          <li><a href="/api/dotnet.html">DotNET</a></li>
+          <li><a href="/api/php.html">PHP</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/cloud-integration/">
+          云厂商接入
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+          <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services/">
+          平台服务基础配置
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services/status.html">状态页监控</a></li>
+          <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+          <li><a href="/services/authorize.html">数据库授权监控</a></li>
+          <li><a href="/services/database.html">数据库配置</a></li>
+          <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services_example/">
+          平台服务配置示例
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services_example/activemq.html">artivemq</a></li>
+          <li><a href="/services_example/apache.html">apache</a></li>
+          <li><a href="/services_example/bearychat.html">bearychat</a></li>
+          <li><a href="/services_example/cacti.html">cacti</a></li>
+          <li><a href="/services_example/cassandra.html">cassandra</a></li>
+          <li><a href="/services_example/couchbase.html">couchbase</a></li>
+          <li><a href="/services_example/couchdb.html">couchdb</a></li>
+          <li><a href="/services_example/docker.html">docker</a></li>
+          <li><a href="/services_example/elasticsearch.html">elasticsearch</a></li>
+          <li><a href="/services_example/event_viewer.html">event_viewer</a></li>
+          <li><a href="/services_example/gearman.html">gearman</a></li>
+          <li><a href="/services_example/gunicorn.html">gunicorn</a></li>
+          <li><a href="/services_example/haproxy.html">haproxy</a></li>
+          <li><a href="/services_example/http.html">http</a></li>
+          <li><a href="/services_example/iis.html">iis</a></li>
+          <li><a href="/services_example/jianliao.html">jianliao</a></li>
+          <li><a href="/services_example/kafka.html">kafka</a></li>
+          <li><a href="/services_example/memcached.html">memcached</a></li>
+          <li><a href="/services_example/mesos.html">mesos</a></li>
+          <li><a href="/services_example/mongodb.html">mongodb</a></li>
+          <li><a href="/services_example/mysql.html">mysql</a></li>
+          <li><a href="/services_example/nagios.html">nagios</a></li>
+          <li><a href="/services_example/network.html">network</a></li>
+          <li><a href="/services_example/nginx.html">nginx</a></li>
+          <li><a href="/services_example/openstack.html">openstack</a></li>
+          <li><a href="/services_example/php-fpm.html">php-fpm</a></li>
+          <li><a href="/services_example/postgresql.html">postgresql</a></li>
+          <li><a href="/services_example/process.html">process</a></li>
+          <li><a href="/services_example/pubu.html">pubu</a></li>
+          <li><a href="/services_example/rabbitmq.html">rabbitmq</a></li>
+          <li><a href="/services_example/redis.html">redis</a></li>
+          <li><a href="/services_example/snmp.html">snmp</a></li>
+          <li><a href="/services_example/solr.html">solr</a></li>
+          <li><a href="/services_example/sqlserver.html">sqlserver</a></li>
+          <li><a href="/services_example/ssh.html">ssh</a></li>
+          <li><a href="/services_example/supervisord.html">supervisord</a></li>
+          <li><a href="/services_example/tcp.html">tcp</a></li>
+          <li><a href="/services_example/tomcat.html">tomcat</a></li>
+          <li><a href="/services_example/wmi.html">wmi</a></li>
+          <li><a href="/services_example/zookeeper.html">zookeeper</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
         </div>
         <div class="col-lg-9 page-body">
-          <h1>Agent 操作与配置</h1>
+          <div class="body-box">
+            <h1>Agent 操作与配置</h1>
 
 <p>概述 Cloudinsight Agent 的基本使用方法。如果您尚未安装探针，可以先进行安装。</p>
 
 <p>默认情况下，探针将被安装在 <code>/opt/cloudinsight-agent</code> 目录。</p>
 
-<h2>启动 / 停止 / 卸载</h2>
+<hr>
+
+<h2>Agent 基本操作</h2>
+
+<p><strong>For Linux</strong></p>
+
+<p>执行以下指令，会得到如下结果。</p>
+<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent
+
+Usage: /etc/init.d/cloudinsight-agent {start|stop|restart|info|status|configcheck|configtest|jmx|flare}
+</code></pre>
+
+<p>可见 Agent 支持以下的操作：</p>
+
+<ul>
+<li><code>start</code></li>
+<li><code>stop</code></li>
+<li><code>restart</code></li>
+<li><code>info</code></li>
+<li><code>status</code></li>
+<li><code>configcheck</code></li>
+<li><code>configtest</code></li>
+<li><code>jmx</code></li>
+<li><code>flare</code></li>
+</ul>
+
+<p>启动 Agent 需执行以下指令，同理于停止和重启 Agent。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent start
+</code></pre>
+
+<p><code>info</code> 指令查看 Agent 的概要信息。执行 <code>info</code> 指令，可见 Cloudinsight Agent 由 <code>Collector</code>、<code>Forwarder</code>、<code>Onestatsd</code> 3 部分构成。</p>
+
+<p><code>info</code> 指令会显示这 3 部分的时间戳、Host 信息、进程信息，以及依赖的配置文件路径和日志路径。当然，还包括数据采集的信息。</p>
+
+<p><code>status</code> 显示 Agent 目前的运行状态。</p>
+
+<p><code>configtest</code> 和 <code>configcheck</code> 用于配置文件的检查。而 <code>jmx</code> 用于 JMX 的检查，详情见：<a href="/services/jmx.html">JMX 远程监控</a>。</p>
+
+<p><code>flare</code> 用于配置文件和日志文件的打包。在联系客服人员前，请使用此指令对日志文件和配置文件进行打包，并发送给客服人员。<a href="https://oneapm.kf5.com/request/new/">提交问题等待回复</a>，<a href="mailto:support@oneapm.com">邮件联系</a>，加入 Cloudinsight 售后 QQ 群：433349863。</p>
+
+<p><strong>For Windows</strong></p>
+
+<p>所有配置都可以在 Cloudinsight Agent Manager 控制面板上进行操作。</p>
+<pre class="highlight plaintext"><code>Logs and Status {Agent Status}
+Actions  {start|stop|restart|flare|exit}
+</code></pre>
+
+<p><code>Agent Status</code> 同 Linux 的 <code>info</code>，其它相同。</p>
+
+<hr>
+
+<h3>启动 / 停止 / 卸载</h3>
 
 <p>启动探针：</p>
 <pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent start
@@ -391,7 +539,9 @@
 <pre class="highlight plaintext"><code>sudo yum erase cloudinsight-agent / apt-get remove cloudinsight-agent
 </code></pre>
 
-<h2>更新</h2>
+<hr>
+
+<h3>更新</h3>
 
 <p>CentOS / Redhat 更新</p>
 <pre class="highlight plaintext"><code>sudo yum install cloudinsight-agent
@@ -401,7 +551,9 @@
 <pre class="highlight plaintext"><code>sudo apt-get update &amp;&amp; apt-get install cloudinsight-agent
 </code></pre>
 
-<h2>查看状态</h2>
+<hr>
+
+<h3>查看状态</h3>
 
 <p>查看探针是否运行：</p>
 <pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent status
@@ -415,13 +567,15 @@
 <pre class="highlight plaintext"><code>sudo /etc/init.d/cloudinsight-agent configtest
 </code></pre>
 
-<h2>配置</h2>
+<hr>
+
+<h3>配置</h3>
 
 <p>探针的配置文件：</p>
 <pre class="highlight plaintext"><code>/etc/cloudinsight-agent/cloudinsight-agent.conf
 </code></pre>
 
-<h3><code>cloudinsight-agent.conf</code> 配置项</h3>
+<h4><code>cloudinsight-agent.conf</code> 配置项</h4>
 <pre class="highlight plaintext"><code>[Main]
 
 # The host of the Cloudinsight data collector server to send Agent data to
@@ -460,7 +614,7 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 # Agent Developer Mode collects and sends more fine-grained metrics about agent and check performance
 # developer_mode: no           # 开发者模式
 # In developer mode, the number of runs to be included in a single collector profile
-# collector_profile_interval: 20 
+# collector_profile_interval: 20
 
 # ========================================================================== #
 # Logging
@@ -486,7 +640,9 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 
 <p>平台服务的配置各有不同，详情请查看：<a href="/services/">平台服务</a></p>
 
-<h2>排查</h2>
+<hr>
+
+<h3>排查</h3>
 
 <p>运行上面的 <code>sudo /etc/init.d/cloudinsight-agent info</code> 命令查看探针状态。</p>
 
@@ -498,7 +654,119 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 <li><code>/var/log/cloudinsight-agent/forwarder.log</code></li>
 </ul>
 
-          <hr style="margin-top: 50px;" />
+<hr>
+
+<h2>Agent 配置文件</h2>
+
+<p>本节介绍 Agent 的配置文件，以方便更好的使用 Cloudinsight Agent。</p>
+
+<p><strong>For Linux</strong></p>
+
+<p>Agent 配置文件放置于 <code>/etc/cloudinsight-agent</code>，该路径下的文件结构如下。</p>
+<pre class="highlight plaintext"><code>$ /etc/cloudinsight-agent : tree .
+.
+├── checks.d
+├── conf.d
+│   ├── activemq_58.yaml.example
+...
+│   ├── tomcat.yaml.example
+│   ├── win32_event_log.yaml.example
+│   ├── wmi_check.yaml.example
+│   └── zookeeper.yaml.example
+├── cloudinsight-agent.conf
+├── cloudinsight-agent.conf.example
+└── supervisor.conf
+
+2 directories, 49 files
+</code></pre>
+
+<p>里面包括 3 类配置文件：</p>
+
+<ul>
+<li><code>cloudinsight-agent.conf</code>：Agent 配置文件</li>
+<li><code>supervisor.conf</code>：</li>
+<li><code>conf.d/平台服务名称.yaml.example</code>：平台服务配置示例</li>
+</ul>
+
+<hr>
+
+<h3>配置 <code>cloudinsight-agent</code></h3>
+
+<ul>
+<li><code>ci_url</code> - 收集的数据发送的目的服务器地址</li>
+<li><code>license_key</code> - 您的 Cloudinsight 的 license key</li>
+<li><code>proxy_host</code> - 代理服务地址</li>
+<li><code>proxy_port</code> - 代理服务端口</li>
+<li><code>proxy_user</code> - 代理服务账户</li>
+<li><code>proxy_password</code> - 代理服务密码</li>
+<li><code>skip_ssl_validation</code> - 跳过 ssl 验证，此时 ci_url 后面的地址 https 改为 http</li>
+<li><code>hostname</code> - 主机名</li>
+<li><code>tags</code> - 标签，多项用逗号间隔，(bd:bj-db,user:wang)</li>
+<li><code>log_level</code> - log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)</li>
+<li><code>collector_log_file</code> - collector 日志文件</li>
+<li><code>forwarder_log_file</code> - forwarder 日志文件</li>
+<li><code>onestatsd_log_file</code> - onestatsd 日志文件</li>
+<li><code>log_to_syslog</code> - 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog</li>
+<li><code>syslog_host</code> - syslog 地址</li>
+<li><code>syslog_port</code> - syslog 端口</li>
+</ul>
+
+<hr>
+
+<h3>配置 <code>supervisor.conf</code></h3>
+
+<p>以下仅列出探针用到的配置，如果有疑问，可以查看更详细的<a href="http://supervisord.org/configuration.html">官方 supervisor 配置文档</a>。</p>
+
+<ul>
+<li><code>supervisorctl</code>
+
+<ul>
+<li><code>serverurl</code>: 连接 supervisord 服务的地址，可以是 url 或者 unix socket</li>
+</ul></li>
+<li><code>unix_http_server</code>
+
+<ul>
+<li><code>file: supervisord</code> 的 unix socket 文件</li>
+</ul></li>
+<li><code>rpcinterface:supervisor</code>
+
+<ul>
+<li><code>supervisor.rpcinterface_factory</code>: rpc 的工厂函数，不用管这个 - -</li>
+</ul></li>
+<li><code>supervisord</code>
+
+<ul>
+<li><code>http_port</code>: supervisord 端口</li>
+<li><code>minfds</code>: supervisord 启动所需的最小的文件描述符个数</li>
+<li><code>loglevel</code>: log 级别，可用的有 critical, error, warn, info, debug, trace, blather</li>
+<li><code>logfile</code>: log 文件</li>
+<li><code>logfile_maxbytes</code>: log 文件的最大 bytes 值，超过就会分割为备份文件</li>
+<li><code>nodaemon</code>: 如果值是 true, supervisord 会在前台运行，false 就是后台运行</li>
+<li><code>pidfile</code>: supervisord 的 pid 文件</li>
+<li><code>logfile_backups</code>: 日志分割文件保留数，如果是0就不会有备份文件</li>
+<li><code>user</code>: 让 supervisord 切换到这个用户再运行，只有是用 root 启动的 supervisord 才能切换</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>program:collector,forwarder,onestatsd,jmxfetch</code>
+
+<ul>
+<li><code>command</code>: 这个程序启动时候会执行的命令</li>
+<li><code>stdout_logfile</code>: 这个程序的标准输出写入的目标文件，如果是 <code>NONE</code>,将不会创建 log 文件</li>
+<li><code>stderr_logfile</code>: 这个程序的错误输出写入的目标文件，如果是 <code>NONE</code>,静不会创建 log 文件</li>
+<li><code>priority</code>: 这个程序在启动和关闭时候的顺序的相对优先级，值越低，启动越早，关闭越晚</li>
+<li><code>startsecs</code>: 这个程序在被认为启动成功之前，需要运行的时间</li>
+<li><code>startretries</code>: supervisord 在启动程序失败后会尝试启动的次数</li>
+<li><code>user</code>: 使 supervisord 使用这个用户运行这个程序</li>
+<li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
+</ul></li>
+<li><code>group:cloudinsight-agent</code>
+
+<ul>
+<li><code>programs</code>: 作为这个组的成员的程序的名字，程序需要在 <code>program:x</code> 中有定义</li>
+</ul></li>
+</ul>
+
+            <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
   <p style="font-size: 16px;">
     如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
@@ -544,122 +812,158 @@ tags: bd:bj-db,user:wang       # 标签，多项用逗号间隔
 </script>
 <!-- 多说公共JS代码 end -->
 
+            <div class="return"></div>
+          </div>
+          <div class="footer-in">
+            <div class="footer-nav-block">
+    <div class="container">
+        <div class="footer-nav">
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="/quick-start/">文档</a>
+                    </li>
+                    <li>
+                        <a href="/quick-start/">快速入门</a>
+                    </li>
+                    <li>
+                        <a href="/agent/">安装配置</a>
+                    </li>
+                    <li>
+                        <a href="/platform/">操作指南</a>
+                    </li>
+                    <li>
+                        <a href="/best-practise/">实践案例</a>
+                    </li>
+                    <li>
+                        <a href="/qa/">常见问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-support">
+            <ul class="footer-support-list">
+                <li><img src="/images/home/support.svg"></li>
+                <li class="support-title">技术支持</li>
+                <li class="support-mail">support@oneapm.com</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer-copyright-block">
+    <div class="container">
+        <div class="copyright-link">
+            <div class="socialLink">
+                <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+                    <img src="/images/home/github.svg">
+                    <p class="hidden-xs hidden-xxs">Github</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="#" class="social-btn qr">
+                    <img src="/images/home/wechat.svg">
+                    <p class="hidden-xs hidden-xxs">微信</p>
+                    <div class="QRcode">
+                        <img src="/images/home/wechatQR.svg">
+                    </div>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+                    <img src="/images/home/oschina.svg">
+                    <p class="hidden-xs hidden-xxs">开源中国</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+                    <img src="/images/home/weibo.svg">
+                    <p class="hidden-xs hidden-xxs">微博</p>
+                </a>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <a href="http://cloudinsight.oneapm.com/">
+                <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+            </a>
+            <p class="copyright">
+                Copyright © 2008-
+                <span id="cr-end-time"></span>
+                北京蓝海讯通科技股份有限公司
+                <br>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+                京公网安备 11010802016192
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-nav-block">
-  <div class="container">
-    <div class="footer-nav">
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="/quick-start/">文档</a>
-          </li>
-          <li>
-            <a href="/quick-start/">快速入门</a>
-          </li>
-          <li>
-            <a href="/agent/">安装配置</a>
-          </li>
-          <li>
-            <a href="/platform/">操作指南</a>
-          </li>
-          <li>
-            <a href="/best-practise/">实践案例</a>
-          </li>
-          <li>
-            <a href="/qa/">常见问题</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
-          </li>
-          <li>
-            <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <ul class="footer-nav-list">
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
-          <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-support">
-          <ul class="footer-support-list">
-            <li><img src="/images/home/support.svg"></li>
-            <li class="support-title">技术支持</li>
-            <li class="support-mail">support@oneapm.com</li>
-          </ul>
-    </div>
-  </div>
-</div>
-<div class="footer-copyright-block">
-  <div class="container">
-    <div class="copyright-link">
-      <div class="socialLink">
-        <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
-          <img src="/images/home/github.svg">
-          <p class="hidden-xs hidden-xxs">Github</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="#" class="social-btn qr">
-          <img src="/images/home/wechat.svg">
-          <p class="hidden-xs hidden-xxs">微信</p>
-          <div class="QRcode">
-            <img src="/images/home/wechatQR.svg">
-          </div>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
-          <img src="/images/home/oschina.svg">
-          <p class="hidden-xs hidden-xxs">开源中国</p>
-        </a>
-      </div>
-      <div class="socialLink">
-        <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
-          <img src="/images/home/weibo.svg">
-          <p class="hidden-xs hidden-xxs">微博</p>
-        </a>
-      </div>
-    </div>
-    <div class="copyright-text">
-      <a href="http://cloudinsight.oneapm.com/">
-        <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
-      </a>
-      <p class="copyright">
-          Copyright © 2008-
-          <span id="cr-end-time"></span>
-          北京蓝海讯通科技股份有限公司
-          <br>
-          <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
-          京公网安备 11010802016192
-        <br>
-      </p>
-    </div>
-  </div>
-</div>
+
 
 
     <script type="text/javascript">
       $(function() {
         $(".navbar-default .navbar-nav .guide").addClass("active");
+        (function () {
+          $('.panel-default').mouseenter(function () {
+            if(!$(this).hasClass('active')){
+              $(this).children().addClass('in');
+            }
+          })
+          $('.panel-default').mouseleave(function () {
+              if(!$(this).hasClass('active')) {
+                $(this).children().removeClass('in');
+              }
+            })
+          var key=window.location.pathname;
+          var lastindex;
+          var keyInfo;
+          if(key.indexOf('quick-start') !== -1){
+            keyInfo="'"+key+"'";
+          }else if(key.indexOf('/',1) !== -1){
+            lastindex=key.indexOf('/',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"'";
+          }else {
+            lastindex=key.indexOf('.',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"html'";
+          }
+          var panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
+          panelHead.siblings().addClass('in');
+          panelHead.parent().siblings('div').map(function () {
+            $(this).removeClass('active');
+          });
+          panelHead.parent().addClass('active');
+        })();
       });
     </script>
   </body>
