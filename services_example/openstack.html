@@ -264,10 +264,10 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
-					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow" id="signUp">注册</a>
 				</li>
 			</ul>
 		</div>
@@ -320,7 +320,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -479,7 +479,7 @@
 <p>使用 Cloudinsight 监控 Openstak 前，需要在 Openstack 为 Cloudinsight Agent 创建单独的角色，确保 Keystone 模块可以让 Agent 访问指标数据。</p>
 
 <p>使用以下指令为 Cloudinsight 创建角色。</p>
-<pre class="highlight plaintext"><code>openstack role create cloudinsight_monitoring
+<pre class="highlight shell"><code>openstack role create cloudinsight_monitoring
 openstack user create cloudinsight --password my_password --project my_project_name
 openstack role add cloudinsight_monitoring --project my_project_name --user cloudinsight
 </code></pre>
@@ -570,16 +570,16 @@ openstack role add cloudinsight_monitoring --project my_project_name --user clou
 </code></pre>
 
 <p>前往配置项的 <code># User credentials</code> 部分，修改角色的账户和密码：</p>
-<pre class="highlight plaintext"><code>      # User credentials
-      # Password authentication is the only auth method supported right now
-      # User expects username, password, and user domain id
+<pre class="highlight yaml"><code>      <span class="c1"># User credentials</span>
+      <span class="c1"># Password authentication is the only auth method supported right now</span>
+      <span class="c1"># User expects username, password, and user domain id</span>
 
-      # `user` should resolve to a structure like {'password': 'my_password', 'name': 'my_name', 'domain$
-      user:
-          password: my_password
-          name: cloudinsight
-          domain:
-              id: default
+      <span class="c1"># `user` should resolve to a structure like {'password': 'my_password', 'name': 'my_name', 'domain$</span>
+      <span class="s">user</span><span class="pi">:</span>
+          <span class="s">password</span><span class="pi">:</span> <span class="s">my_password</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">cloudinsight</span>
+          <span class="s">domain</span><span class="pi">:</span>
+              <span class="s">id</span><span class="pi">:</span> <span class="s">default</span>
 </code></pre>
 
 <p class="notes clearfix"> 
@@ -1007,6 +1007,27 @@ openstack
           var keyInfo;
           if(key.indexOf('quick-start') !== -1){
             keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
           }else if(key.indexOf('/',1) !== -1){
             lastindex=key.indexOf('/',1);
             keyInfo="'"+key.substring(0,lastindex+1)+"'";

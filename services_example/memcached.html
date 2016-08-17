@@ -264,10 +264,10 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
-					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow" id="signUp">注册</a>
 				</li>
 			</ul>
 		</div>
@@ -320,7 +320,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -819,6 +819,27 @@ mcache
           var keyInfo;
           if(key.indexOf('quick-start') !== -1){
             keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
           }else if(key.indexOf('/',1) !== -1){
             lastindex=key.indexOf('/',1);
             keyInfo="'"+key.substring(0,lastindex+1)+"'";

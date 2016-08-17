@@ -264,10 +264,10 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
-					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow" id="signUp">注册</a>
 				</li>
 			</ul>
 		</div>
@@ -320,7 +320,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -374,7 +374,7 @@
 <h2>I.安装 Cloudinsight Agent</h2>
 
 <p>在 Cloudinsight 产品界面「设置 -&gt; 添加平台」中会显示安装 Agent 指令，我们以 Debian 为例：</p>
-<pre class="highlight plaintext"><code>$ CI_LICENSE_KEY=YourLicenseKey= bash -c "$(curl -L https://download.oneapm.com/oneapm_ci_agent/install_agent.sh)"
+<pre class="highlight shell"><code><span class="gp">$ </span><span class="nv">CI_LICENSE_KEY</span><span class="o">=</span><span class="nv">YourLicenseKey</span><span class="o">=</span> bash -c <span class="s2">"</span><span class="k">$(</span>curl -L https://download.oneapm.com/oneapm_ci_agent/install_agent.sh<span class="k">)</span><span class="s2">"</span>
 </code></pre>
 
 <p>需要注意的事项：</p>
@@ -404,9 +404,9 @@
 <h3>手动安装</h3>
 
 <h4>1.下载 Cloudinsight Agent 文件</h4>
-<pre class="highlight plaintext"><code>$ sudo apt-get autoremove
-$ sudo apt-get autoclean
-$ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  （可以自行查看当前版本，其中amd64/i386分别对应64位/32位系统）
+<pre class="highlight shell"><code><span class="gp">$ </span>sudo apt-get autoremove
+<span class="gp">$ </span>sudo apt-get autoclean
+<span class="gp">$ </span>wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  （可以自行查看当前版本，其中amd64/i386分别对应64位/32位系统）
 </code></pre>
 
 <p class="notes clearfix"> 
@@ -415,7 +415,7 @@ $ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  （
 </p>
 
 <h4>2.安装 Cloudinsight Agent</h4>
-<pre class="highlight plaintext"><code>$ dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb  （修改版本号）
+<pre class="highlight shell"><code><span class="gp">$ </span>dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb  （修改版本号）
 </code></pre>
 
 <p class="notes clearfix"> 
@@ -424,9 +424,9 @@ $ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_x.x.0-1_amd64.deb  （
 </p>
 
 <h4>3.配置 License Key</h4>
-<pre class="highlight plaintext"><code>$ cd /etc/cloudinsight-agent/
-$ cp cloudinsight-agent.conf.example   cloudinsight-agent.conf  
-$ vi cloudinsight-agent.conf  （修改成自己的 license_key）
+<pre class="highlight shell"><code><span class="gp">$ </span><span class="nb">cd</span> /etc/cloudinsight-agent/
+<span class="gp">$ </span>cp cloudinsight-agent.conf.example   cloudinsight-agent.conf  
+<span class="gp">$ </span>vi cloudinsight-agent.conf  （修改成自己的 license_key）
 </code></pre>
 
 <p class="notes clearfix"> 
@@ -532,7 +532,7 @@ $ /etc/init.d/cloudinsight-agent stop
 <p>若出现异常情况会在 <code>info</code> 执行结果中标明。</p>
 
 <h4>4.打包日志文件提供给技术支持人员</h4>
-<pre class="highlight plaintext"><code>$ /etc/init.d/cloudinsight-agent flare
+<pre class="highlight shell"><code><span class="gp">$ </span>/etc/init.d/cloudinsight-agent flare
 </code></pre>
 
 <p>若 Cloudinsight 文档不能解决您的问题，可以通过<a href="http://support.oneapm.com/request/new/">提交工单给 Cloudinsight 技术支持人员</a>，来帮助您解决问题。</p>
@@ -590,7 +590,7 @@ $ /etc/init.d/cloudinsight-agent stop
 <h3>MySQL 监控</h3>
 
 <h4>1.给 Cloudinsight 创建一个名为 <code>oneapm</code> 的角色</h4>
-<pre class="highlight plaintext"><code>$ sudo mysql -e "CREATE USER 'oneapm'@'localhost' IDENTIFIED BY 'YourPassword';"
+<pre class="highlight shell"><code><span class="gp">$ </span>sudo mysql -e <span class="s2">"CREATE USER 'oneapm'@'localhost' IDENTIFIED BY 'YourPassword';"</span>
 </code></pre>
 
 <p>至此，我们为 MySQL 配置了一个名为 <code>oneapm</code> 的角色，并且密码为 <code>YourPassword</code>。</p>
@@ -629,7 +629,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 <p>该目录下存储着 Cloudinsight 支持所有的平台服务监控的配置文件的示例文件，后缀为 <code>*.yaml.example</code>。</p>
 
 <p>若您不熟悉 <code>yaml</code> 语法，建议直接从示例文件中创建副本开启监控。</p>
-<pre class="highlight plaintext"><code>$ cp mysql.yaml.example mysql.yaml
+<pre class="highlight shell"><code><span class="gp">$ </span>cp mysql.yaml.example mysql.yaml
 </code></pre>
 
 <p>或者阅读：<a href="/qa/yaml.html">YAML 格式须知 • 文档</a>。</p>
@@ -960,6 +960,27 @@ tomcat
           var keyInfo;
           if(key.indexOf('quick-start') !== -1){
             keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
           }else if(key.indexOf('/',1) !== -1){
             lastindex=key.indexOf('/',1);
             keyInfo="'"+key.substring(0,lastindex+1)+"'";

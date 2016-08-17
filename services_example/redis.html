@@ -264,10 +264,10 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
-					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow">注册</a>
+					<a href="https://user.oneapm.com/pages/v2/signup" class="btn inside-yellow" id="signUp">注册</a>
 				</li>
 			</ul>
 		</div>
@@ -320,7 +320,7 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-lg-3 page-sidebar hidden-sm hidden-xs">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -485,135 +485,135 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>redis.aof.last<em>rewrite</em>time</td>
+<td><code>redis.aof.last_rewrite_time</code></td>
 <td>上次rewrite操作使用的时间(单位s)</td>
 </tr>
 <tr>
-<td>redis.aof.rewrite</td>
+<td><code>redis.aof.rewrite</code></td>
 <td>rewrite 的次数</td>
 </tr>
 <tr>
-<td>redis.clients.biggest<em>input</em>buf</td>
+<td><code>redis.clients.biggest_input_buf</code></td>
 <td>当前客户端连接的最大输入缓存</td>
 </tr>
 <tr>
-<td>redis.clients.blocked</td>
+<td><code>redis.clients.blocked</code></td>
 <td>被阻塞的客户端数</td>
 </tr>
 <tr>
-<td>redis.clients.longest<em>output</em>list</td>
+<td><code>redis.clients.longest_output_list</code></td>
 <td>当前客户端连接的最大输出列表</td>
 </tr>
 <tr>
-<td>redis.cpu.sys</td>
+<td><code>redis.cpu.sys</code></td>
 <td>系统cpu</td>
 </tr>
 <tr>
-<td>redis.cpu.sys_children</td>
+<td><code>redis.cpu.sys_children</code></td>
 <td>后台进程的sys cpu使用率</td>
 </tr>
 <tr>
-<td>redis.cpu.user</td>
+<td><code>redis.cpu.user</code></td>
 <td>redis server的user cpu使用率</td>
 </tr>
 <tr>
-<td>redis.cpu.user_children</td>
+<td><code>redis.cpu.user_children</code></td>
 <td>后台进程的user cpu使用率</td>
 </tr>
 <tr>
-<td>redis.info.latency_ms</td>
+<td><code>redis.info.latency_ms</code></td>
 <td>redis 服务器响应延迟的平均时间</td>
 </tr>
 <tr>
-<td>redis.keys.evicted</td>
+<td><code>redis.keys.evicted</code></td>
 <td>因为内存大小限制，而被驱逐出去的键的个数</td>
 </tr>
 <tr>
-<td>redis.keys.expired</td>
+<td><code>redis.keys.expired</code></td>
 <td>过期的key的总数</td>
 </tr>
 <tr>
-<td>redis.mem.fragmentation_ratio</td>
+<td><code>redis.mem.fragmentation_ratio</code></td>
 <td>used<em>memory</em>rss/used<em>memory比例，一般情况下，used</em>memory<em>rss略高于used</em>memory，当内存碎片较多时，则mem<em>fragmentation</em>ratio会较大，可以反映内存碎片是否很多</td>
 </tr>
 <tr>
-<td>redis.mem.lua</td>
+<td><code>redis.mem.lua</code></td>
 <td>lua引擎使用的内存</td>
 </tr>
 <tr>
-<td>redis.mem.peak</td>
+<td><code>redis.mem.peak</code></td>
 <td>内存使用的峰值大小</td>
 </tr>
 <tr>
-<td>redis.mem.rss</td>
+<td><code>redis.mem.rss</code></td>
 <td>系统给redis分配的内存（即常驻内存）</td>
 </tr>
 <tr>
-<td>redis.mem.used</td>
+<td><code>redis.mem.used</code></td>
 <td>使用内存，单位byte</td>
 </tr>
 <tr>
-<td>redis.net.clients</td>
+<td><code>redis.net.clients</code></td>
 <td>连接的客户端数</td>
 </tr>
 <tr>
-<td>redis.net.commands</td>
+<td><code>redis.net.commands</code></td>
 <td>每秒运行命令数</td>
 </tr>
 <tr>
-<td>redis.net.rejected</td>
+<td><code>redis.net.rejected</code></td>
 <td>因为最大客户端连接数限制，而导致被拒绝连接的个数</td>
 </tr>
 <tr>
-<td>redis.net.slaves</td>
+<td><code>redis.net.slaves</code></td>
 <td>连接的从库数</td>
 </tr>
 <tr>
-<td>redis.perf.latest<em>fork</em>usec</td>
+<td><code>redis.perf.latest_fork_usec</code></td>
 <td>上次的fork操作使用的时间（单位ms）</td>
 </tr>
 <tr>
-<td>redis.pubsub.channels</td>
+<td><code>redis.pubsub.channels</code></td>
 <td>当前使用中的频道数量／ 发布/订阅频道数</td>
 </tr>
 <tr>
-<td>redis.pubsub.patterns</td>
+<td><code>redis.pubsub.patterns</code></td>
 <td>当前使用的模式的数量／ 发布/订阅模式数</td>
 </tr>
 <tr>
-<td>redis.rdb.bgsave</td>
+<td><code>redis.rdb.bgsave</code></td>
 <td>通过子进程来进行数据持久化</td>
 </tr>
 <tr>
-<td>redis.rdb.changes<em>since</em>last</td>
+<td><code>redis.rdb.changes_since_last</code></td>
 <td>自上次dump后rdb的改动</td>
 </tr>
 <tr>
-<td>redis.rdb.last<em>bgsave</em>time</td>
+<td><code>redis.rdb.last_bgsave_time</code></td>
 <td>上次save的时间戳</td>
 </tr>
 <tr>
-<td>redis.replication.master<em>repl</em>offs</td>
+<td><code>redis.replication.master_repl_offs</code></td>
 <td>全局的数据同步偏移量</td>
 </tr>
 <tr>
-<td>redis.stats.keyspace_hits</td>
+<td><code>redis.stats.keyspace_hits</code></td>
 <td>在main dictionary(todo)中成功查到的key个数</td>
 </tr>
 <tr>
-<td>redis.stats.keyspace_misses</td>
+<td><code>redis.stats.keyspace_misses</code></td>
 <td>在main dictionary(todo)中未查到的key的个数</td>
 </tr>
 <tr>
-<td>redis.persist</td>
+<td><code>redis.persist</code></td>
 <td>目前存在的key的数量</td>
 </tr>
 <tr>
-<td>redis.persist.percent</td>
+<td><code>redis.persist.percent</code></td>
 <td>目前存在的key的占比</td>
 </tr>
 <tr>
-<td>redis.expires.percent</td>
+<td><code>redis.expires.percent</code></td>
 <td>目前已过期的key的占比</td>
 </tr>
 </tbody></table>
@@ -845,6 +845,27 @@ redisdb
           var keyInfo;
           if(key.indexOf('quick-start') !== -1){
             keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
           }else if(key.indexOf('/',1) !== -1){
             lastindex=key.indexOf('/',1);
             keyInfo="'"+key.substring(0,lastindex+1)+"'";

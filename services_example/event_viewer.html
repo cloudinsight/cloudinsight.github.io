@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="keywords" content="网站监控,服务器监控,数据库监控,自定义指标,服务监控,中间件监控,数据可视化,大数据监控,页面性能监控">
+    <meta name="keywords" content="EventViewer,EventViewer监控,EventViewer监控工具,EventViewer指标">
 <meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta charset="utf-8">
@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <!-- Use title if it's in the page YAML frontmatter -->
-<title>Cloudinsight - 常见问题</title>
+<title>如何监控EventViewer|EventViewer监控|EventViewer性能指标|CloudInsight监控EventViewer</title>
 
   <script type="text/javascript">
     if (window.location.hostname === 'www.oneapm.com') {
@@ -223,7 +223,7 @@
 
   </head>
 
-  <body class="page-qa qa_agent_update">
+  <body class="page-services_example services_example_event_viewer">
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -320,33 +320,27 @@
 
     <div class="container page-container">
       <div class="row">
-        <div class="col-xs-3 page-sidebar hidden-ssm hidden-xs">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
-        <a role="button" href="/qa/product_index.html">
-          产品
+        <a role="button" href="/agent/">
+          Agent 安装与设置
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
         <ul>
-          <li><a href="/qa/down_summary.html">应用安装失败全解析</a></li>
-          <li><a href="/qa/metrics.html">指标含义看不懂</a></li>
-          <li><a href="/qa/load.html">load.1 ,5 , 15  是什么意思？</a></li>
-          <li><a href="/qa/agent.html">Cloudinsight 探针是怎样工作的？</a></li>
-          <li><a href="/qa/name.html">怎么修改应用名称？</a></li>
-          <li><a href="/qa/host_unavailable.html">如何在主机不可用时收到报警? </a></li>
-          <li><a href="/qa/windows_v.html">Cloudinsight 支持哪些 Windows 版本？</a></li>
-          <li><a href="/qa/tag.html">tag 使用指南</a></li>
-          <li><a href="/qa/network_adapter.html">怎么识别多网卡流量情况? </a></li>
-          <li><a href="/qa/browser.html">浏览器不能显示 Cloudinsight 数据</a></li>
-          <li><a href="/qa/more.html">如何监控多个平台服务</a></li>
-          <li><a href="/qa/core.html">如何监控多核 CPU</a></li>
-          <li><a href="/qa/process.html">怎么监控进程，挂掉的时候可以收到报警？</a></li>
-          <li><a href="/qa/metric.html">怎么批量创建不同主机，相同指标的图表？</a></li>
+          <li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+          <li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+          <li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+          <li><a href="/agent/windows.html">Windows 安装</a></li>
+          <li><a href="/agent/docker.html">Docker 安装</a></li>
+          <li><a href="/agent/chef.html">Chef 安装</a></li>
+          <li><a href="/agent/inner.html">内网环境安装探针</a></li>
+          <li><a href="/agent/agent-instrument.html">Agent 操作与配置</a></li>
         </ul>
       </div>
     </div>
@@ -354,29 +348,21 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
-        <a class="collapsed"  href="/qa/agent_index.html">
-          Agent 使用
+        <a class="collapsed"  href="/api/">
+          API与SDK
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
         <ul>
-          <li><a href="/qa/agent_update.html">怎么更新探针</a></li>
-          <li><a href="/qa/agent_uninstall.html">探针卸载操作</a></li>
-          <li><a href="/qa/http_emitter.html">http_emitter: TypeError(/expected string)</a></li>
-          <li><a href="/qa/emitter.html">emitter.py 报错 Unable to post payload</a></li>
-          <li><a href="/qa/address_already_in_use.html">端口被占用：Errno 98 Address already in use</a></li>
-          <li><a href="/qa/hostname.html">Unable to reliably determine host name</a></li>
-          <li><a href="/qa/kill_automatic.html">Ci 探针启动成功不久就自动关闭</a></li>
-          <li><a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloudinsight 报错问题</a></li>
-          <li><a href="/qa/ubuntu-error.html">nmet dependencies Ubuntu 安装报错</a></li>
-          <li><a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloudinsight 报错问题</a></li>
-          <li><a href="/qa/remove-agent.html">卸载了探针，官网上怎么还是有主机数据，多长时间就没有了</a></li>
-          <li><a href="/qa/syslog.html">Error setting up syslog</a></li>
-          <li><a href="/qa/time.html">探针启动成功，没有任何报错，但数据加载却显示 "暂无数据"</a></li>
-          <li><a href="/qa/win_2008.html">Windows 2008 R2 安装失败</a></li>
-          <li><a href="/qa/win_install.html">Windows 安装探针失败</a></li>
+          <li><a href="/api/sdk.html">SDK</a></li>
+          <li><a href="/api/python.html">Python</a></li>
+          <li><a href="/api/nodejs.html">Node.js</a></li>
+          <li><a href="/api/ruby.html">Ruby</a></li>
+          <li><a href="/api/java.html">Java</a></li>
+          <li><a href="/api/dotnet.html">DotNET</a></li>
+          <li><a href="/api/php.html">PHP</a></li>
         </ul>
       </div>
     </div>
@@ -384,26 +370,91 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
-        <a class="collapsed" href="/qa/service_index.html">
-          平台服务配置
+        <a class="collapsed" href="/cloud-integration/">
+          云厂商接入
         </a>
       </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
         <ul>
-          <li><a href="/qa/yaml.html">YAML 格式须知</a></li>
-          <li><a href="/qa/snmp.html">SNMP 如何配置监控</a></li>
-          <li><a href="/qa/apache_404.html">Apache: 页面出现 404 Client Error</a></li>
-          <li><a href="/qa/tomcat_cannot_connect_to_instance_localhost.html">Tomcat: Cannot Connect to Instance Localhost</a></li>
-          <li><a href="/qa/yaml_loading.html">配置 yaml 文件出错：数据持续加载中</a></li>
-          <li><a href="/qa/mysql-error.html">MySQL 异常报错</a></li>
-          <li><a href="/qa/java_path.html">Cloudn’t launch JMXTerm . Is Java in your PATH ?</a></li>
-          <li><a href="/qa/mysql_m_s.html">MySQL 主从复制</a></li>
-          <li><a href="/qa/docker_daemon.html">Docker -- Unable to connect to socket. oneapm-ci-agent user must be part of the 'docker' group</a></li>
-          <li><a href="/qa/process_error.html">进程配置完成后没有监控到相应数据</a></li>
-          <li><a href="/qa/yaml_mapping.html">mapping values are not allowed in this context\n in "byte string", line 5 ,column11</a></li>
-          <li><a href="/qa/nginx_ssl.html">Nginx SSL：CERTIFICATE_VERIFY_FAILED certificate verify failed (_ssl.c:590)</a></li>
+          <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+          <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services/">
+          平台服务基础配置
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services/status.html">状态页监控</a></li>
+          <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+          <li><a href="/services/authorize.html">数据库授权监控</a></li>
+          <li><a href="/services/database.html">数据库配置</a></li>
+          <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services_example/">
+          平台服务配置示例
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services_example/activemq.html">artivemq</a></li>
+          <li><a href="/services_example/apache.html">apache</a></li>
+          <li><a href="/services_example/bearychat.html">bearychat</a></li>
+          <li><a href="/services_example/cacti.html">cacti</a></li>
+          <li><a href="/services_example/cassandra.html">cassandra</a></li>
+          <li><a href="/services_example/couchbase.html">couchbase</a></li>
+          <li><a href="/services_example/couchdb.html">couchdb</a></li>
+          <li><a href="/services_example/docker.html">docker</a></li>
+          <li><a href="/services_example/elasticsearch.html">elasticsearch</a></li>
+          <li><a href="/services_example/event_viewer.html">event_viewer</a></li>
+          <li><a href="/services_example/gearman.html">gearman</a></li>
+          <li><a href="/services_example/gunicorn.html">gunicorn</a></li>
+          <li><a href="/services_example/haproxy.html">haproxy</a></li>
+          <li><a href="/services_example/http.html">http</a></li>
+          <li><a href="/services_example/iis.html">iis</a></li>
+          <li><a href="/services_example/jianliao.html">jianliao</a></li>
+          <li><a href="/services_example/kafka.html">kafka</a></li>
+          <li><a href="/services_example/memcached.html">memcached</a></li>
+          <li><a href="/services_example/mesos.html">mesos</a></li>
+          <li><a href="/services_example/mongodb.html">mongodb</a></li>
+          <li><a href="/services_example/mysql.html">mysql</a></li>
+          <li><a href="/services_example/nagios.html">nagios</a></li>
+          <li><a href="/services_example/network.html">network</a></li>
+          <li><a href="/services_example/nginx.html">nginx</a></li>
+          <li><a href="/services_example/openstack.html">openstack</a></li>
+          <li><a href="/services_example/php-fpm.html">php-fpm</a></li>
+          <li><a href="/services_example/postgresql.html">postgresql</a></li>
+          <li><a href="/services_example/process.html">process</a></li>
+          <li><a href="/services_example/pubu.html">pubu</a></li>
+          <li><a href="/services_example/rabbitmq.html">rabbitmq</a></li>
+          <li><a href="/services_example/redis.html">redis</a></li>
+          <li><a href="/services_example/snmp.html">snmp</a></li>
+          <li><a href="/services_example/solr.html">solr</a></li>
+          <li><a href="/services_example/sqlserver.html">sqlserver</a></li>
+          <li><a href="/services_example/ssh.html">ssh</a></li>
+          <li><a href="/services_example/supervisord.html">supervisord</a></li>
+          <li><a href="/services_example/tcp.html">tcp</a></li>
+          <li><a href="/services_example/tomcat.html">tomcat</a></li>
+          <li><a href="/services_example/wmi.html">wmi</a></li>
+          <li><a href="/services_example/zookeeper.html">zookeeper</a></li>
         </ul>
       </div>
     </div>
@@ -411,16 +462,68 @@
 </div>
 
         </div>
-        <div class="col-xs-9 page-body">
+        <div class="col-lg-9 page-body">
           <div class="body-box">
-            <h1>探针更新操作</h1>
+            <h1>Event Viewer</h1>
 
-<p>CentOS / Redhat 更新</p>
-<pre class="highlight plaintext"><code>yum install cloudinsight-agent
+<p>Cloudinsight 可以集成微软操作系统的事件查看器，至 Cloudinsight 事件流中。这样有助于排查报警产生的原因。</p>
+
+<h2>配置 Event Viewer</h2>
+
+<p>打开探针管理工具，就可以开始 Event Viewer 配置了。在管理工具中，找到：<code>win32_event_log.yaml</code> 文件。</p>
+
+<h3>添加过滤器</h3>
+
+<p>添加过滤器，过滤器可以定义将怎样的事件日志提交到 Cloudinsight。</p>
+
+<p>可以设置以下属性的过滤器：</p>
+
+<ul>
+<li>type: Warning, Error, Information</li>
+<li>log_file: Application, System, Setup, Security</li>
+<li>source_name: 任何可用的 source name</li>
+<li>user: 任何有效的 user</li>
+</ul>
+
+<p>每一个过滤器都是配置文件中 instances 下的一个项目</p>
+
+<p>配置文件： <code>conf.d/win32_event_log.yaml</code></p>
+
+<p>配置示例：</p>
+<pre class="highlight yaml"><code><span class="s">instances</span><span class="pi">:</span>
+    <span class="c1"># The following will capture errors and warnings from SQL Server which</span>
+    <span class="c1"># puts all events under the MSSQLSERVER source and tag them with #sqlserver.</span>
+    <span class="pi">-</span>   <span class="s">tags</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">sqlserver</span>
+        <span class="s">type</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">Warning</span>
+            <span class="pi">-</span> <span class="s">Error</span>
+        <span class="s">log_file</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">Application</span>
+        <span class="s">source_name</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">MSSQLSERVER</span>
+
+    <span class="c1"># This instance will capture all system errors and tag them with #system.</span>
+    <span class="pi">-</span>   <span class="s">tags</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">system</span>
+        <span class="s">type</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">Error</span>
+        <span class="s">log_file</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">System</span>
 </code></pre>
 
-<p>Ubuntu / Debian 更新</p>
-<pre class="highlight plaintext"><code>apt-get update &amp;&amp; apt-get install cloudinsight-agent
+<h3>重启探针并确认状态</h3>
+
+<p>重启探针，并在探针管理器中查看信息栏，如果有以下信息的输出，代表配置正确 。</p>
+<pre class="highlight shell"><code>Checks
+<span class="o">======</span>
+
+   <span class="o">[</span>...]
+
+  win32_event_log
+  ---------------
+      - instance <span class="c">#0  [OK]</span>
+      - Collected 0 metrics, 2 events &amp; 1 service check
 </code></pre>
 
             <hr style="margin-top: 50px;" />
@@ -441,7 +544,7 @@
      id="ds-thread"
      data-thread-key=""
      data-title=""
-     data-url="http://docs-ci.oneapm.com/qa/agent_update.html"></div>
+     data-url="http://docs-ci.oneapm.com/services_example/event_viewer.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -450,7 +553,7 @@
   if (titleTag) {
     title = document.getElementsByTagName("h1")[0].innerText;
   } else {
-    title = "Cloudinsight - 常见问题";
+    title = "如何监控EventViewer|EventViewer监控|EventViewer性能指标|CloudInsight监控EventViewer";
   }
 
   var duoshuoTag = document.getElementById('ds-thread');
@@ -587,48 +690,62 @@
     </div>
 
 
+
     <script type="text/javascript">
-        $(function() {
-          $(".navbar-default .navbar-nav .guide").addClass("active");
-          (function () {
-            $('.panel-default').mouseenter(function () {
-              if(!$(this).hasClass('active')){
-                $(this).children().addClass('in');
-              }
-            });
-            $('.panel-default').mouseleave(function () {
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+        (function () {
+          $('.panel-default').mouseenter(function () {
+            if(!$(this).hasClass('active')){
+              $(this).children().addClass('in');
+            }
+          })
+          $('.panel-default').mouseleave(function () {
               if(!$(this).hasClass('active')) {
                 $(this).children().removeClass('in');
               }
-            });
-            var key=window.location.pathname;
-            var keyInfo="'"+key+"'";
-            var panelHead;
-            if(keyInfo.indexOf('index') !== -1){
-              panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
-              panelHead.siblings().addClass('in');
-              panelHead.parent().siblings('div').map(function () {
-                $(this).removeClass('active');
-              });
-              panelHead.parent().addClass('active');
-            }else if(keyInfo.indexOf('.') <0) {
-              keyInfo="'"+key+"product_index.html"+"'";
-              panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
-              panelHead.siblings().addClass('in');
-              panelHead.parent().siblings('div').map(function () {
-                $(this).removeClass('active');
-              });
-              panelHead.parent().addClass('active');
-            }else {
-                panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent().parent().parent();
-                panelHead.addClass('in');
-                panelHead.parent().siblings('div').map(function () {
-                  $(this).removeClass('active');
-                });
-                panelHead.parent().addClass('active');
-              }
-          })();
-        });
+            })
+          var key=window.location.pathname;
+          var lastindex;
+          var keyInfo;
+          if(key.indexOf('quick-start') !== -1){
+            keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
+          }else if(key.indexOf('/',1) !== -1){
+            lastindex=key.indexOf('/',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"'";
+          }else {
+            lastindex=key.indexOf('.',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"html'";
+          }
+          var panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
+          panelHead.siblings().addClass('in');
+          panelHead.parent().siblings('div').map(function () {
+            $(this).removeClass('active');
+          });
+          panelHead.parent().addClass('active');
+        })();
+      });
     </script>
   </body>
 </html>
