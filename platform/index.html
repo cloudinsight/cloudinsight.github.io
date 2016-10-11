@@ -224,16 +224,15 @@
   </head>
 
   <body class="page-platform platform_index">
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74438127-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
 
 <header class="main-header clearfix">
 	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
@@ -264,7 +263,7 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
 					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
@@ -402,6 +401,7 @@
       <div class="panel-body">
         <ul>
           <li><a href="/alert/metric.html">指标报警</a></li>
+          <li><a href="/alert/host.html">平台报警</a></li>
         </ul>
       </div>
     </div>
@@ -481,9 +481,19 @@
 <li>Load 15 显示 system.load.15 数值，即过去 15 分钟内系统负载值，通常情况下应小于或等于 CPU 核数。</li>
 </ul>
 
-<p>点击 system 按钮，打开平台的右侧抽屉，显示平台操作系统的详细指标。</p>
+<hr>
+
+<h2>快速查看</h2>
+
+<p>点击平台服务一栏的标签，可以打开平台的右侧抽屉，快速查看平台操作系统及平台服务的详细指标。</p>
+
+<p>在平台列表点击键盘 j 或 k 同样可打开快速查看界面，并按顺序切换平台。</p>
 
 <p><img src="/images/platform/overview.png" /></p>
+
+<h3>查看指标</h3>
+
+<p>在监控服务详情一栏中您可查看该平台操作系统及平台服务的详细指标，点击标签可切换显示要查看的服务。</p>
 
 <h3>系统信息</h3>
 

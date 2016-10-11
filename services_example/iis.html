@@ -224,16 +224,15 @@
   </head>
 
   <body class="page-services_example services_example_iis">
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74438127-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
 
 <header class="main-header clearfix">
 	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
@@ -264,7 +263,7 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
 					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
@@ -428,6 +427,7 @@
           <li><a href="/services_example/gearman.html">gearman</a></li>
           <li><a href="/services_example/gunicorn.html">gunicorn</a></li>
           <li><a href="/services_example/haproxy.html">haproxy</a></li>
+          <li><a href="/services_example/hdfs.html">hdfs</a></li>
           <li><a href="/services_example/http.html">http</a></li>
           <li><a href="/services_example/iis.html">iis</a></li>
           <li><a href="/services_example/jianliao.html">jianliao</a></li>
@@ -585,19 +585,14 @@ winmgmt /resyncperf
 <pre class="highlight plaintext"><code>winmgmt /resyncperf
 </code></pre>
 
-<p><strong>2. 配置探针连接到 IIS</strong></p>
+<p><strong>2. 开启 IIS 服务</strong></p>
 
-<p>编辑 <code>conf.d/iis.yaml</code>，将 IIS 所在服务器添加到配置文件中：</p>
-<pre class="highlight plaintext"><code>init_config:
+<p><img src="/images/service_example/iis_start.jpg" /></p>
 
-instances:
-  -  host: . # "." 表示本机
-     tags:
-       - mytag1
-       - mytag2
-</code></pre>
+<p>打开 Cloudinsight Agent Manager ，在左侧导航栏找到 iis 服务，选中后单击 Enable 即可打开 iis 服务。</p>
 
-<p><strong>3. 重启探针</strong></p>
+<p>
+<strong>3. 重启探针</strong></p>
 
 <p>通过探针管理器重启探针 Actions，restart。</p>
 
@@ -620,7 +615,10 @@ instances:
 
 <h2>常见问题</h2>
 
-<p>有任何关于产品的使用疑惑，参考<a href="http://docs-ci.oneapm.com/qa/">常见问题</a>。</p>
+<ul>
+<li>若要在同一个服务器上监控多个相同的平台服务，参考<a href="http://docs-ci.oneapm.com/qa/more.html">如何监控多个平台服务</a>。</li>
+<li>有任何关于产品的使用疑惑，参考<a href="http://docs-ci.oneapm.com/qa/">常见问题</a>。</li>
+</ul>
 
             <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">

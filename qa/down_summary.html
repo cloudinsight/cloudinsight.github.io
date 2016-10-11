@@ -224,16 +224,15 @@
   </head>
 
   <body class="page-qa qa_down_summary">
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74438127-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
 
 <header class="main-header clearfix">
 	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
@@ -264,7 +263,7 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
 					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
@@ -425,13 +424,17 @@
 
 <p>探针在安装的时候会产生安装的 log，所以要看报错确定问题。</p>
 
+<hr>
+
 <h3>curl 问题</h3>
 <pre class="highlight plaintext"><code>curl: (35) error:0D0C50A1:asn1 encoding routines:ASN1_item_verify:unknown message digest algorithm
 </code></pre>
 
 <p>这个问题多由证书本地 openssl 不能识别 SSL 证书签名算法所致。Cloudinsight 使用了 SHA-256 RSA 加密算法。而 openssl 在 OpenSSL 0.9.8o才加入此算法。</p>
 
-<p><strong>解决办法</strong>是升级本地 openssl。</p>
+<p><strong>解决办法</strong> 是升级本地 openssl。</p>
+
+<hr>
 
 <h3>镜像无效</h3>
 <pre class="highlight plaintext"><code>Loaded plugins: fastestmirror
@@ -447,15 +450,18 @@ Error: failure: repodata/ae9772f136d882fd8f61b9c71e29c2630db3d5b211ef4ddc2b976af
 
 <p>这是 Centos 5 版本可能产生的问题，以上出错原因是发布 Cloudinsight 探针包时默认的 checksum（检验码）是 sha256 ,而 CentOS 5/rhel 5 版本不符合这个，所以安装不了这个安装包。</p>
 
-<p><strong>解决方法</strong> ：首先删掉因安装 Ci 添加的 yum 源<code>
-rm -rf  /etc/yum.repos.d/cloudinsight-agent.repo</code>，然后安装一个 hash 加密的模块：<code>
-yum install python-hashlib</code>，然后重新安装探针，参考<a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloudinsight 报错问题</a>。</p>
+<p><strong>解决方法</strong> ：首先删掉因安装 Ci 添加的 yum 源<code>rm -rf  /etc/yum.repos.d/cloudinsight-agent.repo</code>，
+然后安装一个 hash 加密的模块：<code>yum install python-hashlib</code>，然后重新安装探针，参考<a href="/qa/centos-5.html">解决 CentOS 5 安装 Cloudinsight 报错问题</a>。  </p>
+
+<hr>
 
 <h3>用户密码权限问题</h3>
 <pre class="highlight plaintext"><code>useradd: cannot  open  /etc/passwd
 </code></pre>
 
 <p>这是 Centos 7 版本可能产生的问题，具体参考<a href="/qa/centos-7.html">解决 CentOS 7 安装 Cloudinsight 报错问题</a>。</p>
+
+<hr>
 
 <h3>unmet dependencies</h3>
 <pre class="highlight plaintext"><code>* Installing APT package sources for Cloudinsight
@@ -499,6 +505,8 @@ ERROR
 <pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent info
 </code></pre>
 
+<hr>
+
 <h3>hostname 报错</h3>
 <pre class="highlight plaintext"><code>2016-01-19 13:33:09,326 | CRITICAL | ci.collector | util(util.py:226) | Unable t                                                                   nt.conf or in your hosts file
 Traceback (most recent call last):
@@ -515,6 +523,8 @@ Exception: Unable to reliably determine host name. You can define one in oneapm-
 
 <p><strong>解决方法</strong> 修改 <code>/etc/cloudinsight-agent/cloudinsight-agent.conf</code> hostname: xxxx 指标（a-zA-Z1-9，且不能有下划线），此处的 hostname 只是作为应用的名称而存在，与服务器本身的 hostnme 没有关系，所以可以任意设置。</p>
 
+<hr>
+
 <h3>时间问题</h3>
 <pre class="highlight plaintext"><code>Clocks
 ======
@@ -527,6 +537,8 @@ Exception: Unable to reliably determine host name. You can define one in oneapm-
 
 <p><strong>解决方法</strong> 服务器时间同步为北京时间</p>
 
+<hr>
+
 <h3>Error setting up syslog</h3>
 <pre class="highlight plaintext"><code>[root@S-C7 conf.d]# /etc/init.d/cloudinsight-agent restart
 Stopping Cloudinsight Agent (using killproc on supervisord): [ OK ] Error setting up syslog: '[Errno 13] Permission denied' Traceback (most recent call last): File "/opt/cloudinsight-agent/agent/config.py", line 1004, in initialize_logging handler = SysLogHandler(address=sys_log_addr, facility=SysLogHandler.LOG_DAEMON) File "/opt/cloudinsight-agent/embedded/lib/python2.7/logging/handlers.py", line 761, in __init__ self._connect_unixsocket(address) File "/opt/cloudinsight-agent/embedded/lib/python2.7/logging/handlers.py", line 789, in _connect_unixsocket self.socket.connect(address) File "/opt/cloudinsight-agent/embedded/lib/python2.7/socket.py", line 228, in meth return getattr(self._sock,name)(*args) error: [Errno 13] Permission denied
@@ -535,6 +547,8 @@ Stopping Cloudinsight Agent (using killproc on supervisord): [ OK ] Error settin
 <p><strong>解决方法</strong> 此为 syslog 文件找不到，修改 /etc/cloudinsight-agent/cloudinsight-agent.conf 里面 log<em>to</em>syslog 设置为 no ，重启探针即可。</p>
 
 <p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/cloudinsight-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，onestatsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloudinsight SaaS 的传输情况。</p>
+
+<hr>
 
 <h3>端口被占用</h3>
 <pre class="highlight plaintext"><code>2016-04-26 10:49:03 CST | ERROR | ci.forwarder | forwarder(forwarder.py:479) | Socket error [Errno 98] Address already in use. Is another application listening on the same port ? Exiting
@@ -552,11 +566,13 @@ error: [Errno 98] Address already in use
 
 <p>Ci 探针默认通过 10010 端口传输数据至 Cloudinsight 服务器，如果此端口被其他程序占用，连接就会失败，报出以上错误。</p>
 
-<p><strong>解决方法</strong>您可以检查占用该端口的应用程序，如果方便，可以 kill 此进程或修改此进程的端口；如果不方便修改，则可以修改 /etc/cloudinsight-agent/cloudinsight-agent.conf 路径下的配置文件，修改此端口。</p>
+<p><strong>解决方法</strong> 您可以检查占用该端口的应用程序，如果方便，可以 kill 此进程或修改此进程的端口；如果不方便修改，则可以修改 /etc/cloudinsight-agent/cloudinsight-agent.conf 路径下的配置文件，修改此端口。</p>
 <pre class="highlight plaintext"><code>listen_port: 17121（任意未使用端口）
 </code></pre>
 
 <p>修改之后重新启动探针即可。</p>
+
+<hr>
 
 <h3>Unable to post payload</h3>
 <pre class="highlight plaintext"><code>2015-12-25 11:40:54 CST | ERROR | ci.collector | checks.collector(emitter.py:69) | Unable to post payload.
@@ -584,6 +600,8 @@ ConnectionError: ('Connection aborted.', error(97, 'Address family not supported
 
 <p>如果有以上 Unable to post payload 的问题，但是连接超时问题，可以忽略，偶尔1～2次数据没有传输上去，不会有影响，Cloudinsight Agent 有30M 缓存，数据没有发送成功下次发送时回一并发过去，直至发送成功。</p>
 
+<hr>
+
 <h3>license_key</h3>
 
 <p>如果 collector.log 和 forwarder.log 都没有报错，你应该考虑是不是 license<em>key 写错了，我们正确的 license</em>key 末尾都是有等号的，例如 <code>B1oCTldEV6b2bAoVCEwID0918f35hQdXH1I9f9dBHApWFVQIcb79VVZfti4bUAU=</code> ，所以查看自己的 license_key ，修改正确，重启探针就行啦。正确格式如下：</p>
@@ -595,6 +613,8 @@ ci_url: https://dc-cloud.oneapm.com
 license_key: B1oCTldEV6b2bAoVCEwID0918f4FCQdXH1I9f9dBHApWFVQIcb79VVZPBw4bUAU=
 </code></pre>
 
+<hr>
+
 <h3>探针发送数据频率</h3>
 
 <p>探针30s 采集一次数据，15s 秒发送一次数据，这是为了保证数据全部发送过去。</p>
@@ -602,6 +622,8 @@ license_key: B1oCTldEV6b2bAoVCEwID0918f4FCQdXH1I9f9dBHApWFVQIcb79VVZPBw4bUAU=
 <p>探针对于状态值检验（执行 info 命令所输出的系统以及各个监控组件的是非正常发送数据的检验，正常是绿色，黄色是警告，不影响数据，红色是发生错误 ）是10分钟发送一次，所以如果界面上的状态和执行 info 后输出的有所不一致，那再等几分钟，为了避免资源损耗，这个发送频率是10分钟。</p>
 
 <p>同样界面上如果连续10分钟没有收到数据，应用状态就会显示为 down，3天没数据，这个应用就会自动删除。</p>
+
+<hr>
 
 <h3>分步安装</h3>
 

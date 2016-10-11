@@ -1,0 +1,986 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="keywords" content="监控 HDFS">
+<meta name="description" content="Cloudinsight 是一款集监控与数据可视化，数据管理为一身的平台，可以进行基础组件的监控，自定义数据仪表盘的展示，对任意指标报警，是IT运维人员，以及开发人员的必备工具服务">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>如何监控HDFS运行状况｜CloudInsight监控HDFS</title>
+
+  <script type="text/javascript">
+    if (window.location.hostname === 'www.oneapm.com') {
+      var pathnameSegs = window.location.pathname.split("/docs/ci");
+      var realPathname = pathnameSegs[pathnameSegs.length - 1];
+      window.location.href = 'http://docs-ci.oneapm.com' + realPathname;
+    } else if (window.location.hostname !== 'docs-ci.oneapm.com') {
+      window.location.href = 'http://docs-ci.oneapm.com' + window.location.pathname;
+    }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dc7d70374ed3b2f6ce76527be8b9c93a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<!-- growingio -->
+<script type='text/javascript'>
+  var _vds = _vds || [];
+  window._vds = _vds;
+  (function(){
+    _vds.push(['setAccountId', '9b345c730c9983fa']);
+    (function() {
+      var vds = document.createElement('script');
+      vds.type='text/javascript';
+      vds.async = true;
+      vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(vds, s);
+    })();
+  })();
+</script>
+
+
+<link href="/stylesheets/site.css" rel="stylesheet" />
+<script src="/javascripts/jquery-2.2.1.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/all.js"></script>
+<style media="screen">
+  .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+
+  </head>
+
+  <body class="page-services_example services_example_hdfs">
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
+
+<header class="main-header clearfix">
+	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
+			<a href="../index.html" class="logo-container">
+				<div class="oneapm-logo"></div>
+			</a>
+		</div>
+		<a href="#" class="burger-wrapper">
+			<div class="burger"></div>
+		</a>
+		<div class="nav-container">
+			<ul class="nav-list">
+				<li>
+					<a href="/quick-start/">快速入门</a>
+				</li>
+				<li>
+					<a href="/agent/">安装配置</a>
+				</li>
+				<li>
+					<a href="/platform/">操作指南</a>
+				</li>
+				<li>
+					<a href="/best-practise/">实践案例</a>
+				</li>
+				<li>
+					<a href="/qa/">常见问题</a>
+				</li>
+			</ul>
+			<ul class="login-list">
+				<li>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
+				</li>
+				<li>
+					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<div class="flagInfo clearfix">
+    <div class="flag-left"></div>
+    <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
+    <span class="cl">X</span>
+</div>
+<script type="text/javascript">
+	$(function () {
+		var key=window.location.pathname;
+		var arr5=['agent','api','cloud-integration','services','services_example'];
+		var arr1=['quick-start'];
+		var arr3=['release-note','platform','dashboard','metric','alert','event'];
+		var arr4=['use-case','best-practise'];
+		var arr2=['qa'];
+		var Arr=[arr1,arr2,arr3,arr4,arr5];
+		for(var i=0;i<6;i++) {
+			$.each(Arr[i], function (e, a) {
+				if (key.indexOf(a) !== -1) {
+					switch (i + 1) {
+						case 1:
+							key = '/quick-start/';
+							break;
+						case 5:
+							key = '/agent/';
+							break;
+						case 3:
+							key = '/platform/';
+							break;
+						case 4:
+							key = '/best-practise/';
+							break;
+						case 2:
+							key = '/qa/';
+							break;
+					}
+				}
+			});
+		}
+		var keyInfo="'"+key+"'";
+		var panelHead;
+			panelHead= $(".nav-container  a[href="+keyInfo+"]");
+			panelHead.addClass('show');
+	});
+</script>
+
+
+    <div class="container page-container">
+      <div class="row">
+        <div class="col-lg-3 page-sidebar hidden-ssm hidden-xs">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" href="/agent/">
+          Agent 安装与设置
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/agent/redhat.html">RedHat / CentOS / Fedora 安装</a></li>
+          <li><a href="/agent/ubuntu.html">Debian / Ubuntu 安装</a></li>
+          <li><a href="/agent/amazon.html">Amazon Linux 安装</a></li>
+          <li><a href="/agent/windows.html">Windows 安装</a></li>
+          <li><a href="/agent/docker.html">Docker 安装</a></li>
+          <li><a href="/agent/chef.html">Chef 安装</a></li>
+          <li><a href="/agent/inner.html">内网环境安装探针</a></li>
+          <li><a href="/agent/agent-instrument.html">Agent 操作与配置</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed"  href="/api/">
+          API与SDK
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/api/sdk.html">SDK</a></li>
+          <li><a href="/api/python.html">Python</a></li>
+          <li><a href="/api/nodejs.html">Node.js</a></li>
+          <li><a href="/api/ruby.html">Ruby</a></li>
+          <li><a href="/api/java.html">Java</a></li>
+          <li><a href="/api/dotnet.html">DotNET</a></li>
+          <li><a href="/api/php.html">PHP</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/cloud-integration/">
+          云厂商接入
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/cloud-integration/aliyun.html">阿里云</a></li>
+          <li><a href="/cloud-integration/ucloud.html">UCloud</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services/">
+          平台服务基础配置
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services/status.html">状态页监控</a></li>
+          <li><a href="/services/jmx.html">JMX 远程监控</a></li>
+          <li><a href="/services/authorize.html">数据库授权监控</a></li>
+          <li><a href="/services/database.html">数据库配置</a></li>
+          <li><a href="/services/agent-check.html">自定义 AgentCheck</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" href="/services_example/">
+          平台服务配置示例
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <ul>
+          <li><a href="/services_example/activemq.html">artivemq</a></li>
+          <li><a href="/services_example/apache.html">apache</a></li>
+          <li><a href="/services_example/bearychat.html">bearychat</a></li>
+          <li><a href="/services_example/cacti.html">cacti</a></li>
+          <li><a href="/services_example/cassandra.html">cassandra</a></li>
+          <li><a href="/services_example/couchbase.html">couchbase</a></li>
+          <li><a href="/services_example/couchdb.html">couchdb</a></li>
+          <li><a href="/services_example/docker.html">docker</a></li>
+          <li><a href="/services_example/elasticsearch.html">elasticsearch</a></li>
+          <li><a href="/services_example/event_viewer.html">event_viewer</a></li>
+          <li><a href="/services_example/gearman.html">gearman</a></li>
+          <li><a href="/services_example/gunicorn.html">gunicorn</a></li>
+          <li><a href="/services_example/haproxy.html">haproxy</a></li>
+          <li><a href="/services_example/hdfs.html">hdfs</a></li>
+          <li><a href="/services_example/http.html">http</a></li>
+          <li><a href="/services_example/iis.html">iis</a></li>
+          <li><a href="/services_example/jianliao.html">jianliao</a></li>
+          <li><a href="/services_example/kafka.html">kafka</a></li>
+          <li><a href="/services_example/memcached.html">memcached</a></li>
+          <li><a href="/services_example/mesos.html">mesos</a></li>
+          <li><a href="/services_example/mongodb.html">mongodb</a></li>
+          <li><a href="/services_example/mysql.html">mysql</a></li>
+          <li><a href="/services_example/nagios.html">nagios</a></li>
+          <li><a href="/services_example/network.html">network</a></li>
+          <li><a href="/services_example/nginx.html">nginx</a></li>
+          <li><a href="/services_example/openstack.html">openstack</a></li>
+          <li><a href="/services_example/php-fpm.html">php-fpm</a></li>
+          <li><a href="/services_example/postgresql.html">postgresql</a></li>
+          <li><a href="/services_example/process.html">process</a></li>
+          <li><a href="/services_example/pubu.html">pubu</a></li>
+          <li><a href="/services_example/rabbitmq.html">rabbitmq</a></li>
+          <li><a href="/services_example/redis.html">redis</a></li>
+          <li><a href="/services_example/snmp.html">snmp</a></li>
+          <li><a href="/services_example/solr.html">solr</a></li>
+          <li><a href="/services_example/sqlserver.html">sqlserver</a></li>
+          <li><a href="/services_example/ssh.html">ssh</a></li>
+          <li><a href="/services_example/supervisord.html">supervisord</a></li>
+          <li><a href="/services_example/tcp.html">tcp</a></li>
+          <li><a href="/services_example/tomcat.html">tomcat</a></li>
+          <li><a href="/services_example/wmi.html">wmi</a></li>
+          <li><a href="/services_example/zookeeper.html">zookeeper</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="col-lg-9 page-body">
+          <div class="body-box">
+            <h1>HDFS</h1>
+
+<p>Hadoop分布式文件系统(HDFS)被设计成适合运行在通用硬件(commodity hardware)上的分布式文件系统。</p>
+
+<hr>
+
+<h2>性能指标</h2>
+
+<p>Cloudinsight 采集 HDFS 以下性能指标：</p>
+
+<table><thead>
+<tr>
+<th>指标</th>
+<th>具体含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hdfs.capacity</td>
+<td>DFS 的总容量</td>
+</tr>
+<tr>
+<td>hdfs.corrupt_blocks</td>
+<td>有 corrupt replicas 的 block 数</td>
+</tr>
+<tr>
+<td>hdfs.datanode.cache_capacity</td>
+<td>缓存容量（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.datanode.cache_used</td>
+<td>已使用缓存（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.datanode.dfs_capacity</td>
+<td>磁盘容量（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.datanode.dfs_remaining</td>
+<td>磁盘剩余空间(bytes)</td>
+</tr>
+<tr>
+<td>hdfs.datanode.dfs_used</td>
+<td>磁盘已使用量(bytes)</td>
+</tr>
+<tr>
+<td>hdfs.datanode.estimated_capacity_lost_total</td>
+<td>预估容量损失（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.datanode.last_volume_failure_date</td>
+<td>最后一次故障时间（精确到毫秒）</td>
+</tr>
+<tr>
+<td>hdfs.datanode.num_blocks_cached</td>
+<td>缓存 block 数</td>
+</tr>
+<tr>
+<td>hdfs.datanode.num_blocks_failed_to_cache</td>
+<td>缓存失败 block 数</td>
+</tr>
+<tr>
+<td>hdfs.datanode.num_blocks_failed_to_uncache</td>
+<td>从缓存中移除失败的 block 数</td>
+</tr>
+<tr>
+<td>hdfs.datanode.num_failed_volumes</td>
+<td></td>
+</tr>
+<tr>
+<td>hdfs.free</td>
+<td>DFS 的总空闲空间</td>
+</tr>
+<tr>
+<td>hdfs.in_use</td>
+<td>应用于 DFS 的磁盘空间百分比</td>
+</tr>
+<tr>
+<td>hdfs.missing_blocks</td>
+<td>丢失的 block 数</td>
+</tr>
+<tr>
+<td>hdfs.namenode.blocks_total</td>
+<td>block 总数</td>
+</tr>
+<tr>
+<td>dfs.namenode.capacity_remaining</td>
+<td>磁盘剩余空间(bytes)</td>
+</tr>
+<tr>
+<td>hdfs.namenode.capacity_total</td>
+<td>磁盘容量（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.namenode.capacity_used</td>
+<td>磁盘已使用量(bytes)</td>
+</tr>
+<tr>
+<td>hdfs.namenode.corrupt_blocks</td>
+<td>corrupt blocks 的数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.estimated_capacity_lost_total</td>
+<td>预估容量损失（bytes）</td>
+</tr>
+<tr>
+<td>hdfs.namenode.files_total</td>
+<td>文件总数</td>
+</tr>
+<tr>
+<td>hdfs.namenode.fs_lock_queue_length</td>
+<td></td>
+</tr>
+<tr>
+<td>hdfs.namenode.max_objects</td>
+<td>HDFS 支持的最大文件数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.missing_blocks</td>
+<td>丢失的 block 数</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_dead_data_nodes</td>
+<td>dead 数据节点总数</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_decom_dead_data_nodes</td>
+<td>退役的死亡数据节点数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_decom_live_data_nodes</td>
+<td>退役的存活数据节点数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_decommissioning_data_nodes</td>
+<td>退役的数据节点数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_live_data_nodes</td>
+<td>存活的数据节点总数</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_stale_data_nodes</td>
+<td>stale 数据节点数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.num_stale_storages</td>
+<td></td>
+</tr>
+<tr>
+<td>hdfs.namenode.pending_deletion_blocks</td>
+<td>待删除的 block 数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.pending_replication_blocks</td>
+<td>未决定复制的 block 数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.scheduled_replication_blocks</td>
+<td>决定要复制的 block 数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.total_load</td>
+<td></td>
+</tr>
+<tr>
+<td>hdfs.namenode.under_replicated_blocks</td>
+<td>被复制的 block 数量</td>
+</tr>
+<tr>
+<td>hdfs.namenode.volume_failures_total</td>
+<td></td>
+</tr>
+<tr>
+<td>hdfs.under_replicated</td>
+<td>被复制的 block 数量</td>
+</tr>
+<tr>
+<td>hdfs.used</td>
+<td>用于 DFS 的磁盘空间</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2>配置 HTTP 监控</h2>
+
+<h3>1.在 <code>NameNode</code> 开启 JMX URI</h3>
+
+<p>切换路径至 <code>/etc/cloudinsight-agent</code> 。</p>
+<pre class="highlight plaintext"><code>cd /etc/cloudinsight-agent
+</code></pre>
+
+<p>开启配置文件 <code>conf.d/hdfs_namenode.yaml</code></p>
+<pre class="highlight plaintext"><code>cp conf.d/hdfs_namenode.yaml.example conf.d/hdfs_namenode.yaml
+</code></pre>
+
+<p>内容如下:</p>
+<pre class="highlight plaintext"><code>init_config:
+
+instances:
+  #
+  # The HDFS NameNode check retrieves metrics from the HDFS NameNode's JMX
+  # interface. This check must be installed on the NameNode. The HDFS
+  # NameNode JMX URI is composed of the NameNode's hostname and port.
+  #
+  # The hostname and port can be found in the hdfs-site.xml conf file under
+  # the property dfs.http.address or dfs.namenode.http-address
+  #
+  -  hdfs_namenode_jmx_uri: http://localhost:50070
+</code></pre>
+
+<hr>
+
+<h3>2.重启 Agent</h3>
+
+<p>重启 Cloudinsight Agent，使配置生效。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent restart
+</code></pre>
+
+<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent info
+</code></pre>
+
+<p>当出现以下信息，则代表安装成功。</p>
+<pre class="highlight plaintext"><code>Checks
+======
+
+ [...]
+
+hdfs_namenode
+---------
+  - instance #0  [OK]
+  - Collected 8 metrics &amp; 0 events
+</code></pre>
+
+<hr>
+
+<h3>3.在 <code>DataNode</code> 开启 JMX URI</h3>
+
+<p>切换路径至 <code>/etc/cloudinsight-agent</code> 。</p>
+<pre class="highlight plaintext"><code>cd /etc/cloudinsight-agent
+</code></pre>
+
+<p>开启配置文件 <code>conf.d/hdfs_datanode.yaml</code></p>
+<pre class="highlight plaintext"><code>cp conf.d/hdfs_datanode.yaml.example conf.d/hdfs_datanode.yaml
+</code></pre>
+
+<p>内容如下:</p>
+<pre class="highlight plaintext"><code>init_config:
+
+instances:
+  #
+  # The HDFS DataNode check retrieves metrics from the HDFS DataNode's JMX
+  # interface. This check must be installed on a HDFS DataNode. The HDFS
+  # DataNode JMX URI is composed of the DataNode's hostname and port.
+  #
+  # The hostname and port can be found in the hdfs-site.xml conf file under
+  # the property dfs.datanode.http.address
+  #
+  - hdfs_datanode_jmx_uri: http://localhost:50075
+</code></pre>
+
+<hr>
+
+<h3>4.重启 Agent</h3>
+
+<p>重启 Cloudinsight Agent，使配置生效。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent restart
+</code></pre>
+
+<p>您也可以通过查看 Agent Info 信息，来验证配置是否成功。</p>
+<pre class="highlight plaintext"><code>/etc/init.d/cloudinsight-agent info
+</code></pre>
+
+<p>当出现以下信息，则代表安装成功。</p>
+<pre class="highlight plaintext"><code>Checks
+======
+
+ [...]
+
+hdfs_datanode
+---------
+  - instance #0  [OK]
+  - Collected 8 metrics &amp; 0 events
+</code></pre>
+
+<p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
+
+<hr>
+
+<h2>常见问题</h2>
+
+<ul>
+<li>若要在同一个服务器上监控多个相同的平台服务，参考<a href="http://docs-ci.oneapm.com/qa/more.html">如何监控多个平台服务</a>。</li>
+<li>有任何关于产品的使用疑惑，参考<a href="http://docs-ci.oneapm.com/qa/">常见问题</a>。</li>
+</ul>
+
+            <hr style="margin-top: 50px;" />
+<div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
+  <p style="font-size: 16px;">
+    如果您对 Cloudinsight 感兴趣，可以选择试用我们的产品，只需要点击下面的按钮免费注册即可。
+  </p>
+  <br />
+  <p>
+    <a href="https://cloud.oneapm.com/user/register?ref=https://cloud.oneapm.com&from=ci-docs" class="btn btn-info btn-lg" target="_blank">
+      立即注册 Cloudinsight
+    </a>
+  </p>
+</div>
+<hr />
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     id="ds-thread"
+     data-thread-key=""
+     data-title=""
+     data-url="http://docs-ci.oneapm.com/services_example/hdfs.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+  var titleTag = document.getElementsByTagName("h1")[0];
+
+  if (titleTag) {
+    title = document.getElementsByTagName("h1")[0].innerText;
+  } else {
+    title = "如何监控HDFS运行状况｜CloudInsight监控HDFS";
+  }
+
+  var duoshuoTag = document.getElementById('ds-thread');
+  duoshuoTag.setAttribute('data-thread-key', title.replace(/\s/g, ''));
+  duoshuoTag.setAttribute('data-title', title);
+
+  var duoshuoQuery = {short_name:"docs-ci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+            <div class="return"></div>
+          </div>
+          <div class="footer-in">
+            <div class="footer-nav-block">
+    <div class="container">
+        <div class="footer-nav">
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="/quick-start/">文档</a>
+                    </li>
+                    <li>
+                        <a href="/quick-start/">快速入门</a>
+                    </li>
+                    <li>
+                        <a href="/agent/">安装配置</a>
+                    </li>
+                    <li>
+                        <a href="/platform/">操作指南</a>
+                    </li>
+                    <li>
+                        <a href="/best-practise/">实践案例</a>
+                    </li>
+                    <li>
+                        <a href="/qa/">常见问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">产品</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/product.html">基础组件监控</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/api_sdk.html">API 与 SDK</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/product/cialert.html">异常数据告警</a>
+                    </li>
+                    <li>
+                        <a href="http://cloudinsight.oneapm.com/price.html">报价</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <ul class="footer-nav-list">
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">关于</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/group.html">团队介绍</a></li>
+                    <li><a href="http://cloudinsight.oneapm.com/about/cooperation.html">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-support">
+            <ul class="footer-support-list">
+                <li><img src="/images/home/support.svg"></li>
+                <li class="support-title">技术支持</li>
+                <li class="support-mail">support@oneapm.com</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer-copyright-block">
+    <div class="container">
+        <div class="copyright-link">
+            <div class="socialLink">
+                <a href="https://github.com/cloudinsight/cloudinsight.github.io" class="social-btn github" target="_blank">
+                    <img src="/images/home/github.svg">
+                    <p class="hidden-xs hidden-xxs">Github</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="#" class="social-btn qr">
+                    <img src="/images/home/wechat.svg">
+                    <p class="hidden-xs hidden-xxs">微信</p>
+                    <div class="QRcode">
+                        <img src="/images/home/wechatQR.svg">
+                    </div>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://my.oschina.net/cloudinsight/blog" class="social-btn" target="_blank">
+                    <img src="/images/home/oschina.svg">
+                    <p class="hidden-xs hidden-xxs">开源中国</p>
+                </a>
+            </div>
+            <div class="socialLink">
+                <a href="http://www.weibo.com/cloudinsight" class="social-btn" target="_blank">
+                    <img src="/images/home/weibo.svg">
+                    <p class="hidden-xs hidden-xxs">微博</p>
+                </a>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <a href="http://cloudinsight.oneapm.com/">
+                <img src="/images/home/cilogomulti_btn.svg" class="footer-logo">
+            </a>
+            <p class="copyright">
+                Copyright © 2008-
+                <span id="cr-end-time"></span>
+                北京蓝海讯通科技股份有限公司
+                <br>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备14028342号-2</a>
+                京公网安备 11010802016192
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      $(function() {
+        $(".navbar-default .navbar-nav .guide").addClass("active");
+        (function () {
+          $('.panel-default').mouseenter(function () {
+            if(!$(this).hasClass('active')){
+              $(this).children().addClass('in');
+            }
+          })
+          $('.panel-default').mouseleave(function () {
+              if(!$(this).hasClass('active')) {
+                $(this).children().removeClass('in');
+              }
+            })
+          var key=window.location.pathname;
+          var lastindex;
+          var keyInfo;
+          if(key.indexOf('quick-start') !== -1){
+            keyInfo="'"+key+"'";
+            $('ol').eq(0).children().map(function () {
+              $(this).css({
+                'cursor':'pointer',
+                'color':'#005FA8'
+              })
+            })
+            $('ol').eq(0).children().eq(0).click(function () {
+              $('.page-body').animate({ scrollTop: 300 }, 500)
+            })
+            $('ol').eq(0).children().eq(1).click(function () {
+              $('.page-body').animate({ scrollTop: 1830 }, 500)
+            })
+            $('ol').eq(0).children().eq(2).click(function () {
+              $('.page-body').animate({ scrollTop: 4202 }, 500)
+            })
+            $('ol').eq(0).children().eq(3).click(function () {
+              $('.page-body').animate({ scrollTop: 5942 }, 500)
+            })
+            $('ol').eq(0).children().eq(4).click(function () {
+              $('.page-body').animate({ scrollTop: 10066 }, 500)
+            })
+          }else if(key.indexOf('/',1) !== -1){
+            lastindex=key.indexOf('/',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"'";
+          }else {
+            lastindex=key.indexOf('.',1);
+            keyInfo="'"+key.substring(0,lastindex+1)+"html'";
+          }
+          var panelHead= $(".panel-default  a[href="+keyInfo+"]").parent().parent();
+          panelHead.siblings().addClass('in');
+          panelHead.parent().siblings('div').map(function () {
+            $(this).removeClass('active');
+          });
+          panelHead.parent().addClass('active');
+        })();
+      });
+    </script>
+  </body>
+</html>

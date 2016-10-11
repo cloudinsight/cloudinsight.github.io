@@ -224,16 +224,15 @@
   </head>
 
   <body class="page-agent agent_ubuntu">
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74438127-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
 
 <header class="main-header clearfix">
 	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
@@ -264,7 +263,7 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
 					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
@@ -475,9 +474,9 @@
 
 <h2>安装探针</h2>
 
-<p>点击设置添加平台。</p>
+<p>点击设置添加平台。</p>
 
-<p>选择服务器平台，目前支持 CentOS、Ubuntu、Debian、Fedora、RedHat、Amazon Linux、Docker、Chef、Puppet 等多种平台。选择 Ubuntu 平台，复制粘贴下面的文字，直接运行：</p>
+<p>选择服务器平台，目前支持 CentOS、Ubuntu、Debian、Fedora、RedHat、Amazon Linux、Docker、Chef、Puppet 等多种平台。选择 Ubuntu 平台，复制粘贴下面的指令（指令中包含您的专属 license key ，故请勿从他处复制指令），在想要监控的系统中运行该指令即可完成安装：</p>
 
 <p><img src="/images/agent/IU2.png" /></p>
 

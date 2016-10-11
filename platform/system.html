@@ -224,16 +224,15 @@
   </head>
 
   <body class="page-platform platform_system">
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74438127-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJ6GBS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ6GBS');</script>
+    <!-- End Google Tag Manager -->
 
 <header class="main-header clearfix">
 	<div class="main-navblock col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"><div>
@@ -264,7 +263,7 @@
 			</ul>
 			<ul class="login-list">
 				<li>
-					<a href="http://user.oneapm.com/pages/v2/login" class="btn outline-dark" id="loginIn">登录</a>
+					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
 				</li>
 				<li>
 					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
@@ -402,6 +401,7 @@
       <div class="panel-body">
         <ul>
           <li><a href="/alert/metric.html">指标报警</a></li>
+          <li><a href="/alert/host.html">平台报警</a></li>
         </ul>
       </div>
     </div>
@@ -435,8 +435,16 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>system.cpu.guest</td>
+<td>运行虚拟处理器时花费时间的百分比,仅适用于虚拟机</td>
+</tr>
+<tr>
 <td>system.cpu.idle</td>
 <td>当前 CPU 空闲百分比</td>
+</tr>
+<tr>
+<td>system.cpu.interrupt</td>
+<td>进程用于处理中断所花费时间的百分比</td>
 </tr>
 <tr>
 <td>system.cpu.iowait</td>
@@ -444,7 +452,7 @@
 </tr>
 <tr>
 <td>system.cpu.stolen</td>
-<td>虚拟CPU花在等待管理程序分配其他虚拟CPU的时间百分比。仅适用于虚拟机</td>
+<td>虚拟 CPU 花在等待管理程序分配其他虚拟 CPU 的时间百分比,仅适用于虚拟机</td>
 </tr>
 <tr>
 <td>system.cpu.system</td>
@@ -463,12 +471,20 @@
 <td>已使用磁盘占比</td>
 </tr>
 <tr>
+<td>system.disk.read_time_pct</td>
+<td>在磁盘读取上花费时间的百分比</td>
+</tr>
+<tr>
 <td>system.disk.total</td>
 <td>磁盘总空间 （byte）</td>
 </tr>
 <tr>
 <td>system.disk.used</td>
 <td>已使用的磁盘空间 （byte）</td>
+</tr>
+<tr>
+<td>system.disk.write_time_pct</td>
+<td>在磁盘写入上花费时间的百分比</td>
 </tr>
 <tr>
 <td>system.fs.inodes.free</td>
@@ -485,6 +501,10 @@
 <tr>
 <td>system.fs.inodes.used</td>
 <td>已使用 inode 数</td>
+</tr>
+<tr>
+<td>system.io.avg_q_sz</td>
+<td>向设备发出的请求的平均队列大小</td>
 </tr>
 <tr>
 <td>system.io.await</td>
@@ -523,6 +543,30 @@
 <td>过去 15 分钟内系统负载</td>
 </tr>
 <tr>
+<td>system.load.norm.1</td>
+<td>过去一分钟系统负载（每单核 CPU）</td>
+</tr>
+<tr>
+<td>system.load.norm.5</td>
+<td>过去五分钟系统负载（每单核 CPU）</td>
+</tr>
+<tr>
+<td>system.load.norm.15</td>
+<td>过去十五分钟系统负载（每单核 CPU）</td>
+</tr>
+<tr>
+<td>system.mem.buffered</td>
+<td>系统分配却未被使用的 buffer 数量</td>
+</tr>
+<tr>
+<td>system.mem.cached</td>
+<td>系统分配却未被使用的 cache 数量</td>
+</tr>
+<tr>
+<td>system.mem.committed</td>
+<td>存储在已被保留的磁盘分页上的物理内存量</td>
+</tr>
+<tr>
 <td>system.mem.free</td>
 <td>可用内存量 （byte）</td>
 </tr>
@@ -531,8 +575,52 @@
 <td>已用内存量 （byte）</td>
 </tr>
 <tr>
+<td>system.mem.nonpaged</td>
+<td>操作系统用于不能被写入磁盘，但必须保持在物理内存中的对象的物理内存量</td>
+</tr>
+<tr>
+<td>system.mem.page_free</td>
+<td>可用的 page file 数量</td>
+</tr>
+<tr>
+<td>system.mem.page_pct_free</td>
+<td>使用中的 page file 数量占总量的比例</td>
+</tr>
+<tr>
+<td>system.mem.page_total</td>
+<td>page file 的总量</td>
+</tr>
+<tr>
+<td>system.mem.page_used</td>
+<td>使用中的 page file 数量</td>
+</tr>
+<tr>
+<td>system.mem.paged</td>
+<td>操作系统用于不用时可以被写入磁盘的对象的物理内存量</td>
+</tr>
+<tr>
+<td>system.mem.pct_usable</td>
+<td>内存使用百分比</td>
+</tr>
+<tr>
+<td>system.mem.shared</td>
+<td>共享内存的大小</td>
+</tr>
+<tr>
+<td>system.mem.total</td>
+<td>物理内存总大小</td>
+</tr>
+<tr>
+<td>system.mem.usable</td>
+<td>内存 free buffered cached 的总和</td>
+</tr>
+<tr>
 <td>system.net.bytes_rcvd</td>
 <td>设备每秒接收到的字节数</td>
+</tr>
+<tr>
+<td>system.net.bytes_sent</td>
+<td>每秒发送的字节数</td>
 </tr>
 <tr>
 <td>system.net.packets_in.count</td>
@@ -552,27 +640,35 @@
 </tr>
 <tr>
 <td>system.net.tcp.in_segs</td>
-<td>接收的TCP段的数量</td>
+<td>接收的 TCP 段的数量</td>
 </tr>
 <tr>
 <td>system.net.tcp.out_segs</td>
-<td>发送的TCP段的数量</td>
+<td>发送的 TCP 段的数量</td>
 </tr>
 <tr>
 <td>system.net.tcp.retrans_segs</td>
-<td>重发的TCP数据包的数量</td>
+<td>重发的 TCP 数据包的数量</td>
 </tr>
 <tr>
 <td>system.net.udp.in_datagrams</td>
-<td>接收的UDP数据包</td>
+<td>接收的 UDP 数据包</td>
 </tr>
 <tr>
 <td>system.net.udp.in_errors</td>
-<td>接收的错误UDP数据包</td>
+<td>接收的错误 UDP 数据包</td>
 </tr>
 <tr>
 <td>system.swap.free</td>
 <td>空余交换空间</td>
+</tr>
+<tr>
+<td>system.swap.pct_free</td>
+<td>Swap 已使用百分比</td>
+</tr>
+<tr>
+<td>system.swap.total</td>
+<td>Swap 总大小</td>
 </tr>
 <tr>
 <td>system.swap.used</td>
@@ -580,7 +676,7 @@
 </tr>
 <tr>
 <td>system.swap.swapped_in</td>
-<td>每秒交换回内存的总量 ／bytes</td>
+<td>每秒交换回内存的总量 / bytes</td>
 </tr>
 <tr>
 <td>system.swap.swapped_out</td>
