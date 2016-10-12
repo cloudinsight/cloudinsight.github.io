@@ -466,6 +466,23 @@
           <div class="body-box">
             <h1>内网环境安装探针</h1>
 
+<h2>探针代理模式</h2>
+
+<ol>
+<li><p>首先您需要有一台服务器能够连接外网，并已安装探针。这里我们以 <code>Proxy-Node</code> 来代替这台服务器。</p></li>
+<li><p>在 <code>Proxy-Node</code> 上修改探针配置文件 <code>/etc/cloudinsight-agent/cloudinsight-agent.conf</code>，将其中的 <code># non_local_traffic: no</code> 修改为 <code>non_local_traffic: yes</code>，然后重启探针。</p></li>
+<li><p>确保其他内网服务器能够连接到 <code>Proxy-Node</code> 的 10010 端口，可执行如下命令:</p></li>
+</ol>
+<pre class="highlight plaintext"><code>curl -v http://Proxy-Node:10010/status 2&gt;&amp;1 | grep "200 OK"
+</code></pre>
+
+<ol>
+<li><p>在其他内网服务器上修改探针配置文件 <code>/etc/cloudinsight-agent/cloudinsight-agent.conf</code>，将其中的 <code>ci_url: https://dc-cloud.oneapm.com</code> 修改为 <code>ci_url: http://Proxy-Node:10010</code>，然后重启探针。</p></li>
+<li><p>进入<a href="https://cloud.oneapm.com/#/hosts/list">平台列表页</a>，确认所有服务器的数据均被发送至 Cloudinsight。</p></li>
+</ol>
+
+<hr>
+
 <h2>环境变量里面设置 http_proxy</h2>
 
 <p>如果你服务器的环境变量里面设置了 http_proxy，那可以直接修改探针的配置文件，首先单独下载探针包，在本地进行安装，探针包里包含 Python 所需要的环境变量：</p>

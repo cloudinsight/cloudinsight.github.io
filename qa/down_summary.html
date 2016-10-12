@@ -546,7 +546,7 @@ Stopping Cloudinsight Agent (using killproc on supervisord): [ OK ] Error settin
 
 <p><strong>解决方法</strong> 此为 syslog 文件找不到，修改 /etc/cloudinsight-agent/cloudinsight-agent.conf 里面 log<em>to</em>syslog 设置为 no ，重启探针即可。</p>
 
-<p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/cloudinsight-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，onestatsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloudinsight SaaS 的传输情况。</p>
+<p>Info 命令如果看着没问题，看看探针的 log，在 <code>/var/log/cloudinsight-agent</code> 下面有 collector.log，forwarder.log，jmxfetch.log，statsd.log 和 supervisor.log 几个文件。其中 collector.log 记录探针收集状况的 log ，forwarder.log 记录探针发送到 Cloudinsight SaaS 的传输情况。</p>
 
 <hr>
 

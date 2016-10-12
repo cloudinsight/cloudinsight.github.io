@@ -403,7 +403,7 @@
 <li><code>log_level</code> - log 级别 (DEBUG | INFO | WARN | WARNING | ERROR | CRITICAL | FATAL)</li>
 <li><code>collector_log_file</code> - collector 日志文件</li>
 <li><code>forwarder_log_file</code> - forwarder 日志文件</li>
-<li><code>onestatsd_log_file</code> - onestatsd 日志文件</li>
+<li><code>statsd_log_file</code> - statsd 日志文件</li>
 <li><code>log_to_syslog</code> - 将日志打入系统日志， 开启后如果 host 和 port 没有配置，会尝试连接一个本地的 syslog</li>
 <li><code>syslog_host</code> - syslog 地址</li>
 <li><code>syslog_port</code> - syslog 端口</li>
@@ -443,7 +443,7 @@
 <li><code>user</code>: 让 supervisord 切换到这个用户再运行，只有是用 root 启动的 supervisord 才能切换</li>
 <li><code>environment</code>: 键值对列表，作为 supervisord 运行时候的环境变量</li>
 </ul></li>
-<li><code>program:collector,forwarder,onestatsd,jmxfetch</code>
+<li><code>program:collector,forwarder,statsd,jmxfetch</code>
 
 <ul>
 <li><code>command</code>: 这个程序启动时候会执行的命令</li>

@@ -423,10 +423,10 @@
 <p>Cloudinsight Agent 主要由四个用 Python 编写的组件构成，每个组件都是单独运行的进程。</p>
 
 <ul>
-<li>Collector（agent.py）&ndash; Collector 会检查当前运行机器的集成环境，抓取系统性能指标，如内存和 CPU 数据。</li>
-<li>Onestatsd（onestatsd.py）&ndash; 这是 StatsD 的后台服务器，它致力于收集从你代码中发送出去的本地性能指标。</li>
-<li>Forwarder（forwarder.py）&ndash; Forwarder 负责把 Onestatsd 和 Collector 收集到的数据推到一个队列中，这些数据将会被发往 Cloudinsight。</li>
-<li>Supervisord &ndash; 由一个单独的管理进程控制。我们把它与其他组件分隔开来，因此如果你担心资源消耗而不想运行所有组件的话（虽然我们建议你这么做），可以单独运行它。</li>
+<li>Collector(ci-collector) &ndash; Collector 会检查当前运行机器的集成环境，抓取系统性能指标，如内存和 CPU 数据。</li>
+<li>Statsd(ci-statsd) &ndash; 这是 Statsd 的后台服务器，它致力于收集从你代码中发送出去的本地性能指标。</li>
+<li>Forwarder(ci-forwarder) &ndash; Forwarder 负责把 Onestatsd 和 Collector 收集到的数据推到一个队列中，这些数据将会被发往 Cloudinsight。</li>
+<li>Supervisord &ndash; 进程管理器，负责管理探针的各个组件。我们把它与其他组件分隔开来，因此如果你担心资源消耗而不想运行所有组件的话（虽然我们不建议你这么做），可以单独运行它。</li>
 </ul>
 
             <hr style="margin-top: 50px;" />
