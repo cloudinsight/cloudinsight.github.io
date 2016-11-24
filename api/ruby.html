@@ -503,9 +503,9 @@
 <p><code>Counters</code> 是 StatsD 和 Cloudinsight SDK 最基本的一种数据类型。当调用 <code>increment</code> 和 <code>decrement</code> 时，对参数进行自增或自减。</p>
 
 <p>由于 Cloudinsight Agent 的采集周期为 30 s，最终展现至界面的值为采集周期的平均值。</p>
-<pre class="highlight ruby"><code>  <span class="nb">require</span> <span class="s1">'oneapm_ci'</span>
+<pre class="highlight ruby"><code>  <span class="nb">require</span> <span class="s1">'cloudinsight-sdk'</span>
 
-  <span class="n">statsd</span> <span class="o">=</span> <span class="no">OneapmCi</span><span class="o">::</span><span class="no">Statsd</span><span class="p">.</span><span class="nf">new</span>
+  <span class="n">statsd</span> <span class="o">=</span> <span class="no">CloudInsight</span><span class="o">::</span><span class="no">Statsd</span><span class="p">.</span><span class="nf">new</span>
 
   <span class="c1"># Increment a counter.</span>
   <span class="n">statsd</span><span class="p">.</span><span class="nf">increment</span><span class="p">(</span><span class="s1">'page.views'</span><span class="p">)</span>
