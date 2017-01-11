@@ -240,36 +240,36 @@
 				<div class="oneapm-logo"></div>
 			</a>
 		</div>
-		<a href="#" class="burger-wrapper">
-			<div class="burger"></div>
-		</a>
-		<div class="nav-container">
-			<ul class="nav-list">
-				<li>
-					<a href="/quick-start/">快速入门</a>
-				</li>
-				<li>
-					<a href="/agent/">安装配置</a>
-				</li>
-				<li>
-					<a href="/platform/">操作指南</a>
-				</li>
-				<li>
-					<a href="/best-practise/">实践案例</a>
-				</li>
-				<li>
-					<a href="/qa/">常见问题</a>
-				</li>
-			</ul>
-			<ul class="login-list">
-				<li>
-					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
-				</li>
-				<li>
-					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
-				</li>
-			</ul>
-		</div>
+		<!--<a href="#" class="burger-wrapper">-->
+			<!--<div class="burger"></div>-->
+		<!--</a>-->
+		<!--<div class="nav-container">-->
+			<!--<ul class="nav-list">-->
+				<!--<li>-->
+					<!--<a href="/quick-start/">快速入门</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/agent/">安装配置</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/platform/">操作指南</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/best-practise/">实践案例</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/qa/">常见问题</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+			<!--<ul class="login-list">-->
+				<!--<li>-->
+					<!--<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
 	</div>
 </header>
 <div class="flagInfo clearfix">
@@ -277,44 +277,7 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
-<script type="text/javascript">
-	$(function () {
-		var key=window.location.pathname;
-		var arr5=['agent','api','cloud-integration','services','services_example'];
-		var arr1=['quick-start'];
-		var arr3=['release-note','platform','dashboard','metric','alert','event'];
-		var arr4=['use-case','best-practise'];
-		var arr2=['qa'];
-		var Arr=[arr1,arr2,arr3,arr4,arr5];
-		for(var i=0;i<6;i++) {
-			$.each(Arr[i], function (e, a) {
-				if (key.indexOf(a) !== -1) {
-					switch (i + 1) {
-						case 1:
-							key = '/quick-start/';
-							break;
-						case 5:
-							key = '/agent/';
-							break;
-						case 3:
-							key = '/platform/';
-							break;
-						case 4:
-							key = '/best-practise/';
-							break;
-						case 2:
-							key = '/qa/';
-							break;
-					}
-				}
-			});
-		}
-		var keyInfo="'"+key+"'";
-		var panelHead;
-			panelHead= $(".nav-container  a[href="+keyInfo+"]");
-			panelHead.addClass('show');
-	});
-</script>
+<script type="text/javascript" src="//d.oneapm.com/sso/nav.js"></script>
 
 
     <div class="container page-container">
@@ -513,15 +476,15 @@
 <td>丢弃的消息数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.event<em>queue</em>dispatches</td>
+<td>mesos.cluster.event_queue_dispatches</td>
 <td>事件队列里调度的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.event<em>queue</em>http_requests</td>
+<td>mesos.cluster.event_queue_http_requests</td>
 <td>事件队列里HTTP请求的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.event<em>queue</em>messages</td>
+<td>mesos.cluster.event_queue_messages</td>
 <td>事件队列里消息传输的数量</td>
 </tr>
 <tr>
@@ -541,15 +504,15 @@
 <td>非活动的应用框架数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.invalid<em>framework</em>to<em>executor</em>messages</td>
+<td>mesos.cluster.invalid_framework_to_executor_messages</td>
 <td>应用框架传给执行器无效消息的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.invalid<em>status</em>update_acknowledgements</td>
+<td>mesos.cluster.invalid_status_update_acknowledgements</td>
 <td>无效的状态更新通知的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.invalid<em>status</em>updates</td>
+<td>mesos.cluster.invalid_status_updates</td>
 <td>无效的状态更新的数量</td>
 </tr>
 <tr>
@@ -569,7 +532,7 @@
 <td>未处理的资源邀约数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.recovery<em>slave</em>removals</td>
+<td>mesos.cluster.recovery_slave_removals</td>
 <td></td>
 </tr>
 <tr>
@@ -585,11 +548,11 @@
 <td>重新注册的slave节点数</td>
 </tr>
 <tr>
-<td>mesos.cluster.slave<em>shutdowns</em>canceled</td>
+<td>mesos.cluster.slave_shutdowns_canceled</td>
 <td>健康监控中被判定失效，计划被移除的slave节点数，但不会立刻移除，因为有移除slave节点速率限制</td>
 </tr>
 <tr>
-<td>mesos.cluster.slave<em>shutdowns</em>scheduled</td>
+<td>mesos.cluster.slave_shutdowns_scheduled</td>
 <td>取消关机的slave节点数量：当slave节点移除速率限制下被允许slave节点重连，并在移除前发送PONG给Master节点的slave节点数</td>
 </tr>
 <tr>
@@ -645,15 +608,15 @@
 <td>总的应用框架数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.valid<em>framework</em>to<em>executor</em>messages</td>
+<td>mesos.cluster.valid_framework_to_executor_messages</td>
 <td>应用框架传给执行器无效消息的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.valid<em>status</em>update_acknowledgements</td>
+<td>mesos.cluster.valid_status_update_acknowledgements</td>
 <td>无效的状态更新通知的数量</td>
 </tr>
 <tr>
-<td>mesos.cluster.valid<em>status</em>updates</td>
+<td>mesos.cluster.valid_status_updates</td>
 <td>无效的状态更新的数量</td>
 </tr>
 <tr>
@@ -661,51 +624,51 @@
 <td></td>
 </tr>
 <tr>
-<td>mesos.registrar.registry<em>size</em>bytes</td>
+<td>mesos.registrar.registry_size_bytes</td>
 <td>注册表大小</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>fetch</em>ms</td>
+<td>mesos.registrar.state_fetch_ms</td>
 <td>读注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms</td>
+<td>mesos.registrar.state_store_ms</td>
 <td>写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.count</td>
+<td>mesos.registrar.state_store_ms.count</td>
 <td>注册表写入次数</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.max</td>
+<td>mesos.registrar.state_store_ms.max</td>
 <td>最大写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.min</td>
+<td>mesos.registrar.state_store_ms.min</td>
 <td>最小写注册信息的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p50</td>
+<td>mesos.registrar.state_store_ms.p50</td>
 <td>写注册信息延迟的中位数，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p90</td>
+<td>mesos.registrar.state_store_ms.p90</td>
 <td>写注册信息90%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p95</td>
+<td>mesos.registrar.state_store_ms.p95</td>
 <td>写注册信息95%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p99</td>
+<td>mesos.registrar.state_store_ms.p99</td>
 <td>写注册信息99%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p999</td>
+<td>mesos.registrar.state_store_ms.p999</td>
 <td>写注册信息99.9%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
-<td>mesos.registrar.state<em>store</em>ms.p9999</td>
+<td>mesos.registrar.state_store_ms.p9999</td>
 <td>写注册信息99.99%起的延迟，单位毫秒：ms</td>
 </tr>
 <tr>
@@ -773,11 +736,11 @@
 <td>活动中的应用数</td>
 </tr>
 <tr>
-<td>mesos.slave.invalid<em>framework</em>messages</td>
+<td>mesos.slave.invalid_framework_messages</td>
 <td>无效的应用框架信息的数量</td>
 </tr>
 <tr>
-<td>mesos.slave.invalid<em>status</em>updates</td>
+<td>mesos.slave.invalid_status_updates</td>
 <td>无效的状态更新消息的数量</td>
 </tr>
 <tr>
@@ -825,11 +788,11 @@
 <td>开始的任务数量</td>
 </tr>
 <tr>
-<td>mesos.slave.valid<em>framework</em>messages</td>
+<td>mesos.slave.valid_framework_messages</td>
 <td>无效的应用框架信息的数量</td>
 </tr>
 <tr>
-<td>mesos.slave.valid<em>status</em>updates</td>
+<td>mesos.slave.valid_status_updates</td>
 <td>无效的状态更新消息的数量</td>
 </tr>
 <tr>
@@ -857,11 +820,11 @@
 <td>5分钟内平均负载</td>
 </tr>
 <tr>
-<td>mesos.stats.system.mem<em>free</em>bytes</td>
+<td>mesos.stats.system.mem_free_bytes</td>
 <td>剩余内存 （bytes）</td>
 </tr>
 <tr>
-<td>mesos.stats.system.mem<em>total</em>bytes</td>
+<td>mesos.stats.system.mem_total_bytes</td>
 <td>总内存 （bytes）</td>
 </tr>
 <tr>

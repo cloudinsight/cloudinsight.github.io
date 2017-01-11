@@ -240,36 +240,36 @@
 				<div class="oneapm-logo"></div>
 			</a>
 		</div>
-		<a href="#" class="burger-wrapper">
-			<div class="burger"></div>
-		</a>
-		<div class="nav-container">
-			<ul class="nav-list">
-				<li>
-					<a href="/quick-start/">快速入门</a>
-				</li>
-				<li>
-					<a href="/agent/">安装配置</a>
-				</li>
-				<li>
-					<a href="/platform/">操作指南</a>
-				</li>
-				<li>
-					<a href="/best-practise/">实践案例</a>
-				</li>
-				<li>
-					<a href="/qa/">常见问题</a>
-				</li>
-			</ul>
-			<ul class="login-list">
-				<li>
-					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
-				</li>
-				<li>
-					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
-				</li>
-			</ul>
-		</div>
+		<!--<a href="#" class="burger-wrapper">-->
+			<!--<div class="burger"></div>-->
+		<!--</a>-->
+		<!--<div class="nav-container">-->
+			<!--<ul class="nav-list">-->
+				<!--<li>-->
+					<!--<a href="/quick-start/">快速入门</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/agent/">安装配置</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/platform/">操作指南</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/best-practise/">实践案例</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/qa/">常见问题</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+			<!--<ul class="login-list">-->
+				<!--<li>-->
+					<!--<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
 	</div>
 </header>
 <div class="flagInfo clearfix">
@@ -277,44 +277,7 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
-<script type="text/javascript">
-	$(function () {
-		var key=window.location.pathname;
-		var arr5=['agent','api','cloud-integration','services','services_example'];
-		var arr1=['quick-start'];
-		var arr3=['release-note','platform','dashboard','metric','alert','event'];
-		var arr4=['use-case','best-practise'];
-		var arr2=['qa'];
-		var Arr=[arr1,arr2,arr3,arr4,arr5];
-		for(var i=0;i<6;i++) {
-			$.each(Arr[i], function (e, a) {
-				if (key.indexOf(a) !== -1) {
-					switch (i + 1) {
-						case 1:
-							key = '/quick-start/';
-							break;
-						case 5:
-							key = '/agent/';
-							break;
-						case 3:
-							key = '/platform/';
-							break;
-						case 4:
-							key = '/best-practise/';
-							break;
-						case 2:
-							key = '/qa/';
-							break;
-					}
-				}
-			});
-		}
-		var keyInfo="'"+key+"'";
-		var panelHead;
-			panelHead= $(".nav-container  a[href="+keyInfo+"]");
-			panelHead.addClass('show');
-	});
-</script>
+<script type="text/javascript" src="//d.oneapm.com/sso/nav.js"></script>
 
 
     <div class="container page-container">
@@ -485,7 +448,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>redis.aof.last_rewrite_time</code></td>
+<td><code>redis.aof.last\_rewrite\_time</code></td>
 <td>上次rewrite操作使用的时间(单位s)</td>
 </tr>
 <tr>
@@ -493,7 +456,7 @@
 <td>rewrite 的次数</td>
 </tr>
 <tr>
-<td><code>redis.clients.biggest_input_buf</code></td>
+<td><code>redis.clients.biggest\_input\_buf</code></td>
 <td>当前客户端连接的最大输入缓存</td>
 </tr>
 <tr>
@@ -501,7 +464,7 @@
 <td>被阻塞的客户端数</td>
 </tr>
 <tr>
-<td><code>redis.clients.longest_output_list</code></td>
+<td><code>redis.clients.longest\_output\_list</code></td>
 <td>当前客户端连接的最大输出列表</td>
 </tr>
 <tr>
@@ -509,7 +472,7 @@
 <td>系统cpu</td>
 </tr>
 <tr>
-<td><code>redis.cpu.sys_children</code></td>
+<td><code>redis.cpu.sys\_children</code></td>
 <td>后台进程的sys cpu使用率</td>
 </tr>
 <tr>
@@ -517,11 +480,11 @@
 <td>redis server的user cpu使用率</td>
 </tr>
 <tr>
-<td><code>redis.cpu.user_children</code></td>
+<td><code>redis.cpu.user\_children</code></td>
 <td>后台进程的user cpu使用率</td>
 </tr>
 <tr>
-<td><code>redis.info.latency_ms</code></td>
+<td><code>redis.info.latency\_ms</code></td>
 <td>redis 服务器响应延迟的平均时间</td>
 </tr>
 <tr>
@@ -533,8 +496,8 @@
 <td>过期的key的总数</td>
 </tr>
 <tr>
-<td><code>redis.mem.fragmentation_ratio</code></td>
-<td>used<em>memory</em>rss/used<em>memory比例，一般情况下，used</em>memory<em>rss略高于used</em>memory，当内存碎片较多时，则mem<em>fragmentation</em>ratio会较大，可以反映内存碎片是否很多</td>
+<td><code>redis.mem.fragmentation\_ratio</code></td>
+<td>used_memory_rss/used_memory比例，一般情况下，used_memory_rss略高于used_memory，当内存碎片较多时，则mem_fragmentation_ratio会较大，可以反映内存碎片是否很多</td>
 </tr>
 <tr>
 <td><code>redis.mem.lua</code></td>
@@ -569,7 +532,7 @@
 <td>连接的从库数</td>
 </tr>
 <tr>
-<td><code>redis.perf.latest_fork_usec</code></td>
+<td><code>redis.perf.latest\_fork\_usec</code></td>
 <td>上次的fork操作使用的时间（单位ms）</td>
 </tr>
 <tr>
@@ -585,23 +548,23 @@
 <td>通过子进程来进行数据持久化</td>
 </tr>
 <tr>
-<td><code>redis.rdb.changes_since_last</code></td>
+<td><code>redis.rdb.changes\_since\_last</code></td>
 <td>自上次dump后rdb的改动</td>
 </tr>
 <tr>
-<td><code>redis.rdb.last_bgsave_time</code></td>
+<td><code>redis.rdb.last\_bgsave\_time</code></td>
 <td>上次save的时间戳</td>
 </tr>
 <tr>
-<td><code>redis.replication.master_repl_offs</code></td>
+<td><code>redis.replication.master\_repl\_offs</code></td>
 <td>全局的数据同步偏移量</td>
 </tr>
 <tr>
-<td><code>redis.stats.keyspace_hits</code></td>
+<td><code>redis.stats.keyspace\_hits</code></td>
 <td>在main dictionary(todo)中成功查到的key个数</td>
 </tr>
 <tr>
-<td><code>redis.stats.keyspace_misses</code></td>
+<td><code>redis.stats.keyspace\_misses</code></td>
 <td>在main dictionary(todo)中未查到的key的个数</td>
 </tr>
 <tr>

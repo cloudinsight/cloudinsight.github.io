@@ -240,36 +240,36 @@
 				<div class="oneapm-logo"></div>
 			</a>
 		</div>
-		<a href="#" class="burger-wrapper">
-			<div class="burger"></div>
-		</a>
-		<div class="nav-container">
-			<ul class="nav-list">
-				<li>
-					<a href="/quick-start/">快速入门</a>
-				</li>
-				<li>
-					<a href="/agent/">安装配置</a>
-				</li>
-				<li>
-					<a href="/platform/">操作指南</a>
-				</li>
-				<li>
-					<a href="/best-practise/">实践案例</a>
-				</li>
-				<li>
-					<a href="/qa/">常见问题</a>
-				</li>
-			</ul>
-			<ul class="login-list">
-				<li>
-					<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>
-				</li>
-				<li>
-					<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>
-				</li>
-			</ul>
-		</div>
+		<!--<a href="#" class="burger-wrapper">-->
+			<!--<div class="burger"></div>-->
+		<!--</a>-->
+		<!--<div class="nav-container">-->
+			<!--<ul class="nav-list">-->
+				<!--<li>-->
+					<!--<a href="/quick-start/">快速入门</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/agent/">安装配置</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/platform/">操作指南</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/best-practise/">实践案例</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="/qa/">常见问题</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+			<!--<ul class="login-list">-->
+				<!--<li>-->
+					<!--<a href="http://user.oneapm.com/pages/v2/login_ci" class="btn outline-dark" id="loginIn">登录</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="https://cloud.oneapm.com/user/register" class="btn inside-yellow" id="signUp">注册</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
 	</div>
 </header>
 <div class="flagInfo clearfix">
@@ -277,44 +277,7 @@
     <div class="flag-right">Cloudinsight Agent 在 4.7.0 版本，将 Agent 名称从 oneapm-ci-agent 更换至 cloudinsight-agent。若您在使用过程中，出现无法正常工作的情况，请加入售后群：433349863</div>
     <span class="cl">X</span>
 </div>
-<script type="text/javascript">
-	$(function () {
-		var key=window.location.pathname;
-		var arr5=['agent','api','cloud-integration','services','services_example'];
-		var arr1=['quick-start'];
-		var arr3=['release-note','platform','dashboard','metric','alert','event'];
-		var arr4=['use-case','best-practise'];
-		var arr2=['qa'];
-		var Arr=[arr1,arr2,arr3,arr4,arr5];
-		for(var i=0;i<6;i++) {
-			$.each(Arr[i], function (e, a) {
-				if (key.indexOf(a) !== -1) {
-					switch (i + 1) {
-						case 1:
-							key = '/quick-start/';
-							break;
-						case 5:
-							key = '/agent/';
-							break;
-						case 3:
-							key = '/platform/';
-							break;
-						case 4:
-							key = '/best-practise/';
-							break;
-						case 2:
-							key = '/qa/';
-							break;
-					}
-				}
-			});
-		}
-		var keyInfo="'"+key+"'";
-		var panelHead;
-			panelHead= $(".nav-container  a[href="+keyInfo+"]");
-			panelHead.addClass('show');
-	});
-</script>
+<script type="text/javascript" src="//d.oneapm.com/sso/nav.js"></script>
 
 
     <div class="container page-container">
@@ -511,17 +474,20 @@
 
 <p>针对以下的「添加监控图表」，由于逻辑复杂，所以我们留到下一个小节，做介绍。</p>
 
-<p><img src="/images/dashboard/BasicUsage4.png" /></p>
-
 <hr>
 
 <h2>Metric 查询</h2>
 
-<p>添加监控图表，会弹出以下对话框。使用 Cloudinsight 的 Metric 查询，就可以得到您所需要的图表。</p>
+<p>添加监控图表，会弹出以下对话框。使用 Cloudinsight 的 Metric 查询，就可以得到您所需要的图表。<br>
+目前 Cloudinsight 支持两种模式的指标查询，分别为普通模式与专家模式。普通模式的功能较为简单，并且可以在选择指标时即时查看指标含义。专家模式功能更为强大，操作更为简练，适用于专业运维工程师或对 OpentsDB 有一定了解的人士。</p>
 
-<p><img src="/images/dashboard/BasicUsage4.png" /></p>
+<p>普通模式：
+<img src="/images/dashboard/normal1.png" /></p>
 
-<p>Cloudinsight 提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。</p>
+<p>专家模式：
+<img src="/images/dashboard/professional1.png" /></p>
+
+<p>Cloudinsight 两种指标查询模式的界面与功能不完全相同，但基本逻辑是一致的，其可以提供一种类 SQL 的 Metric 查询方式。如果您了解过 OpentsDB，那就更容易上手了。在介绍具体的指标查询操作之前，首先介绍下 Metric 的查询逻辑与语法。</p>
 
 <h3>语法</h3>
 <pre class="highlight plaintext"><code>Aggregation: MetricName {FromTag} by {TagKey}
@@ -671,7 +637,7 @@
 
 <p>此时，第一个 <code>{FromTag}</code> 缺省代表从所有 Metrics 中查询数据。如图所示，得到以下图表：</p>
 
-<p><img src="/images/dashboard/QueryMetric1.png" /></p>
+<p><img src="/images/dashboard/professional2.png" /></p>
 
 <p>在实际的测试环境中，由于我们有 6 台测试主机，所以会得到如下的曲线。并且，当鼠标悬停至曲线时，下方的悬停窗口会分别显示 6 台主机的 <code>system.cpu.idle</code>。</p>
 
@@ -808,11 +774,40 @@
 
 <p><strong>注意：自定义的标签等价于 host 标签，在进行聚合运算时，host 和不同自定义标签之间均取并集。</strong></p>
 
-<h4>参数查询</h4>
+<h3>普通模式</h3>
 
-<p>Cloudinsight 还添加了<strong>参数</strong>来提取出 <code>{FromTag}</code>，可以让用户不用每次都修改 <code>{FromTag}</code> 来查看 Metric；而只需在参数下拉框中选择 <code>{FromTag}</code> 来动态查询 Metric。</p>
+<p>根据图表种类的不同，Metric 查询的普通模式可分为两种，主要区别在于是否支持 grop by，下面对这两种普通模式的操作进行简单的介绍。</p>
 
-<p><img src="/images/dashboard/QueryMetric3.png" /></p>
+<p><img src="/images/dashboard/normal1.png" /></p>
+
+<p>如上图，在时间序列、状态值、热力图类型图表的指标选择普通模式中，主要包括三种功能：</p>
+
+<ul>
+<li>选择性能指标，即在图表中显示哪种性能指标对应的数据</li>
+<li>添加数据来源，即选择要查看该种数据的主机或标签，且仅可选择一个标签</li>
+<li>选择聚合计算方式，即在所选数据包含多个主机的情况中，选择多个主机间的数据聚合方式</li>
+</ul>
+
+<p>其中，在选择性能指标时会打开一个三级选择菜单，如下图</p>
+
+<p><img src="/images/dashboard/normal2.png" /></p>
+
+<p>三级菜单分别对应选择 “平台&amp;平台服务”、“指标类别”、“指标项”，而在菜单右侧可以直接查看选中的指标所对应的具体含义及类型、单位。<br>
+通过该菜单，您可以快速地选择自己想要查看的指标。同时如果您对指标的含义不甚了解，也可以在查看指标解释后再选择需要的指标。
+并且，该指标选择菜单在所有图表的普通模式中保持一致。</p>
+
+<p>而在饼图、排行榜、树状图、表格类型的图表中，普通模式的指标选择稍有不同</p>
+
+<p><img src="/images/dashboard/normal5.png" /></p>
+
+<p>如上图，该普通模式增加了按标签分组的功能，即 grop by 的功能。并且，在创建图表时，默认将所选数据按照主机类型进行分组。</p>
+
+<h3>专家模式</h3>
+
+<p><img src="/images/dashboard/professional1.png" /></p>
+
+<p>如上图，指标选择的专家模式功能更加强大，除了普通模式支持的功能外，还增加了 rate 的功能，即查看所选指标的增长率。
+并且，在 FromTag 功能中，可以选择多个不同类别的标签进行聚合筛选，选择更为精确的数据来源。</p>
 
 <hr>
 
@@ -856,18 +851,6 @@
 <p>若此时，我选择 <code>$host</code> 为 <code>host:centos.license</code> 则显示效果如图：</p>
 
 <p><img src="/images/dashboard/Parameter3.png" /></p>
-
-<h3>注意事项</h3>
-
-<p>您可以通过如下方式进行 Metric 查询：</p>
-<pre class="highlight plaintext"><code>avg:system.load.1 {$host, host:centos.license}
-</code></pre>
-
-<p>但是我们不建议您这么做。是因为变量和常量在查询上隔离，能够帮助您更有效地管理 Metric 和 Host。</p>
-
-<p><img src="/images/dashboard/Parameter4.png" /></p>
-
-<p>另外，只有 <code>{FromTag}</code> 中可以设置参数；用于分组的 <code>{TagKey}</code> 不能使用参数。</p>
 
 <hr>
 
@@ -943,6 +926,29 @@ source_type_name
 <p>你可以搜索 <code>event_title:wzl-ubuntu.cpu over 9</code>，这样3种事件都会显示出来；也可以不加查询指定字段 <code>fieldname</code>，直接加 <code>wzl-ubuntu.cpu over 9</code>，同样会出现3种事件。</p>
 
 <p>查询是累加的，如果想要删除某个查询条件只能先删除所有叠加事件，再重新添加。</p>
+
+<h3>全屏模式</h3>
+
+<p>点击仪表盘右上方的全屏按钮，可以进入全屏模式，来满足用户的投屏需求。</p>
+
+<p><img src="/images/dashboard/FullScreen1.png" /></p>
+
+<p>在全屏模式首页中，可选择具体要显示的图表、图表切换速度、是否锁定显示一张图表等。</p>
+
+<p><img src="/images/dashboard/FullScreen2.png" /></p>
+
+<p>在全屏模式中，具体的操作方式如下：</p>
+
+<ul>
+<li>点击仪表盘上方动物图标选择图表切换速度，其中由左至右按钮所对应的速度逐渐加快</li>
+<li>直接点击图表缩略图或两侧左右箭头来选择图表</li>
+<li>点击下方锁定按钮可锁定显示一幅图表，不进行自动切换，再次点击可解锁</li>
+<li>在全屏首页保持无操作一定时间后可进入具体图表的全屏显示，并按所选速度切换显示不同图表</li>
+<li>在显示具体图表时，进行任意操作可退出至全屏首页</li>
+<li>使用 ESC 可退出全屏模式</li>
+</ul>
+
+<p><img src="/images/dashboard/FullScreen3.png" /></p>
 
             <hr style="margin-top: 50px;" />
 <div class="alert alert-warning" style="text-align:center; margin: 40px 0px;">
