@@ -439,73 +439,89 @@
 
 <h2>性能指标</h2>
 
-<p>Cloudinsight 采集 activemq 以下性能指标：</p>
+<p>Cloudinsight 采集 ActiveMQ 以下性能指标：</p>
 
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>activemq.broker.memory_pct</td>
+<td>percent</td>
 <td>内存使用百分比</td>
 </tr>
 <tr>
 <td>activemq.broker.store_pct</td>
-<td>存储使用百分比</td>
+<td>percent</td>
+<td>存储(store)使用百分比</td>
 </tr>
 <tr>
 <td>activemq.broker.temp_pct</td>
-<td>临时使用百分比</td>
+<td>percent</td>
+<td>temporary 使用百分比</td>
 </tr>
 <tr>
-<td>activemq.queue.avg_enqueue_time</td>
-<td>消息队列的平均排队时间／milliseconds</td>
+<td>activemq.queue.avg<em>enqueue</em>time</td>
+<td>milliseconds</td>
+<td>消息队列的平均排队时间（milliseconds）</td>
 </tr>
 <tr>
 <td>activemq.queue.consumer_count</td>
-<td>消费者连接数</td>
+<td></td>
+<td>消费者（consumer）连接数</td>
 </tr>
 <tr>
 <td>activemq.queue.dequeue_count</td>
-<td>自上次重新启动出队列的消息队列数量</td>
+<td></td>
+<td>自上次重新启动出队列的消息数量</td>
 </tr>
 <tr>
 <td>activemq.queue.dispatch_count</td>
-<td>发送给消费者的总消息队列的数量（dequeue + in_flight）</td>
+<td></td>
+<td>发送给消费者（consumer）的总消息数量（dequeue + in_flig）</td>
 </tr>
 <tr>
 <td>activemq.queue.enqueue_count</td>
+<td></td>
 <td>自上次重新启动发送到队列中的消息总数</td>
 </tr>
 <tr>
 <td>activemq.queue.expired_count</td>
-<td>未传送已过期的消息队列数量</td>
+<td></td>
+<td>未传送已过期的消息数量</td>
 </tr>
 <tr>
-<td>activemq.queue.in_flight_count</td>
-<td>发送给消费者还没应答的消息队列数量</td>
+<td>activemq.queue.in<em>flight</em>count</td>
+<td></td>
+<td>发送给消费者（consumer）还没应答的消息数量</td>
 </tr>
 <tr>
-<td>activemq.queue.max_enqueue_time</td>
-<td>最大的出队列的消息队列数量／milliseconds</td>
+<td>activemq.queue.max<em>enqueue</em>time</td>
+<td>milliseconds</td>
+<td>最大的出队列的消息数量（milliseconds）</td>
 </tr>
 <tr>
 <td>activemq.queue.memory_pct</td>
+<td>percent</td>
 <td>目前内存使用百分比</td>
 </tr>
 <tr>
-<td>activemq.queue.min_enqueue_time</td>
-<td>最小的出队列的消息队列数量／milliseconds</td>
+<td>activemq.queue.min<em>enqueue</em>time</td>
+<td>milliseconds</td>
+<td>最小的出队列的消息数量（milliseconds）</td>
 </tr>
 <tr>
 <td>activemq.queue.producer_count</td>
-<td>生产者连接数</td>
+<td></td>
+<td>生产者（producer）连接数</td>
 </tr>
 <tr>
 <td>activemq.queue.size</td>
-<td>排队的消息队列数量</td>
+<td></td>
+<td>排队的消息数量</td>
 </tr>
 </tbody></table>
 

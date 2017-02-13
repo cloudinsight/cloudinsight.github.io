@@ -579,7 +579,7 @@ instances:
 <pre class="highlight plaintext"><code>import time
 import requests
 
-from checks import AgentCheck
+from collector.checks import AgentCheck
 
 class HTTPCheck(AgentCheck):
     def check(self, instance):

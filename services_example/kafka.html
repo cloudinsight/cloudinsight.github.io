@@ -444,92 +444,239 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>kafka.broker_offset</td>
+<td>offsets</td>
+<td>broker 上当前消息的 offset</td>
+</tr>
+<tr>
+<td>kafka.consumer.bytes_in</td>
+<td>bytes/second</td>
+<td>Consumer 字节率（bytes in rate）</td>
+</tr>
+<tr>
+<td>kafka.consumer.delayed_requests</td>
+<td>requests</td>
+<td>延迟的  consumer 请求数</td>
+</tr>
+<tr>
+<td>kafka.consumer.expires<em>per</em>second</td>
+<td>evictions/second</td>
+<td>延迟 consumer 的请求到期（expiration）速率</td>
+</tr>
+<tr>
+<td>kafka.consumer.fetch_rate</td>
+<td>requests</td>
+<td>consumer 向 broker 发送提取请求（fetch requests）的最低速率</td>
+</tr>
+<tr>
+<td>kafka.consumer.kafka_commits</td>
+<td>writes/second</td>
+<td>面向 Kafka 的 offset commits 速率</td>
+</tr>
+<tr>
+<td>kafka.consumer.max_lag</td>
+<td>offsets</td>
+<td>最大消费滞后（consumer lag）</td>
+</tr>
+<tr>
+<td>kafka.consumer.messages_in</td>
+<td>messages/second</td>
+<td>consumer message consumption 的速率</td>
+</tr>
+<tr>
+<td>kafka.consumer.zookeeper_commits</td>
+<td>writes/second</td>
+<td>面向 ZooKeeper 的 offset commits 速率</td>
+</tr>
+<tr>
+<td>kafka.consumer_lag</td>
+<td>offsets</td>
+<td>consumer 和 broker 之间的消息滞后（lag）</td>
+</tr>
+<tr>
+<td>kafka.consumer_offset</td>
+<td>offsets</td>
+<td>consumer 的当前消息偏移量（current message offset）</td>
+</tr>
+<tr>
+<td>kafka.expires_sec</td>
+<td>evictions/second</td>
+<td>延迟生产者（delayed producer）的请求到期（request expiration）速率</td>
+</tr>
+<tr>
+<td>kafka.follower.expires<em>per</em>second</td>
+<td>evictions/second</td>
+<td>关注者（followers）的请求到期（request expiration）速率</td>
+</tr>
+<tr>
+<td>kafka.log.flush_rate</td>
+<td>flushes/second</td>
+<td>日志刷新速率</td>
+</tr>
+<tr>
 <td>kafka.messages_in</td>
-<td>传入消息速率</td>
+<td>messages</td>
+<td>传入（incoming）信息速率</td>
 </tr>
 <tr>
 <td>kafka.net.bytes_in</td>
-<td>传入字节速率 (bytes/s)</td>
+<td>bytes/second</td>
+<td>传入（incoming）字节速率</td>
 </tr>
 <tr>
 <td>kafka.net.bytes_out</td>
-<td>传出字节速率 (bytes/s)</td>
+<td>bytes/second</td>
+<td>传出（outgoing）字节速率</td>
 </tr>
 <tr>
 <td>kafka.net.bytes_rejected</td>
-<td>被拒绝的字节速率(bytes/s)</td>
+<td>bytes/second</td>
+<td>被拒绝（rejected）的字节速率</td>
+</tr>
+<tr>
+<td>kafka.producer.bytes_out</td>
+<td>bytes/second</td>
+<td>producer 字节输出速率</td>
+</tr>
+<tr>
+<td>kafka.producer.delayed_requests</td>
+<td>requests</td>
+<td>延迟的 producer 请求数</td>
+</tr>
+<tr>
+<td>kafka.producer.expires<em>per</em>seconds</td>
+<td>evictions/second</td>
+<td>producer 请求到期率</td>
+</tr>
+<tr>
+<td>kafka.producer.io_wait</td>
+<td>nanoseconds</td>
+<td>Producer I/O 等待时间</td>
+</tr>
+<tr>
+<td>kafka.producer.message_rate</td>
+<td>messages/second</td>
+<td>Producer 消息速率</td>
+</tr>
+<tr>
+<td>kafka.producer.request<em>latency</em>avg</td>
+<td>milliseconds</td>
+<td>Producer 平均请求延迟</td>
+</tr>
+<tr>
+<td>kafka.producer.request_rate</td>
+<td>requests/second</td>
+<td>producer 每秒钟的请求数</td>
+</tr>
+<tr>
+<td>kafka.producer.response_rate</td>
+<td>responses/second</td>
+<td>producer 每秒钟的响应数</td>
 </tr>
 <tr>
 <td>kafka.replication.isr_expands</td>
-<td>副本加入ISR池的速率 （nodes/s）</td>
+<td>nodes/second</td>
+<td>副本加入 ISR 池的速率</td>
 </tr>
 <tr>
 <td>kafka.replication.isr_shrinks</td>
-<td>副本离开ISR池的速率 （nodes/s）</td>
+<td>nodes/second</td>
+<td>副本离开 ISR 池的速率</td>
 </tr>
 <tr>
 <td>kafka.replication.leader_elections</td>
-<td>leader 选举频率</td>
+<td>events/second</td>
+<td>领导选举（Leader election）频率</td>
 </tr>
 <tr>
-<td>kafka.replication.unclean_leader_elections</td>
+<td>kafka.replication.unclean<em>leader</em>elections</td>
+<td>events/second</td>
+<td>Unclean 的领导选举（Leader election）频率</td>
+</tr>
+<tr>
+<td>kafka.replication.under<em>replicated</em>partitions</td>
 <td></td>
+<td>未使用的分区数</td>
 </tr>
 <tr>
 <td>kafka.request.fetch.failed</td>
-<td>客户端请求失败次数</td>
+<td>requests</td>
+<td>客户端获取请求（fetch request）失败次数</td>
+</tr>
+<tr>
+<td>kafka.request.fetch.failed<em>per</em>second</td>
+<td>requests/second</td>
+<td>每秒钟的客户端获取请求（fetch request）失败率</td>
 </tr>
 <tr>
 <td>kafka.request.fetch.time.99percentile</td>
-<td>99%请求获取时间</td>
+<td>requests/second</td>
+<td>99% 获取请求（fetch request）时间</td>
 </tr>
 <tr>
 <td>kafka.request.fetch.time.avg</td>
-<td>获取请求的平均时间</td>
+<td>requests/second</td>
+<td>获取请求（fetch request）平均时间</td>
 </tr>
 <tr>
 <td>kafka.request.handler.avg.idle.pct</td>
-<td>处理请求线程的平均闲置时间百分比</td>
+<td>fractions</td>
+<td>请求处理程序线程（request handler threads）的平均空闲时间占比</td>
 </tr>
 <tr>
 <td>kafka.request.metadata.time.99percentile</td>
-<td>99%元数据请求时间 （milliseconds）</td>
+<td>milliseconds</td>
+<td>99% metadata 请求时间</td>
 </tr>
 <tr>
 <td>kafka.request.metadata.time.avg</td>
-<td>元数据平均请求时间</td>
+<td>milliseconds</td>
+<td>metadata 请求的平均时间</td>
 </tr>
 <tr>
 <td>kafka.request.offsets.time.99percentile</td>
-<td>99% offset 请求时间 （milliseconds）</td>
+<td>milliseconds</td>
+<td>99% offset 请求时间</td>
 </tr>
 <tr>
 <td>kafka.request.offsets.time.avg</td>
-<td>offset 平均请求时间</td>
+<td>milliseconds</td>
+<td>offset 请求的平均时间</td>
 </tr>
 <tr>
 <td>kafka.request.produce.failed</td>
-<td>失败的 produce 请求数</td>
+<td>requests</td>
+<td>失败的产品请求（produce requests）数</td>
+</tr>
+<tr>
+<td>kafka.request.produce.failed<em>per</em>second</td>
+<td>requests/second</td>
+<td>每秒钟的产品请求（produce requests）失败率</td>
 </tr>
 <tr>
 <td>kafka.request.produce.time.99percentile</td>
-<td>99% produce 请求时间</td>
+<td>requests/second</td>
+<td>99% 产品请求（produce requests）时间</td>
 </tr>
 <tr>
 <td>kafka.request.produce.time.avg</td>
-<td>produce 请求数的平均时间</td>
+<td>requests/second</td>
+<td>产品请求（produce requests）平均时间</td>
 </tr>
 <tr>
 <td>kafka.request.update_metadata.time.99percentile</td>
-<td>更新99%元数据请求的时间 （milliseconds）</td>
+<td>milliseconds</td>
+<td>更新 99% 元数据请求（update metadata requests）的时间</td>
 </tr>
 <tr>
 <td>kafka.request.update_metadata.time.avg</td>
-<td>更新元数据请求的平均时间 （milliseconds）</td>
+<td>milliseconds</td>
+<td>更新元数据请求（update metadata requests）的平均时间</td>
 </tr>
 </tbody></table>
 
@@ -739,6 +886,36 @@ kafka-localhost-9999
 </code></pre>
 
 <p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
+
+<hr>
+
+<h2>默认标签</h2>
+
+<p>Cloudinsight 采集 Kafka 以下默认主机标签：</p>
+
+<table><thead>
+<tr>
+<th>标签种类</th>
+<th>标签含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instance</td>
+<td>实例名称（例如 &ldquo;kafka_demo&quot;）</td>
+</tr>
+<tr>
+<td>jmx_domain</td>
+<td>JMX域（例如 &quot;kafka.server&quot;）</td>
+</tr>
+<tr>
+<td>type</td>
+<td>指标类型（ThreadPool, GlobalRequestProcessor, Servlet, Cache, JspMonitor等）</td>
+</tr>
+<tr>
+<td>name</td>
+<td>指标名称（例如 &quot;BytesInPerSec&quot;）</td>
+</tr>
+</tbody></table>
 
 <hr>
 

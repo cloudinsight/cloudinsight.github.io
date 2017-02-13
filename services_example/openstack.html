@@ -605,184 +605,229 @@ openstack
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>openstack.nova.current_workload</td>
-<td>Current workload on the Nova hypervisor</td>
+<td></td>
+<td>Hypervisor 当前运行的任务数量</td>
 </tr>
 <tr>
-<td>openstack.nova.disk_available_least</td>
-<td>Disk available for the Nova hypervisor</td>
+<td>openstack.nova.disk<em>available</em>least</td>
+<td>gibibytes</td>
+<td>Hypervisor 剩余可用磁盘空间，默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.free_disk_gb</td>
-<td>Free disk on the Nova hypervisor</td>
+<td>openstack.nova.free<em>disk</em>gb</td>
+<td>gibibytes</td>
+<td>Hypervisor 当前可用的磁盘空间，默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.free_ram_mb</td>
-<td>Free RAM on the Nova hypervisor</td>
+<td>openstack.nova.free<em>ram</em>mb</td>
+<td>mebibytes</td>
+<td>Hypervisor 当前可用的 RAM 大小，默认单位 MB</td>
 </tr>
 <tr>
 <td>openstack.nova.hypervisor_load.1</td>
-<td>The average hypervisor load over one minute.</td>
-</tr>
-<tr>
-<td>openstack.nova.hypervisor_load.5</td>
-<td>The average hypervisor load over five minutes.</td>
+<td></td>
+<td>Hypervisor 在过去 1 分钟内的平均负载</td>
 </tr>
 <tr>
 <td>openstack.nova.hypervisor_load.15</td>
-<td>The average hypervisor load over fifteen minutes.</td>
+<td></td>
+<td>Hypervisor 在过去 15 分钟内的平均负载</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_image_meta</td>
-<td>The maximum allowed image metadata definitions for this tenant</td>
+<td>openstack.nova.hypervisor_load.5</td>
+<td></td>
+<td>Hypervisor 在过去 5 分钟内的平均负载</td>
+</tr>
+<tr>
+<td>openstack.nova.limits.max<em>image</em>meta</td>
+<td></td>
+<td>分配给租户的最大 image metadata 定义数</td>
 </tr>
 <tr>
 <td>openstack.nova.limits.max_personality</td>
-<td>The maximum allowed personalities for this tenant</td>
+<td></td>
+<td>分配给租户的最大 personality 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_personality_size</td>
-<td>The maximum size of a single personality allowed for this tenant</td>
+<td>openstack.nova.limits.max<em>personality</em>size</td>
+<td></td>
+<td>分配给租户的最大单个 personality 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_security_group_rules</td>
-<td>The maximum number of security group rules allowed for this tenant</td>
+<td>openstack.nova.limits.max<em>security</em>group_rules</td>
+<td></td>
+<td>分配给租户的最大安全组规则数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_security_groups</td>
-<td>The maximum number of security groups allowed for this tenant</td>
+<td>openstack.nova.limits.max<em>security</em>groups</td>
+<td></td>
+<td>分配给租户的最大安全组数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_server_meta</td>
-<td>The maximum allowed service metadata definitions for this tenant</td>
+<td>openstack.nova.limits.max<em>server</em>meta</td>
+<td></td>
+<td>分配给租户的最大 server metadata 定义数</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_total_cores</td>
-<td>The maximum allowed cores for this tenant</td>
+<td>openstack.nova.limits.max<em>total</em>cores</td>
+<td></td>
+<td>分配给租户的最大 core 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_total_floating_ips</td>
-<td>The maximum allowed floating IPs for this tenant</td>
+<td>openstack.nova.limits.max<em>total</em>floating_ips</td>
+<td></td>
+<td>分配给租户的最大浮动 IP 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_total_instances</td>
-<td>The maximum number of instances allowed for this tenant</td>
+<td>openstack.nova.limits.max<em>total</em>instances</td>
+<td></td>
+<td>分配给租户的最大 instance 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max_total_keypairs</td>
-<td>The maximum allowed keypairs allowed for this tenant</td>
+<td>openstack.nova.limits.max<em>total</em>keypairs</td>
+<td></td>
+<td>分配给租户的最大 keypair 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total_cores_used</td>
-<td>The total cores used by this tenant</td>
+<td>openstack.nova.limits.max<em>total</em>ram_size</td>
+<td>gibibytes</td>
+<td>分配给租户的最大 RAM 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total_floating_ips_used</td>
-<td>The total floating IPs used by this tenant</td>
+<td>openstack.nova.limits.total<em>cores</em>used</td>
+<td></td>
+<td>租户当前使用的 core 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total_instances_used</td>
-<td>The total instances used by this tenant</td>
+<td>openstack.nova.limits.total<em>floating</em>ips_used</td>
+<td></td>
+<td>租户当前使用的浮动 IP 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total_security_groups_used</td>
-<td>The total number of security groups used by this tenant</td>
+<td>openstack.nova.limits.total<em>instances</em>used</td>
+<td></td>
+<td>租户当前使用 instance 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.running_vms</td>
-<td>Number of running VMs on this hypervisor host</td>
+<td>openstack.nova.limits.total<em>ram</em>used</td>
+<td>gibibytes</td>
+<td>租户当前使用 RAM 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.vcpus</td>
-<td>Number of vCPUs available on this hypervisor host</td>
-</tr>
-<tr>
-<td>openstack.nova.vcpus_used</td>
-<td>Number of vCPUS used on this hypervisor host</td>
-</tr>
-<tr>
-<td>openstack.nova.server.hdd_errors</td>
-<td>The number of errors seen by the server when accessing an HDD device</td>
-</tr>
-<tr>
-<td>openstack.nova.server.hdd_read_req</td>
-<td>The number of read requests made to an HDD device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.hdd_write_req</td>
-<td>The number of write requests made to an HDD device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.vda_errors</td>
-<td>The number of errors seen by the server when accessing a VDA device</td>
-</tr>
-<tr>
-<td>openstack.nova.server.vda_read_req</td>
-<td>The number of read requests made to a VDA device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.vda_write_req</td>
-<td>The number of write requests made to a VDA device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.limits.max_total_ram_size</td>
-<td>The max allowed RAM size for this tenant</td>
-</tr>
-<tr>
-<td>openstack.nova.limits.total_ram_used</td>
-<td>The current RAM used by this tenant</td>
+<td>openstack.nova.limits.total<em>security</em>groups_used</td>
+<td></td>
+<td>租户当前使用的安全组总数</td>
 </tr>
 <tr>
 <td>openstack.nova.local_gb</td>
-<td>The size in GB of the ephemeral disk present on this hypervisor host</td>
+<td>gibibytes</td>
+<td>Hypervisor 主机当前临时磁盘大小,默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.local_gb_used</td>
-<td>The size in GB of disk used on this hypervisor host</td>
+<td>openstack.nova.local<em>gb</em>used</td>
+<td>gibibytes</td>
+<td>Hypervisor 主机当前磁盘使用量,默认单位 GB</td>
 </tr>
 <tr>
 <td>openstack.nova.memory_mb</td>
-<td>The size in MB of RAM present on this hypervisor host</td>
+<td>mebibytes</td>
+<td>Hypervisor 主机当前 RAM 大小,默认单位 MB</td>
 </tr>
 <tr>
-<td>openstack.nova.memory_mb_used</td>
-<td>The size in MB of RAM used on this hypervisor host</td>
+<td>openstack.nova.memory<em>mb</em>used</td>
+<td>mebibytes</td>
+<td>Hypervisor 主机当前 RAM 使用量,默认单位 MB</td>
 </tr>
 <tr>
-<td>openstack.nova.server.hdd_read</td>
-<td>Number of bytes read from an HDD device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.hdd_write</td>
-<td>Number of bytes written to an HDD device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.vda_read</td>
-<td>Number of bytes read from a VDA device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.vda_write</td>
-<td>Number of bytes written to a VDA device by this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.memory</td>
-<td>The amount of memory in MB provisioned for this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.memory_actual</td>
-<td>The amount of memory in MB provisioned for this server</td>
-</tr>
-<tr>
-<td>openstack.nova.server.memory_rss</td>
-<td>The amount of memory used by the processes of this server that is not associated with disk pages - such as stack and heap memory</td>
+<td>openstack.nova.running_vms</td>
+<td></td>
+<td>Hypervisor 主机当前运行的虚拟机数量</td>
 </tr>
 <tr>
 <td>openstack.nova.server.cpu0_time</td>
-<td>CPU time in nanoseconds of this virtual CPU</td>
+<td>nanoseconds</td>
+<td>虚拟 CPU 的 CPU 时间，默认单位 ns</td>
+</tr>
+<tr>
+<td>openstack.nova.server.hdd_errors</td>
+<td></td>
+<td>Sever 访问 HDD 设备时看到的的错误数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.hdd_read</td>
+<td>bytes</td>
+<td>Sever 从 HDD 设备读取的字节数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.hdd<em>read</em>req</td>
+<td></td>
+<td>Sever 向 HDD 设备发出的读请求数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.hdd_write</td>
+<td>bytes</td>
+<td>Sever 写入 HDD 设备的字节数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.hdd<em>write</em>req</td>
+<td></td>
+<td>Sever 向 HDD 设备发出的写请求数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.memory</td>
+<td>mebibytes</td>
+<td>为当前 sever 配置的内存量</td>
+</tr>
+<tr>
+<td>openstack.nova.server.memory_actual</td>
+<td>mebibytes</td>
+<td>为当前 sever 配置的内存量</td>
+</tr>
+<tr>
+<td>openstack.nova.server.memory_rss</td>
+<td>mebibytes</td>
+<td>Sever 进程当前使用的内存量，即与磁盘页面没有关联（例如堆栈和对内存）</td>
+</tr>
+<tr>
+<td>openstack.nova.server.vda_errors</td>
+<td></td>
+<td>Sever 访问 VDA 设备时的错误数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.vda_read</td>
+<td>bytes</td>
+<td>Sever 从 VDA 设备读取的字节数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.vda<em>read</em>req</td>
+<td></td>
+<td>Sever 向 VDA 设备发出的读请求数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.vda_write</td>
+<td>bytes</td>
+<td>Sever 写入 VDA 设备的字节数</td>
+</tr>
+<tr>
+<td>openstack.nova.server.vda<em>write</em>req</td>
+<td></td>
+<td>Sever 向 VDA 设备发出的写请求数</td>
+</tr>
+<tr>
+<td>openstack.nova.vcpus</td>
+<td></td>
+<td>Hypervisor 主机的 vCPU 配额</td>
+</tr>
+<tr>
+<td>openstack.nova.vcpus_used</td>
+<td></td>
+<td>Hypervisor 主机当前使用的 vCPU 数量</td>
 </tr>
 </tbody></table>
 

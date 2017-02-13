@@ -444,148 +444,214 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>mysql.innodb.buffer_pool_free</td>
-<td>InnoDB缓冲池可用页面的数量</td>
+<td>mysql.galera.wsrep<em>cluster</em>size</td>
+<td>nodes</td>
+<td>在 Galera 集群中的节点数.</td>
 </tr>
 <tr>
-<td>mysql.innodb.buffer_pool_total</td>
-<td>InnoDB缓冲池的总页数</td>
+<td>mysql.innodb.buffer<em>pool</em>free</td>
+<td>pages</td>
+<td>InnoDB 缓冲池空闲页面数</td>
 </tr>
 <tr>
-<td>mysql.innodb.buffer_pool_used</td>
-<td>InnoDB缓冲池中使用的页数</td>
+<td>mysql.innodb.buffer<em>pool</em>total</td>
+<td>pages</td>
+<td>InnoDB 缓冲池的总页数</td>
 </tr>
 <tr>
-<td>mysql.innodb.buffer_pool_utilization</td>
-<td>InnoDB的缓冲池的利用率</td>
+<td>mysql.innodb.buffer<em>pool</em>used</td>
+<td>pages</td>
+<td>InnoDB 缓冲池中已使用的页数</td>
+</tr>
+<tr>
+<td>mysql.innodb.buffer<em>pool</em>utilization</td>
+<td>fractions</td>
+<td>InnoDB 的缓冲池的利用率</td>
+</tr>
+<tr>
+<td>mysql.innodb.current<em>row</em>locks</td>
+<td>locks</td>
+<td>The number of current row locks.</td>
 </tr>
 <tr>
 <td>mysql.innodb.data_reads</td>
+<td>reads/second</td>
 <td>数据的读取速率 (读的次数/s)</td>
 </tr>
 <tr>
 <td>mysql.innodb.data_writes</td>
+<td>writes/second</td>
 <td>数据的写速率  (写的次数/s)</td>
 </tr>
 <tr>
-<td>mysql.innodb.os_log_fsyncs</td>
-<td>fsync 写入日志文件的速率 （写的次数/s）</td>
+<td>mysql.innodb.mutex<em>os</em>waits</td>
+<td>events/second</td>
+<td>The rate of mutex OS waits.</td>
 </tr>
 <tr>
-<td>mysql.innodb.row_lock_time</td>
-<td>花费在acquring行锁上的时间 （millisecond/s）</td>
+<td>mysql.innodb.mutex<em>spin</em>rounds</td>
+<td>events/second</td>
+<td>The rate of mutex spin rounds.</td>
 </tr>
 <tr>
-<td>mysql.innodb.row_lock_waits</td>
-<td>行锁每秒要等待的次数 （event/s）</td>
+<td>mysql.innodb.mutex<em>spin</em>waits</td>
+<td>events/second</td>
+<td>The rate of mutex spin waits.</td>
+</tr>
+<tr>
+<td>mysql.innodb.os<em>log</em>fsyncs</td>
+<td>writes/second</td>
+<td>fsync 写入日志文件的速率（写的次数/s）</td>
+</tr>
+<tr>
+<td>mysql.innodb.row<em>lock</em>time</td>
+<td>fractions</td>
+<td>花费在 acquring 行锁上的时间（millisecond/s）</td>
+</tr>
+<tr>
+<td>mysql.innodb.row<em>lock</em>waits</td>
+<td>events/second</td>
+<td>行锁每秒要等待的次数（event/s）</td>
 </tr>
 <tr>
 <td>mysql.net.connections</td>
-<td>连接到服务器的速率 （连接数量/s）</td>
+<td>connections/second</td>
+<td>连接到服务器的速率（连接数量/s）</td>
 </tr>
 <tr>
 <td>mysql.net.max_connections</td>
+<td>connections</td>
 <td>服务器启动同时使用的最大数目连接数</td>
 </tr>
 <tr>
 <td>mysql.performance.com_delete</td>
-<td>删除语句的速率 （次数/s）</td>
+<td>queries/second</td>
+<td>删除语句的速率（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.com_delete_multi</td>
-<td>删除多语句的速率 （次数/s）</td>
+<td>mysql.performance.com<em>delete</em>multi</td>
+<td>queries/second</td>
+<td>删除多语句的速率（次数/s）</td>
 </tr>
 <tr>
 <td>mysql.performance.com_insert</td>
-<td>插入语句的速率 （次数/s）</td>
+<td>queries/second</td>
+<td>插入语句的速率（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.com_insert_select</td>
-<td>插入SELECT语句的速度 （次数/s）</td>
+<td>mysql.performance.com<em>insert</em>select</td>
+<td>queries/second</td>
+<td>插入 SELECT 语句的速率（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.com_replace_select</td>
-<td>代替SELECT语句的速度 （次数/s）｜</td>
+<td>mysql.performance.com<em>replace</em>select</td>
+<td>queries/second</td>
+<td>代替 SELECT 语句的速度（次数/s）</td>
 </tr>
 <tr>
 <td>mysql.performance.com_select</td>
-<td>SELECT语句的速度 （次数/s）</td>
+<td>queries/second</td>
+<td>SELECT 语句的速度（次数/s）</td>
 </tr>
 <tr>
 <td>mysql.performance.com_update</td>
-<td>更新语句的速度 （次数/s）</td>
+<td>queries/second</td>
+<td>更新语句的速度（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.com_update_multi</td>
-<td>更新多语句的速度 （次数/s）</td>
+<td>mysql.performance.com<em>update</em>multi</td>
+<td>queries/second</td>
+<td>更新多语句的速度（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.created_tmp_disk_tables</td>
-<td>执行语句时每秒创建的服务器内部磁盘上的临时表的数量  （表数量/s）</td>
+<td>mysql.performance.created<em>tmp</em>disk_tables</td>
+<td>tables/second</td>
+<td>执行语句时每秒创建的服务器内部磁盘上的临时表的数量 （表数量/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.created_tmp_files</td>
+<td>mysql.performance.created<em>tmp</em>files</td>
+<td>files/second</td>
 <td>每秒创建临时文件的数量  (文件数/s)</td>
 </tr>
 <tr>
-<td>mysql.performance.created_tmp_tables</td>
-<td>每秒执行语句时创建的服务器内部临时表的数量 (表数量/s</td>
+<td>mysql.performance.created<em>tmp</em>tables</td>
+<td>tables/second</td>
+<td>每秒执行语句时创建的服务器内部临时表的数量（表数量/s）</td>
 </tr>
 <tr>
 <td>mysql.performance.kernel_time</td>
-<td>MySQL在内核空间的CPU时间中所占比例</td>
+<td>percent</td>
+<td>MySQL 在内核空间的 CPU 时间中所占比例</td>
 </tr>
 <tr>
-<td>mysql.performance.key_cache_utilization</td>
+<td>mysql.performance.key<em>cache</em>utilization</td>
+<td>fractions</td>
 <td>键缓存利用率 (百分比)</td>
 </tr>
 <tr>
 <td>mysql.performance.open_files</td>
+<td>files</td>
 <td>打开的文件数</td>
 </tr>
 <tr>
 <td>mysql.performance.open_tables</td>
+<td>tables</td>
 <td>打开的表数量</td>
 </tr>
 <tr>
 <td>mysql.performance.qcache_hits</td>
+<td>hits/second</td>
 <td>查询缓存命中率</td>
 </tr>
 <tr>
 <td>mysql.performance.queries</td>
+<td>queries/second</td>
 <td>查询的速率 (次数/s)</td>
 </tr>
 <tr>
 <td>mysql.performance.questions</td>
-<td>服务器执行的语句的速率 （次数/s）</td>
+<td>queries/second</td>
+<td>服务器执行的语句的速率（次数/s）</td>
 </tr>
 <tr>
 <td>mysql.performance.slow_queries</td>
-<td>慢查询的速率 (次数/s)</td>
+<td>queries/second</td>
+<td>慢查询的速率（次数/s）</td>
 </tr>
 <tr>
-<td>mysql.performance.table_locks_waited</td>
+<td>mysql.performance.table<em>locks</em>waited</td>
+<td></td>
 <td>由于表锁定请求无法处理需要等待的总次数</td>
 </tr>
 <tr>
 <td>mysql.performance.threads_connected</td>
+<td>connections</td>
 <td>当前打开的连接的数量</td>
 </tr>
 <tr>
 <td>mysql.performance.threads_running</td>
+<td>threads</td>
 <td>正在运行的线程数</td>
 </tr>
 <tr>
 <td>mysql.performance.user_time</td>
-<td>用户使用MySQL在内核空间的CPU时间中所占比例</td>
+<td>percent</td>
+<td>用户使用 MySQL 在内核空间的 CPU 时间中所占比例</td>
+</tr>
+<tr>
+<td>mysql.replication.seconds<em>behind</em>master</td>
+<td>seconds</td>
+<td>一个布尔值，判断该服务器是否是连接到主服务器的从服务器</td>
 </tr>
 <tr>
 <td>mysql.replication.slave_running</td>
-<td>一个布尔值，判断该服务器是否是连接到主服务器的从服务器</td>
+<td></td>
+<td>A boolean showing if this server is a replication slave that is connected to a replication master.</td>
 </tr>
 </tbody></table>
 

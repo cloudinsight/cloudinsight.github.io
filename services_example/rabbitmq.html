@@ -444,104 +444,134 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>rabbitmq.node.fd_used</td>
-<td>已使用的文件描述符数量</td>
+<td></td>
+<td>已使用的文件描述符（fd）数量</td>
 </tr>
 <tr>
 <td>rabbitmq.node.mem_used</td>
-<td>内存使用子节数</td>
+<td>bytes</td>
+<td>内存使用字节数</td>
 </tr>
 <tr>
 <td>rabbitmq.node.partitions</td>
-<td>网络分区后可见节点的数量</td>
+<td></td>
+<td>此节点可见的网络分区（Network Partion）数量</td>
 </tr>
 <tr>
 <td>rabbitmq.node.run_queue</td>
-<td>等待运行的 Erlang 进程数量</td>
+<td>processes</td>
+<td>等待运行的 Erlang 进程平均数量</td>
 </tr>
 <tr>
 <td>rabbitmq.node.sockets_used</td>
-<td>以 socket 方式使用掉的文件描述符数量</td>
+<td></td>
+<td>用于 socket 的文件描述符数量</td>
+</tr>
+<tr>
+<td>rabbitmq.queue.active_consumers</td>
+<td></td>
+<td>活跃的消费者数量，可以立即接收到任何发送到队列中的消息的消费者</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.consumer_utilisation</td>
-<td>队列消费者采取新消息的时间的比例</td>
+<td>fractions</td>
+<td>队列消费者接收新消息的时间的比例</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.consumers</td>
-<td>消费者个数</td>
+<td></td>
+<td>消费者数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.memory</td>
-<td>与队列关联的 Erlang 进程的内存消耗，包括堆栈，堆和内部结构消耗 /bytes</td>
+<td>bytes</td>
+<td>队列相关的 Erlang 进程消耗的内存字节数，包括堆栈，堆和内部结构</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages</td>
-<td>队列上的消息队列</td>
+<td>messages</td>
+<td>队列中的消息总数</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.ack.count</td>
-<td>传送到客户端并且被确认的消息数量</td>
+<td>messages</td>
+<td>发送给客户端并确认的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.ack.rate</td>
-<td>每秒传送到客户端并且被确认的消息数量</td>
+<td>messages/second</td>
+<td>每秒发送客户端并确认的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.deliver.count</td>
-<td>消费者接受并且响应的消息数量</td>
+<td>messages</td>
+<td>消费者接收并响应的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.deliver.rate</td>
-<td>每秒消费者接受并且响应的消息数量</td>
+<td>messages/second</td>
+<td>每秒消费者接收并响应的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.deliver_get.count</td>
-<td>消费者接受消息（被确认和没有被确认的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get） 的总和数</td>
+<td>messages</td>
+<td>消费者接收消息（被确认和没有被确认的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get）的总和数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.deliver_get.rate</td>
-<td>每秒消费者接受消息（被 ack 和没有被 ack 的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get） 的总和数量</td>
+<td>messages/second</td>
+<td>每秒消费者接收消息（被 ack 和没有被 ack 的消息）和从队列当中取出消息（ack 参数传给 basic.get 和 no_ack 参数传给 basic.get）的总和数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.publish.count</td>
-<td>发布消息数量</td>
+<td>messages</td>
+<td>发布的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.publish.rate</td>
-<td>每秒发布消息数量</td>
+<td>messages/second</td>
+<td>每秒发布的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.rate</td>
-<td>每秒队列中总的消息数量</td>
+<td>messages/second</td>
+<td>每秒队列中的消息总数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.redeliver.count</td>
-<td>deliver_get 的有重新传送标记的消息子集数</td>
+<td>messages</td>
+<td>deliver_get 中有重新发送（redeliver）标记的消息子集数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages.redeliver.rate</td>
-<td>每秒 deliver_get 的有重新传送标记的消息子集数</td>
+<td>messages/second</td>
+<td>每秒 deliver_get 中有重新发送（redeliver）标记的消息子集数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages_ready</td>
-<td>准备发送给用户的消息数</td>
+<td>messages</td>
+<td>准备发送给客户端的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages_ready.rate</td>
-<td>每秒准备发送给用户的消息数</td>
+<td>messages/second</td>
+<td>每秒准备发送给客户端的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages_unacknowledged</td>
-<td>发送给客户端但至今还没被确认的消息数</td>
+<td>messages</td>
+<td>发送给客户端单但至今还未被确认的消息数量</td>
 </tr>
 <tr>
 <td>rabbitmq.queue.messages_unacknowledged.rate</td>
-<td>每秒发送给客户端但至今还没被确认的消息数</td>
+<td>messages/second</td>
+<td>每秒发送给客户端但至今还未被确认的消息数量</td>
 </tr>
 </tbody></table>
 

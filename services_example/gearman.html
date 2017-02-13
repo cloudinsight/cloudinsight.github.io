@@ -444,24 +444,29 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>gearman.queued</td>
-<td>总的队列中的 job 数</td>
+<td>tasks</td>
+<td>处于队列中的任务数</td>
 </tr>
 <tr>
 <td>gearman.running</td>
-<td>运行 Gearman 的队列数</td>
+<td>tasks</td>
+<td>运行中的 Gearman 任务数</td>
 </tr>
 <tr>
 <td>gearman.unique_tasks</td>
-<td>将要注册给 Gearman 的任务数</td>
+<td>tasks</td>
+<td>通过 Gearman 注册的任务数</td>
 </tr>
 <tr>
 <td>gearman.workers</td>
-<td>Gearman 的 workers 总数</td>
+<td>processes</td>
+<td>足够处理 Gearman 任务的 workers 数量</td>
 </tr>
 </tbody></table>
 

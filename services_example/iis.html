@@ -444,91 +444,113 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>iis.errors.locked</td>
-<td>由于所需文档被锁定，每秒使服务器无法满足请求而导致的错误数</td>
+<td>errors/second</td>
+<td>由于请求的文档锁定，服务器无法处理的请求总数。通常，将它们作为 HTTP 423 错误代码报告给客户端。</td>
 </tr>
 <tr>
 <td>iis.errors.not_found</td>
-<td>由于未找到所请求的文档，服务器无法满足请求而导致错误的速数</td>
+<td>errors/second</td>
+<td>由于找不到请求的文档，服务器无法处理的请求数。通常，将它们作为 HTTP 404 错误代码报告给客户端。</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.delete</td>
-<td>每秒使用 delete 方法所进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.delete</td>
+<td>requests/second</td>
+<td>每秒使用 DELETE 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.get</td>
-<td>每秒使用 get 方法所进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.get</td>
+<td>requests/second</td>
+<td>每秒使用 GET 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.head</td>
-<td>每秒使用 head 方法所进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.head</td>
+<td>requests/second</td>
+<td>每秒使用 HEAD 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.options</td>
-<td>每秒使用 options 方法进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.options</td>
+<td>requests/second</td>
+<td>每秒使用 OPTIONS 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.post</td>
-<td>每秒使用 post 方法进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.post</td>
+<td>requests/second</td>
+<td>每秒使用 POST 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.put</td>
-<td>每秒使用 put 方法进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.put</td>
+<td>requests/second</td>
+<td>每秒使用 PUT 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
-<td>iis.httpd_request_method.trace</td>
-<td>每秒使用 trace 方法进行的 HTTP 请求数</td>
+<td>iis.httpd<em>request</em>method.trace</td>
+<td>requests/second</td>
+<td>每秒使用 TRACE 方法进行的 HTTP 请求数</td>
 </tr>
 <tr>
 <td>iis.net.bytes_rcvd</td>
+<td>bytes/second</td>
 <td>每秒接收的字节数</td>
 </tr>
 <tr>
 <td>iis.net.bytes_sent</td>
+<td>bytes/second</td>
 <td>每秒发送的字节数</td>
 </tr>
 <tr>
 <td>iis.net.bytes_total</td>
+<td>bytes/second</td>
 <td>每秒传输的字节总数</td>
 </tr>
 <tr>
 <td>iis.net.connection_attempts</td>
+<td>connections/second</td>
 <td>每秒尝试连接数</td>
 </tr>
 <tr>
 <td>iis.net.files_rcvd</td>
+<td>files/second</td>
 <td>每秒接收的文件数</td>
 </tr>
 <tr>
 <td>iis.net.files_sent</td>
+<td>files/second</td>
 <td>每秒发送的文件数</td>
 </tr>
 <tr>
 <td>iis.net.num_connections</td>
-<td>活跃连接数</td>
+<td>connections</td>
+<td>当前连接数</td>
 </tr>
 <tr>
 <td>iis.requests.cgi</td>
-<td>每秒 cgi 请求执行数</td>
+<td>requests/second</td>
+<td>每秒 CGI 请求数</td>
 </tr>
 <tr>
 <td>iis.requests.isapi</td>
-<td>每秒 isapi 请求执行总数</td>
+<td>requests/second</td>
+<td>每秒 ISAPI 请求数</td>
 </tr>
 <tr>
 <td>iis.uptime</td>
-<td>iis 服务器运行时间</td>
+<td>seconds</td>
+<td>IIS 服务器运行时间</td>
 </tr>
 <tr>
 <td>iis.users.anon</td>
+<td>requests/second</td>
 <td>每秒匿名用户的请求数</td>
 </tr>
 <tr>
 <td>iis.users.nonanon</td>
+<td>requests/second</td>
 <td>每秒非匿名用户的请求数</td>
 </tr>
 </tbody></table>

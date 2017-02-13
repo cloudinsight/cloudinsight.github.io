@@ -444,248 +444,809 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>mongodb.asserts.msgps</td>
-<td>消息断言数/秒</td>
+<td>assertions/second</td>
+<td>每秒钟提出的消息断言（message assertions）数量</td>
 </tr>
 <tr>
 <td>mongodb.asserts.regularps</td>
-<td>常规断言数/秒</td>
+<td>assertions/second</td>
+<td>每秒钟提出的常规断言（regular assertions）数量</td>
 </tr>
 <tr>
 <td>mongodb.asserts.rolloversps</td>
-<td>计数器roll over的次数/秒,计数器每2^30个断言就会清零</td>
+<td>assertions/second</td>
+<td>计数器 roll over 的次数/秒,计数器每 2^30 个断言(assertions)就会清零</td>
 </tr>
 <tr>
 <td>mongodb.asserts.userps</td>
-<td>用户断言数/秒</td>
+<td>assertions/second</td>
+<td>每秒钟提出的用户断言（user assertions）数量</td>
 </tr>
 <tr>
 <td>mongodb.asserts.warningps</td>
-<td>警告断言数/秒</td>
+<td>assertions/second</td>
+<td>每秒钟提出的警告（warnings）数量</td>
+</tr>
+<tr>
+<td>mongodb.backgroundflushing.average_ms</td>
+<td>milliseconds</td>
+<td>每次 flush 到磁盘的平均时间</td>
+</tr>
+<tr>
+<td>mongodb.backgroundflushing.flushesps</td>
+<td>flushes/second</td>
+<td>数据库将所有写入 flush 到磁盘的次数</td>
+</tr>
+<tr>
+<td>mongodb.backgroundflushing.last_ms</td>
+<td>milliseconds</td>
+<td>最后一次 flush 操作完成所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.backgroundflushing.total_ms</td>
+<td>milliseconds</td>
+<td>&lsquo;mongod&#39;进程将数据写入磁盘(i.e. flushing)的总时间</td>
 </tr>
 <tr>
 <td>mongodb.connections.available</td>
-<td>未使用的可用连接数</td>
+<td>connections</td>
+<td>数据库可以提供的未使用的可用传入连接数（incoming connections）</td>
 </tr>
 <tr>
 <td>mongodb.connections.current</td>
-<td>当前从客户端到数据库服务端的连接数</td>
+<td>connections</td>
+<td>从客户端到数据库服务器的连接数</td>
 </tr>
 <tr>
 <td>mongodb.cursors.timedout</td>
-<td>服务启动后，超时的游标的总数</td>
+<td>cursors</td>
+<td>自服务器进程启动以来超时的 cursors 总数</td>
 </tr>
 <tr>
 <td>mongodb.cursors.totalopen</td>
-<td>为客户端维护的游标数</td>
+<td>cursors</td>
+<td>MongoDB 为客户端维护的 cursors 数量</td>
+</tr>
+<tr>
+<td>mongodb.dur.commits</td>
+<td>transactions</td>
+<td>在上一个日志组（journal group）提交间隔期间写入日志的事务（transactions）数</td>
+</tr>
+<tr>
+<td>mongodb.dur.commitsinwritelock</td>
+<td>commits</td>
+<td>保持写入锁时发生的提交数量</td>
+</tr>
+<tr>
+<td>mongodb.dur.compression</td>
+<td>fractions</td>
+<td>写入日志（journal）的数据的压缩比（compression ratio）</td>
+</tr>
+<tr>
+<td>mongodb.dur.earlycommits</td>
+<td>commits</td>
+<td>MongoDB 在计划日记组（scheduled journal group）提交间隔之前请求提交的次数</td>
+</tr>
+<tr>
+<td>mongodb.dur.journaledmb</td>
+<td>mebibytes</td>
+<td>在最后一次日记组提交时间间隔（journal group commit interval）中写入的数据量</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.commits</td>
+<td>milliseconds</td>
+<td>提交所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.commitsinwritelock</td>
+<td>milliseconds</td>
+<td>写锁时发生的提交所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.dt</td>
+<td>milliseconds</td>
+<td>MongoDB 收集 dur.timeMS 数据花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.preplogbuffer</td>
+<td>milliseconds</td>
+<td>准备写入日志所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.remapprivateview</td>
+<td>milliseconds</td>
+<td>重映射 copy-on-write 内存映射视图（mapped views）所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.writetodatafiles</td>
+<td>milliseconds</td>
+<td>在日志记录（journaling）后写入数据文件所花费的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.timems.writetojournal</td>
+<td>milliseconds</td>
+<td>写入日志的时间</td>
+</tr>
+<tr>
+<td>mongodb.dur.writetodatafilesmb</td>
+<td>mebibytes</td>
+<td>在上一个日志组提交间隔（journal group commit interval）期间从日志写入数据文件的数据量</td>
 </tr>
 <tr>
 <td>mongodb.extra<em>info.page</em>faultsps</td>
-<td>请求磁盘操作的页错误数/秒</td>
+<td>faults/second</td>
+<td>每秒钟需要磁盘操作的页(page)故障数</td>
+</tr>
+<tr>
+<td>mongodb.globallock.activeclients.readers</td>
+<td>connections</td>
+<td>执行读取操作的活动客户端连接的计数</td>
+</tr>
+<tr>
+<td>mongodb.globallock.activeclients.total</td>
+<td>connections</td>
+<td>连接到数据库的活动客户端的总数</td>
+</tr>
+<tr>
+<td>mongodb.globallock.activeclients.writers</td>
+<td>connections</td>
+<td>执行写入操作的活动客户端连接的计数</td>
 </tr>
 <tr>
 <td>mongodb.globallock.currentqueue.readers</td>
-<td>当前在队列中等待读锁的操作数</td>
+<td>operations</td>
+<td>当前在队列中等待读锁（read lock）的操作数</td>
 </tr>
 <tr>
 <td>mongodb.globallock.currentqueue.total</td>
-<td>当前在队列中等待锁的操作数</td>
+<td>operations</td>
+<td>队列中等待锁的操作总数</td>
 </tr>
 <tr>
 <td>mongodb.globallock.currentqueue.writers</td>
+<td>operations</td>
 <td>当前在队列中等待写锁的操作数</td>
 </tr>
 <tr>
+<td>mongodb.globallock.locktime</td>
+<td>milliseconds</td>
+<td>全局锁（globalLock）从数据库最近一次启动到现在保持的时长</td>
+</tr>
+<tr>
+<td>mongodb.globallock.ratio</td>
+<td>fractions</td>
+<td>全局锁（globalLock）保持的时间占比</td>
+</tr>
+<tr>
 <td>mongodb.globallock.totaltime</td>
-<td>全局锁从最近一次启动到现在保持的时长</td>
+<td>microseconds</td>
+<td>全局锁（globalLock）从数据库上次启动并被其创建以来到现在保持的时长</td>
+</tr>
+<tr>
+<td>mongodb.indexcounters.accessesps</td>
+<td>events/second</td>
+<td>操作（operations）每秒访问索引的次数</td>
+</tr>
+<tr>
+<td>mongodb.indexcounters.hitsps</td>
+<td>hits/second</td>
+<td>每秒钟某个索引被访问并且 mongodb 能够从内存中返回其索引值的次数</td>
+</tr>
+<tr>
+<td>mongodb.indexcounters.missesps</td>
+<td>misses/second</td>
+<td>每秒钟操作尝试访问不在内存中的索引的次数</td>
+</tr>
+<tr>
+<td>mongodb.indexcounters.missratio</td>
+<td>fractions</td>
+<td>索引命中与未命中的比率</td>
+</tr>
+<tr>
+<td>mongodb.indexcounters.resetsps</td>
+<td>events/second</td>
+<td>每秒重置索引计数器的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirecount.exclusiveps</td>
+<td>locks/second</td>
+<td>在 Exclusive (X) 模式下获取集合锁类型（collection lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirecount.intent_exclusiveps</td>
+<td>locks/second</td>
+<td>在 Intent Exclusive (IX) 模式下获取集合锁类型（collection lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirecount.intent_sharedps</td>
+<td>locks/second</td>
+<td>在 Intent Shared (IS) 模式下获取集合锁类型（collection lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirecount.sharedps</td>
+<td>locks/second</td>
+<td>在 Shared (S) 模式下获取集合锁类型（collection lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirewaitcount.exclusiveps</td>
+<td>waits/second</td>
+<td>在 Exclusive（X）模式中，因为锁保持在冲突模式而使获取集合锁类型（collection lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.acquirewaitcount.sharedps</td>
+<td>waits/second</td>
+<td>在 Shared (S) 模式中，因为锁保持在冲突模式而使获取集合锁类型（collection lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.timeacquiringmicros.exclusiveps</td>
+<td>fractions</td>
+<td>在 Exclusive (X) 模式下等待集合锁类型（collection lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.collection.timeacquiringmicros.sharedps</td>
+<td>fractions</td>
+<td>在 Shared (S) 模式下等待集合锁类型（collection lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirecount.exclusiveps</td>
+<td>locks/second</td>
+<td>在 Exclusive (X) 模式下获取数据库锁类型（database lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirecount.intent_exclusiveps</td>
+<td>locks/second</td>
+<td>在 Intent Exclusive (IX) 模式下获取数据库锁类型（database lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirecount.intent_sharedps</td>
+<td>locks/second</td>
+<td>在 Intent Shared (IS) 模式下获取数据库锁类型（database lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirecount.sharedps</td>
+<td>locks/second</td>
+<td>在 Shared (S) 模式下获取数据库锁类型（database lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirewaitcount.exclusiveps</td>
+<td>waits/second</td>
+<td>在 Exclusive（X）模式中，因为锁保持在冲突模式而使获取数据库锁类型（database lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirewaitcount.intent_exclusiveps</td>
+<td>waits/second</td>
+<td>在 Intent Exclusive (IX) 模式中，因为锁保持在冲突模式而使获取数据库锁类型（database lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirewaitcount.intent_sharedps</td>
+<td>waits/second</td>
+<td>在 Intent Shared (IS) 模式中，因为锁保持在冲突模式而使获取数据库锁类型（database lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.acquirewaitcount.sharedps</td>
+<td>waits/second</td>
+<td>在 Shared (S) 模式中，因为锁保持在冲突模式而使获取数据库锁类型（database lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.timeacquiringmicros.exclusiveps</td>
+<td>fractions</td>
+<td>在 Exclusive (X) 模式下等待数据库锁类型（database lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.timeacquiringmicros.intent_exclusiveps</td>
+<td>fractions</td>
+<td>在 Intent Exclusive (IX) 模式下等待数据库锁类型（database lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.timeacquiringmicros.intent_sharedps</td>
+<td>fractions</td>
+<td>在 Intent Shared (IS) 模式下等待数据库锁类型（database lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.database.timeacquiringmicros.sharedps</td>
+<td>fractions</td>
+<td>在 Shared (S) 模式下等待数据库锁类型（database lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirecount.exclusiveps</td>
+<td>locks/second</td>
+<td>在 Exclusive (X) 模式下获取全局锁类型（global lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirecount.intent_exclusiveps</td>
+<td>locks/second</td>
+<td>在 Intent Exclusive (IX) 模式下获取全局锁类型（global lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirecount.intent_sharedps</td>
+<td>locks/second</td>
+<td>在 Intent Shared (IS) 模式下获取全局锁类型（global lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirecount.sharedps</td>
+<td>locks/second</td>
+<td>在 Shared (S) 模式下获取全局锁类型（global lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirewaitcount.exclusiveps</td>
+<td>waits/second</td>
+<td>在 Exclusive（X）模式中，因为锁保持在冲突模式而使获取全局锁类型（global lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirewaitcount.intent_exclusiveps</td>
+<td>waits/second</td>
+<td>在 Intent Exclusive (IX) 模式中，因为锁保持在冲突模式而使获取全局锁类型（global lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirewaitcount.intent_sharedps</td>
+<td>waits/second</td>
+<td>在 Intent Shared (IS) 模式中，因为锁保持在冲突模式而使获取全局锁类型（global lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.acquirewaitcount.sharedps</td>
+<td>waits/second</td>
+<td>在 Shared (S) 模式中，因为锁保持在冲突模式而使获取全局锁类型（global lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.timeacquiringmicros.exclusiveps</td>
+<td>fractions</td>
+<td>在 Exclusive (X) 模式下等待全局锁类型（global lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.timeacquiringmicros.intent_exclusiveps</td>
+<td>fractions</td>
+<td>在 Intent Exclusive (IX) 模式下等待全局锁类型（global lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.timeacquiringmicros.intent_sharedps</td>
+<td>fractions</td>
+<td>在 Intent Shared (IS) 模式下等待全局锁类型（global lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.global.timeacquiringmicros.sharedps</td>
+<td>fractions</td>
+<td>在 Shared (S) 模式下等待全局锁类型（global lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.metadata.acquirecount.exclusiveps</td>
+<td>locks/second</td>
+<td>在 Exclusive (X) 模式下获取元数据锁类型（metadata lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.metadata.acquirecount.sharedps</td>
+<td>locks/second</td>
+<td>在 Shared (S) 模式下获取元数据锁类型（metadata lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.acquirecount.intent_exclusiveps</td>
+<td>locks/second</td>
+<td>在 Intent Exclusive (IX) 模式下获取 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.acquirecount.intent_sharedps</td>
+<td>locks/second</td>
+<td>在 Intent Shared (IS) 模式下获取 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.acquirewaitcount.intent_exclusiveps</td>
+<td>waits/second</td>
+<td>在 Intent Exclusive (IX) 模式中，因为锁保持在冲突模式而使获取 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.acquirewaitcount.intent_sharedps</td>
+<td>waits/second</td>
+<td>在 Intent Shared (IS) 模式中，因为锁保持在冲突模式而使获取 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.timeacquiringmicros.intent_exclusiveps</td>
+<td>fractions</td>
+<td>在 Intent Exclusive (IX) 模式下等待 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.mmapv1journal.timeacquiringmicros.intent_sharedps</td>
+<td>fractions</td>
+<td>在 Intent Shared (IS) 模式下等待 MMAPv1 存储引擎锁类型（MMAPv1 storage engine lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.acquirecount.intent_exclusiveps</td>
+<td>locks/second</td>
+<td>在 Intent Exclusive (IX) 模式下获取 oplog 锁类型（oplog lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.acquirecount.sharedps</td>
+<td>locks/second</td>
+<td>在 Shared (S) 模式下获取 oplog 锁类型（oplog lock type）的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.acquirewaitcount.intent_exclusiveps</td>
+<td>waits/second</td>
+<td>在 Intent Exclusive (IX) 模式中，因为锁保持在冲突模式而使获取 oplog 锁类型（oplog lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.acquirewaitcount.sharedps</td>
+<td>waits/second</td>
+<td>在 Shared (S) 模式中，因为锁保持在冲突模式而使获取 oplog 锁类型（oplog lock type）需要等待的次数</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.timeacquiringmicros.intent_exclusiveps</td>
+<td>fractions</td>
+<td>在 Intent Exclusive (IX) 模式下等待 oplog 锁类型（oplog lock type）采集的时间</td>
+</tr>
+<tr>
+<td>mongodb.locks.oplog.timeacquiringmicros.sharedps</td>
+<td>fractions</td>
+<td>Shared (S) 模式下等待 oplog 锁类型（oplog lock type）采集的时间</td>
 </tr>
 <tr>
 <td>mongodb.mem.mapped</td>
+<td>mebibytes</td>
 <td>数据库映射的内存总数</td>
 </tr>
 <tr>
+<td>mongodb.mem.mappedwithjournal</td>
+<td>mebibytes</td>
+<td>映射内存量，包括用于日志记录的内存</td>
+</tr>
+<tr>
 <td>mongodb.mem.resident</td>
+<td>mebibytes</td>
 <td>数据库进程在使用的内存总数</td>
 </tr>
 <tr>
 <td>mongodb.mem.virtual</td>
+<td>mebibytes</td>
 <td>数据库进程使用的虚拟内存总数</td>
 </tr>
 <tr>
+<td>mongodb.metrics.cursor.open.notimeout</td>
+<td>cursors</td>
+<td>为防止在一段时间不活动后超时而设置选项 &ldquo;DBQuery.Option.no Timeout&rdquo; 的打开游标（open cursors）数</td>
+</tr>
+<tr>
+<td>mongodb.metrics.cursor.open.pinned</td>
+<td>cursors</td>
+<td>&ldquo;pinned&rdquo; 的打开游标（open cursors）数</td>
+</tr>
+<tr>
+<td>mongodb.metrics.cursor.open.total</td>
+<td>cursors</td>
+<td>MongoDB 为客户端维护的游标数</td>
+</tr>
+<tr>
+<td>mongodb.metrics.cursor.timedoutps</td>
+<td>cursors/second</td>
+<td>每秒钟内的超时游标数</td>
+</tr>
+<tr>
 <td>mongodb.metrics.document.deletedps</td>
+<td>documents/second</td>
 <td>文档删除数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.document.insertedps</td>
+<td>documents/second</td>
 <td>文档增加数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.document.returnedps</td>
+<td>documents/second</td>
 <td>文档被请求返回数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.document.updatedps</td>
+<td>documents/second</td>
 <td>文档更新数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.getlasterror.wtime.numps</td>
-<td>需要等待一个或多个从库获悉这个写操作的 getLastError操作的次数/秒</td>
+<td>operations/second</td>
+<td>需要等待一个或多个从库获悉这个写操作的 getLastError 操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.getlasterror.wtime.totalmillisps</td>
-<td>执行 需要等待一个或多个从库获悉这个写操作的 getLastError操作的时间/秒</td>
+<td>fractions</td>
+<td>执行需要等待一个或多个从库获悉这个写操作的 getLastError 操作的时间/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.getlasterror.wtimeoutsps</td>
-<td>由于getLastError超过超时阈值导致写相关的操作超时的 次数/秒</td>
+<td>events/second</td>
+<td>由于 getLastError 超过超时阈值导致写相关的操作超时的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.operation.fastmodps</td>
-<td>不导致文档增加或者需要更新索引的更新操作的 次数/秒</td>
+<td>operations/second</td>
+<td>不导致文档增加或者需要更新索引的更新操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.operation.idhackps</td>
-<td>包含_id 字段的请求次数/秒</td>
+<td>queries/second</td>
+<td>包含 _id 字段的请求次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.operation.scanandorderps</td>
+<td>queries/second</td>
 <td>返回不能用索引排序的有序数字的请求次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.queryexecutor.scannedps</td>
+<td>operations/second</td>
 <td>在请求和请求的评估过程中被扫描的索引个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.record.movesps</td>
+<td>operations/second</td>
 <td>文档在磁盘上移动的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.apply.batches.numps</td>
+<td>operations/second</td>
 <td>对所有数据库执行的批处理的个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.apply.batches.totalmillisps</td>
-<td>执行来自oplog的操作的时间/秒</td>
+<td>fractions</td>
+<td>执行来自 oplog 的操作的时间/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.apply.opsps</td>
-<td>执行的oplog操作的个数/秒</td>
+<td>operations/second</td>
+<td>执行的 oplog 操作的个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.buffer.count</td>
-<td>oplog缓存中的操作数</td>
+<td>operations</td>
+<td>oplog 缓存中的操作数</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.buffer.maxsizebytes</td>
-<td>缓存的最大值, 单位byte</td>
+<td>bytes</td>
+<td>缓存的最大值，单位 byte</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.buffer.sizebytes</td>
-<td>oplog缓存的当前大小,单位byte</td>
+<td>bytes</td>
+<td>oplog 缓存的当前大小，单位b yte</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.network.bytesps</td>
-<td>从 从服务器同步源 读取的数据总量/秒，单位byte</td>
+<td>bytes/second</td>
+<td>从&quot;从服务器同步源&quot;读取的数据总量/秒，单位 byte</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.network.getmores.numps</td>
-<td>getmore操作的个数/秒</td>
+<td>operations/second</td>
+<td>getmore 操作的个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.network.getmores.totalmillisps</td>
-<td>从getmore操作收集数据时间/秒</td>
+<td>fractions</td>
+<td>从 getmore 操作收集数据时间/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.network.opsps</td>
-<td>从 从服务器 读取的操作的个数/秒</td>
+<td>operations/second</td>
+<td>从&quot;从服务器&quot;读取的操作的个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.repl.network.readerscreatedps</td>
-<td>oplog查询进程创建的个数/秒</td>
+<td>processes/second</td>
+<td>oplog 查询进程创建的个数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.ttl.deleteddocumentsps</td>
-<td>从有ttl索引的collections 中删除的文档数/秒</td>
+<td>documents/second</td>
+<td>从有 ttl 索引的 collections 中删除文档的次数数/秒</td>
 </tr>
 <tr>
 <td>mongodb.metrics.ttl.passesps</td>
-<td>后台进程从有ttl索引的collections中删除文档的此时/秒</td>
+<td>operations/second</td>
+<td>后台进程从有 ttl 索引的 collections 中删除文档的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.commandps</td>
+<td>commands/second</td>
 <td>传给数据库的命令的总数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.deleteps</td>
+<td>operations/second</td>
 <td>删除操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.getmoreps</td>
-<td>getmore操作的次数/秒</td>
+<td>operations/second</td>
+<td>getmore 操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.insertps</td>
+<td>operations/second</td>
 <td>插入操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.queryps</td>
+<td>queries/second</td>
 <td>查询操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcounters.updateps</td>
+<td>operations/second</td>
 <td>更新操作的次数/秒</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.commandps</td>
-<td>The total number of replicated commands issued to the database per second</td>
+<td>commands/second</td>
+<td>每秒向数据库发出的 replicated 命令的总数</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.deleteps</td>
-<td>The number of replicated delete operations per secon</td>
+<td>operations/second</td>
+<td>每秒的 replicated 删除操作数</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.getmoreps</td>
-<td>The number of replicated getmore operations per second</td>
+<td>operations/second</td>
+<td>每秒的 replicated getmore 操作数</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.insertps</td>
-<td>The number of replicated insert operations per second</td>
+<td>operations/second</td>
+<td>每秒的 replicated 插入操作数</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.queryps</td>
-<td>The total number of replicated queries per second</td>
+<td>queries/second</td>
+<td>每秒的 replicated 查询总数</td>
 </tr>
 <tr>
 <td>mongodb.opcountersrepl.updateps</td>
-<td>The number of replicated update operations per second</td>
+<td>operations/second</td>
+<td>每秒的 replicated 更新操作数</td>
+</tr>
+<tr>
+<td>mongodb.oplog.logsizemb</td>
+<td>mebibytes</td>
+<td>oplog 总大小</td>
+</tr>
+<tr>
+<td>mongodb.oplog.timediff</td>
+<td>seconds</td>
+<td>oplog window：oplog 中的第一个和最后一个操作之间的差异</td>
+</tr>
+<tr>
+<td>mongodb.oplog.usedsizemb</td>
+<td>mebibytes</td>
+<td>oplog 使用空间总量</td>
+</tr>
+<tr>
+<td>mongodb.replset.health</td>
+<td></td>
+<td>副本集（replica set）的成员健康值：conveys if the member is up (i.e. 1) or down (i.e. 0)</td>
+</tr>
+<tr>
+<td>mongodb.replset.replicationlag</td>
+<td>seconds</td>
+<td>主服务器上的向辅助服务器副本的写操作延迟</td>
 </tr>
 <tr>
 <td>mongodb.stats.datasize</td>
-<td>库中的数据量包括the padding factor</td>
+<td>bytes</td>
+<td>库中的数据量，包括 the padding factor</td>
 </tr>
 <tr>
 <td>mongodb.stats.indexes</td>
+<td>indices</td>
 <td>库中总索引数</td>
 </tr>
 <tr>
 <td>mongodb.stats.indexsize</td>
+<td>bytes</td>
 <td>库中所有创建的索引总数</td>
 </tr>
 <tr>
 <td>mongodb.stats.objects</td>
+<td>objects</td>
 <td>库中所有的文档数</td>
 </tr>
 <tr>
 <td>mongodb.stats.storagesize</td>
-<td>分配给库中的collections的存储空间</td>
+<td>bytes</td>
+<td>分配给库中的 collections 的存储空间</td>
 </tr>
 <tr>
 <td>mongodb.uptime</td>
-<td>mongo进程启动时长</td>
+<td>seconds</td>
+<td>mongodb 进程启动时长</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.bytes<em>currently</em>in_cache</td>
+<td>bytes</td>
+<td>当前在缓存中的数据大小</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.failed<em>eviction</em>of<em>pages</em>exceeding<em>the</em>in<em>memory</em>maximumps</td>
+<td>pages/second</td>
+<td>每秒钟超过内存中最大值的被逐出失败的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.in<em>memory</em>page_splits</td>
+<td>splits</td>
+<td>内存中 splits 的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.maximum<em>bytes</em>configured</td>
+<td>bytes</td>
+<td>最大缓存空间</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.maximum<em>page</em>size<em>at</em>eviction</td>
+<td>bytes</td>
+<td>逐出页的最大 size</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.modified<em>pages</em>evicted</td>
+<td>pages</td>
+<td>从缓存中逐出的已被修改的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.pages<em>currently</em>held<em>in</em>cache</td>
+<td>pages</td>
+<td>缓存中当前保存的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.pages<em>evicted</em>by<em>application</em>threadsps</td>
+<td>pages/second</td>
+<td>每秒钟被应用程序线程逐出的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.pages<em>evicted</em>exceeding<em>the</em>in<em>memory</em>maximumps</td>
+<td>pages/second</td>
+<td>每秒种，由于超过缓存空间上限而被逐出的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.tracked<em>dirty</em>bytes<em>in</em>cache</td>
+<td>bytes</td>
+<td>缓存中脏数据（dirty data）的大小</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.cache.unmodified<em>pages</em>evicted</td>
+<td>pages</td>
+<td>从缓存中逐出的未修改的页数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.read.available</td>
+<td>tickets</td>
+<td>剩余可用的 read tickets（concurrent transactions）数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.read.out</td>
+<td>tickets</td>
+<td>已使用的 read tickets（concurrent transactions）数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.read.totaltickets</td>
+<td>tickets</td>
+<td>可用的 read tickets（concurrent transactions）总数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.write.available</td>
+<td>tickets</td>
+<td>剩余可用的 write tickets（concurrent transactions）数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.write.out</td>
+<td>tickets</td>
+<td>已使用的 write tickets（concurrent transactions）数</td>
+</tr>
+<tr>
+<td>mongodb.wiredtiger.concurrenttransactions.write.totaltickets</td>
+<td>tickets</td>
+<td>可用的 write tickets（concurrent transactions）总数</td>
 </tr>
 </tbody></table>
 
@@ -756,6 +1317,40 @@ mongo
 </code></pre>
 
 <p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
+
+<hr>
+
+<h2>默认标签</h2>
+
+<p>Cloudinsight 采集 MongoDB 以下默认主机标签：</p>
+
+<table><thead>
+<tr>
+<th>标签种类</th>
+<th>标签含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>server</td>
+<td>数据库实例地址（例如 &ldquo;mongodb://localhost:27017&quot;）</td>
+</tr>
+<tr>
+<td>replset_state</td>
+<td>集群节点（primary 或 secondary）</td>
+</tr>
+<tr>
+<td>db</td>
+<td>数据库（例如 &quot;admin&quot;）</td>
+</tr>
+<tr>
+<td>collection</td>
+<td>集合（例如 &quot;system.roles&quot;）</td>
+</tr>
+<tr>
+<td>cluster</td>
+<td>集群数据库（例如 &quot;db:local&quot;）</td>
+</tr>
+</tbody></table>
 
 <hr>
 

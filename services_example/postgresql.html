@@ -444,196 +444,244 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>postgresql.connections</td>
-<td>The number of active connections to this database</td>
-</tr>
-<tr>
-<td>postgresql.commits</td>
-<td>The number of transactions that have been committed in this database</td>
-</tr>
-<tr>
-<td>postgresql.rollbacks</td>
-<td>The number of transactions that have been rolled back in this database</td>
-</tr>
-<tr>
-<td>postgresql.disk_read</td>
-<td>The number of disk blocks read in this database</td>
-</tr>
-<tr>
-<td>postgresql.buffer_hit</td>
-<td>The number of times disk blocks were found in the buffer cache, preventing the need to read from the database</td>
-</tr>
-<tr>
-<td>postgresql.rows_returned</td>
-<td>The number of rows returned by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.rows_fetched</td>
-<td>The number of rows fetched by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.rows_inserted</td>
-<td>The number of rows inserted by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.rows_updated</td>
-<td>The number of rows updated by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.rows_deleted</td>
-<td>The number of rows deleted by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.database_size</td>
-<td>The disk space used by this database</td>
-</tr>
-<tr>
-<td>postgresql.deadlocks</td>
-<td>The number of deadlocks detected in this database</td>
-</tr>
-<tr>
-<td>postgresql.temp_bytes</td>
-<td>The amount of data written to temporary files by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.temp_files</td>
-<td>The number of temporary files created by queries in this database</td>
-</tr>
-<tr>
-<td>postgresql.bgwriter.checkpoints_timed</td>
-<td>The number of scheduled checkpoints that were performed</td>
-</tr>
-<tr>
-<td>postgresql.bgwriter.checkpoints_requested</td>
-<td>The number of requested checkpoints that were performed</td>
-</tr>
-<tr>
-<td>postgresql.bgwriter.buffers_checkpoint</td>
-<td>The number of buffers written during checkpoints</td>
-</tr>
-<tr>
-<td>postgresql.bgwriter.buffers_clean</td>
-<td>The number of buffers written by the background writer</td>
-</tr>
-<tr>
-<td>postgresql.bgwriter.maxwritten_clean</td>
-<td>The number of times the background writer stopped a cleaning scan due to writing too many buffers</td>
+<td>postgresql.bgwriter.buffers_alloc</td>
+<td></td>
+<td>被分配的缓冲区数量</td>
 </tr>
 <tr>
 <td>postgresql.bgwriter.buffers_backend</td>
-<td>The number of buffers written directly by a backend</td>
+<td>buffers</td>
+<td>被一个后端直接写的缓冲区数量</td>
 </tr>
 <tr>
-<td>postgresql.bgwriter.buffers_alloc</td>
-<td>The number of buffers allocated</td>
+<td>postgresql.bgwriter.buffers<em>backend</em>fsync</td>
+<td></td>
+<td>一个后端不得不自己执行 fsync 调用的次数（通常即使后端自己进行写操作，后台写进程也会处理这些）</td>
 </tr>
 <tr>
-<td>postgresql.bgwriter.buffers_backend_fsync</td>
-<td>The of times a backend had to execute its own fsync call instead of the background writer</td>
+<td>postgresql.bgwriter.buffers_checkpoint</td>
+<td></td>
+<td>在检查点期间被写的缓冲区数目</td>
 </tr>
 <tr>
-<td>postgresql.bgwriter.write_time</td>
-<td>The total amount of checkpoint processing time spent writing files to disk</td>
+<td>postgresql.bgwriter.buffers_clean</td>
+<td></td>
+<td>被后台写进程写的缓冲区数目</td>
+</tr>
+<tr>
+<td>postgresql.bgwriter.checkpoints_requested</td>
+<td></td>
+<td>已经被执行的请求检查点的数量</td>
+</tr>
+<tr>
+<td>postgresql.bgwriter.checkpoints_timed</td>
+<td></td>
+<td>已经被执行的计划中检查点的数量</td>
+</tr>
+<tr>
+<td>postgresql.bgwriter.maxwritten_clean</td>
+<td></td>
+<td>后台写进程由于已经写了太多缓冲区而停止清洁扫描的次数</td>
 </tr>
 <tr>
 <td>postgresql.bgwriter.sync_time</td>
-<td>The total amount of checkpoint processing time spent synchronizing files to disk</td>
+<td>milliseconds</td>
+<td>在文件被同步到磁盘中的检查点处理部分花费的总时间</td>
 </tr>
 <tr>
-<td>postgresql.locks</td>
-<td>The number of locks active for this database</td>
+<td>postgresql.bgwriter.write_time</td>
+<td>milliseconds</td>
+<td>在文件被写入磁盘的检查点处理部分花费的总时间</td>
 </tr>
 <tr>
-<td>postgresql.seq_scans</td>
-<td>The number of sequential scans initiated on this table</td>
+<td>postgresql.buffer_hit</td>
+<td>hits/second</td>
+<td>磁盘块被发现已经在缓冲区中的次数，这样不需要一次读取</td>
 </tr>
 <tr>
-<td>postgresql.seq_rows_read</td>
-<td>The number of live rows fetched by sequential scans</td>
+<td>postgresql.commits</td>
+<td>transactions/second</td>
+<td>在这个数据库中提交的事务数</td>
 </tr>
 <tr>
-<td>postgresql.index_scans</td>
-<td>The number of index scans initiated on this table</td>
+<td>postgresql.connections</td>
+<td>connections</td>
+<td>这个数据库的活跃连接数</td>
 </tr>
 <tr>
-<td>postgresql.index_rows_fetched</td>
-<td>The number of live rows fetched by index scans</td>
-</tr>
-<tr>
-<td>postgresql.rows_hot_updated</td>
-<td>The number of rows HOT updated, meaning no separate index update was needed</td>
-</tr>
-<tr>
-<td>postgresql.live_rows</td>
-<td>The estimated number of live rows</td>
+<td>postgresql.database_size</td>
+<td>bytes</td>
+<td>这个数据库使用的磁盘空间</td>
 </tr>
 <tr>
 <td>postgresql.dead_rows</td>
-<td>The estimated number of dead rows</td>
+<td>rows</td>
+<td>估计的死行数</td>
 </tr>
 <tr>
-<td>postgresql.index_rows_read</td>
-<td>The number of index entries returned by scans on this index</td>
+<td>postgresql.deadlocks</td>
+<td></td>
+<td>在这个数据库中被检测到的死锁数</td>
 </tr>
 <tr>
-<td>postgresql.table_size</td>
-<td>The total disk space used by the specified table. Includes TOAST, free space map, and visibility map. Excludes indexes</td>
+<td>postgresql.disk_read</td>
+<td>blocks/second</td>
+<td>从这个数据库中读取的磁盘块数</td>
+</tr>
+<tr>
+<td>postgresql.heap<em>blocks</em>hit</td>
+<td>hits/second</td>
+<td>在这个表中的缓冲区命中数量</td>
+</tr>
+<tr>
+<td>postgresql.heap<em>blocks</em>read</td>
+<td>blocks/second</td>
+<td>从这个表读取的磁盘块数量</td>
+</tr>
+<tr>
+<td>postgresql.index<em>blocks</em>hit</td>
+<td>hits/second</td>
+<td>在这个表上的所有索引中的缓冲区命中数量</td>
+</tr>
+<tr>
+<td>postgresql.index<em>blocks</em>read</td>
+<td>blocks/second</td>
+<td>从这个表上所有索引中读取的磁盘块数</td>
+</tr>
+<tr>
+<td>postgresql.index<em>rows</em>fetched</td>
+<td>rows/second</td>
+<td>被使用这个索引的简单索引扫描取得的活行数</td>
+</tr>
+<tr>
+<td>postgresql.index<em>rows</em>read</td>
+<td>rows/second</td>
+<td>在这个索引上由扫描返回的索引项数量</td>
+</tr>
+<tr>
+<td>postgresql.index_scans</td>
+<td></td>
+<td>在这个索引上发起的索引扫描次数</td>
 </tr>
 <tr>
 <td>postgresql.index_size</td>
-<td>The total disk space used by indexes attached to the specified table</td>
+<td>bytes</td>
+<td>附加到指定表的索引使用的总磁盘空间</td>
 </tr>
 <tr>
-<td>postgresql.total_size</td>
-<td>The total disk space used by the table, including indexes and TOAST data</td>
+<td>postgresql.live_rows</td>
+<td>rows</td>
+<td>估计的活行数</td>
 </tr>
 <tr>
-<td>postgresql.table.count</td>
-<td>The number of user tables in this database</td>
+<td>postgresql.locks</td>
+<td>locks</td>
+<td>在这个数据库中的活锁数</td>
 </tr>
 <tr>
 <td>postgresql.max_connections</td>
-<td>The maximum number of client connections allowed to this database</td>
+<td>connections</td>
+<td>允许这个数据库的客户端连接的最大数量</td>
 </tr>
 <tr>
-<td>postgresql.percent_usage_connections</td>
-<td>The number of connections to this database as a fraction of the maximum number of allowed connections</td>
+<td>postgresql.percent<em>usage</em>connections</td>
+<td>fractions</td>
+<td>这个数据库的连接数，是允许的最大连接数的一部分</td>
 </tr>
 <tr>
-<td>postgresql.heap_blocks_read</td>
-<td>The number of disk blocks read from this table</td>
+<td>postgresql.rollbacks</td>
+<td>transactions/second</td>
+<td>在这个数据库中已经被回滚的事务的数量</td>
 </tr>
 <tr>
-<td>postgresql.heap_blocks_hit</td>
-<td>The number of buffer hits in this table</td>
+<td>postgresql.rows_deleted</td>
+<td>rows/second</td>
+<td>在这个数据库中被查询删除的行数</td>
 </tr>
 <tr>
-<td>postgresql.index_blocks_read</td>
-<td>The number of disk blocks read from all indexes on this table</td>
+<td>postgresql.rows_fetched</td>
+<td>rows/second</td>
+<td>在这个数据库中被查询取出的行数</td>
 </tr>
 <tr>
-<td>postgresql.index_blocks_hit</td>
-<td>The number of buffer hits in all indexes on this table</td>
+<td>postgresql.rows<em>hot</em>updated</td>
+<td>rows/second</td>
+<td>被更新的 HOT 行数（即不要求独立索引更新的行更新）</td>
 </tr>
 <tr>
-<td>postgresql.toast_blocks_read</td>
-<td>The number of disk blocks read from this table&rsquo;s TOAST table</td>
+<td>postgresql.rows_inserted</td>
+<td>rows/second</td>
+<td>在这个数据库中被查询插入的行数</td>
 </tr>
 <tr>
-<td>postgresql.toast_blocks_hit</td>
-<td>The number of buffer hits in this table&rsquo;s TOAST table</td>
+<td>postgresql.rows_returned</td>
+<td>rows/second</td>
+<td>在这个数据库中被查询返回的行数</td>
 </tr>
 <tr>
-<td>postgresql.toast_index_blocks_read</td>
-<td>The number of disk blocks read from this table&rsquo;s TOAST table index</td>
+<td>postgresql.rows_updated</td>
+<td>rows/second</td>
+<td>在这个数据库中被查询更新的行数</td>
 </tr>
 <tr>
-<td>postgresql.toast_index_blocks_hit</td>
-<td>The number of buffer hits in this table&rsquo;s TOAST table index</td>
+<td>postgresql.seq<em>rows</em>read</td>
+<td>rows/second</td>
+<td>通过顺序扫描获取的活行数</td>
+</tr>
+<tr>
+<td>postgresql.seq_scans</td>
+<td></td>
+<td>在这个表上发起的顺序扫描的次数</td>
+</tr>
+<tr>
+<td>postgresql.table.count</td>
+<td>tables</td>
+<td>此数据库中的用户表数</td>
+</tr>
+<tr>
+<td>postgresql.table_size</td>
+<td>bytes</td>
+<td>指定表使用的总磁盘空间。包括 TOAST，Free Space Map 和 Visibility Map，不包括索引</td>
+</tr>
+<tr>
+<td>postgresql.temp_bytes</td>
+<td>bytes/second</td>
+<td>在这个数据库中被查询写到临时文件中的数据总量</td>
+</tr>
+<tr>
+<td>postgresql.temp_files</td>
+<td>files/second</td>
+<td>在这个数据库中被查询创建的临时文件的数量</td>
+</tr>
+<tr>
+<td>postgresql.toast<em>blocks</em>hit</td>
+<td>hits/second</td>
+<td>在这个表的 TOAST 表（如果有）中的缓冲区命中数量</td>
+</tr>
+<tr>
+<td>postgresql.toast<em>blocks</em>read</td>
+<td>blocks/second</td>
+<td>从这个表的 TOAST 表（如果有）读取的磁盘块数</td>
+</tr>
+<tr>
+<td>postgresql.toast<em>index</em>blocks_hit</td>
+<td>blocks/second</td>
+<td>在这个表的 TOAST 表索引（如果有）中的缓冲区命中数量</td>
+</tr>
+<tr>
+<td>postgresql.toast<em>index</em>blocks_read</td>
+<td>blocks/second</td>
+<td>从这个表的 TOAST 表索引（如果有）中读取的磁盘块数</td>
+</tr>
+<tr>
+<td>postgresql.total_size</td>
+<td>bytes</td>
+<td>表所使用的总磁盘空间，包括索引和 TOAST 数据</td>
 </tr>
 </tbody></table>
 

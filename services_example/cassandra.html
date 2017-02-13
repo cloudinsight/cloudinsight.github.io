@@ -444,172 +444,339 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>cassandra.active_tasks</td>
-<td>该线程正在执行任务的数量</td>
+<td>tasks</td>
+<td>线程池正在执行的任务数</td>
 </tr>
 <tr>
-<td>cassandra.bloom_filter_disk_space_used</td>
-<td>bloom filter 使用的磁盘空间</td>
+<td>cassandra.bloom<em>filter</em>disk<em>space</em>used</td>
+<td>bytes</td>
+<td>Bloom 过滤器使用的磁盘空间</td>
 </tr>
 <tr>
-<td>cassandra.bloom_filter_false_positives</td>
-<td>bloom filter 误报的数量</td>
+<td>cassandra.bloom<em>filter</em>false_positives</td>
+<td>events</td>
+<td>Bloom 过滤器 false positive 的数量</td>
 </tr>
 <tr>
-<td>cassandra.bloom_filter_false_ratio</td>
-<td>bloom filter 误报的百分比</td>
+<td>cassandra.bloom<em>filter</em>false_ratio</td>
+<td>fractions</td>
+<td>Bloom 过滤器 false positive 数量与总 check 数量的比率</td>
 </tr>
 <tr>
 <td>cassandra.capacity</td>
-<td>缓存容量，例如键缓存和 row 缓存</td>
+<td>bytes</td>
+<td>缓存的容量，例如密钥缓存和行缓存</td>
 </tr>
 <tr>
 <td>cassandra.completed_tasks</td>
-<td>线程池完成 task 的数量</td>
+<td>tasks</td>
+<td>线程池已完成的任务数</td>
 </tr>
 <tr>
 <td>cassandra.compression_ratio</td>
-<td>列族中所有 SSTables 压缩比</td>
+<td>fractions</td>
+<td>列簇（column family）中所有表（SSTables）的压缩比</td>
 </tr>
 <tr>
-<td>cassandra.currently_blocked_tasks.count</td>
-<td>线程池中当前锁定 task 的数量</td>
+<td>cassandra.currently<em>blocked</em>tasks.count</td>
+<td>tasks</td>
+<td>线程池的当前已阻止任务的数量</td>
 </tr>
 <tr>
-<td>cassandra.db.bloom_filter_disk_space_used</td>
-<td>bloom filters 使用的磁盘空间（2.2版本以上用 cassandra.bloom_filter_disk_space_used 代替）</td>
+<td>cassandra.db.bloom<em>filter</em>disk<em>space</em>used</td>
+<td>bytes</td>
+<td>Bloom 过滤器使用的磁盘空间 （该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.bloom<em>filter</em>disk<em>space</em>used 指标）</td>
 </tr>
 <tr>
-<td>cassandra.db.bloom_filter_false_positives</td>
-<td>bloom filter 误报的数量（2.2 版本以上用 cassandra.bloom_filter_false_positives 代替）</td>
+<td>cassandra.db.bloom<em>filter</em>false_positives</td>
+<td>events</td>
+<td>Bloom 过滤器 false positive 的数量 （该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.bloom 指标）</td>
 </tr>
 <tr>
-<td>cassandra.db.bloom_filter_false_ratio</td>
-<td>bloom filter 误报的百分比（2.2 版本以上用 cassandra.bloom_filter_false_ratio 代替）</td>
+<td>cassandra.db.bloom<em>filter</em>false_ratio</td>
+<td>fractions</td>
+<td>Bloom 过滤器 false positive 数量与总 check 数量的比率（该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.bloom<em>filter</em>false_ratio 指标）</td>
 </tr>
 <tr>
 <td>cassandra.db.completed_tasks</td>
-<td>线程池完成 task 的数量（2.2 版本以上用 cassandra.completed_tasks 代替）</td>
+<td>tasks</td>
+<td>完成压缩或 commitlog 的任务数 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
 <td>cassandra.db.compression_ratio</td>
-<td>列族中所有 SSTables 压缩比（2.2 版本以上用 cassandra.compression_ratio 代替）</td>
+<td>fractions</td>
+<td>列簇（column family）中所有表（SSTables）的压缩比 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.compression_ratio 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.exception_count</td>
-<td>抛出异常次数（2.2版本以上用 cassandra.exceptions.count 代替）</td>
+<td>errors</td>
+<td>抛出的异常数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.exceptions.count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.key_cache_recent_hit_rate</td>
-<td>键缓存命中率要求上次属性被读取的缓存键（2.2版本以上指标可能有所改变 ）</td>
+<td>cassandra.db.key<em>cache</em>recent<em>hit</em>rate</td>
+<td>fractions</td>
+<td>自上次读取此属性以来，键缓存（key cache）命中与键缓存请求的比率 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.live_disk_space_used</td>
-<td>存活的 SSTables 使用的磁盘空间，不包含过时的SSTables（2.2版本以上用 cassandra.live_disk_space_used.count  代替）</td>
+<td>cassandra.db.row<em>cache</em>recent<em>hit</em>rate</td>
+<td>fractions</td>
+<td>自上次读取此属性以来，行缓存（row cache）命中与行缓存请求的比率 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.live_ss_table_count</td>
-<td>存活的 SSTables 当前数量，不包含过时的，2.2版本以上用 cassandra.live_ss_table_count 代替</td>
+<td>cassandra.db.live<em>disk</em>space_used</td>
+<td>bytes</td>
+<td>活的（live） SSTables 使用的磁盘空间（仅计算非过时文件）(该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.live<em>disk</em>space_used.count 指标)</td>
+</tr>
+<tr>
+<td>cassandra.db.live<em>ss</em>table_count</td>
+<td>files</td>
+<td>活的（live）SSTables 数量（非过时的） (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.live<em>ss</em>table_count 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.load</td>
-<td>一个节点使用的磁盘空间（2.2版本以上用 cassandra.load.count 代替）</td>
+<td>bytes</td>
+<td>节点上使用的磁盘空间 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.load.count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.max_row_size</td>
-<td>最大被压缩的 row 的大小（2.2版本以上用  cassandra.max_row_size 代替）</td>
+<td>cassandra.db.max<em>row</em>size</td>
+<td>bytes</td>
+<td>最大压缩行（compacted row）的大小 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.max<em>row</em>size 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.mean_row_size</td>
-<td>被压缩的 row 的平均大小（2.2版本以上用 cassandra.mean_row_size 代替）</td>
+<td>cassandra.db.mean<em>row</em>size</td>
+<td>bytes</td>
+<td>压缩行（compacted row）的平均大小 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.mean<em>row</em>size 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.memtable_columns_count</td>
-<td>内存中的数据（memtables）列数 （2.2版本以上用 cassandra.memtable_columns_count 代替）</td>
+<td>cassandra.db.memtable<em>columns</em>count</td>
+<td>columns</td>
+<td>memtable 中的列数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.memtable<em>columns</em>count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.memtable_data_size</td>
-<td>存储在内存中的数据（memtables）大小 （2.2版本以上用 cassandra.memtable_live_data_size 代替）</td>
+<td>cassandra.db.memtable<em>data</em>size</td>
+<td>bytes</td>
+<td>存储在 memtable 中的数据量 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.memtable<em>live</em>data_size 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.memtable_switch_count</td>
-<td>由于 flushing 满的内存中数据（memtables）切换出一个空的内存 （2.2版本以上用 cassandra.memtable_switch_count.coun 代替）</td>
+<td>cassandra.db.memtable<em>switch</em>count</td>
+<td>events</td>
+<td>完整 memtable 因刷新而被切换为空的次数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.memtable<em>switch</em>count.count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.min_row_size</td>
-<td>最小被压缩的 row 的大小（2.2版本以上用  cassandra.min_row_size 代替</td>
+<td>cassandra.db.min<em>row</em>size</td>
+<td>bytes</td>
+<td>最小压缩行（compacted row）的大小 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.min<em>row</em>size 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.pending_tasks</td>
-<td>待压缩，commitlog，或其他列族 Pending tasks （2.2版本以上用 cassandra.pending_tasks 代替）</td>
+<td>tasks</td>
+<td>待压缩、commitlog 或列簇（column family）的任务数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.pending_tasks 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.range_operations</td>
-<td>范围查询操作的数量 （2.2版本以上可能有所改变）</td>
+<td>operations</td>
+<td>范围扫描的操作数 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
+</tr>
+<tr>
+<td>cassandra.db.read_count</td>
+<td>reads</td>
+<td>列簇（column family）的本地读取请求数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.latency.count 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.read_operations</td>
-<td>列族中本地读取操作的数量 （2.2版本以上有所改变）</td>
+<td>operations</td>
+<td>读取操作数 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.recent_read_latency_micros</td>
-<td>范围查询的等待时间 （2.2版本以上有所改变）</td>
+<td>cassandra.db.recent<em>range</em>latency_micros</td>
+<td>microseconds</td>
+<td>自上次读取此属性以来范围扫描（range scans）的延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.recent_write_latency_micros</td>
-<td>写入等待时机 （2.2版本以上有所改变）</td>
+<td>cassandra.db.recent<em>read</em>latency_micros</td>
+<td>microseconds</td>
+<td>自上次读取此属性以来的读取延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.total_disk_space_used</td>
-<td>列族使用的磁盘空间   （2.2版本以上用 cassandra.total_disk_space_used.coun 代替）</td>
+<td>cassandra.db.recent<em>write</em>latency_micros</td>
+<td>microseconds</td>
+<td>自上次读取此属性以来的写入延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.total_range_latency_micros</td>
-<td>所有范围查询的等待时间 （2.2版本以上有所改变）</td>
+<td>cassandra.db.total<em>disk</em>space_used</td>
+<td>bytes</td>
+<td>列簇（column family）使用的磁盘空间 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.total<em>disk</em>space_used.count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.db.total_read_latency_micros</td>
-<td>所有读取操作的等待时间（2.2版本以上有所改变）</td>
+<td>cassandra.db.total<em>range</em>latency_micros</td>
+<td>microseconds</td>
+<td>所有范围扫描（range scans）的总延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
 </tr>
 <tr>
-<td>cassandra.db.total_write_latency_micros</td>
-<td>所有写入操作的等待时间（2.2版本以上有所改变）</td>
+<td>cassandra.db.total<em>read</em>latency_micros</td>
+<td>microseconds</td>
+<td>所有读取请求的总延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.total_latency.count 指标)</td>
+</tr>
+<tr>
+<td>cassandra.db.total<em>write</em>latency_micros</td>
+<td>microseconds</td>
+<td>所有写入请求的总延迟 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.total_latency.count 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.update_interval</td>
-<td>监控从慢节点读响应时长的配置更新间隔  ／milliseconds</td>
+<td>milliseconds</td>
+<td>动态 snitch 的可配置更新间隔，其监视慢节点路由请求的读取延迟</td>
 </tr>
 <tr>
 <td>cassandra.db.write_count</td>
-<td>列族本地写入请求的次数</td>
+<td>writes</td>
+<td>列簇（column family）的本地写入请求数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.latency.count 指标)</td>
 </tr>
 <tr>
 <td>cassandra.db.write_operations</td>
-<td>写入操作的次数</td>
+<td>operations</td>
+<td>写入操作计数 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
+</tr>
+<tr>
+<td>cassandra.exceptions.count</td>
+<td>errors</td>
+<td>抛出的异常数</td>
+</tr>
+<tr>
+<td>cassandra.hits.count</td>
+<td>hits</td>
+<td>缓存的匹配数</td>
 </tr>
 <tr>
 <td>cassandra.internal.active_count</td>
-<td>该线程池正在执行的 task 数量 （2.2版本以上用 cassandra.active_tasks 代替）</td>
+<td>tasks</td>
+<td>线程池正在执行的任务数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.active_tasks 指标)</td>
 </tr>
 <tr>
 <td>cassandra.internal.completed_tasks</td>
-<td>该线程池已经完成的 task 数量  （2.2版本以上用 cassandra.completed_tasks 代替）</td>
+<td>tasks</td>
+<td>线程池完成的任务数(该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.completed_tasks 指标)</td>
 </tr>
 <tr>
-<td>cassandra.internal.currently_blocked_tasks</td>
-<td>线程池当前锁定的 task 数量 （2.2版本以上用 cassandra.currently_blocked_tasks.count 代替）</td>
+<td>cassandra.internal.currently<em>blocked</em>tasks</td>
+<td>tasks</td>
+<td>线程池的当前已阻止任务的数量 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.currently<em>blocked</em>tasks.count 指标)</td>
 </tr>
 <tr>
-<td>cassandra.internal.total_blocked_tasks</td>
-<td>目前线程池累计锁定的 task 数量 （2.2版本以上有所改变）</td>
+<td>cassandra.internal.total<em>blocked</em>tasks</td>
+<td>tasks</td>
+<td>线程池的当前已阻止任务的累计总数 (该指标可能不适用于超过 2.2 版本的 Cassandra)</td>
+</tr>
+<tr>
+<td>cassandra.latency.count</td>
+<td>requests</td>
+<td>客户端请求的数量</td>
+</tr>
+<tr>
+<td>cassandra.latency.one<em>minute</em>rate</td>
+<td>requests/second</td>
+<td>最近一分钟间隔内的客户端请求比率（指数加权移动平均值）</td>
+</tr>
+<tr>
+<td>cassandra.live<em>disk</em>space_used.count</td>
+<td>bytes</td>
+<td>活的 SSTables 使用的磁盘空间（仅计算非过时文件）</td>
+</tr>
+<tr>
+<td>cassandra.live<em>ss</em>table_count</td>
+<td>files</td>
+<td>活的（非过时）SSTables 的数量</td>
+</tr>
+<tr>
+<td>cassandra.load.count</td>
+<td>bytes</td>
+<td>节点上使用的磁盘空间</td>
+</tr>
+<tr>
+<td>cassandra.max<em>row</em>size</td>
+<td>bytes</td>
+<td>最大压缩行的大小</td>
+</tr>
+<tr>
+<td>cassandra.mean<em>row</em>size</td>
+<td>bytes</td>
+<td>压缩行的平均大小</td>
+</tr>
+<tr>
+<td>cassandra.memtable<em>columns</em>count</td>
+<td>columns</td>
+<td>memtable 中的列数</td>
+</tr>
+<tr>
+<td>cassandra.memtable<em>live</em>data_size</td>
+<td>bytes</td>
+<td>存储在 memtable 中的数据量大小</td>
+</tr>
+<tr>
+<td>cassandra.memtable<em>switch</em>count.count</td>
+<td>events</td>
+<td>完整 memtable 因刷新而被切换为空的次数</td>
+</tr>
+<tr>
+<td>cassandra.min<em>row</em>size</td>
+<td>bytes</td>
+<td>最小压缩行的大小</td>
 </tr>
 <tr>
 <td>cassandra.net.total_timeouts</td>
-<td>客户端请求数量</td>
+<td>timeouts</td>
+<td>可配置超时窗口内未确认的请求计数 (该指标可能不适用于超过 2.2 版本的 Cassandra，请改用 cassandra.timeouts.count 指标)</td>
+</tr>
+<tr>
+<td>cassandra.pending_tasks</td>
+<td>tasks</td>
+<td>线程池的挂起任务数</td>
+</tr>
+<tr>
+<td>cassandra.requests.count</td>
+<td>requests</td>
+<td>缓存的请求数</td>
+</tr>
+<tr>
+<td>cassandra.size</td>
+<td>bytes</td>
+<td>缓存数据量</td>
+</tr>
+<tr>
+<td>cassandra.timeouts.count</td>
+<td>timeouts</td>
+<td>可配置超时窗口内未确认的请求计数</td>
+</tr>
+<tr>
+<td>cassandra.timeouts.one<em>minute</em>rate</td>
+<td>timeouts/second</td>
+<td>最近一分钟间隔内的超时比率（指数加权移动平均值）</td>
+</tr>
+<tr>
+<td>cassandra.total<em>disk</em>space_used.count</td>
+<td>bytes</td>
+<td>列簇（column family）使用的磁盘空间</td>
+</tr>
+<tr>
+<td>cassandra.total_latency.count</td>
+<td>microseconds</td>
+<td>所有客户端请求的总延迟</td>
+</tr>
+<tr>
+<td>cassandra.unavailables.count</td>
+<td>errors</td>
+<td>所需节点不可用的请求的数量</td>
+</tr>
+<tr>
+<td>cassandra.unavailables.one<em>minute</em>rate</td>
+<td>errors/second</td>
+<td>最近一分钟间隔内的不可用异常率（指数加权移动平均值）</td>
 </tr>
 </tbody></table>
 

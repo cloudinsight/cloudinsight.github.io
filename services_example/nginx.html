@@ -444,36 +444,289 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>nginx.net.conn_dropped_per_s</td>
-<td>Nginx 丢弃的用户连接总数/s</td>
+<td>nginx.connections.accepted</td>
+<td>connections</td>
+<td>接受的客户端连接的总数</td>
 </tr>
 <tr>
-<td>nginx.net.conn_opened_per_s</td>
-<td>Nginx 打开连接数/s</td>
+<td>nginx.connections.active</td>
+<td>connections</td>
+<td>当前客户端连接数</td>
+</tr>
+<tr>
+<td>nginx.connections.dropped</td>
+<td>connections</td>
+<td>删除的客户端连接的总数</td>
+</tr>
+<tr>
+<td>nginx.connections.idle</td>
+<td>connections</td>
+<td>当前空闲客户端连接数</td>
+</tr>
+<tr>
+<td>nginx.generation</td>
+<td></td>
+<td>配置(configuration)重新加载的总数</td>
+</tr>
+<tr>
+<td>nginx.load_timestamp</td>
+<td>milliseconds</td>
+<td>上次重新加载配置（configuration）的时间（自 Epoch 以来的时间）</td>
+</tr>
+<tr>
+<td>nginx.net.conn<em>dropped</em>per_s</td>
+<td>connections/second</td>
+<td>连接丢失率</td>
+</tr>
+<tr>
+<td>nginx.net.conn<em>opened</em>per_s</td>
+<td>connections/second</td>
+<td>打开连接的速率</td>
 </tr>
 <tr>
 <td>nginx.net.connections</td>
-<td>当前活跃的用户连接(包含Waiting状态)</td>
+<td>connections</td>
+<td>活动连接的总数</td>
 </tr>
 <tr>
 <td>nginx.net.reading</td>
-<td>当前连接中Nginx读取请求首部的个数</td>
+<td>connections</td>
+<td>读取客户端请求的连接数</td>
 </tr>
 <tr>
-<td>nginx.net.request_per_s</td>
-<td>用户请求数／s</td>
+<td>nginx.net.request<em>per</em>s</td>
+<td>requests/second</td>
+<td>请求的处理速率</td>
 </tr>
 <tr>
 <td>nginx.net.waiting</td>
-<td>当前没有请求的活跃用户连接数</td>
+<td>connections</td>
+<td>等待工作的 keep-alive 连接的数量</td>
 </tr>
 <tr>
 <td>nginx.net.writing</td>
-<td>当前连接中Nginx写返回给用户的个数</td>
+<td>connections</td>
+<td>等待上行（upstream）响应 和/或 将响应写回客户端的连接数</td>
+</tr>
+<tr>
+<td>nginx.pid</td>
+<td></td>
+<td>处理状态请求的工作进程的 ID</td>
+</tr>
+<tr>
+<td>nginx.processes.respawned</td>
+<td>processes</td>
+<td>异常终止并重新生成的子进程的总数</td>
+</tr>
+<tr>
+<td>nginx.requests.current</td>
+<td>requests</td>
+<td>当前客户端请求数</td>
+</tr>
+<tr>
+<td>nginx.requests.total</td>
+<td>requests</td>
+<td>客户端请求的总数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.discarded</td>
+<td>requests</td>
+<td>未发送响应而完成的请求总数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.processing</td>
+<td>requests</td>
+<td>当前正在处理的客户端请求数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.received</td>
+<td>bytes</td>
+<td>从客户端接收的数据总量</td>
+</tr>
+<tr>
+<td>nginx.server_zone.requests</td>
+<td>requests</td>
+<td>从客户端接收的客户端请求的总数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.1xx</td>
+<td>responses</td>
+<td>具有 1xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.2xx</td>
+<td>responses</td>
+<td>具有 2xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.3xx</td>
+<td>responses</td>
+<td>具有 3xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.4xx</td>
+<td>responses</td>
+<td>具有 4xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.5xx</td>
+<td>responses</td>
+<td>具有 5xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.responses.total</td>
+<td>responses</td>
+<td>发送到客户端的响应总数</td>
+</tr>
+<tr>
+<td>nginx.server_zone.sent</td>
+<td>bytes</td>
+<td>发送到客户端的数据总量</td>
+</tr>
+<tr>
+<td>nginx.ssl.handshakes</td>
+<td></td>
+<td>成功的 SSL 握手总数</td>
+</tr>
+<tr>
+<td>nginx.ssl.handshakes_failed</td>
+<td></td>
+<td>失败的 SSL 握手总数</td>
+</tr>
+<tr>
+<td>nginx.ssl.session_reuses</td>
+<td></td>
+<td>SSL 握手期间的会话重用总数</td>
+</tr>
+<tr>
+<td>nginx.timestamp</td>
+<td>milliseconds</td>
+<td>自 Epoch 以来的时间</td>
+</tr>
+<tr>
+<td>nginx.upstream.keepalive</td>
+<td>connections</td>
+<td>当前空闲的 keepalive 连接数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.active</td>
+<td>connections</td>
+<td>当前活动连接数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.backup</td>
+<td></td>
+<td>指示服务器是否为备份服务器的布尔值</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.downstart</td>
+<td>milliseconds</td>
+<td>服务器变成 “unavail” 或 “unhealthy” 的时间（自Epoch开始）</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.downtime</td>
+<td>milliseconds</td>
+<td>服务器处于 “unavail” 或 “unhealthy” 状态的总时间</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.fails</td>
+<td></td>
+<td>与服务器通信失败的总次数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.health_checks.checks</td>
+<td></td>
+<td>health check 请求总数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.health_checks.fails</td>
+<td></td>
+<td>health check 的失败数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.health<em>checks.last</em>passed</td>
+<td></td>
+<td>布尔值，指示上次运行状况检查请求是否成功并通过了测试</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.health_checks.unhealthy</td>
+<td></td>
+<td>服务器变得不健康 (state “unhealthy”) 的次数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.id</td>
+<td></td>
+<td>服务器的 ID</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.received</td>
+<td>bytes</td>
+<td>从此服务器接收的总数据量</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.requests</td>
+<td>requests</td>
+<td>转发到此服务器的客户端请求总数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.1xx</td>
+<td>responses</td>
+<td>具有 1xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.2xx</td>
+<td>responses</td>
+<td>具有 2xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.3xx</td>
+<td>responses</td>
+<td>具有 3xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.4xx</td>
+<td>responses</td>
+<td>具有 4xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.5xx</td>
+<td>responses</td>
+<td>具有 5xx 状态码的响应数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.responses.total</td>
+<td>responses</td>
+<td>从此服务器获取的响应总数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.selected</td>
+<td>milliseconds</td>
+<td>上次选择服务器以处理请求（1.7.5）的时间（自Epoch开始）</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.sent</td>
+<td>bytes</td>
+<td>发送到此服务器的数据总量</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.unavail</td>
+<td></td>
+<td>由于失败尝试次数达到 max_fails 阈值，服务器对客户端请求不可用 (state “unavail”) 的次数</td>
+</tr>
+<tr>
+<td>nginx.upstream.peers.weight</td>
+<td></td>
+<td>Weight of the server</td>
+</tr>
+<tr>
+<td>nginx.version</td>
+<td></td>
+<td>nginx 的版本</td>
 </tr>
 </tbody></table>
 

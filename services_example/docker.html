@@ -444,88 +444,554 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>docker.mem.cache</td>
-<td>该cgroup中进程使用的块设备的缓存大小</td>
+<td>docker.container.size_rootfs</td>
+<td>bytes</td>
+<td>容器中所有文件的总大小</td>
 </tr>
 <tr>
-<td>docker.mem.rss</td>
-<td>该cgroup中进程使用的和磁盘无关的内存大小，比如堆和栈的内存</td>
+<td>docker.container.size_rootfs.95percentile</td>
+<td>bytes</td>
+<td>docker.container.size_rootfs 的 95% 的值</td>
 </tr>
 <tr>
-<td>docker.mem.swap</td>
-<td>该cgroup使用的交换空间的大小</td>
+<td>docker.container.size_rootfs.avg</td>
+<td>bytes</td>
+<td>docker.container.size_rootfs 的平均值</td>
 </tr>
 <tr>
-<td>docker.mem.active_anon</td>
-<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>active</code> 状态的的内存大小。系统内存不足时，会将标记为 <code>inactive</code> 的页转移到交换区</td>
+<td>docker.container.size_rootfs.count</td>
+<td>samples/second</td>
+<td>对 docker.container.size_rootfs 进行采样的速率</td>
 </tr>
 <tr>
-<td>docker.mem.inactive_anon</td>
-<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>inactive</code> 状态的的内存大小。系统内存不足时，会将标记为 <code>inactive</code> 的页转移到交换区</td>
+<td>docker.container.size_rootfs.max</td>
+<td>bytes</td>
+<td>docker.container.size_rootfs 的最大值</td>
 </tr>
 <tr>
-<td>docker.mem.active_file</td>
-<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>active</code> 状态的的内存大小</td>
+<td>docker.container.size_rootfs.median</td>
+<td>bytes</td>
+<td>docker.container.size_rootfs 的中位数</td>
 </tr>
 <tr>
-<td>docker.mem.inactive_file</td>
-<td>该cgroup中进程使用的和磁盘页无关、已被内核标记为 <code>inactive</code> 状态的的内存大小</td>
+<td>docker.container.size_rw</td>
+<td>bytes</td>
+<td>容器中被正在运行的进程创建或更改的所有文件的总大小</td>
 </tr>
 <tr>
-<td>docker.mem.mapped_file</td>
-<td>在控制组中映射到进程的内存量</td>
+<td>docker.container.size_rw.95percentile</td>
+<td>bytes</td>
+<td>docker.container.size_rw 的 95% 的值</td>
 </tr>
 <tr>
-<td>docker.mem.pgfault</td>
-<td>cgroup中进程访问虚拟地址空间中不存在或者受保护内存导致的页面错误（ page fault ）的次数</td>
+<td>docker.container.size_rw.avg</td>
+<td>bytes</td>
+<td>docker.container.size_rw 的平均值</td>
 </tr>
 <tr>
-<td>docker.mem.pgmajfault</td>
-<td>cgroup中进程访问虚拟地址空间中已经被交换出去或者指向映射文件而导致的页面错误（ page fault ）的次数</td>
+<td>docker.container.size_rw.count</td>
+<td>samples/second</td>
+<td>对 docker.container.size_rw 进行采样的速率</td>
 </tr>
 <tr>
-<td>docker.mem.pgpgin</td>
-<td>该cgroup中内存页被“charged”（添加到记账列表）中的次数</td>
+<td>docker.container.size_rw.max</td>
+<td>bytes</td>
+<td>docker.container.size_rw 的最大值</td>
 </tr>
 <tr>
-<td>docker.mem.pgpgout</td>
-<td>该cgroup中内存页被“uncharged”（添加到记账列表）中的次数</td>
-</tr>
-<tr>
-<td>docker.mem.unevictable</td>
-<td>该cgroup中进程使用的不可重用的内存大小。一般来说这部分内存被mlock“锁定”</td>
-</tr>
-<tr>
-<td>docker.disk.size</td>
-<td>该cgroup中进程创建或者修改的文件大小</td>
-</tr>
-<tr>
-<td>docker.cpu.system</td>
-<td>该cgroup进程执行中系统调用所占用的CPU时间片</td>
-</tr>
-<tr>
-<td>docker.cpu.user</td>
-<td>该cgroup进程所占用的CPU时间片</td>
+<td>docker.container.size_rw.median</td>
+<td>bytes</td>
+<td>docker.container.size_rw 的中位数</td>
 </tr>
 <tr>
 <td>docker.containers.running</td>
-<td>该主机上运行中容器的个数</td>
+<td></td>
+<td>这个主机上正在运行的容器数量</td>
 </tr>
 <tr>
 <td>docker.containers.stopped</td>
-<td>该主机上已经停止的容器个数</td>
+<td></td>
+<td>这个主机上已停止的容器数量</td>
+</tr>
+<tr>
+<td>docker.cpu.system</td>
+<td>fractions</td>
+<td>CPU 中代表此容器的进程执行系统调用（executing system calls）的时间占比</td>
+</tr>
+<tr>
+<td>docker.cpu.system.95percentile</td>
+<td>fractions</td>
+<td>docker.cpu.system 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.cpu.system.avg</td>
+<td>fractions</td>
+<td>docker.cpu.system 的平均值</td>
+</tr>
+<tr>
+<td>docker.cpu.system.count</td>
+<td>samples/second</td>
+<td>对 docker.cpu.system 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.cpu.system.max</td>
+<td>fractions</td>
+<td>docker.cpu.system 的最大值</td>
+</tr>
+<tr>
+<td>docker.cpu.system.median</td>
+<td>fractions</td>
+<td>docker.cpu.system 的中位数</td>
+</tr>
+<tr>
+<td>docker.cpu.user</td>
+<td>fractions</td>
+<td>CPU 直接控制此容器的进程的时间分数（fraction）</td>
+</tr>
+<tr>
+<td>docker.cpu.user.95percentile</td>
+<td>fractions</td>
+<td>docker.cpu.user 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.cpu.user.avg</td>
+<td>fractions</td>
+<td>docker.cpu.user 的平均值</td>
+</tr>
+<tr>
+<td>docker.cpu.user.count</td>
+<td>samples/second</td>
+<td>对 docker.cpu.user 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.cpu.user.max</td>
+<td>fractions</td>
+<td>docker.cpu.user 的最大值</td>
+</tr>
+<tr>
+<td>docker.cpu.user.median</td>
+<td>fractions</td>
+<td>docker.cpu.user 的中位数</td>
+</tr>
+<tr>
+<td>docker.disk.free</td>
+<td>bytes</td>
+<td>容器磁盘空闲的平均字节数</td>
+</tr>
+<tr>
+<td>docker.disk.size</td>
+<td>bytes</td>
+<td>由此 cgroup 的进程创建或更改的文件的大小</td>
+</tr>
+<tr>
+<td>docker.disk.total</td>
+<td>bytes</td>
+<td>容器磁盘中的平均总字节数</td>
+</tr>
+<tr>
+<td>docker.disk.used</td>
+<td>bytes</td>
+<td>容器磁盘使用的平均字节数</td>
+</tr>
+<tr>
+<td>docker.image.size</td>
+<td>bytes</td>
+<td>磁盘上镜像的所有图层（layers）的大小</td>
+</tr>
+<tr>
+<td>docker.image.virtual_size</td>
+<td>bytes</td>
+<td>磁盘上镜像的所有图层（layers）的大小</td>
 </tr>
 <tr>
 <td>docker.images.available</td>
-<td>可用Docker镜像数量</td>
+<td></td>
+<td>顶级（top-level）镜像的数量</td>
 </tr>
 <tr>
 <td>docker.images.intermediate</td>
-<td>中间（临时）镜像数量</td>
+<td></td>
+<td>中间镜像的数量，它们是构成其他镜像的中间图层</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes</td>
+<td>bytes/second</td>
+<td>容器上的进程每秒从磁盘读取的字节数</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes.95percentile</td>
+<td>bytes/second</td>
+<td>docker.io.read_bytes 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes.avg</td>
+<td>bytes/second</td>
+<td>docker.io.read_bytes 的平均值</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes.count</td>
+<td>samples/second</td>
+<td>对 docker.io.read_bytes 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes.max</td>
+<td>bytes/second</td>
+<td>docker.container.io.read_bytes 的最大值</td>
+</tr>
+<tr>
+<td>docker.io.read_bytes.median</td>
+<td>bytes/second</td>
+<td>docker.container.io.read_bytes 的中位数</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes</td>
+<td>bytes/second</td>
+<td>容器上的进程每秒向磁盘写入的字节数</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes.95percentile</td>
+<td>bytes/second</td>
+<td>docker.io.write_bytes 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes.avg</td>
+<td>bytes/second</td>
+<td>docker.io.write_bytes 的平均值</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes.count</td>
+<td>samples/second</td>
+<td>对 docker.io.write_bytes 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes.max</td>
+<td>bytes/second</td>
+<td>docker.container.io.write_bytes 的最大值</td>
+</tr>
+<tr>
+<td>docker.io.write_bytes.median</td>
+<td>bytes/second</td>
+<td>docker.container.io.write_bytes 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.active_anon</td>
+<td>bytes</td>
+<td>活动（active）RSS 内存的数量。 活动内存不会被交换（swapped）到磁盘</td>
+</tr>
+<tr>
+<td>docker.mem.active_file</td>
+<td>bytes</td>
+<td>活动高速缓存（&quot;active&quot; cache memory）的数量。 只有在非活动内存已回收后，系统才会回收活动内存</td>
+</tr>
+<tr>
+<td>docker.mem.cache</td>
+<td>bytes</td>
+<td>正用于缓存磁盘数据的存储器的量 (e.g. memory contents that can be associated precisely with a block on a block device)</td>
+</tr>
+<tr>
+<td>docker.mem.cache.95percentile</td>
+<td>bytes</td>
+<td>docker.mem.cache 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.mem.cache.avg</td>
+<td>bytes</td>
+<td>docker.mem.cache 的平均值</td>
+</tr>
+<tr>
+<td>docker.mem.cache.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.cache 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.cache.max</td>
+<td>bytes</td>
+<td>docker.mem.cache 的最大值</td>
+</tr>
+<tr>
+<td>docker.mem.cache.median</td>
+<td>bytes</td>
+<td>docker.mem.cache 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.in_use</td>
+<td>fractions</td>
+<td>已使用内存占可用内存的比例</td>
+</tr>
+<tr>
+<td>docker.mem.in_use.95percentile</td>
+<td>fractions</td>
+<td>docker.mem.in_use 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.mem.in_use.avg</td>
+<td>fractions</td>
+<td>docker.mem.in_use 的平均值</td>
+</tr>
+<tr>
+<td>docker.mem.in_use.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.in_use 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.in_use.max</td>
+<td>fractions</td>
+<td>docker.container.mem.in_use 的最大值</td>
+</tr>
+<tr>
+<td>docker.mem.in_use.median</td>
+<td>fractions</td>
+<td>docker.container.mem.in_use 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.inactive_anon</td>
+<td>bytes</td>
+<td>非活动中（inactive）的 RSS内存量。 必要时，非活动内存将交换到磁盘</td>
+</tr>
+<tr>
+<td>docker.mem.inactive_file</td>
+<td>bytes</td>
+<td>非活动中的高速缓存（&quot;inactive&quot; cache memory）的量。 当系统需要内存时，可以首先回收非活动内存</td>
+</tr>
+<tr>
+<td>docker.mem.limit</td>
+<td>bytes</td>
+<td>容器的内存限制（如果设置）</td>
+</tr>
+<tr>
+<td>docker.mem.limit.95percentile</td>
+<td>bytes</td>
+<td>docker.mem.limit 的 95% 的值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.limit.avg</td>
+<td>bytes</td>
+<td>docker.mem.limit 的平均值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.limit.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.limit 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.limit.max</td>
+<td>bytes</td>
+<td>docker.mem.limit 的最大值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.limit.median</td>
+<td>bytes</td>
+<td>docker.mem.limit 的中位数，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.mapped_file</td>
+<td>bytes</td>
+<td>控制组中的进程（the processes in the control group）所需（mapped）的内存量</td>
+</tr>
+<tr>
+<td>docker.mem.pgfault</td>
+<td></td>
+<td>The rate that processes in the container trigger page faults by accessing a nonexistent or protected part of its virtual address space. Usually a page fault of this type results in a segmentation fault</td>
+</tr>
+<tr>
+<td>docker.mem.pgmajfault</td>
+<td></td>
+<td>The rate that processes in the container trigger page faults by accessing a part virtual address space that was swapped out or corresponded to a mapped file. Usually a page fault of type results in fetching data from disk instead of from memory</td>
+</tr>
+<tr>
+<td>docker.mem.pgpgin</td>
+<td>pages/second</td>
+<td>页面被 cgroup &ldquo;charge&rdquo;(added to the accounting) 的速率</td>
+</tr>
+<tr>
+<td>docker.mem.pgpgout</td>
+<td>pages/second</td>
+<td>页面被 cgroup &ldquo;uncharge&rdquo;(removed from the accounting) 的速率</td>
+</tr>
+<tr>
+<td>docker.mem.rss</td>
+<td>bytes</td>
+<td>属于容器进程的非缓存内存量。 用于 stacks, heaps 等</td>
+</tr>
+<tr>
+<td>docker.mem.rss.avg</td>
+<td>bytes</td>
+<td>docker.mem.rss 的平均值</td>
+</tr>
+<tr>
+<td>docker.mem.rss.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.rss 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.rss.max</td>
+<td>bytes</td>
+<td>docker.mem.rss 的最大值</td>
+</tr>
+<tr>
+<td>docker.mem.rss.median</td>
+<td>bytes</td>
+<td>docker.mem.rss 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use</td>
+<td>fractions</td>
+<td>已使用的 swap + memory 与可使用的 swap + memory 的比例</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use.95percentile</td>
+<td>fractions</td>
+<td>docker.mem.sw<em>in</em>use 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use.avg</td>
+<td>fractions</td>
+<td>docker.mem.sw<em>in</em>use 的平均值</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.sw<em>in</em>use 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use.max</td>
+<td>fractions</td>
+<td>docker.container.mem.sw<em>in</em>use 的最大值</td>
+</tr>
+<tr>
+<td>docker.mem.sw<em>in</em>use.median</td>
+<td>fractions</td>
+<td>docker.container.mem.sw<em>in</em>use 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit</td>
+<td>bytes</td>
+<td>容器的 swap + memory 限制</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit.95percentile</td>
+<td>bytes</td>
+<td>docker.mem.sw_limit 的 95% 的值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit.avg</td>
+<td>bytes</td>
+<td>docker.mem.sw_limit 的平均值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.sw_limit 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit.max</td>
+<td>bytes</td>
+<td>docker.mem.sw_limit 的最大值，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.sw_limit.median</td>
+<td>bytes</td>
+<td>docker.mem.sw_limit 的中位数，通常这个值不会改变</td>
+</tr>
+<tr>
+<td>docker.mem.swap</td>
+<td>bytes</td>
+<td>容器当前已使用的交换（swap）量</td>
+</tr>
+<tr>
+<td>docker.mem.swap.95percentile</td>
+<td>bytes</td>
+<td>docker.mem.swap 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.mem.swap.avg</td>
+<td>bytes</td>
+<td>docker.mem.swap 的平均值</td>
+</tr>
+<tr>
+<td>docker.mem.swap.count</td>
+<td>samples/second</td>
+<td>对 docker.mem.swap 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.mem.swap.max</td>
+<td>bytes</td>
+<td>docker.mem.swap 的最大值</td>
+</tr>
+<tr>
+<td>docker.mem.swap.median</td>
+<td>bytes</td>
+<td>docker.mem.swap 的中位数</td>
+</tr>
+<tr>
+<td>docker.mem.unevictable</td>
+<td>bytes</td>
+<td>无法回收（reclaim）的内存量。 通常这个内存包含敏感数据，并已被锁定，以确保它永远不会交换到磁盘</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd</td>
+<td>bytes/second</td>
+<td>每秒从网络接收的字节数</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd.95percentile</td>
+<td>bytes/second</td>
+<td>docker.net.bytes_rcvd 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd.avg</td>
+<td>bytes/second</td>
+<td>docker.net.bytes_rcvd 的平均值</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd.count</td>
+<td>samples/second</td>
+<td>对 docker.net.bytes_rcvd 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd.max</td>
+<td>bytes/second</td>
+<td>docker.container.net.bytes_rcvd 的最大值</td>
+</tr>
+<tr>
+<td>docker.net.bytes_rcvd.median</td>
+<td>bytes/second</td>
+<td>docker.container.net.bytes_rcvd 的中位数</td>
+</tr>
+<tr>
+<td>docker.net.bytes_sent</td>
+<td>bytes/second</td>
+<td>每秒向网络发送的字节数</td>
+</tr>
+<tr>
+<td>docker.net.bytes<em>sent</em>bytes.95percentile</td>
+<td>bytes/second</td>
+<td>docker.net.bytes<em>sent</em>bytes 的 95% 的值</td>
+</tr>
+<tr>
+<td>docker.net.bytes<em>sent</em>bytes.avg</td>
+<td>bytes/second</td>
+<td>docker.net.bytes<em>sent</em>bytes 的平均值</td>
+</tr>
+<tr>
+<td>docker.net.bytes<em>sent</em>bytes.count</td>
+<td>samples/second</td>
+<td>对 docker.net.bytes<em>sent</em>bytes 进行采样的速率</td>
+</tr>
+<tr>
+<td>docker.net.bytes<em>sent</em>bytes.max</td>
+<td>bytes/second</td>
+<td>docker.container.net.bytes<em>sent</em>bytes 的最大值</td>
+</tr>
+<tr>
+<td>docker.net.bytes<em>sent</em>bytes.median</td>
+<td>bytes/second</td>
+<td>docker.container.net.bytes<em>sent</em>bytes 的中位数</td>
 </tr>
 </tbody></table>
 

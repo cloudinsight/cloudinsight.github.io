@@ -440,171 +440,213 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>hdfs.capacity</td>
+<td>bytes</td>
 <td>DFS 的总容量</td>
 </tr>
 <tr>
 <td>hdfs.corrupt_blocks</td>
+<td>blocks</td>
 <td>有 corrupt replicas 的 block 数</td>
 </tr>
 <tr>
 <td>hdfs.datanode.cache_capacity</td>
-<td>缓存容量（bytes）</td>
+<td>bytes</td>
+<td>缓存容量</td>
 </tr>
 <tr>
 <td>hdfs.datanode.cache_used</td>
-<td>已使用缓存（bytes）</td>
+<td>bytes</td>
+<td>已使用缓存</td>
 </tr>
 <tr>
 <td>hdfs.datanode.dfs_capacity</td>
-<td>磁盘容量（bytes）</td>
+<td>bytes</td>
+<td>磁盘容量</td>
 </tr>
 <tr>
 <td>hdfs.datanode.dfs_remaining</td>
-<td>磁盘剩余空间(bytes)</td>
+<td>bytes</td>
+<td>磁盘剩余空间</td>
 </tr>
 <tr>
 <td>hdfs.datanode.dfs_used</td>
-<td>磁盘已使用量(bytes)</td>
+<td>bytes</td>
+<td>已使用磁盘空间</td>
 </tr>
 <tr>
-<td>hdfs.datanode.estimated_capacity_lost_total</td>
-<td>预估容量损失（bytes）</td>
+<td>hdfs.datanode.estimated<em>capacity</em>lost_total</td>
+<td>bytes</td>
+<td>预估容量损失</td>
 </tr>
 <tr>
-<td>hdfs.datanode.last_volume_failure_date</td>
-<td>最后一次故障时间（精确到毫秒）</td>
+<td>hdfs.datanode.last<em>volume</em>failure_date</td>
+<td>milliseconds</td>
+<td>最后一次故障时间</td>
 </tr>
 <tr>
-<td>hdfs.datanode.num_blocks_cached</td>
+<td>hdfs.datanode.num<em>blocks</em>cached</td>
+<td>blocks</td>
 <td>缓存 block 数</td>
 </tr>
 <tr>
-<td>hdfs.datanode.num_blocks_failed_to_cache</td>
+<td>hdfs.datanode.num<em>blocks</em>failed<em>to</em>cache</td>
+<td>blocks</td>
 <td>缓存失败 block 数</td>
 </tr>
 <tr>
-<td>hdfs.datanode.num_blocks_failed_to_uncache</td>
+<td>hdfs.datanode.num<em>blocks</em>failed<em>to</em>uncache</td>
+<td>blocks</td>
 <td>从缓存中移除失败的 block 数</td>
 </tr>
 <tr>
-<td>hdfs.datanode.num_failed_volumes</td>
+<td>hdfs.datanode.num<em>failed</em>volumes</td>
+<td>Number of failed volumes</td>
 <td>未启用的数据卷个数</td>
 </tr>
 <tr>
 <td>hdfs.free</td>
+<td>bytes</td>
 <td>DFS 的总空闲空间</td>
 </tr>
 <tr>
 <td>hdfs.in_use</td>
+<td>fractions</td>
 <td>应用于 DFS 的磁盘空间百分比</td>
 </tr>
 <tr>
 <td>hdfs.missing_blocks</td>
+<td>blocks</td>
 <td>丢失的 block 数</td>
 </tr>
 <tr>
 <td>hdfs.namenode.blocks_total</td>
+<td>blocks</td>
 <td>block 总数</td>
 </tr>
 <tr>
-<td>dfs.namenode.capacity_remaining</td>
-<td>磁盘剩余空间(bytes)</td>
+<td>hdfs.namenode.capacity_remaining</td>
+<td>bytes</td>
+<td>磁盘剩余空间</td>
 </tr>
 <tr>
 <td>hdfs.namenode.capacity_total</td>
-<td>磁盘容量（bytes）</td>
+<td>bytes</td>
+<td>磁盘容量</td>
 </tr>
 <tr>
 <td>hdfs.namenode.capacity_used</td>
-<td>磁盘已使用量(bytes)</td>
+<td>bytes</td>
+<td>已使用磁盘空间</td>
 </tr>
 <tr>
 <td>hdfs.namenode.corrupt_blocks</td>
+<td>blocks</td>
 <td>corrupt blocks 的数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.estimated_capacity_lost_total</td>
-<td>预估容量损失（bytes）</td>
+<td>hdfs.namenode.estimated<em>capacity</em>lost_total</td>
+<td>bytes</td>
+<td>预估容量损失</td>
 </tr>
 <tr>
 <td>hdfs.namenode.files_total</td>
+<td>files</td>
 <td>文件总数</td>
 </tr>
 <tr>
-<td>hdfs.namenode.fs_lock_queue_length</td>
-<td>namenode被锁队列长度</td>
+<td>hdfs.namenode.fs<em>lock</em>queue_length</td>
+<td>Lock queue length</td>
+<td>namenode 被锁队列长度</td>
 </tr>
 <tr>
 <td>hdfs.namenode.max_objects</td>
+<td>objects</td>
 <td>HDFS 支持的最大文件数量</td>
 </tr>
 <tr>
 <td>hdfs.namenode.missing_blocks</td>
+<td>blocks</td>
 <td>丢失的 block 数</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_dead_data_nodes</td>
+<td>hdfs.namenode.num<em>dead</em>data_nodes</td>
+<td>nodes</td>
 <td>dead 数据节点总数</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_decom_dead_data_nodes</td>
-<td>退役的死亡数据节点数量</td>
+<td>hdfs.namenode.num<em>decom</em>dead<em>data</em>nodes</td>
+<td>nodes</td>
+<td>退役的 dead 数据节点数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_decom_live_data_nodes</td>
-<td>退役的存活数据节点数量</td>
+<td>hdfs.namenode.num<em>decom</em>live<em>data</em>nodes</td>
+<td>nodes</td>
+<td>退役的 live 数据节点数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_decommissioning_data_nodes</td>
+<td>hdfs.namenode.num<em>decommissioning</em>data_nodes</td>
+<td>nodes</td>
 <td>退役的数据节点数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_live_data_nodes</td>
-<td>存活的数据节点总数</td>
+<td>hdfs.namenode.num<em>live</em>data_nodes</td>
+<td>nodes</td>
+<td>live 数据节点总数</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_stale_data_nodes</td>
+<td>hdfs.namenode.num<em>stale</em>data_nodes</td>
+<td>nodes</td>
 <td>stale 数据节点数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.num_stale_storages</td>
-<td></td>
+<td>hdfs.namenode.num<em>stale</em>storages</td>
+<td>Number of stale storages</td>
+<td>stale 存储的数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.pending_deletion_blocks</td>
+<td>hdfs.namenode.pending<em>deletion</em>blocks</td>
+<td>blocks</td>
 <td>待删除的 block 数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.pending_replication_blocks</td>
-<td>未决定复制的 block 数量</td>
+<td>hdfs.namenode.pending<em>replication</em>blocks</td>
+<td>blocks</td>
+<td>待复制的 block 数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.scheduled_replication_blocks</td>
-<td>决定要复制的 block 数量</td>
+<td>hdfs.namenode.scheduled<em>replication</em>blocks</td>
+<td>blocks</td>
+<td>计划要复制的 block 数量</td>
 </tr>
 <tr>
 <td>hdfs.namenode.total_load</td>
-<td>namenode总负载（特指regionserver个数）</td>
+<td>Total load on the file system</td>
+<td>namenode 总负载（特指 regionserver 个数）</td>
 </tr>
 <tr>
-<td>hdfs.namenode.under_replicated_blocks</td>
+<td>hdfs.namenode.under<em>replicated</em>blocks</td>
+<td>blocks</td>
 <td>被复制的 block 数量</td>
 </tr>
 <tr>
-<td>hdfs.namenode.volume_failures_total</td>
-<td>namenode失效数据卷总数</td>
+<td>hdfs.namenode.volume<em>failures</em>total</td>
+<td>Total volume failures</td>
+<td>namenode 失效数据卷总数</td>
 </tr>
 <tr>
 <td>hdfs.under_replicated</td>
+<td>blocks</td>
 <td>被复制的 block 数量</td>
 </tr>
 <tr>
 <td>hdfs.used</td>
+<td>bytes</td>
 <td>用于 DFS 的磁盘空间</td>
 </tr>
 </tbody></table>

@@ -444,140 +444,259 @@
 <table><thead>
 <tr>
 <th>指标</th>
+<th>单位</th>
 <th>具体含义</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>redis.aof.last\_rewrite\_time</code></td>
-<td>上次rewrite操作使用的时间(单位s)</td>
+<td>redis.aof.buffer_length</td>
+<td>bytes</td>
+<td>AOF 缓冲区大小</td>
 </tr>
 <tr>
-<td><code>redis.aof.rewrite</code></td>
-<td>rewrite 的次数</td>
+<td>redis.aof.last<em>rewrite</em>time</td>
+<td>seconds</td>
+<td>上次 AOF 重写（rewrite）的持续时间</td>
 </tr>
 <tr>
-<td><code>redis.clients.biggest\_input\_buf</code></td>
+<td>redis.aof.rewrite</td>
+<td></td>
+<td>AOF 重写（rewrite）的次数</td>
+</tr>
+<tr>
+<td>redis.aof.size</td>
+<td>bytes</td>
+<td>AOF 当前文件大小（aof<em>current</em>size）</td>
+</tr>
+<tr>
+<td>redis.clients.biggest<em>input</em>buf</td>
+<td></td>
 <td>当前客户端连接的最大输入缓存</td>
 </tr>
 <tr>
-<td><code>redis.clients.blocked</code></td>
-<td>被阻塞的客户端数</td>
+<td>redis.clients.blocked</td>
+<td>connections</td>
+<td>等待阻塞调用的连接数</td>
 </tr>
 <tr>
-<td><code>redis.clients.longest\_output\_list</code></td>
-<td>当前客户端连接的最大输出列表</td>
+<td>redis.clients.longest<em>output</em>list</td>
+<td></td>
+<td>当前客户端连接的最长输出列表</td>
 </tr>
 <tr>
-<td><code>redis.cpu.sys</code></td>
-<td>系统cpu</td>
+<td>redis.cpu.sys</td>
+<td>seconds</td>
+<td>Redis 服务器消耗的系统 CPU</td>
 </tr>
 <tr>
-<td><code>redis.cpu.sys\_children</code></td>
-<td>后台进程的sys cpu使用率</td>
+<td>redis.cpu.sys_children</td>
+<td>seconds</td>
+<td>后台进程消耗的系统 CPU</td>
 </tr>
 <tr>
-<td><code>redis.cpu.user</code></td>
-<td>redis server的user cpu使用率</td>
+<td>redis.cpu.user</td>
+<td>seconds</td>
+<td>Redis 服务器消耗的用户 CPU</td>
 </tr>
 <tr>
-<td><code>redis.cpu.user\_children</code></td>
-<td>后台进程的user cpu使用率</td>
+<td>redis.cpu.user_children</td>
+<td>seconds</td>
+<td>后台进程消耗的用户 CPU</td>
 </tr>
 <tr>
-<td><code>redis.info.latency\_ms</code></td>
-<td>redis 服务器响应延迟的平均时间</td>
+<td>redis.expires</td>
+<td>keys</td>
+<td>已过期的 key 数量</td>
 </tr>
 <tr>
-<td><code>redis.keys.evicted</code></td>
-<td>因为内存大小限制，而被驱逐出去的键的个数</td>
+<td>redis.expires.percent</td>
+<td>percent</td>
+<td>已过期的 key 百分比</td>
 </tr>
 <tr>
-<td><code>redis.keys.expired</code></td>
-<td>过期的key的总数</td>
+<td>redis.info.latency_ms</td>
+<td>milliseconds</td>
+<td>Redis info 命令的延迟</td>
 </tr>
 <tr>
-<td><code>redis.mem.fragmentation\_ratio</code></td>
-<td>used_memory_rss/used_memory比例，一般情况下，used_memory_rss略高于used_memory，当内存碎片较多时，则mem_fragmentation_ratio会较大，可以反映内存碎片是否很多</td>
+<td>redis.key.length</td>
+<td></td>
+<td>给定 key 中元素的数量</td>
 </tr>
 <tr>
-<td><code>redis.mem.lua</code></td>
-<td>lua引擎使用的内存</td>
+<td>redis.keys</td>
+<td>keys</td>
+<td>Key 的总数量</td>
 </tr>
 <tr>
-<td><code>redis.mem.peak</code></td>
-<td>内存使用的峰值大小</td>
+<td>redis.keys.evicted</td>
+<td>keys</td>
+<td>由于最大内存限制被驱逐（evict）的 key 的总数量</td>
 </tr>
 <tr>
-<td><code>redis.mem.rss</code></td>
-<td>系统给redis分配的内存（即常驻内存）</td>
+<td>redis.keys.expired</td>
+<td>keys</td>
+<td>数据库中过期的 key 的总数量</td>
 </tr>
 <tr>
-<td><code>redis.mem.used</code></td>
-<td>使用内存，单位byte</td>
+<td>redis.mem.fragmentation_ratio</td>
+<td>fractions</td>
+<td>used<em>memory</em>rss 和 used_memory 的比率</td>
 </tr>
 <tr>
-<td><code>redis.net.clients</code></td>
-<td>连接的客户端数</td>
+<td>redis.mem.lua</td>
+<td>bytes</td>
+<td>Lua 引擎使用的内存量</td>
 </tr>
 <tr>
-<td><code>redis.net.commands</code></td>
-<td>每秒运行命令数</td>
+<td>redis.mem.peak</td>
+<td>bytes</td>
+<td>Redis 使用的内存的峰值</td>
 </tr>
 <tr>
-<td><code>redis.net.rejected</code></td>
-<td>因为最大客户端连接数限制，而导致被拒绝连接的个数</td>
+<td>redis.mem.rss</td>
+<td>bytes</td>
+<td>系统给 Redis 分配的内存</td>
 </tr>
 <tr>
-<td><code>redis.net.slaves</code></td>
-<td>连接的从库数</td>
+<td>redis.mem.used</td>
+<td>bytes</td>
+<td>已经被 Redis 分配的内存量</td>
 </tr>
 <tr>
-<td><code>redis.perf.latest\_fork\_usec</code></td>
-<td>上次的fork操作使用的时间（单位ms）</td>
+<td>redis.net.clients</td>
+<td>connections</td>
+<td>连接的客户端数 (不包括 slaves)</td>
 </tr>
 <tr>
-<td><code>redis.pubsub.channels</code></td>
-<td>当前使用中的频道数量／ 发布/订阅频道数</td>
+<td>redis.net.commands</td>
+<td>commands</td>
+<td>服务器运行的命令数</td>
 </tr>
 <tr>
-<td><code>redis.pubsub.patterns</code></td>
-<td>当前使用的模式的数量／ 发布/订阅模式数</td>
+<td>redis.net.rejected</td>
+<td>connections</td>
+<td>被拒绝的连接数</td>
 </tr>
 <tr>
-<td><code>redis.rdb.bgsave</code></td>
-<td>通过子进程来进行数据持久化</td>
+<td>redis.net.slaves</td>
+<td>connections</td>
+<td>连接的 slave 数</td>
 </tr>
 <tr>
-<td><code>redis.rdb.changes\_since\_last</code></td>
-<td>自上次dump后rdb的改动</td>
+<td>redis.perf.latest<em>fork</em>usec</td>
+<td>microseconds</td>
+<td>最新 fork 的持续时间</td>
 </tr>
 <tr>
-<td><code>redis.rdb.last\_bgsave\_time</code></td>
-<td>上次save的时间戳</td>
+<td>redis.persist</td>
+<td>keys</td>
+<td>持久化的 key 数（redis.keys - redis.expires）</td>
 </tr>
 <tr>
-<td><code>redis.replication.master\_repl\_offs</code></td>
-<td>全局的数据同步偏移量</td>
+<td>redis.persist.percent</td>
+<td>percent</td>
+<td>持久化的 key 的百分比</td>
 </tr>
 <tr>
-<td><code>redis.stats.keyspace\_hits</code></td>
-<td>在main dictionary(todo)中成功查到的key个数</td>
+<td>redis.pubsub.channels</td>
+<td></td>
+<td>活跃的发布/订阅的频道数量</td>
 </tr>
 <tr>
-<td><code>redis.stats.keyspace\_misses</code></td>
-<td>在main dictionary(todo)中未查到的key的个数</td>
+<td>redis.pubsub.patterns</td>
+<td></td>
+<td>活跃的发布/订阅的模式数量</td>
 </tr>
 <tr>
-<td><code>redis.persist</code></td>
-<td>目前存在的key的数量</td>
+<td>redis.rdb.bgsave</td>
+<td></td>
+<td>一个标志值，记录了服务器是否正在创建 RDB 文件，正在进行中是 1，否则是 0</td>
 </tr>
 <tr>
-<td><code>redis.persist.percent</code></td>
-<td>目前存在的key的占比</td>
+<td>redis.rdb.changes<em>since</em>last</td>
+<td></td>
+<td>上次后台保存后，RDB 的改动</td>
 </tr>
 <tr>
-<td><code>redis.expires.percent</code></td>
-<td>目前已过期的key的占比</td>
+<td>redis.rdb.last<em>bgsave</em>time</td>
+<td>seconds</td>
+<td>最近一次 bg_save 操作的持续时间</td>
+</tr>
+<tr>
+<td>redis.replication.backlog_histlen</td>
+<td>bytes</td>
+<td>积压在同步缓冲区的数据量</td>
+</tr>
+<tr>
+<td>redis.replication.delay</td>
+<td>offsets</td>
+<td>复制延迟的偏移</td>
+</tr>
+<tr>
+<td>redis.replication.last<em>io</em>seconds_ago</td>
+<td>seconds</td>
+<td>距离最近一次与主服务器行通信已经过去了多少秒钟</td>
+</tr>
+<tr>
+<td>redis.replication.master<em>link</em>down<em>since</em>seconds</td>
+<td>seconds</td>
+<td>主从服务器连接断开了多少秒</td>
+</tr>
+<tr>
+<td>redis.replication.master<em>repl</em>offset</td>
+<td>offsets</td>
+<td>从 master 报告的复制偏移量</td>
+</tr>
+<tr>
+<td>redis.replication.slave<em>repl</em>offset</td>
+<td>offsets</td>
+<td>从 slave 报告的复制偏移量</td>
+</tr>
+<tr>
+<td>redis.replication.sync</td>
+<td></td>
+<td>一个标志值，如果同步正在进行，则为 1，否则为 0</td>
+</tr>
+<tr>
+<td>redis.replication.sync<em>left</em>bytes</td>
+<td>bytes</td>
+<td>距离同步完成还剩多少数据量</td>
+</tr>
+<tr>
+<td>redis.slowlog.micros.95percentile</td>
+<td>microseconds</td>
+<td>在慢日志中，查询报告的持续时间的第 95 百分位值</td>
+</tr>
+<tr>
+<td>redis.slowlog.micros.avg</td>
+<td>microseconds</td>
+<td>在慢日志中，查询报告的持续时间平均值</td>
+</tr>
+<tr>
+<td>redis.slowlog.micros.count</td>
+<td>queries/second</td>
+<td>在慢日志中，报告的查询速率</td>
+</tr>
+<tr>
+<td>redis.slowlog.micros.max</td>
+<td>microseconds</td>
+<td>在慢日志中，查询报告的持续时间最大值</td>
+</tr>
+<tr>
+<td>redis.slowlog.micros.median</td>
+<td>microseconds</td>
+<td>在慢日志中，查询报告的持续时间中位值</td>
+</tr>
+<tr>
+<td>redis.stats.keyspace_hits</td>
+<td>keys</td>
+<td>在数据库中查找 key 成功的次数</td>
+</tr>
+<tr>
+<td>redis.stats.keyspace_misses</td>
+<td>keys</td>
+<td>在数据库中查找 key 失败的次数</td>
 </tr>
 </tbody></table>
 
@@ -617,6 +736,36 @@ redisdb
 </code></pre>
 
 <p>有关 Agent Info 信息的查看，请访问帮助中心，查看  <a href="/quick-start/instrument.html">Cloudinsight Agent 常用操作</a>。</p>
+
+<hr>
+
+<h2>默认标签</h2>
+
+<p>Cloudinsight 采集 Redis 以下默认主机标签：</p>
+
+<table><thead>
+<tr>
+<th>标签种类</th>
+<th>标签含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>redis_host</td>
+<td>主机名称（例如 &ldquo;redis_master&quot;）</td>
+</tr>
+<tr>
+<td>redis_port</td>
+<td>主机端口（例如 &quot;6379&quot;）</td>
+</tr>
+<tr>
+<td>redis_db</td>
+<td>数据库实例（例如 &quot;db0&quot;）</td>
+</tr>
+<tr>
+<td>key</td>
+<td>键名（例如 &quot;test&quot;）</td>
+</tr>
+</tbody></table>
 
 <hr>
 
