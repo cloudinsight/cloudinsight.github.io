@@ -454,7 +454,7 @@
 <td>AOF 缓冲区大小</td>
 </tr>
 <tr>
-<td>redis.aof.last<em>rewrite</em>time</td>
+<td>redis.aof.last_rewrite_time</td>
 <td>seconds</td>
 <td>上次 AOF 重写（rewrite）的持续时间</td>
 </tr>
@@ -466,10 +466,10 @@
 <tr>
 <td>redis.aof.size</td>
 <td>bytes</td>
-<td>AOF 当前文件大小（aof<em>current</em>size）</td>
+<td>AOF 当前文件大小（aof_current_size）</td>
 </tr>
 <tr>
-<td>redis.clients.biggest<em>input</em>buf</td>
+<td>redis.clients.biggest_input_buf</td>
 <td></td>
 <td>当前客户端连接的最大输入缓存</td>
 </tr>
@@ -479,7 +479,7 @@
 <td>等待阻塞调用的连接数</td>
 </tr>
 <tr>
-<td>redis.clients.longest<em>output</em>list</td>
+<td>redis.clients.longest_output_list</td>
 <td></td>
 <td>当前客户端连接的最长输出列表</td>
 </tr>
@@ -541,7 +541,7 @@
 <tr>
 <td>redis.mem.fragmentation_ratio</td>
 <td>fractions</td>
-<td>used<em>memory</em>rss 和 used_memory 的比率</td>
+<td>used_memory_rss 和 used_memory 的比率</td>
 </tr>
 <tr>
 <td>redis.mem.lua</td>
@@ -584,7 +584,7 @@
 <td>连接的 slave 数</td>
 </tr>
 <tr>
-<td>redis.perf.latest<em>fork</em>usec</td>
+<td>redis.perf.latest_fork_usec</td>
 <td>microseconds</td>
 <td>最新 fork 的持续时间</td>
 </tr>
@@ -614,12 +614,12 @@
 <td>一个标志值，记录了服务器是否正在创建 RDB 文件，正在进行中是 1，否则是 0</td>
 </tr>
 <tr>
-<td>redis.rdb.changes<em>since</em>last</td>
+<td>redis.rdb.changes_since_last</td>
 <td></td>
 <td>上次后台保存后，RDB 的改动</td>
 </tr>
 <tr>
-<td>redis.rdb.last<em>bgsave</em>time</td>
+<td>redis.rdb.last_bgsave_time</td>
 <td>seconds</td>
 <td>最近一次 bg_save 操作的持续时间</td>
 </tr>
@@ -634,22 +634,22 @@
 <td>复制延迟的偏移</td>
 </tr>
 <tr>
-<td>redis.replication.last<em>io</em>seconds_ago</td>
+<td>redis.replication.last_io_seconds_ago</td>
 <td>seconds</td>
 <td>距离最近一次与主服务器行通信已经过去了多少秒钟</td>
 </tr>
 <tr>
-<td>redis.replication.master<em>link</em>down<em>since</em>seconds</td>
+<td>redis.replication.master_link_down_since_seconds</td>
 <td>seconds</td>
 <td>主从服务器连接断开了多少秒</td>
 </tr>
 <tr>
-<td>redis.replication.master<em>repl</em>offset</td>
+<td>redis.replication.master_repl_offset</td>
 <td>offsets</td>
 <td>从 master 报告的复制偏移量</td>
 </tr>
 <tr>
-<td>redis.replication.slave<em>repl</em>offset</td>
+<td>redis.replication.slave_repl_offset</td>
 <td>offsets</td>
 <td>从 slave 报告的复制偏移量</td>
 </tr>
@@ -659,7 +659,7 @@
 <td>一个标志值，如果同步正在进行，则为 1，否则为 0</td>
 </tr>
 <tr>
-<td>redis.replication.sync<em>left</em>bytes</td>
+<td>redis.replication.sync_left_bytes</td>
 <td>bytes</td>
 <td>距离同步完成还剩多少数据量</td>
 </tr>

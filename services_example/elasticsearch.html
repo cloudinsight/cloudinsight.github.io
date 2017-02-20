@@ -449,7 +449,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>elasticsearch.active<em>primary</em>shards</td>
+<td>elasticsearch.active_primary_shards</td>
 <td>shards</td>
 <td>集群中活跃的主分片数量</td>
 </tr>
@@ -519,22 +519,22 @@
 <td>将索引 flush 到磁盘所用的总时间</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.available<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.available_in_bytes</td>
 <td>bytes</td>
 <td>此文件存储上 Java 虚拟机可用的字节总数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.disk<em>io</em>op</td>
+<td>elasticsearch.fs.total.disk_io_op</td>
 <td>operations</td>
 <td>文件存储上的 I/O 操作的总次数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.disk<em>io</em>size<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.disk_io_size_in_bytes</td>
 <td>bytes</td>
 <td>文件存储上的所有 I/O 操作使用的总字节数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.disk<em>read</em>size<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.disk_read_size_in_bytes</td>
 <td>bytes</td>
 <td>从文件存储读取的总字节数</td>
 </tr>
@@ -544,7 +544,7 @@
 <td>从文件存储器读取的总次数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.disk<em>write</em>size<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.disk_write_size_in_bytes</td>
 <td>bytes</td>
 <td>写入文件存储器的总字节数</td>
 </tr>
@@ -554,12 +554,12 @@
 <td>写入文件存储器的总次数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.free<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.free_in_bytes</td>
 <td>bytes</td>
 <td>文件存储中未分配字节的总数</td>
 </tr>
 <tr>
-<td>elasticsearch.fs.total.total<em>in</em>bytes</td>
+<td>elasticsearch.fs.total.total_in_bytes</td>
 <td>bytes</td>
 <td>文件存储的总大小</td>
 </tr>
@@ -649,27 +649,27 @@
 <td>一个 index 分片中的段数</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.segments.fixed<em>bit</em>set<em>memory</em>in_bytes</td>
+<td>elasticsearch.indices.segments.fixed_bit_set_memory_in_bytes</td>
 <td>bytes</td>
 <td>内存中固定位设置使用的大小</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.segments.index<em>writer</em>max<em>memory</em>in_bytes</td>
+<td>elasticsearch.indices.segments.index_writer_max_memory_in_bytes</td>
 <td>bytes</td>
 <td>索引编写器使用的最大内存</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.segments.index<em>writer</em>memory<em>in</em>bytes</td>
+<td>elasticsearch.indices.segments.index_writer_memory_in_bytes</td>
 <td>bytes</td>
 <td>索引编写器使用的内存</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.segments.memory<em>in</em>bytes</td>
+<td>elasticsearch.indices.segments.memory_in_bytes</td>
 <td>bytes</td>
 <td>索引段使用的内存</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.segments.version<em>map</em>memory<em>in</em>bytes</td>
+<td>elasticsearch.indices.segments.version_map_memory_in_bytes</td>
 <td>bytes</td>
 <td>段版本映射使用的内存</td>
 </tr>
@@ -679,7 +679,7 @@
 <td>事务日志中的操作数量</td>
 </tr>
 <tr>
-<td>elasticsearch.indices.translog.size<em>in</em>bytes</td>
+<td>elasticsearch.indices.translog.size_in_bytes</td>
 <td>bytes</td>
 <td>事务日志的大小</td>
 </tr>
@@ -724,27 +724,27 @@
 <td>花在合并段上的时间</td>
 </tr>
 <tr>
-<td>elasticsearch.number<em>of</em>data_nodes</td>
+<td>elasticsearch.number_of_data_nodes</td>
 <td>nodes</td>
 <td>集群中数据节点总数</td>
 </tr>
 <tr>
-<td>elasticsearch.number<em>of</em>nodes</td>
+<td>elasticsearch.number_of_nodes</td>
 <td>nodes</td>
 <td>集群中节点总数</td>
 </tr>
 <tr>
-<td>elasticsearch.pending<em>tasks</em>priority_high</td>
+<td>elasticsearch.pending_tasks_priority_high</td>
 <td>tasks</td>
 <td>高优先级的未完成的 task 数量</td>
 </tr>
 <tr>
-<td>elasticsearch.pending<em>tasks</em>priority_urgent</td>
+<td>elasticsearch.pending_tasks_priority_urgent</td>
 <td>tasks</td>
 <td>紧急优先未完成的 task 数量</td>
 </tr>
 <tr>
-<td>elasticsearch.pending<em>tasks</em>total</td>
+<td>elasticsearch.pending_tasks_total</td>
 <td>tasks</td>
 <td>总的未完成的 task 数量</td>
 </tr>
@@ -1204,17 +1204,17 @@
 <td>JVM 中 Young GC 总次数（即 Minor GC）</td>
 </tr>
 <tr>
-<td>jvm.gc.concurrent<em>mark</em>sweep.collection_time</td>
+<td>jvm.gc.concurrent_mark_sweep.collection_time</td>
 <td>seconds</td>
 <td>JVM 中花费在 CMS GC 上的总时间</td>
 </tr>
 <tr>
-<td>jvm.gc.concurrent<em>mark</em>sweep.count</td>
+<td>jvm.gc.concurrent_mark_sweep.count</td>
 <td>garbage collections</td>
 <td>JVM 中 CMS GC 的总次数</td>
 </tr>
 <tr>
-<td>jvm.gc.par<em>new.collection</em>time</td>
+<td>jvm.gc.par_new.collection_time</td>
 <td>seconds</td>
 <td>JVM 中花费在 ParNew GC 上的总时间</td>
 </tr>
@@ -1229,7 +1229,7 @@
 <td>保证可用于 JVM 堆的内存量</td>
 </tr>
 <tr>
-<td>jvm.mem.heap<em>in</em>use</td>
+<td>jvm.mem.heap_in_use</td>
 <td></td>
 <td>JVM 堆当前使用的内存量化为 0 到 1 之间的值</td>
 </tr>
@@ -1244,12 +1244,12 @@
 <td>JVM 堆当前使用的内存量</td>
 </tr>
 <tr>
-<td>jvm.mem.non<em>heap</em>committed</td>
+<td>jvm.mem.non_heap_committed</td>
 <td>bytes</td>
 <td>保证可用于 JVM 非堆的内存量</td>
 </tr>
 <tr>
-<td>jvm.mem.non<em>heap</em>used</td>
+<td>jvm.mem.non_heap_used</td>
 <td>bytes</td>
 <td>JVM 中非堆内存使用量</td>
 </tr>

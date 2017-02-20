@@ -459,7 +459,7 @@
 <td>被一个后端直接写的缓冲区数量</td>
 </tr>
 <tr>
-<td>postgresql.bgwriter.buffers<em>backend</em>fsync</td>
+<td>postgresql.bgwriter.buffers_backend_fsync</td>
 <td></td>
 <td>一个后端不得不自己执行 fsync 调用的次数（通常即使后端自己进行写操作，后台写进程也会处理这些）</td>
 </tr>
@@ -534,32 +534,32 @@
 <td>从这个数据库中读取的磁盘块数</td>
 </tr>
 <tr>
-<td>postgresql.heap<em>blocks</em>hit</td>
+<td>postgresql.heap_blocks_hit</td>
 <td>hits/second</td>
 <td>在这个表中的缓冲区命中数量</td>
 </tr>
 <tr>
-<td>postgresql.heap<em>blocks</em>read</td>
+<td>postgresql.heap_blocks_read</td>
 <td>blocks/second</td>
 <td>从这个表读取的磁盘块数量</td>
 </tr>
 <tr>
-<td>postgresql.index<em>blocks</em>hit</td>
+<td>postgresql.index_blocks_hit</td>
 <td>hits/second</td>
 <td>在这个表上的所有索引中的缓冲区命中数量</td>
 </tr>
 <tr>
-<td>postgresql.index<em>blocks</em>read</td>
+<td>postgresql.index_blocks_read</td>
 <td>blocks/second</td>
 <td>从这个表上所有索引中读取的磁盘块数</td>
 </tr>
 <tr>
-<td>postgresql.index<em>rows</em>fetched</td>
+<td>postgresql.index_rows_fetched</td>
 <td>rows/second</td>
 <td>被使用这个索引的简单索引扫描取得的活行数</td>
 </tr>
 <tr>
-<td>postgresql.index<em>rows</em>read</td>
+<td>postgresql.index_rows_read</td>
 <td>rows/second</td>
 <td>在这个索引上由扫描返回的索引项数量</td>
 </tr>
@@ -589,7 +589,7 @@
 <td>允许这个数据库的客户端连接的最大数量</td>
 </tr>
 <tr>
-<td>postgresql.percent<em>usage</em>connections</td>
+<td>postgresql.percent_usage_connections</td>
 <td>fractions</td>
 <td>这个数据库的连接数，是允许的最大连接数的一部分</td>
 </tr>
@@ -609,7 +609,7 @@
 <td>在这个数据库中被查询取出的行数</td>
 </tr>
 <tr>
-<td>postgresql.rows<em>hot</em>updated</td>
+<td>postgresql.rows_hot_updated</td>
 <td>rows/second</td>
 <td>被更新的 HOT 行数（即不要求独立索引更新的行更新）</td>
 </tr>
@@ -629,7 +629,7 @@
 <td>在这个数据库中被查询更新的行数</td>
 </tr>
 <tr>
-<td>postgresql.seq<em>rows</em>read</td>
+<td>postgresql.seq_rows_read</td>
 <td>rows/second</td>
 <td>通过顺序扫描获取的活行数</td>
 </tr>
@@ -659,22 +659,22 @@
 <td>在这个数据库中被查询创建的临时文件的数量</td>
 </tr>
 <tr>
-<td>postgresql.toast<em>blocks</em>hit</td>
+<td>postgresql.toast_blocks_hit</td>
 <td>hits/second</td>
 <td>在这个表的 TOAST 表（如果有）中的缓冲区命中数量</td>
 </tr>
 <tr>
-<td>postgresql.toast<em>blocks</em>read</td>
+<td>postgresql.toast_blocks_read</td>
 <td>blocks/second</td>
 <td>从这个表的 TOAST 表（如果有）读取的磁盘块数</td>
 </tr>
 <tr>
-<td>postgresql.toast<em>index</em>blocks_hit</td>
+<td>postgresql.toast_index_blocks_hit</td>
 <td>blocks/second</td>
 <td>在这个表的 TOAST 表索引（如果有）中的缓冲区命中数量</td>
 </tr>
 <tr>
-<td>postgresql.toast<em>index</em>blocks_read</td>
+<td>postgresql.toast_index_blocks_read</td>
 <td>blocks/second</td>
 <td>从这个表的 TOAST 表索引（如果有）中读取的磁盘块数</td>
 </tr>

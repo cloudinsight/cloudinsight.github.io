@@ -449,47 +449,47 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>memcache.avg<em>item</em>size</td>
+<td>memcache.avg_item_size</td>
 <td>bytes</td>
 <td>item 平均大小</td>
 </tr>
 <tr>
-<td>memcache.bytes<em>read</em>rate</td>
+<td>memcache.bytes_read_rate</td>
 <td>bytes/second</td>
 <td>服务器从网络读取字节的速率</td>
 </tr>
 <tr>
-<td>memcache.bytes<em>written</em>rate</td>
+<td>memcache.bytes_written_rate</td>
 <td>bytes/second</td>
 <td>服务器向网络发送字节的速率</td>
 </tr>
 <tr>
-<td>memcache.cas<em>badval</em>rate</td>
+<td>memcache.cas_badval_rate</td>
 <td>keys/second</td>
 <td>在比较（原始）值与提供的值不匹配的情况下，CAS 请求更新失败的速率</td>
 </tr>
 <tr>
-<td>memcache.cas<em>hits</em>rate</td>
+<td>memcache.cas_hits_rate</td>
 <td>hits/second</td>
 <td>CAS 请求的命中率</td>
 </tr>
 <tr>
-<td>memcache.cas<em>misses</em>rate</td>
+<td>memcache.cas_misses_rate</td>
 <td>misses/second</td>
 <td>CAS 请求的未命中率</td>
 </tr>
 <tr>
-<td>memcache.cmd<em>flush</em>rate</td>
+<td>memcache.cmd_flush_rate</td>
 <td>commands/second</td>
 <td>flush_all 命令的请求速率</td>
 </tr>
 <tr>
-<td>memcache.cmd<em>get</em>rate</td>
+<td>memcache.cmd_get_rate</td>
 <td>commands/second</td>
 <td>get 命令的请求速率</td>
 </tr>
 <tr>
-<td>memcache.cmd<em>set</em>rate</td>
+<td>memcache.cmd_set_rate</td>
 <td>commands/second</td>
 <td>set 命令的请求速率</td>
 </tr>
@@ -509,12 +509,12 @@
 <td>当前服务器存储的 item 数量</td>
 </tr>
 <tr>
-<td>memcache.delete<em>hits</em>rate</td>
+<td>memcache.delete_hits_rate</td>
 <td>hits/second</td>
 <td>delete 命令删除项目的速率</td>
 </tr>
 <tr>
-<td>memcache.delete<em>misses</em>rate</td>
+<td>memcache.delete_misses_rate</td>
 <td>misses/second</td>
 <td>delete 命令没有使项目被删除的速率</td>
 </tr>
@@ -529,17 +529,17 @@
 <td>服务器用于存储 item 的内存占允许的最大值的的百分比</td>
 </tr>
 <tr>
-<td>memcache.get<em>hit</em>percent</td>
+<td>memcache.get_hit_percent</td>
 <td>percent</td>
 <td>找到的请求的 key 的百分比</td>
 </tr>
 <tr>
-<td>memcache.get<em>hits</em>rate</td>
+<td>memcache.get_hits_rate</td>
 <td>hits/second</td>
 <td>找到 key 的 get 请求的速率</td>
 </tr>
 <tr>
-<td>memcache.get<em>misses</em>rate</td>
+<td>memcache.get_misses_rate</td>
 <td>misses/second</td>
 <td>没有找到 key 的 get 请求速率</td>
 </tr>
@@ -549,17 +549,17 @@
 <td>LRU 中最老 item 的年龄</td>
 </tr>
 <tr>
-<td>memcache.items.crawler<em>reclaimed</em>rate</td>
+<td>memcache.items.crawler_reclaimed_rate</td>
 <td>operations/second</td>
 <td>LRU Crawler 释放 item 的操作速率</td>
 </tr>
 <tr>
-<td>memcache.items.direct<em>reclaims</em>rate</td>
+<td>memcache.items.direct_reclaims_rate</td>
 <td>operations/second</td>
 <td>工作线程不得不直接拉 LRU 尾部以找到新 item 的内存的操作速率</td>
 </tr>
 <tr>
-<td>memcache.items.evicted<em>nonzero</em>rate</td>
+<td>memcache.items.evicted_nonzero_rate</td>
 <td>evictions/second</td>
 <td>过期时间设置不为 0，但不得不从 LRU 中驱逐的未过期 ite</td>
 </tr>
@@ -574,32 +574,32 @@
 <td>自最后一次清除过期 item 起所经历的秒数</td>
 </tr>
 <tr>
-<td>memcache.items.evicted<em>unfetched</em>rate</td>
+<td>memcache.items.evicted_unfetched_rate</td>
 <td>evictions/second</td>
 <td>每秒从 LRU 驱逐后从未被碰过的有效 item 的数量</td>
 </tr>
 <tr>
-<td>memcache.items.expired<em>unfetched</em>rate</td>
+<td>memcache.items.expired_unfetched_rate</td>
 <td>evictions/second</td>
 <td>每秒从 LRU 回收后从未被碰过的过期 item 的数量</td>
 </tr>
 <tr>
-<td>memcache.items.lrutail<em>reflocked</em>rate</td>
+<td>memcache.items.lrutail_reflocked_rate</td>
 <td>items/second</td>
 <td>每秒在 LRU 尾部发现被 refcount 锁住的 item 的数量</td>
 </tr>
 <tr>
-<td>memcache.items.moves<em>to</em>cold_rate</td>
+<td>memcache.items.moves_to_cold_rate</td>
 <td>items/second</td>
 <td>item 从 HOT 或 WARN 转移到 COLD 的速率</td>
 </tr>
 <tr>
-<td>memcache.items.moves<em>to</em>warm_rate</td>
+<td>memcache.items.moves_to_warm_rate</td>
 <td>items/second</td>
 <td>item 从 COLD 转移到 WARM 的速率</td>
 </tr>
 <tr>
-<td>memcache.items.moves<em>within</em>lru_rate</td>
+<td>memcache.items.moves_within_lru_rate</td>
 <td>items/second</td>
 <td>活跃 item 在 HOT 或 WARN 内碰撞的速率</td>
 </tr>
@@ -649,7 +649,7 @@
 <td>服务器被允许用于存储的字节数</td>
 </tr>
 <tr>
-<td>memcache.listen<em>disabled</em>num_rate</td>
+<td>memcache.listen_disabled_num_rate</td>
 <td>events/second</td>
 <td>服务器达到最大连接限制的速率</td>
 </tr>
@@ -659,12 +659,12 @@
 <td>Host 操作系统上的指针的默认大小 (通常是 32 或 64 )</td>
 </tr>
 <tr>
-<td>memcache.rusage<em>system</em>rate</td>
+<td>memcache.rusage_system_rate</td>
 <td>fractions</td>
 <td>CPU 执行当前服务器进程花费的用户时间分数</td>
 </tr>
 <tr>
-<td>memcache.rusage<em>user</em>rate</td>
+<td>memcache.rusage_user_rate</td>
 <td>fractions</td>
 <td>当前服务器进程 CPU 执行内核代码花费的时间分数</td>
 </tr>
@@ -674,12 +674,12 @@
 <td>分配的 slab class 的总数</td>
 </tr>
 <tr>
-<td>memcache.slabs.cas<em>badval</em>rate</td>
+<td>memcache.slabs.cas_badval_rate</td>
 <td>keys/second</td>
 <td>CAS 命令由于 CAS ID 错误而无法修改值的速率</td>
 </tr>
 <tr>
-<td>memcache.slabs.cas<em>hits</em>rate</td>
+<td>memcache.slabs.cas_hits_rate</td>
 <td>operations/second</td>
 <td>当前 slab class 中 CAS 命令的修改速率</td>
 </tr>
@@ -689,22 +689,22 @@
 <td>当前 slab 每个 chunk 的大小</td>
 </tr>
 <tr>
-<td>memcache.slabs.chunks<em>per</em>page</td>
+<td>memcache.slabs.chunks_per_page</td>
 <td>buffers</td>
 <td>每个 page 可以存放的 chunk 数目</td>
 </tr>
 <tr>
-<td>memcache.slabs.cmd<em>set</em>rate</td>
+<td>memcache.slabs.cmd_set_rate</td>
 <td>commands/second</td>
 <td>当前 slab class 中 set 命令请求存储数据的速率</td>
 </tr>
 <tr>
-<td>memcache.slabs.decr<em>hits</em>rate</td>
+<td>memcache.slabs.decr_hits_rate</td>
 <td>operations/second</td>
 <td>当前 slab class 中 decr 请求的命中率</td>
 </tr>
 <tr>
-<td>memcache.slabs.delete<em>hits</em>rate</td>
+<td>memcache.slabs.delete_hits_rate</td>
 <td>operations/second</td>
 <td>当前 slab class 中 delete 请求的命中率</td>
 </tr>
@@ -714,17 +714,17 @@
 <td>尚未分配给 item 或通过删除被回收的 chunk 数</td>
 </tr>
 <tr>
-<td>memcache.slabs.free<em>chunks</em>end</td>
+<td>memcache.slabs.free_chunks_end</td>
 <td>buffers</td>
 <td>新分配但还没有被使用 chunk 数</td>
 </tr>
 <tr>
-<td>memcache.slabs.get<em>hits</em>rate</td>
+<td>memcache.slabs.get_hits_rate</td>
 <td>hits/second</td>
 <td>当前 slab class 中 get 请求的命中率</td>
 </tr>
 <tr>
-<td>memcache.slabs.incr<em>hits</em>rate</td>
+<td>memcache.slabs.incr_hits_rate</td>
 <td>operations/second</td>
 <td>当前 slab class 中 incr 请求的命中率</td>
 </tr>
@@ -749,7 +749,7 @@
 <td>分配给当前 slab class 的 page 总数</td>
 </tr>
 <tr>
-<td>memcache.slabs.touch<em>hits</em>rate</td>
+<td>memcache.slabs.touch_hits_rate</td>
 <td>operations/second</td>
 <td>当前 slab class 的 touch 命令命中率</td>
 </tr>
@@ -759,7 +759,7 @@
 <td>已经被分配给 item 的 chunk 的数量</td>
 </tr>
 <tr>
-<td>memcache.slabs.used<em>chunks</em>rate</td>
+<td>memcache.slabs.used_chunks_rate</td>
 <td>buffers/second</td>
 <td>已将 chunk 分配给 item 的速率</td>
 </tr>
@@ -769,7 +769,7 @@
 <td>当前 Memcached 服务器进程使用的线程数</td>
 </tr>
 <tr>
-<td>memcache.total<em>connections</em>rate</td>
+<td>memcache.total_connections_rate</td>
 <td>connections/second</td>
 <td>服务器启动以来的连接速率</td>
 </tr>

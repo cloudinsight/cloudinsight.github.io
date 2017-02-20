@@ -451,20 +451,20 @@
 <tr>
 <td>kafka.broker_offset</td>
 <td>offsets</td>
-<td>broker 上当前消息的 offset</td>
+<td>broker 上当前消息的偏移量（offset）</td>
 </tr>
 <tr>
 <td>kafka.consumer.bytes_in</td>
 <td>bytes/second</td>
-<td>Consumer 字节率（bytes in rate）</td>
+<td>consumer 字节率（bytes in rate）</td>
 </tr>
 <tr>
 <td>kafka.consumer.delayed_requests</td>
 <td>requests</td>
-<td>延迟的  consumer 请求数</td>
+<td>延迟的 consumer 请求数</td>
 </tr>
 <tr>
-<td>kafka.consumer.expires<em>per</em>second</td>
+<td>kafka.consumer.expires_per_second</td>
 <td>evictions/second</td>
 <td>延迟 consumer 的请求到期（expiration）速率</td>
 </tr>
@@ -486,7 +486,7 @@
 <tr>
 <td>kafka.consumer.messages_in</td>
 <td>messages/second</td>
-<td>consumer message consumption 的速率</td>
+<td>consumer 消息消费（consumption）的速率</td>
 </tr>
 <tr>
 <td>kafka.consumer.zookeeper_commits</td>
@@ -509,7 +509,7 @@
 <td>延迟生产者（delayed producer）的请求到期（request expiration）速率</td>
 </tr>
 <tr>
-<td>kafka.follower.expires<em>per</em>second</td>
+<td>kafka.follower.expires_per_second</td>
 <td>evictions/second</td>
 <td>关注者（followers）的请求到期（request expiration）速率</td>
 </tr>
@@ -549,7 +549,7 @@
 <td>延迟的 producer 请求数</td>
 </tr>
 <tr>
-<td>kafka.producer.expires<em>per</em>seconds</td>
+<td>kafka.producer.expires_per_seconds</td>
 <td>evictions/second</td>
 <td>producer 请求到期率</td>
 </tr>
@@ -564,7 +564,7 @@
 <td>Producer 消息速率</td>
 </tr>
 <tr>
-<td>kafka.producer.request<em>latency</em>avg</td>
+<td>kafka.producer.request_latency_avg</td>
 <td>milliseconds</td>
 <td>Producer 平均请求延迟</td>
 </tr>
@@ -594,12 +594,12 @@
 <td>领导选举（Leader election）频率</td>
 </tr>
 <tr>
-<td>kafka.replication.unclean<em>leader</em>elections</td>
+<td>kafka.replication.unclean_leader_elections</td>
 <td>events/second</td>
 <td>Unclean 的领导选举（Leader election）频率</td>
 </tr>
 <tr>
-<td>kafka.replication.under<em>replicated</em>partitions</td>
+<td>kafka.replication.under_replicated_partitions</td>
 <td></td>
 <td>未使用的分区数</td>
 </tr>
@@ -609,19 +609,19 @@
 <td>客户端获取请求（fetch request）失败次数</td>
 </tr>
 <tr>
-<td>kafka.request.fetch.failed<em>per</em>second</td>
+<td>kafka.request.fetch.failed_per_second</td>
 <td>requests/second</td>
 <td>每秒钟的客户端获取请求（fetch request）失败率</td>
 </tr>
 <tr>
 <td>kafka.request.fetch.time.99percentile</td>
 <td>requests/second</td>
-<td>99% 获取请求（fetch request）时间</td>
+<td>获取请求（fetch request）时间的第 99 百分位的值</td>
 </tr>
 <tr>
 <td>kafka.request.fetch.time.avg</td>
 <td>requests/second</td>
-<td>获取请求（fetch request）平均时间</td>
+<td>获取请求（fetch request）时间的平均值</td>
 </tr>
 <tr>
 <td>kafka.request.handler.avg.idle.pct</td>
@@ -631,22 +631,22 @@
 <tr>
 <td>kafka.request.metadata.time.99percentile</td>
 <td>milliseconds</td>
-<td>99% metadata 请求时间</td>
+<td>元数据（metadata）请求时间的第 99 百分位的值</td>
 </tr>
 <tr>
 <td>kafka.request.metadata.time.avg</td>
 <td>milliseconds</td>
-<td>metadata 请求的平均时间</td>
+<td>元数据（metadata）请求时间的的平均值</td>
 </tr>
 <tr>
 <td>kafka.request.offsets.time.99percentile</td>
 <td>milliseconds</td>
-<td>99% offset 请求时间</td>
+<td>offset 请求时间的第 99 百分位的值</td>
 </tr>
 <tr>
 <td>kafka.request.offsets.time.avg</td>
 <td>milliseconds</td>
-<td>offset 请求的平均时间</td>
+<td>offset 请求时间的平均值</td>
 </tr>
 <tr>
 <td>kafka.request.produce.failed</td>
@@ -654,14 +654,14 @@
 <td>失败的产品请求（produce requests）数</td>
 </tr>
 <tr>
-<td>kafka.request.produce.failed<em>per</em>second</td>
+<td>kafka.request.produce.failed_per_second</td>
 <td>requests/second</td>
 <td>每秒钟的产品请求（produce requests）失败率</td>
 </tr>
 <tr>
 <td>kafka.request.produce.time.99percentile</td>
 <td>requests/second</td>
-<td>99% 产品请求（produce requests）时间</td>
+<td>产品请求（produce requests）时间的第 99 百分位的值</td>
 </tr>
 <tr>
 <td>kafka.request.produce.time.avg</td>
@@ -671,12 +671,12 @@
 <tr>
 <td>kafka.request.update_metadata.time.99percentile</td>
 <td>milliseconds</td>
-<td>更新 99% 元数据请求（update metadata requests）的时间</td>
+<td>更新元数据请求（update metadata requests）时间的第 99 百分位的值</td>
 </tr>
 <tr>
 <td>kafka.request.update_metadata.time.avg</td>
 <td>milliseconds</td>
-<td>更新元数据请求（update metadata requests）的平均时间</td>
+<td>更新元数据请求（update metadata requests）时间的平均值</td>
 </tr>
 </tbody></table>
 

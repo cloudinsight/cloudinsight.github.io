@@ -615,17 +615,17 @@ openstack
 <td>Hypervisor 当前运行的任务数量</td>
 </tr>
 <tr>
-<td>openstack.nova.disk<em>available</em>least</td>
+<td>openstack.nova.disk_available_least</td>
 <td>gibibytes</td>
 <td>Hypervisor 剩余可用磁盘空间，默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.free<em>disk</em>gb</td>
+<td>openstack.nova.free_disk_gb</td>
 <td>gibibytes</td>
 <td>Hypervisor 当前可用的磁盘空间，默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.free<em>ram</em>mb</td>
+<td>openstack.nova.free_ram_mb</td>
 <td>mebibytes</td>
 <td>Hypervisor 当前可用的 RAM 大小，默认单位 MB</td>
 </tr>
@@ -645,7 +645,7 @@ openstack
 <td>Hypervisor 在过去 5 分钟内的平均负载</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>image</em>meta</td>
+<td>openstack.nova.limits.max_image_meta</td>
 <td></td>
 <td>分配给租户的最大 image metadata 定义数</td>
 </tr>
@@ -655,72 +655,72 @@ openstack
 <td>分配给租户的最大 personality 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>personality</em>size</td>
+<td>openstack.nova.limits.max_personality_size</td>
 <td></td>
 <td>分配给租户的最大单个 personality 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>security</em>group_rules</td>
+<td>openstack.nova.limits.max_security_group_rules</td>
 <td></td>
 <td>分配给租户的最大安全组规则数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>security</em>groups</td>
+<td>openstack.nova.limits.max_security_groups</td>
 <td></td>
 <td>分配给租户的最大安全组数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>server</em>meta</td>
+<td>openstack.nova.limits.max_server_meta</td>
 <td></td>
 <td>分配给租户的最大 server metadata 定义数</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>total</em>cores</td>
+<td>openstack.nova.limits.max_total_cores</td>
 <td></td>
 <td>分配给租户的最大 core 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>total</em>floating_ips</td>
+<td>openstack.nova.limits.max_total_floating_ips</td>
 <td></td>
 <td>分配给租户的最大浮动 IP 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>total</em>instances</td>
+<td>openstack.nova.limits.max_total_instances</td>
 <td></td>
 <td>分配给租户的最大 instance 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>total</em>keypairs</td>
+<td>openstack.nova.limits.max_total_keypairs</td>
 <td></td>
 <td>分配给租户的最大 keypair 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.max<em>total</em>ram_size</td>
+<td>openstack.nova.limits.max_total_ram_size</td>
 <td>gibibytes</td>
 <td>分配给租户的最大 RAM 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total<em>cores</em>used</td>
+<td>openstack.nova.limits.total_cores_used</td>
 <td></td>
 <td>租户当前使用的 core 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total<em>floating</em>ips_used</td>
+<td>openstack.nova.limits.total_floating_ips_used</td>
 <td></td>
 <td>租户当前使用的浮动 IP 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total<em>instances</em>used</td>
+<td>openstack.nova.limits.total_instances_used</td>
 <td></td>
 <td>租户当前使用 instance 数量</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total<em>ram</em>used</td>
+<td>openstack.nova.limits.total_ram_used</td>
 <td>gibibytes</td>
 <td>租户当前使用 RAM 大小</td>
 </tr>
 <tr>
-<td>openstack.nova.limits.total<em>security</em>groups_used</td>
+<td>openstack.nova.limits.total_security_groups_used</td>
 <td></td>
 <td>租户当前使用的安全组总数</td>
 </tr>
@@ -730,7 +730,7 @@ openstack
 <td>Hypervisor 主机当前临时磁盘大小,默认单位 GB</td>
 </tr>
 <tr>
-<td>openstack.nova.local<em>gb</em>used</td>
+<td>openstack.nova.local_gb_used</td>
 <td>gibibytes</td>
 <td>Hypervisor 主机当前磁盘使用量,默认单位 GB</td>
 </tr>
@@ -740,7 +740,7 @@ openstack
 <td>Hypervisor 主机当前 RAM 大小,默认单位 MB</td>
 </tr>
 <tr>
-<td>openstack.nova.memory<em>mb</em>used</td>
+<td>openstack.nova.memory_mb_used</td>
 <td>mebibytes</td>
 <td>Hypervisor 主机当前 RAM 使用量,默认单位 MB</td>
 </tr>
@@ -765,7 +765,7 @@ openstack
 <td>Sever 从 HDD 设备读取的字节数</td>
 </tr>
 <tr>
-<td>openstack.nova.server.hdd<em>read</em>req</td>
+<td>openstack.nova.server.hdd_read_req</td>
 <td></td>
 <td>Sever 向 HDD 设备发出的读请求数</td>
 </tr>
@@ -775,7 +775,7 @@ openstack
 <td>Sever 写入 HDD 设备的字节数</td>
 </tr>
 <tr>
-<td>openstack.nova.server.hdd<em>write</em>req</td>
+<td>openstack.nova.server.hdd_write_req</td>
 <td></td>
 <td>Sever 向 HDD 设备发出的写请求数</td>
 </tr>
@@ -805,7 +805,7 @@ openstack
 <td>Sever 从 VDA 设备读取的字节数</td>
 </tr>
 <tr>
-<td>openstack.nova.server.vda<em>read</em>req</td>
+<td>openstack.nova.server.vda_read_req</td>
 <td></td>
 <td>Sever 向 VDA 设备发出的读请求数</td>
 </tr>
@@ -815,7 +815,7 @@ openstack
 <td>Sever 写入 VDA 设备的字节数</td>
 </tr>
 <tr>
-<td>openstack.nova.server.vda<em>write</em>req</td>
+<td>openstack.nova.server.vda_write_req</td>
 <td></td>
 <td>Sever 向 VDA 设备发出的写请求数</td>
 </tr>
